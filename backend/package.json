@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "dotenv-cli": "^6.0.0",
-    "nodemon": "^2.0.19",
+    "nodemon": "^2.0.18",
     "sqlite3": "^5.0.10"
   }
 }
