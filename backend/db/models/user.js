@@ -44,7 +44,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
     };
-    
+
   }
   User.init({
     username: { 
@@ -70,7 +70,7 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     hashedPassword: { 
-      type: DataTypes.STRING.DataTypes,
+      type: DataTypes.STRING.BINARY,
       allowNull: false,
       validate: {
         len: [60, 60]
