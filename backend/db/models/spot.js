@@ -50,8 +50,11 @@ module.exports = (sequelize, DataTypes) => {
         unique: true,
         validate: {
           isAlpha: true,
-          len: [2, 2],
-          isUppercase: true,
+          capitlized(value) {
+            if (value[0] !== value[0].toUpperCase()) {
+              throw new Error("Must be capitalized");
+            }
+          },
         },
       },
       country: {
@@ -88,8 +91,8 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         unique: true,
         validate: {
-          isAlpha: true
-        }
+          isAlpha: true,
+        },
       },
       description: {
         type: DataTypes.STRING,
@@ -101,8 +104,8 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         unique: true,
         validate: {
-          isNumeric: true
-        }
+          isNumeric: true,
+        },
       },
     },
     {
