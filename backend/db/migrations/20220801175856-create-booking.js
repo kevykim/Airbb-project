@@ -12,11 +12,13 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         unique: true,
+        references: {model: 'Spots'}
       },
       userId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         unique: true,
+        references: {model: 'Users'}
       },
       startDate: {
         type: Sequelize.DATE,
