@@ -44,8 +44,8 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       User.hasMany(models.Spot, {foreignKey: 'ownerId', onDelete: 'CASCADE', hooks: true});
       User.belongsToMany(models.Spot, {through: models.Booking});
-      User.belongsToMany(models.Spot, {through: models.Image})
-      User.belongsToMany(models.Spot, {through: models.Review});
+      User.hasMany(models.Image, {foreignKey: 'userId', onDelete: 'CASCADE', hooks: true});
+      User.hasMany(models.Review, {foreignKey: 'userId', onDelete: 'CASCADE', hooks: true});
     };
 
   }
