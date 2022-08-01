@@ -2,7 +2,7 @@
 
 ## Database Schema Design
 
-![meetup-database-schema](../assets/meetup_dbdiagram.png)
+![meetup-database-schema](./backend/assets/airbnb_dbdiagram.png)
 
 ## API Documentation
 
