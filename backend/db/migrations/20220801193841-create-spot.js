@@ -12,37 +12,33 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         unique: true,
-        references: {model: 'Users'}
+        references: {model: 'Users'},
+        onDelete: 'CASCADE'
       },
       address: {
         type: Sequelize.STRING,
         allowNull: false,
-        unique: true,
+
       },
       city: {
         type: Sequelize.STRING,
         allowNull: false,
-        unique: true,
       },
       state: {
         type: Sequelize.STRING,
         allowNull: false,
-        unique: true,
       },
       country: {
         type: Sequelize.STRING,
         allowNull: false,
-        unique: true,
       },
       lat: {
-        type: Sequelize.FLOAT,
+        type: Sequelize.DECIMAL,
         allowNull: false,
-        unique: true,
       },
       lng: {
-        type: Sequelize.FLOAT,
+        type: Sequelize.DECIMAL,
         allowNull: false,
-        unique: true,
       },
       name: {
         type: Sequelize.STRING,
@@ -52,12 +48,10 @@ module.exports = {
       description: {
         type: Sequelize.STRING,
         allowNull: false,
-        unique: true,
       },
       price: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.DECIMAL,
         allowNull: false,
-        unique: true,
       },
       createdAt: {
         allowNull: false,
