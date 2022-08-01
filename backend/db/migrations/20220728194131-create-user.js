@@ -9,12 +9,12 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       firstName: {
-        type: Sequelize.String(30),
+        type: Sequelize.STRING(30),
         allowNull: false,
         unique: true,
       },
       lastName: {
-        type: Sequelize.String(30),
+        type: Sequelize.STRING(30),
         allowNull: false,
         unique: true,
       },
