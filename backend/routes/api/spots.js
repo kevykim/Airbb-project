@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-const { setTokenCookie, requireAuth } = require("../../utils/auth");
-
+const { requireAuth } = require("../../utils/auth");
+const { handleValidationErrors } = require("../../utils/validation")
 
 const { Spot, Image, Review, User, sequelize } = require('../../db/models')
 
@@ -17,10 +17,12 @@ router.get('/', async (req, res) => {
             "avgRating"
         ]
     ],
-        exclude: ['createdAt', 'updatedAt']
     },
-        include: {
-            model: Review,
+    include: {
+        model: Review,
+            attributes: {
+                exclude: ['review', 'createdAt', 'updatedAt'],
+            },
 
             include: {
                 model: Image,
@@ -79,7 +81,8 @@ router.post('/', requireAuth, async (req, res) => {
         lng,
         name,
         description,
-        price
+        price,
+        ownerId: req.user.id
     });
 
 
@@ -89,6 +92,40 @@ router.post('/', requireAuth, async (req, res) => {
     res.json(newSpot)
 });
 
+
+// Add an Image to a Spot based on the Spot's id
+router.post('/:spotId/images', requireAuth, async (req, res) => {
+    const spotId = req.params.spotId
+    const userId = req.user.id
+
+    const spot = await Spot.findByPk(spotId)
+    const { url } = req.body
+    const addImage = await spot.create({
+        url
+    });
+
+    if(!spot) {
+        res.json({
+            message: "Spot couldn't be found",
+            statusCode: 404
+        })
+    }
+
+    await addImage.save();
+    res.status(200);
+    res.json(addImage);
+
+});
+
+
+// Edit a Spot
+router.put('/:spotId', requireAuth, handleValidationErrors, async (req, res) => {
+    
+
+});
+
+
+// Delete a Spot
 
 
 
