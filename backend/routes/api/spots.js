@@ -1,7 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
-const { setTokenCookie, requireAuth } = require("../../utils/auth");
+const { requireAuth } = require("../../utils/auth");
+const { handleValidationErrors } = require("../../utils/validation")
+const { check } = require("express-validator");
 
 
 const { Spot, Image, Review, User, sequelize } = require('../../db/models')
@@ -17,10 +19,12 @@ router.get('/', async (req, res) => {
             "avgRating"
         ]
     ],
-        exclude: ['createdAt', 'updatedAt']
     },
-        include: {
-            model: Review,
+    include: {
+        model: Review,
+            attributes: {
+                exclude: ['review', 'createdAt', 'updatedAt'],
+            },
 
             include: {
                 model: Image,
@@ -79,7 +83,8 @@ router.post('/', requireAuth, async (req, res) => {
         lng,
         name,
         description,
-        price
+        price,
+        ownerId: req.user.id
     });
 
 
@@ -89,6 +94,109 @@ router.post('/', requireAuth, async (req, res) => {
     res.json(newSpot)
 });
 
+
+// Add an Image to a Spot based on the Spot's id
+router.post('/:spotId/images', requireAuth, async (req, res) => {
+    const spotId = req.params.spotId
+    const userId = req.user.id
+
+    const spot = await Spot.findByPk(spotId)
+    const { url } = req.body
+    const addImage = await spot.create({
+        url
+    });
+
+    if(spot.ownerId !== userId) {
+        res.json({
+            message: "Cannot add image",
+            statusCode: 403
+        })
+    }
+
+    if(!spot) {
+        res.json({
+            message: "Spot couldn't be found",
+            statusCode: 404
+        })
+    }
+
+    await addImage.save();
+    res.status(200);
+    res.json(addImage);
+
+});
+
+
+const validateSpot = [
+    check("address")
+    .exists({ checkFalsy: true })
+    .withMessage("Street address is required"),
+    check("city")
+    .exists({ checkFalsy: true })
+    .withMessage("City is required"),
+    check("state")
+    .exists({ checkFalsy: true })
+    .withMessage("State is required"),
+    check("country")
+    .exists({ checkFalsy: true })
+    .withMessage("Country is required"),
+    check("lat")
+    .isDecimal()
+    .withMessage("Latitude is not valid"),
+    check("lng")
+    .isDecimal()
+    .withMessage("Longitude is not valid"),
+    check("name")
+    .isLength({ max: 49 })
+    .withMessage("Name must be less than 50 characters"),
+    check("description")
+    .exists({ checkFalsy: true })
+    .withMessage("Description is required"),
+    check("price")
+    .exists({ checkFalsy: true })
+    .withMessage("Price per day is required"),
+    handleValidationErrors
+];
+
+// Edit a Spot
+router.put('/:spotId', requireAuth, validateSpot, async (req, res) => {
+    const spotId = req.params.spotId
+    const {address, city, state, country, lat, lng, name, description, price} = req.body
+
+    const spot = await Spot.findByPk(spotId)
+
+      if (spot.ownerId !== req.user.id) {
+        res.json({
+          message: "Cannot add image",
+          statusCode: 403,
+        });
+      };
+
+      if (!spot) {
+        res.json({
+            message: "Spot couldn't be found",
+            statusCode: 404
+        })
+      };
+
+      spot.address = address
+      spot.city = city
+      spot.state = state
+      spot.country = country
+      spot.lat = lat
+      spot.lng = lng
+      spot.name = name
+      spot.description = description
+      spot.price = price
+
+      await spot.save();
+      res.status(200);
+      res.json(spot);
+
+});
+
+
+// Delete a Spot
 
 
 
