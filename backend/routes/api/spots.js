@@ -104,6 +104,13 @@ router.post('/:spotId/images', requireAuth, async (req, res) => {
         url
     });
 
+    if(spot.ownerId !== userId) {
+        res.json({
+            message: "Cannot add image",
+            statusCode: 403
+        })
+    }
+
     if(!spot) {
         res.json({
             message: "Spot couldn't be found",
@@ -120,6 +127,7 @@ router.post('/:spotId/images', requireAuth, async (req, res) => {
 
 // Edit a Spot
 router.put('/:spotId', requireAuth, handleValidationErrors, async (req, res) => {
+    const spotId = req.params.spotId
     
 
 });
