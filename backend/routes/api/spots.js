@@ -3,6 +3,8 @@ const router = express.Router();
 
 const { requireAuth } = require("../../utils/auth");
 const { handleValidationErrors } = require("../../utils/validation")
+const { check } = require("express-validator");
+
 
 const { Spot, Image, Review, User, sequelize } = require('../../db/models')
 
@@ -125,8 +127,38 @@ router.post('/:spotId/images', requireAuth, async (req, res) => {
 });
 
 
+const validateSpot = [
+    check("address")
+    .exists({ checkFalsy: true })
+    .withMessage("Street address is required"),
+    check("city")
+    .exists({ checkFalsy: true })
+    .withMessage("City is required"),
+    check("state")
+    .exists({ checkFalsy: true })
+    .withMessage("State is required"),
+    check("country")
+    .exists({ checkFalsy: true })
+    .withMessage("Country is required"),
+    check("lat")
+    .isDecimal()
+    .withMessage("Latitude is not valid"),
+    check("lng")
+    .isDecimal()
+    .withMessage("Longitude is not valid"),
+    check("name")
+    .isLength({ max: 49 })
+    .withMessage("Name must be less than 50 characters"),
+    check("description")
+    .exists({ checkFalsy: true })
+    .withMessage("Description is required"),
+    check("price")
+    .exists({ checkFalsy: true })
+    .withMessage("Price per day is required")
+];
+
 // Edit a Spot
-router.put('/:spotId', requireAuth, handleValidationErrors, async (req, res) => {
+router.put('/:spotId', requireAuth, validateSpot, async (req, res) => {
     const spotId = req.params.spotId
     const {address, city, state, country, lat, lng, name, description, price} = req.body
 
