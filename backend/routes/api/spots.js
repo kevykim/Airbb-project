@@ -60,6 +60,7 @@ router.get('/:spotId', async (req, res) => {
 
     if(!spots) {
 
+        res.status(404)
         res.json({
             message: "Spot couldn't be found",
             statusCode: 404
@@ -210,6 +211,7 @@ router.delete('/:spotId', requireAuth, async (req, res) => {
   };
 
   if(!spot) {
+    res.status(404)
     res.json({
         message: "Spot couldn't be found",
         statusCode: 404
