@@ -128,7 +128,37 @@ router.post('/:spotId/images', requireAuth, async (req, res) => {
 // Edit a Spot
 router.put('/:spotId', requireAuth, handleValidationErrors, async (req, res) => {
     const spotId = req.params.spotId
-    
+    const {address, city, state, country, lat, lng, name, description, price} = req.body
+
+    const spot = await Spot.findByPk(spotId)
+
+      if (spot.ownerId !== req.user.id) {
+        res.json({
+          message: "Cannot add image",
+          statusCode: 403,
+        });
+      };
+
+      if (!spot) {
+        res.json({
+            message: "Spot couldn't be found",
+            statusCode: 404
+        })
+      };
+
+      spot.address = address
+      spot.city = city
+      spot.state = state
+      spot.country = country
+      spot.lat = lat
+      spot.lng = lng
+      spot.name = name
+      spot.description = description
+      spot.price = price
+
+      await spot.save();
+      res.status(200);
+      res.json(spot);
 
 });
 
