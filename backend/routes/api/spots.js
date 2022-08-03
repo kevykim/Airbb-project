@@ -51,13 +51,13 @@ router.post('/:spotId/images', requireAuth, async (req, res) => {
 router.get('/:spotId', async (req, res) => {
     const spotId = req.params.spotId
     const spot = await Spot.findByPk(spotId, {
-        where: {id: spotId},
         include: [
-            {model: Image, attributes: ['url'] },
+            {model: Image},
             {model: User }
         ]
     });
 
+    console.log(spot)
     const reviews = await Review.count({
         where: {spotId}
     })
@@ -185,28 +185,28 @@ router.delete("/:spotId", requireAuth, async (req, res) => {
 // Get all Spots
 router.get('/', async (req, res) => {
     const spots = await Spot.findAll({
-        
-        attributes: {
-            include: [
-        [
-            sequelize.fn("AVG", sequelize.col("Reviews.stars")),
-            "avgRating"
-        ]
-    ],
-    },
-    include: [{
-        model: Review,
-            attributes: {
-                exclude: ['review', 'createdAt', 'updatedAt'],
-            },
+      attributes: {
+        include: [
+          [sequelize.fn("AVG", sequelize.col("Reviews.stars")), "avgRating"],
+          [sequelize.literal("Images.url"), "previewImage"],
+        ],
+      },
+      include: [
+        {
+          model: Review,
+          attributes: [],
+        },
+        // attributes: {
+        //     exclude: ['review', 'createdAt', 'updatedAt'],
+        // },
 
-            include: {
-                model: Image,
-                attributes: ['previewImage']
-            }
-        }],
-        group:['Spot.id']
-  
+        {
+          model: Image,
+          attributes: [],
+          // ['previewImage']
+        },
+      ],
+      group: ["Spot.id"],
     });
     res.json(spots)
     
