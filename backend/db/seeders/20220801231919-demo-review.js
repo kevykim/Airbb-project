@@ -21,30 +21,30 @@ module.exports = {
         userId: 3,
         spotId: 3,
       },
-      {
-        review: "This place is wonderful",
-        stars: 5,
-        userId: 4,
-        spotId: 4,
-      },
-      {
-        review: "This place is wonderful",
-        stars: 5,
-        userId: 5,
-        spotId: 5,
-      },
-      {
-        review: "This place is wonderful",
-        stars: 5,
-        userId: 6,
-        spotId: 6,
-      },
-      {
-        review: "This place is wonderful",
-        stars: 5,
-        userId: 7,
-        spotId: 7,
-      },
+      // {
+      //   review: "This place is wonderful",
+      //   stars: 5,
+      //   userId: 4,
+      //   spotId: 4,
+      // },
+      // {
+      //   review: "This place is wonderful",
+      //   stars: 5,
+      //   userId: 5,
+      //   spotId: 5,
+      // },
+      // {
+      //   review: "This place is wonderful",
+      //   stars: 5,
+      //   userId: 6,
+      //   spotId: 6,
+      // },
+      // {
+      //   review: "This place is wonderful",
+      //   stars: 5,
+      //   userId: 7,
+      //   spotId: 7,
+      // },
     ]);
   },
 

@@ -60,7 +60,7 @@ module.exports = (sequelize, DataTypes) => {
         unique: true,
         validate: {
           len: [4, 30],
-          isAlpha: true
+
         }
       },
       lastName: {
@@ -69,7 +69,7 @@ module.exports = (sequelize, DataTypes) => {
         unique: true,
         validate: {
           len: [4, 30],
-          isAlpha: true
+
         }
       },
       username: {
