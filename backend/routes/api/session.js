@@ -48,9 +48,7 @@ router.delete('/', (_req, res) => {
   }
   );
   
-  // router.get('/', requireAuth, async (req, res) => {
-  //   res.json('see')
-  // })
+  
 
 // Restore session user
 router.get('/',restoreUser, (req, res) => {
