@@ -181,15 +181,14 @@ router.delete("/:spotId", requireAuth, async (req, res) => {
 router.get('/', async (req, res) => {
     const spots = await Spot.findAll({
         attributes: {
-            include: ['id', 'ownerId', 'address', 'city', 'state',
-        'country', 'lat', 'lng', 'name', 'description', 
+            include: [
         [
             sequelize.fn("AVG", sequelize.col("Reviews.stars")),
             "avgRating"
         ]
     ],
     },
-    include: {
+    include: [{
         model: Review,
             attributes: {
                 exclude: ['review', 'createdAt', 'updatedAt'],
@@ -199,7 +198,9 @@ router.get('/', async (req, res) => {
                 model: Image,
                 attributes: ['previewImage']
             }
-        }
+        }],
+        group:['Spot.id']
+  
     });
     res.json(spots)
     
@@ -209,8 +210,9 @@ router.get('/', async (req, res) => {
 
 // Get all Spots owned by the Current User
 router.get('/current', requireAuth, async (req, res) => {
-    console.log(req)
+    const currentUser = req.user.id
     const spots = await Spot.findAll({
+        where: {ownerId: currentUser},
         include: [
             {model: Review},
             {model: Image}
