@@ -52,10 +52,12 @@ router.post('/', validateSignup, async (req, res) => {
 
     await setTokenCookie(res, user);
 
-    // if(user.email === req.body.email) {
+    
+
+    // if(user.email === req.user.email) {
     //   res.status(403)
     //   res.json({
-    //     message: "Email already exists"
+    //     message: "User with email already exists"
     //   })
     // }
 
