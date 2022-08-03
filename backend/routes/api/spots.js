@@ -10,54 +10,54 @@ const { Spot, Image, Review, User, sequelize } = require('../../db/models')
 
 
 
-// Add an Image to a Spot based on the Spot's id
-router.post('/:spotId/images', requireAuth, async (req, res) => {
-    const spotId = req.params.spotId
-    const userId = req.user.id
+// // Add an Image to a Spot based on the Spot's id
+// router.post('/:spotId/images', requireAuth, async (req, res) => {
+//     const spotId = req.params.spotId
+//     const userId = req.user.id
 
-    const spot = await Spot.findByPk(spotId)
-    const { url } = req.body
-    const addImage = await Image.create({
-        spotId,
-        url
-    });
+//     const spot = await Spot.findByPk(spotId)
+//     const { url } = req.body
+//     const addImage = await Image.create({
+//         spotId,
+//         url
+//     });
 
-    if(spot.ownerId !== userId) {
-        res.status(403)
-        res.json({
-            message: "Cannot add image",
-            statusCode: 403
-        })
-    }
+//     if(spot.ownerId !== userId) {
+//         res.status(403)
+//         res.json({
+//             message: "Cannot add image",
+//             statusCode: 403
+//         })
+//     }
 
-    if(!spot) {
-        res.status(404)
-        res.json({
-            message: "Spot couldn't be found",
-            statusCode: 404
-        })
-    }
+//     if(!spot) {
+//         res.status(404)
+//         res.json({
+//             message: "Spot couldn't be found",
+//             statusCode: 404
+//         })
+//     }
 
-    let image = {}
-    image.url = addImage.url
-    image.previewImage = true
+//     let image = {}
+//     image.url = addImage.url
+//     image.previewImage = true
 
-    res.json(image)
-});
+//     res.json(image)
+// });
 
 
 
 // Get details of a Spot from an id
 router.get('/:spotId', async (req, res) => {
     const spotId = req.params.spotId
-    const spots = await Spot.findByPk(spotId, {
+    const spot = await Spot.findByPk(spotId, {
         include: [
             {model: Image},
-            {model: User}
+            {model: User, as: 'Owner' }
         ]
     });
 
-    if(!spots) {
+    if(!spot) {
 
         res.status(404)
         res.json({
@@ -66,7 +66,7 @@ router.get('/:spotId', async (req, res) => {
         })
     }
 
-    res.json(spots)
+    res.json(spot)
 });
 
 
@@ -194,13 +194,23 @@ router.get('/', async (req, res) => {
 
 
 // Get all Spots owned by the Current User
-router.get('/current', async (req, res) => {
-    const spots = await Spot.findAll({
-        include: [
-            {model: Review},
-            {model: Image}
-        ]
-    });
+router.get('/current', requireAuth, async (req, res) => {
+    console.log(req)
+    // const spots = await Spot.findAll({
+    //     include: [
+    //         {model: Review},
+    //         {model: Image}
+    //     ]
+    // });
+
+    if (spots.ownerId !== req.user.id) {
+        res.status(403)
+        res.json({
+            message: "Not authorized",
+            statusCode: 403
+        });
+    }
+
     res.json(spots)
 
 });
