@@ -51,11 +51,23 @@ const { Spot, Image, Review, User, sequelize } = require('../../db/models')
 router.get('/:spotId', async (req, res) => {
     const spotId = req.params.spotId
     const spot = await Spot.findByPk(spotId, {
+        where: {id: spotId},
         include: [
-            {model: Image},
-            {model: User, as: 'Owner' }
+            {model: Image, attributes: ['url'] },
+            {model: User }
         ]
     });
+
+    const reviews = await Review.count({
+        where: {spotId}
+    })
+
+    const stars = await Review.sum('stars',
+         { where: {spotId}}
+    )
+
+    console.log(reviews)
+    console.log(stars)
 
     if(!spot) {
 
@@ -66,7 +78,9 @@ router.get('/:spotId', async (req, res) => {
         })
     }
 
-    res.json(spot)
+    res.json(spot,
+        reviews,
+        stars)
 });
 
 
@@ -196,12 +210,12 @@ router.get('/', async (req, res) => {
 // Get all Spots owned by the Current User
 router.get('/current', requireAuth, async (req, res) => {
     console.log(req)
-    // const spots = await Spot.findAll({
-    //     include: [
-    //         {model: Review},
-    //         {model: Image}
-    //     ]
-    // });
+    const spots = await Spot.findAll({
+        include: [
+            {model: Review},
+            {model: Image}
+        ]
+    });
 
     if (spots.ownerId !== req.user.id) {
         res.status(403)
@@ -218,7 +232,7 @@ router.get('/current', requireAuth, async (req, res) => {
 
 
 // Create a Spot
-router.post('/', requireAuth, async (req, res) => {
+router.post('/', requireAuth, validateSpot, async (req, res) => {
 
     const {address, city, state, country, lat, lng, name, description, price} = req.body
     const newSpot = await Spot.create({
@@ -234,6 +248,7 @@ router.post('/', requireAuth, async (req, res) => {
         ownerId: req.user.id
     });
 
+    
 
 
     await newSpot.save();
