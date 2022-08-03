@@ -24,6 +24,34 @@ module.exports = {
         reviewId: 3,
         userId: 3,
       },
+      {
+        url: "memory",
+        previewImage: true,
+        spotId: 4,
+        reviewId: 4,
+        userId: 4,
+      },
+      {
+        url: "wonder",
+        previewImage: true,
+        spotId: 5,
+        reviewId: 5,
+        userId: 5,
+      },
+      {
+        url: "creation",
+        previewImage: true,
+        spotId: 6,
+        reviewId: 6,
+        userId: 6,
+      },
+      {
+        url: "apple",
+        previewImage: true,
+        spotId: 7,
+        reviewId: 7,
+        userId: 7,
+      },
     ]);
   },
 
