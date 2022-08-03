@@ -1,13 +1,37 @@
 const express = require('express');
 const router = express.Router();
 
-const { requireAuth } = require("../../utils/auth");
+const { requireAuth, restoreUser } = require("../../utils/auth");
 const { handleValidationErrors } = require("../../utils/validation")
 const { check } = require("express-validator");
 
 
 const { Spot, Image, Review, User, sequelize } = require('../../db/models')
 
+
+// Get all Spots owned by the Current User
+router.get('/current',  requireAuth, async (req, res) => {
+    const currentUser = req.user.id
+    console.log(currentUser)
+    
+
+    const ownedSpots = await Spot.findAll({
+      where: {
+        ownerId: currentUser
+      }
+    })
+
+    //  if (ownedSpots.ownerId !== currentUser) {
+    //     res.status(403)
+    //     res.json({
+    //         message: "Not authorized",
+    //         statusCode: 403
+    //     });
+    // }
+
+    
+    res.json(ownedSpots)
+  });
 
 
 // Add an Image to a Spot based on the Spot's id
@@ -152,6 +176,8 @@ router.put("/:spotId", requireAuth, validateSpot, async (req, res) => {
 
 
 
+
+
 // Delete a Spot
 router.delete("/:spotId", requireAuth, async (req, res) => {
   const spotId = req.params.spotId;
@@ -188,7 +214,7 @@ router.get('/', async (req, res) => {
       attributes: {
         include: [
           [sequelize.fn("AVG", sequelize.col("Reviews.stars")), "avgRating"],
-          [sequelize.literal("Images.url"), "previewImage"],
+          // [sequelize.literal("Images.url"), "previewImage"],
         ],
       },
       include: [
@@ -202,7 +228,7 @@ router.get('/', async (req, res) => {
 
         {
           model: Image,
-          attributes: [],
+          attributes: ['url'],
           // ['previewImage']
         },
       ],
@@ -214,29 +240,35 @@ router.get('/', async (req, res) => {
 
 
 
-// Get all Spots owned by the Current User
-router.get('/current', requireAuth, async (req, res) => {
-    const currentUser = req.user.id
-    // console.log(currentUser)
-    const spots = await Spot.findAll({
-        where: {ownerId: currentUser},
-        // include: [
-        //     {model: Review},
-        //     {model: Image}
-        // ]
-    });
 
-    // if (spots.ownerId !== req.user.id) {
-    //     res.status(403)
-    //     res.json({
-    //         message: "Not authorized",
-    //         statusCode: 403
-    //     });
-    // }
+  
+  
+  
+  //  const spots = await Spot.findAll({
+  //   attributes: {
+  //     include: [
+  //       [sequelize.fn("AVG", sequelize.col("Reviews.stars")), "avgRating"],
+  //     ],
+  //   },
+  //   include: [
+  //     {
+  //       model: Review,
+  //       attributes: [],
+  //     },
+  //     // attributes: {
+  //     //     exclude: ['review', 'createdAt', 'updatedAt'],
+  //     // },
 
-    res.json(spots)
+  //     {
+  //       model: Image,
+  //       attributes: ['url'],
+  //       // ['previewImage']
+  //     },
+  //   ],
+  //   group: ["Spot.id"],
+  // });
 
-});
+  
 
 
 
