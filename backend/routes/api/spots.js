@@ -37,11 +37,22 @@ router.get('/current',  requireAuth, async (req, res) => {
   // Get all Reviews by a Spot's id
   router.get('/:spotId/reviews', async (req, res) => {
     const spotId = req.params.spotId
+    const spotHandler = await Spot.findByPk(spotId)
     const reviews = await Review.findAll({
-      where: {spotId: spotId}
+      where: {
+        spotId: spotId
+      },
+      include: [
+      {
+        model: User, attributes: ['id', 'firstName', 'lastName']
+      },  
+        {
+          model: Image, attributes: ['id', ['reviewId', 'imageableId'], 'url'] 
+        }
+      ]
     });
 
-    if(!spotId) {
+    if(!spotHandler) {
       res.status(404)
       res.json({
         message: "Spot couldn't be found",
@@ -74,6 +85,15 @@ router.get('/current',  requireAuth, async (req, res) => {
       review,
       stars
     });
+
+    
+    if(newReview.id === req.user.reviewId) {
+      res.status(403)
+      res.json({
+        message: "User already has a review for this spot",
+        statusCode: 403
+      })
+    }
 
     if(!spot) {
       res.status(404)

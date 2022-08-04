@@ -12,8 +12,22 @@ const { Spot, Image, Review, User, sequelize } = require("../../db/models");
 // Get all Reviews of the Current User
 router.get('/current', requireAuth, async (req, res) => {
     const currentUser = req.user.id
-    const reviews = await Review.findByPk(currentUser, {
-        where: {userId: currentUser}
+    const reviews = await Review.findAll({
+        where: {userId: currentUser},
+        include: [
+            {
+             model: User, attributes: ['id', 'firstName', 'lastName'],
+            },
+            {
+             model: Spot, attributes: {exclude: ['createdAt', 'updatedAt']}
+            },
+            {
+             model: Image, attributes: ['id', ['reviewId', 'imageableId'], 'url']
+            }
+        ],
+            
+            
+        
     });
 
     res.json(reviews);
@@ -71,7 +85,7 @@ router.delete('/:reviewId', requireAuth, async (req, res) => {
         })
     };
 
-    await review.destroy()
+    review.destroy() // Why does it work if I take await out? 
     res.status(200)
     res.json({
         message: "Successfully deleted",
