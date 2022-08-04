@@ -11,7 +11,7 @@ module.exports = {
       url: {
         type: Sequelize.STRING,
         allowNull: false,
-        unique: true,
+
       },
       previewImage: {
         type: Sequelize.BOOLEAN,
@@ -20,20 +20,20 @@ module.exports = {
       spotId: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: { model: "Spots" },
-        onDelete: 'CASCADE'
+        // references: { model: "Spots" },
+        // onDelete: 'CASCADE'
       },
       reviewId: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: { model: "Reviews" },
-        onDelete: 'CASCADE'
+        // references: { model: "Reviews" },
+        // onDelete: 'CASCADE'
       },
       userId: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: { model: "Users" },
-        onDelete: 'CASCADE'
+        // references: { model: "Users" },
+        // onDelete: 'CASCADE'
       },
       createdAt: {
         allowNull: false,

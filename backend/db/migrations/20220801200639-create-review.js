@@ -19,14 +19,12 @@ module.exports = {
       userId: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        unique: true,
-        references: { model: 'Users'}
+        // references: { model: 'Users'}
       },
       spotId: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        unique: true,
-        references: { model: 'Spots'}
+        // references: { model: 'Spots'}
       },
       createdAt: {
         allowNull: false,

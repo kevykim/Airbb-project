@@ -39,30 +39,30 @@ module.exports = {
         description: "Very nice",
         price: 700,
       },
-      // {
-      //   ownerId: 4,
-      //   address: "7131 Brick Lane",
-      //   city: "Irvine",
-      //   state: "California",
-      //   country: "United States Of America",
-      //   lat: 40.1469718,
-      //   lng: -170.2654915,
-      //   name: "Brick",
-      //   description: "Very nice",
-      //   price: 950,
-      // },
-      // {
-      //   ownerId: 5,
-      //   address: "7131 Hollywood Lane",
-      //   city: "Irvine",
-      //   state: "California",
-      //   country: "United States Of America",
-      //   lat: 40.1468718,
-      //   lng: -170.2954975,
-      //   name: "Hollywood",
-      //   description: "Very nice",
-      //   price: 200,
-      // },
+      {
+        ownerId: 4,
+        address: "7131 Brick Lane",
+        city: "Irvine",
+        state: "California",
+        country: "United States Of America",
+        lat: 40.1469718,
+        lng: -170.2654915,
+        name: "Brick",
+        description: "Very nice",
+        price: 950,
+      },
+      {
+        ownerId: 5,
+        address: "7131 Hollywood Lane",
+        city: "Irvine",
+        state: "California",
+        country: "United States Of America",
+        lat: 40.1468718,
+        lng: -170.2954975,
+        name: "Hollywood",
+        description: "Very nice",
+        price: 200,
+      },
       // {
       //   ownerId: 6,
       //   address: "7131 Wonder Lane",
@@ -91,6 +91,7 @@ module.exports = {
   },
 
   async down (queryInterface, Sequelize) {
-   await queryInterface.bulkDelete('Spots', {} , {});
+    const Op = Sequelize.Op;
+   await queryInterface.bulkDelete('Spots', {ownerId: {[Op.in]: [1, 2, 3, 4, 5] }} , {});
   }
 };
