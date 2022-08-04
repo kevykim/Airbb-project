@@ -33,6 +33,40 @@ router.get('/current',  requireAuth, async (req, res) => {
     res.json(ownedSpots)
   });
 
+  const validateReview = [
+    check("review")
+      .exists({ checkFalsy: true })
+      .withMessage("Review text is required"),
+    check("stars")
+      .isInt({ gt: 0, lt: 6 })
+      .withMessage("Stars must be an integer from 1 to 5"),
+  ];
+
+ // Create a Review for a Spot based on the Spot's id
+ router.post('/:spotId/reviews', requireAuth, validateReview , async (req, res) => {
+    const currentUser = req.user.id
+    const {review, stars} = req.body
+    const spot = await Spot.findByPk(currentUser)
+    const newReview = await Review.create({
+      userId: Review.userId,
+      spotId: Review.spotId,
+      review,
+      stars
+    });
+
+    if(!spot) {
+      res.status(404)
+      res.json({
+        message: "Spot couldn't be found",
+        statusCode: 404
+      })
+    };
+
+    await newReview.save();
+    res.status(201)
+    res.json(newReview)
+ });
+
 
 // Add an Image to a Spot based on the Spot's id
 router.post('/:spotId/images', requireAuth, async (req, res) => {
@@ -106,6 +140,7 @@ router.get('/:spotId', async (req, res) => {
         reviews,
         stars)
 });
+
 
 
 
@@ -286,7 +321,7 @@ router.post('/', requireAuth, validateSpot, async (req, res) => {
         ownerId: req.user.id
     });
 
-    
+    console.log(newSpot)
 
 
     await newSpot.save();
