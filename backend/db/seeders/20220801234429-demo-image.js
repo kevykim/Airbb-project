@@ -33,9 +33,9 @@ const testImages = [
   {
     url: "wonder",
     previewImage: true,
-    spotId: 5,
+    spotId: 6,
     reviewId: 5,
-    userId: 5,
+    userId: 6,
   },
 ];
 
