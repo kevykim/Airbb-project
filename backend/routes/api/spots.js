@@ -33,6 +33,26 @@ router.get('/current',  requireAuth, async (req, res) => {
     res.json(ownedSpots)
   });
 
+
+  // Get all Reviews by a Spot's id
+  router.get('/:spotId/reviews', async (req, res) => {
+    const spotId = req.params.spotId
+    const reviews = await Review.findAll({
+      where: {spotId: spotId}
+    });
+
+    if(!spotId) {
+      res.status(404)
+      res.json({
+        message: "Spot couldn't be found",
+        statusCode: 404
+      })
+    };
+
+    res.json(reviews)
+  });
+
+
   const validateReview = [
     check("review")
       .exists({ checkFalsy: true })

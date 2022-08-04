@@ -22,8 +22,8 @@ const testReviews = [
   {
     review: "This place is wonderful",
     stars: 5,
-    userId: 4,
-    spotId: 4,
+    userId: 6,
+    spotId: 6,
   },
 ];
 
