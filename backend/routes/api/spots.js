@@ -60,16 +60,17 @@ router.get('/current',  requireAuth, async (req, res) => {
     check("stars")
       .isInt({ gt: 0, lt: 6 })
       .withMessage("Stars must be an integer from 1 to 5"),
+      handleValidationErrors
   ];
 
  // Create a Review for a Spot based on the Spot's id
  router.post('/:spotId/reviews', requireAuth, validateReview , async (req, res) => {
     const currentUser = req.user.id
     const {review, stars} = req.body
-    const spot = await Spot.findByPk(currentUser)
+    const spot = await Spot.findByPk(req.params.spotId)
     const newReview = await Review.create({
-      userId: Review.userId,
-      spotId: Review.spotId,
+      userId: currentUser,
+      spotId: req.params.spotId,
       review,
       stars
     });

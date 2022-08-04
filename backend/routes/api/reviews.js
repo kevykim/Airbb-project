@@ -13,7 +13,7 @@ const { Spot, Image, Review, User, sequelize } = require("../../db/models");
 router.get('/current', requireAuth, async (req, res) => {
     const currentUser = req.user.id
     const reviews = await Review.findByPk(currentUser, {
-        where: {ownerId: currentUser}
+        where: {userId: currentUser}
     });
 
     res.json(reviews);
@@ -29,6 +29,7 @@ const validateReview = [
   check("stars")
     .isInt({ gt: 0, lt: 6 })
     .withMessage("Stars must be an integer from 1 to 5"),
+    handleValidationErrors
 ];
 
 // Edit a Review
