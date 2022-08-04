@@ -4,7 +4,7 @@ const router = express.Router();
 const { requireAuth, restoreUser } = require("../../utils/auth");
 const { handleValidationErrors } = require("../../utils/validation")
 const { check } = require("express-validator");
-
+const { Op } = require("sequelize");
 
 const { Spot, Image, Review, User, sequelize } = require('../../db/models')
 
@@ -85,16 +85,7 @@ router.get('/current',  requireAuth, async (req, res) => {
       review,
       stars
     });
-
     
-    if(newReview.id === req.user.reviewId) {
-      res.status(403)
-      res.json({
-        message: "User already has a review for this spot",
-        statusCode: 403
-      })
-    }
-
     if(!spot) {
       res.status(404)
       res.json({
@@ -102,6 +93,28 @@ router.get('/current',  requireAuth, async (req, res) => {
         statusCode: 404
       })
     };
+
+    const sameReviewChecker = await Review.findAll({
+      where: {
+        [Op.and]: [
+          {spotId: req.params.spotId},
+          {userId: currentUser}
+        ]
+      }
+    });
+
+    // console.log(sameReviewChecker.length)
+
+    if (sameReviewChecker.length >= 2) {
+       res.status(403);
+       res.json({
+         message: "User already has a review for this spot",
+         statusCode: 403,
+       });
+    }
+
+  
+
 
     await newReview.save();
     res.status(201)
