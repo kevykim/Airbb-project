@@ -6,6 +6,7 @@ const { User } = require("../../db/models");
 
 const { check } = require("express-validator");
 const { handleValidationErrors } = require("../../utils/validation");
+const { requireAuth } = require('../../utils/auth')
 
 
 const validateLogin = [
@@ -45,14 +46,12 @@ router.delete('/', (_req, res) => {
     res.clearCookie('token');
     return res.json({ message: 'success' });
   }
-);
-
+  );
+  
+  
 
 // Restore session user
-router.get(
-  '/',
-  restoreUser,
-  (req, res) => {
+router.get('/',restoreUser, (req, res) => {
     const { user } = req;
     if (user) {
       return res.json({
@@ -61,6 +60,8 @@ router.get(
     } else return res.json({});
   }
 );
+
+
 
 
 module.exports = router;
