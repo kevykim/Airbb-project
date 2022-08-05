@@ -163,27 +163,27 @@ router.get('/current',  requireAuth, async (req, res) => {
       })
     };
 
-    const sameReviewChecker = await Review.findAll({
-      where: {
-        [Op.and]: [
-          {spotId: req.params.spotId},
-          {userId: currentUser}
-        ]
-      }
-    });
+    // const sameReviewChecker = await Review.findAll({
+    //   where: {
+    //     [Op.and]: [
+    //       {spotId: req.params.spotId},
+    //       {userId: currentUser}
+    //     ]
+    //   }
+    // });
 
-    console.log(currentUser)
-    console.log(req.params.spotId)
-    // console.log(sameReviewChecker)
-    console.log(newReview.id)
+    // console.log(currentUser)
+    // console.log(req.params.spotId)
+    // // console.log(sameReviewChecker)
+    // console.log(newReview.id)
 
-    if (sameReviewChecker.length >= 1) {
-       res.status(403);
-       res.json({
-         message: "User already has a review for this spot",
-         statusCode: 403,
-       });
-    }
+    // if (sameReviewChecker.length >= 1) {
+    //    res.status(403);
+    //    res.json({
+    //      message: "User already has a review for this spot",
+    //      statusCode: 403,
+    //    });
+    // }
 
   
 
@@ -202,8 +202,12 @@ router.post('/:spotId/images', requireAuth, async (req, res) => {
     const spot = await Spot.findByPk(spotId)
     const { url } = req.body
     const addImage = await Image.create({
+         userId,
+         ownerId: userId,
         spotId,
-        url
+        reviewId: spotId,
+        url,
+        previewImage: true
     });
 
     if(spot.ownerId !== userId) {
@@ -223,8 +227,10 @@ router.post('/:spotId/images', requireAuth, async (req, res) => {
     }
 
     let image = {}
+    image.id
+    image.imageableId = spotId
     image.url = addImage.url
-    image.previewImage = true
+    // image.previewImage = true
 
     res.json(image)
 });
