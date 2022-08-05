@@ -40,13 +40,14 @@ router.get('/current',  requireAuth, async (req, res) => {
     const currentUser = req.user.id
 
     const notOwnedBooking = await Booking.findAll({
-      where: {},
+      where: {spotId: spotId},
+      attributes: {exclude: ['userId']}
     })
 
     const ownedBooking = await Booking.findAll({
-      where: {spotId: spotId},
+      where: [{ spotId: spotId }],
       include: [{model: User, attributes: ['id', 'firstName', 'lastName']} ]
-    })
+    });
 
     const spot = await Spot.findByPk(spotId)
     
@@ -58,10 +59,14 @@ router.get('/current',  requireAuth, async (req, res) => {
       })
     }
     
-    if (currentUser === spot.ownerId) {
-      res.json(ownedBooking)
+    if (currentUser !== spot.ownerId) {
+      res.json(notOwnedBooking)
     };
 
+    // console.log(currentUser)
+    // console.log(spot.ownerId)
+
+    res.json(ownedBooking);
   })
 
 
