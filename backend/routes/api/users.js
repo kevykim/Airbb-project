@@ -54,14 +54,18 @@ router.post('/', validateSignup, async (req, res) => {
 
     await setTokenCookie(res, user);
 
-    
+    const duplicateEmail = await User.findOne({
 
-    // if(user.email === req.user.email) {
-    //   res.status(403)
-    //   res.json({
-    //     message: "User with email already exists"
-    //   })
-    // }
+      where: { email }
+
+    })
+
+    if(duplicateEmail) {
+      res.status(403)
+      res.json({
+        message: "User with email already exists"
+      })
+    }
 
     return res.json({
       user

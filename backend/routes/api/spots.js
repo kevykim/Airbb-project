@@ -4,7 +4,7 @@ const router = express.Router();
 const { requireAuth, restoreUser } = require("../../utils/auth");
 const { handleValidationErrors } = require("../../utils/validation")
 const { check } = require("express-validator");
-
+const { Op } = require("sequelize");
 
 const { Spot, Image, Review, User, sequelize } = require('../../db/models')
 
@@ -32,6 +32,97 @@ router.get('/current',  requireAuth, async (req, res) => {
     
     res.json(ownedSpots)
   });
+
+
+  // Get all Reviews by a Spot's id
+  router.get('/:spotId/reviews', async (req, res) => {
+    const spotId = req.params.spotId
+    const spotHandler = await Spot.findByPk(spotId)
+    const reviews = await Review.findAll({
+      where: {
+        spotId: spotId
+      },
+      include: [
+      {
+        model: User, attributes: ['id', 'firstName', 'lastName']
+      },  
+        {
+          model: Image, attributes: ['id', ['reviewId', 'imageableId'], 'url'] 
+        }
+      ]
+    });
+
+    if(!spotHandler) {
+      res.status(404)
+      res.json({
+        message: "Spot couldn't be found",
+        statusCode: 404
+      })
+    };
+
+    res.json(reviews)
+  });
+
+
+  const validateReview = [
+    check("review")
+      .exists({ checkFalsy: true })
+      .withMessage("Review text is required"),
+    check("stars")
+      .isInt({ gt: 0, lt: 6 })
+      .withMessage("Stars must be an integer from 1 to 5"),
+      handleValidationErrors
+  ];
+
+ // Create a Review for a Spot based on the Spot's id
+ router.post('/:spotId/reviews', requireAuth, validateReview , async (req, res) => {
+    const currentUser = req.user.id
+    const {review, stars} = req.body
+    const spot = await Spot.findByPk(req.params.spotId)
+    const newReview = await Review.create({
+      userId: currentUser,
+      spotId: req.params.spotId,
+      review,
+      stars
+    });
+    
+    if(!spot) {
+      res.status(404)
+      res.json({
+        message: "Spot couldn't be found",
+        statusCode: 404
+      })
+    };
+
+    const sameReviewChecker = await Review.findAll({
+      where: {
+        [Op.and]: [
+          {spotId: req.params.spotId},
+          {userId: currentUser}
+        ]
+      }
+    });
+
+    console.log(currentUser)
+    console.log(req.params.spotId)
+    // console.log(sameReviewChecker)
+    console.log(newReview.id)
+
+    if (sameReviewChecker.length >= 1) {
+       res.status(403);
+       res.json({
+         message: "User already has a review for this spot",
+         statusCode: 403,
+       });
+    }
+
+  
+
+
+    await newReview.save();
+    res.status(201)
+    res.json(newReview)
+ });
 
 
 // Add an Image to a Spot based on the Spot's id
@@ -106,6 +197,7 @@ router.get('/:spotId', async (req, res) => {
         reviews,
         stars)
 });
+
 
 
 
@@ -286,7 +378,7 @@ router.post('/', requireAuth, validateSpot, async (req, res) => {
         ownerId: req.user.id
     });
 
-    
+    console.log(newSpot)
 
 
     await newSpot.save();
