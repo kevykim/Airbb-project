@@ -21,11 +21,57 @@ router.get('/current', requireAuth, async (req, res) => {
 
 });
 
-// Edit a Booking
+const validateBooking = [
 
+]
+
+
+// Edit a Booking
+router.put('/:bookingId', requireAuth, async (req, res) => {
+    const bookingId = req.params.bookingId
+    const { startDate, endDate } = req.body
+
+    const booking = await Booking.findByPk(bookingId)
+
+
+    if(!booking) {
+        res.status(404)
+        res.json({
+            message: "Booking couldn't be found",
+            statusCode: 404
+        })
+    };
+
+    booking.startDate = startDate
+    booking.endDate = endDate
+
+    await booking.save();
+    res.status(200);
+    res.json(booking);
+
+})
 
 // Delete a Booking
+router.delete('/:bookingId', requireAuth, async (req, res) => {
+    const bookingId = req.params.bookingId
+    const booking = await Booking.findByPk(bookingId)
 
+    if(!booking) {
+        res.status(404)
+        res.json({
+            message: "Booking couldn't be found",
+            statusCode: 404
+        })
+    };
+
+
+    booking.destroy();
+    res.json({
+        message: "Successfully deleted",
+        statusCode: 200
+    })
+
+});
 
 
 
