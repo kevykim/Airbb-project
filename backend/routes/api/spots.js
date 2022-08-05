@@ -6,7 +6,7 @@ const { handleValidationErrors } = require("../../utils/validation")
 const { check } = require("express-validator");
 const { Op } = require("sequelize");
 
-const { Spot, Image, Review, User, sequelize } = require('../../db/models')
+const { Spot, Image, Review, User, Booking, sequelize } = require('../../db/models')
 
 
 // Get all Spots owned by the Current User
@@ -32,6 +32,75 @@ router.get('/current',  requireAuth, async (req, res) => {
     
     res.json(ownedSpots)
   });
+
+
+  // Get all Bookings for a Spot based on the Spot's id
+  router.get('/:spotId/bookings', requireAuth, async (req, res) => {
+    const spotId = req.params.spotId
+    const currentUser = req.user.id
+
+    const notOwnedBooking = await Booking.findAll({
+      where: {spotId: spotId},
+      attributes: {exclude: ['userId']}
+    })
+
+    const ownedBooking = await Booking.findAll({
+      where: [{ spotId: spotId }],
+      include: [{model: User, attributes: ['id', 'firstName', 'lastName']} ]
+    });
+
+    const spot = await Spot.findByPk(spotId)
+    
+    if(!spot) {
+      res.status(404)
+      res.json({
+        message: "Spot couldn't be found",
+        statusCode: 404
+      })
+    }
+    
+    if (currentUser !== spot.ownerId) {
+      res.json(notOwnedBooking)
+    };
+
+    // console.log(currentUser)
+    // console.log(spot.ownerId)
+
+    res.json(ownedBooking);
+  })
+
+
+
+
+  const validateBooking = [
+
+  ]
+
+
+  // Create a Booking from a Spot based on the Spot's id
+  router.post('/:spotId/bookings', requireAuth, async (req, res) => {
+    const spotId = req.params.spotId
+    const { startDate, endDate } = req.body
+    const spot = await Spot.findByPk(spotId)
+    const newBooking = await Booking.create({
+      userId: req.user.id,
+      spotId: spotId,
+      startDate,
+      endDate,
+    });
+
+    if(!spot) {
+      res.status(404)
+      res.json({
+        message: "Spot couldn't be found",
+        statusCode: 404
+      })
+    };
+
+    await newBooking.save();
+    res.json(newBooking);
+
+  })
 
 
   // Get all Reviews by a Spot's id
