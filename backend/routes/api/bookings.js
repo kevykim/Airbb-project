@@ -22,17 +22,42 @@ router.get('/current', requireAuth, async (req, res) => {
 });
 
 const validateBooking = [
-
+check("startDate")
+.isDate()
+.withMessage('Must be a date'),
+check("endDate")
+.isDate()
+.withMessage('Must be a date'),
+handleValidationErrors
 ]
 
 
 // Edit a Booking
-router.put('/:bookingId', requireAuth, async (req, res) => {
+router.put('/:bookingId', requireAuth, validateBooking, async (req, res) => {
     const bookingId = req.params.bookingId
     const { startDate, endDate } = req.body
 
     const booking = await Booking.findByPk(bookingId)
 
+    console.log(booking.endDate)
+    console.log(new Date())
+    console.log(new Date().toISOString().slice(0, 10));
+
+    if (endDate < startDate) {
+        res.status(400)
+        res.json({
+            message: "End date cannot come before start date ",
+            statusCode: 400
+        })
+    }
+
+    if(new Date() > endDate) {
+        res.status(403)
+        res.json({
+            message: "Past bookings can't be modified",
+            statusCode: 403
+        })
+    }
 
     if(!booking) {
         res.status(404)
