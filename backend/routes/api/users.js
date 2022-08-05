@@ -55,7 +55,9 @@ router.post('/', validateSignup, async (req, res) => {
     await setTokenCookie(res, user);
 
     const duplicateEmail = await User.findOne({
+
       where: { email }
+
     })
 
     if(duplicateEmail) {
