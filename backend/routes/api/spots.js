@@ -103,9 +103,12 @@ router.get('/current',  requireAuth, async (req, res) => {
       }
     });
 
-    // console.log(sameReviewChecker.length)
+    console.log(currentUser)
+    console.log(req.params.spotId)
+    // console.log(sameReviewChecker)
+    console.log(newReview.id)
 
-    if (sameReviewChecker.length >= 2) {
+    if (sameReviewChecker.length >= 1) {
        res.status(403);
        res.json({
          message: "User already has a review for this spot",
