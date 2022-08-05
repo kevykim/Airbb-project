@@ -34,6 +34,44 @@ router.get('/current',  requireAuth, async (req, res) => {
   });
 
 
+  // Get all Bookings for a Spot based on the Spot's id
+  router.get('/:spotId/bookings', requireAuth, async (req, res) => {
+    const spotId = req.params.spotId
+    const currentUser = req.user.id
+
+    const notOwnedBooking = await Booking.findAll({
+      where: {},
+    })
+
+    const ownedBooking = await Booking.findAll({
+      where: {spotId: spotId},
+      include: [{model: User, attributes: ['id', 'firstName', 'lastName']} ]
+    })
+
+    const spot = await Spot.findByPk(spotId)
+    
+    if(!spot) {
+      res.status(404)
+      res.json({
+        message: "Spot couldn't be found",
+        statusCode: 404
+      })
+    }
+    
+    if (currentUser === spot.ownerId) {
+      res.json(ownedBooking)
+    };
+
+  })
+
+
+
+
+  const validateBooking = [
+
+  ]
+
+
   // Create a Booking from a Spot based on the Spot's id
   router.post('/:spotId/bookings', requireAuth, async (req, res) => {
     const spotId = req.params.spotId
