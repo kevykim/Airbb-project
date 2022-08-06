@@ -210,13 +210,13 @@ router.post('/:spotId/images', requireAuth, async (req, res) => {
         previewImage: true
     });
 
-    if(spot.ownerId !== userId) {
-        res.status(403)
-        res.json({
-            message: "Cannot add image",
-            statusCode: 403
-        })
-    }
+    // if(spot.ownerId !== userId) {
+    //     res.status(403)
+    //     res.json({
+    //         message: "Cannot add image",
+    //         statusCode: 403
+    //     })
+    // }
 
     if(!spot) {
         res.status(404)

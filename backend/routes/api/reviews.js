@@ -56,6 +56,15 @@ router.post('/:reviewId/images', requireAuth, async (req, res) => {
     //    });
     //  }
 
+    console.log(addImage)
+     if(addImage.id > 10) {
+        res.status(403)
+        res.json({
+            message: "Maximum number of images for this resource was reached",
+            statusCode: 403
+        })
+     }
+
      if (!review) {
        res.status(404);
        res.json({
