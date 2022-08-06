@@ -37,6 +37,20 @@ const testImages = [
     reviewId: 5,
     userId: 6,
   },
+  {
+    url: "creation",
+    previewImage: true,
+    spotId: 6,
+    reviewId: 6,
+    userId: 6,
+  },
+  {
+    url: "apple",
+    previewImage: true,
+    spotId: 7,
+    reviewId: 7,
+    userId: 7,
+  },
 ];
 
 
@@ -44,20 +58,6 @@ module.exports = {
   async up (queryInterface, Sequelize) {
     await queryInterface.bulkInsert("Images", testImages);
      
-      // {
-      //   url: "creation",
-      //   previewImage: true,
-      //   spotId: 6,
-      //   reviewId: 6,
-      //   userId: 6,
-      // },
-      // {
-      //   url: "apple",
-      //   previewImage: true,
-      //   spotId: 7,
-      //   reviewId: 7,
-      //   userId: 7,
-      // },
 
   },
 

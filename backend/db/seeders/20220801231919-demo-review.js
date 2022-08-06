@@ -25,30 +25,30 @@ const testReviews = [
     userId: 6,
     spotId: 6,
   },
+  {
+    review: "This place is wonderful",
+    stars: 5,
+    userId: 5,
+    spotId: 5,
+  },
+  {
+    review: "This place is wonderful",
+    stars: 5,
+    userId: 6,
+    spotId: 6,
+  },
+  {
+    review: "This place is wonderful",
+    stars: 5,
+    userId: 7,
+    spotId: 7,
+  },
 ];
 
 module.exports = {
   async up (queryInterface, Sequelize) {
     await queryInterface.bulkInsert("Reviews", testReviews );
     
-      // {
-      //   review: "This place is wonderful",
-      //   stars: 5,
-      //   userId: 5,
-      //   spotId: 5,
-      // },
-      // {
-      //   review: "This place is wonderful",
-      //   stars: 5,
-      //   userId: 6,
-      //   spotId: 6,
-      // },
-      // {
-      //   review: "This place is wonderful",
-      //   stars: 5,
-      //   userId: 7,
-      //   spotId: 7,
-      // },
   },
 
   async down (queryInterface, Sequelize) {

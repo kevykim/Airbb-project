@@ -31,24 +31,24 @@ const testBookings = [
     startDate: "2022-10-08",
     endDate: "2022-10-10",
   },
+   {
+     spotId: 6,
+     userId: 6,
+     startDate: "2022-11-08",
+     endDate: "2022-11-10",
+   },
+   {
+     spotId: 7,
+     userId: 7,
+     startDate: "2022-12-08",
+     endDate: "2022-12-10",
+   },
 ];
 
 module.exports = {
   async up (queryInterface, Sequelize) {
    await queryInterface.bulkInsert("Bookings", testBookings);
   
-    //  {
-    //    spotId: 6,
-    //    userId: 6,
-    //    startDate: "2022-11-08",
-    //    endDate: "2022-11-10",
-    //  },
-    //  {
-    //    spotId: 7,
-    //    userId: 7,
-    //    startDate: "2022-12-08",
-    //    endDate: "2022-12-10",
-    //  },
 
   },
 

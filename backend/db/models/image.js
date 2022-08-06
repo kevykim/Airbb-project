@@ -22,7 +22,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     previewImage: { 
       type: DataTypes.BOOLEAN,
-      allowNull: false
+      allowNull: false,
+      defaultValue: true
     },
     spotId: { 
       type: DataTypes.INTEGER,

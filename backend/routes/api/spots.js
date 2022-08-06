@@ -247,17 +247,24 @@ router.get('/:spotId', async (req, res) => {
         ]
     });
 
-    console.log(spot)
-    const reviews = await Review.count({
-        where: {spotId}
-    })
+    // console.log(spot)
+    // const reviews = await Review.count({
+    //     where: {spotId}
+    // })
 
-    const stars = await Review.sum('stars',
-         { where: {spotId}}
-    )
+    // const stars = await Review.sum('stars',
+    //      { where: {spotId}}
+    // )
 
-    console.log(reviews)
-    console.log(stars)
+    const reviewFunctions = await Spot.findByPk(spotId, {
+      include: { model: Review, attributes: [] },
+      attributes: [
+        [sequelize.fn("COUNT", sequelize.col("review")), "numReviews"],
+        [sequelize.fn("AVG", sequelize.col("stars")), "avgStarRating"],
+      ],
+      raw: true,
+    });
+
 
     if(!spot) {
 
@@ -268,9 +275,18 @@ router.get('/:spotId', async (req, res) => {
         })
     }
 
+       let spots = spot.toJSON();
+       spots.numReviews = reviewFunctions.numReviews;
+       if (!reviewFunctions.avgStarRating) {
+         spots.avgStarRating = "This spot does not have any ratings";
+       } else {
+         spots.avgStarRating = Number(reviewFunctions.avgStarRating).toFixed(1);
+       }
+
+
+
     res.json(spot,
-        reviews,
-        stars)
+        spots)
 });
 
 
@@ -377,6 +393,15 @@ router.delete("/:spotId", requireAuth, async (req, res) => {
 
 // Get all Spots
 router.get('/', async (req, res) => {
+ let { page, size, minLat, maxLat, minLng, maxLng, minPrice, maxPrice } =
+   req.query;
+
+ page = parseInt(page);
+ size = parseInt(size);
+
+ if (Number.isNaN(page)) page = 0;
+ if (Number.isNaN(size)) size = 20;
+
     const spots = await Spot.findAll({
       attributes: {
         include: [
@@ -404,33 +429,6 @@ router.get('/', async (req, res) => {
     res.json(spots)
     
 });
-
-
-
-
-  //  const spots = await Spot.findAll({
-  //   attributes: {
-  //     include: [
-  //       [sequelize.fn("AVG", sequelize.col("Reviews.stars")), "avgRating"],
-  //     ],
-  //   },
-  //   include: [
-  //     {
-  //       model: Review,
-  //       attributes: [],
-  //     },
-  //     // attributes: {
-  //     //     exclude: ['review', 'createdAt', 'updatedAt'],
-  //     // },
-
-  //     {
-  //       model: Image,
-  //       attributes: ['url'],
-  //       // ['previewImage']
-  //     },
-  //   ],
-  //   group: ["Spot.id"],
-  // });
 
   
 
