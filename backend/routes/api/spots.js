@@ -389,6 +389,39 @@ router.delete("/:spotId", requireAuth, async (req, res) => {
 });
 
 
+const validateQuery = [
+  check("page")
+  .isInt({ min: 0, max: 10})
+  .withMessage("Page must be greater than or queal to 0"),
+  check("size")
+  .isInt({min: 0, max: 10})
+  .withMessage("Page must be greater than or equal to 0"),
+  check("maxLat")
+  .isDecimal()
+  .optional()
+  .withMessage("Maximum latitude is invalid"),
+  check("minLat")
+  .isDecimal()
+  .optional()
+  .withMessage("Minimum latitude is invalid"),
+  check("maxLng")
+  .isDecimal()
+  .optional()
+  .withMessage("Maximum longitude is invalid"),
+  check("minLng")
+  .isDecimal()
+  .optional()
+  .withMessage("Minimum longitude is invalid"),
+  check("maxPrice")
+  .isDecimal({min: 0})
+  .optional()
+  .withMessage("Maximum price must be greater than or equal to 0"),
+  check("minPrice")
+  .isDecimal({min: 0})
+  .optional()
+  .withMessage("Minimum price must be greater than or equal to 0")
+]
+
 
 // Get all Spots
 router.get('/', async (req, res) => {
