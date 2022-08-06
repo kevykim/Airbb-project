@@ -392,9 +392,11 @@ router.delete("/:spotId", requireAuth, async (req, res) => {
 const validateQuery = [
   check("page")
   .isInt({ min: 0, max: 10})
-  .withMessage("Page must be greater than or queal to 0"),
+  .default(0)
+  .withMessage("Page must be greater than or equal to 0"),
   check("size")
   .isInt({min: 0, max: 10})
+  .default(20)
   .withMessage("Page must be greater than or equal to 0"),
   check("maxLat")
   .isDecimal()
@@ -419,12 +421,13 @@ const validateQuery = [
   check("minPrice")
   .isDecimal({min: 0})
   .optional()
-  .withMessage("Minimum price must be greater than or equal to 0")
+  .withMessage("Minimum price must be greater than or equal to 0"),
+  handleValidationErrors  
 ]
 
 
 // Get all Spots
-router.get('/', async (req, res) => {
+router.get('/', validateQuery, async (req, res) => {
  let { page, size, minLat, maxLat, minLng, maxLng, minPrice, maxPrice } =
    req.query;
 
