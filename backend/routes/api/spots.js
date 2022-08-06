@@ -285,8 +285,7 @@ router.get('/:spotId', async (req, res) => {
 
 
 
-    res.json(spot,
-        spots)
+    res.json(spots)
 });
 
 
