@@ -101,7 +101,7 @@ router.put('/:reviewId', requireAuth, validateReview, async (req, res) => {
     const reviewId = req.params.reviewId
     const editReview = await Review.findByPk(reviewId)
 
-    console.log(reviewId)
+    // console.log(reviewId)
 
     if(!editReview) {
         res.status(404)

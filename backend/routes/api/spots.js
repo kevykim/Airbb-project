@@ -11,49 +11,111 @@ const { Spot, Image, Review, User, Booking, sequelize } = require('../../db/mode
 
 // Get all Spots owned by the Current User
 router.get('/current',  requireAuth, async (req, res) => {
-    const currentUser = req.user.id
-    console.log(currentUser)
-    
+const currentUser = req.user.id
+const currentSpots = await Spot.findAll({
+  where: {
+    ownerId: currentUser,
+  },
+});
+// console.log(currentSpots[0])
 
-    const ownedSpots = await Spot.findAll({
-      where: {
-        ownerId: currentUser,
-      },
-      attributes: {
-        include: [
-          [sequelize.fn("AVG", sequelize.col("stars")), "avgRating"],
-          [sequelize.literal("Images.url"), "previewImage"],
-        ],
-      },
-      include: [
-        {
-          model: Review,
-          attributes: [],
-        },
-      // attributes: {
-      //     exclude: ['review', 'createdAt', 'updatedAt'],
-      // },
+let currentSpot = [];
 
-      {
-        model: Image,
-        attributes: [],
-        // ['previewImage']
-      },
-      ],
-      group: ["Spot.id"],
-    });
-
-    //  if (ownedSpots.ownerId !== currentUser) {
-    //     res.status(403)
-    //     res.json({
-    //         message: "Not authorized",
-    //         statusCode: 403
-    //     });
-    // }
-
-    
-    res.json(ownedSpots)
+for (let spots of currentSpots) {
+  const reviews = await Review.findAll({
+    where: {
+      spotId: spots.id,
+    },
+    attributes: [[sequelize.fn("AVG", sequelize.col("stars")), "avgRating"]],
+    raw: true,
   });
+
+  // console.log(reviews[0])
+
+  let images = await Image.findOne({
+    where: { spotId: spots.id },
+    // attributes: ["url"],
+  });
+
+  // console.log(spots.dataValues)
+
+  let newSpot = {
+    ...spots.dataValues,
+    avgRating: Number(reviews[0].avgRating).toFixed(1),
+    previewImage: images.url,
+  };
+  currentSpot.push(newSpot);
+}
+res.status(200)
+res.json({ Spots: currentSpot });
+
+
+});
+
+    // const currentUser = req.user.id
+    // // console.log(currentUser)
+    
+
+    // const ownedSpots = await Spot.findAll({
+    //   where: {
+    //     ownerId: currentUser,
+    //   },
+    //   // attributes: {
+    //   //   include: [
+    //   //     [sequelize.fn("AVG", sequelize.col("stars")), "avgRating"],
+    //   //     [sequelize.literal("Images.url"), "previewImage"],
+    //   //   ],
+    //   // },
+    //   // include: [
+    //   //   {
+    //   //     model: Review,
+    //   //     attributes: [],
+    //   //   },
+    //   // // attributes: {
+    //   // //     exclude: ['review', 'createdAt', 'updatedAt'],
+    //   // // },
+
+    //   // {
+    //   //   model: Image,
+    //   //   attributes: [],
+    //   //   // ['previewImage']
+    //   // },
+    //   // ],
+    //   // group: ["Spot.id"],
+    // });
+
+    // // let newObj = {}
+    // // let currentSpot = []
+    // // ownedSpots.forEach(spot => {
+    // //   const review =  Review.findAll({
+    // //     where: {
+    // //       spotId: spot.id
+    // //     },
+    // //     attributes: 
+    // //     [
+    // //       [sequelize.fn("AVG", sequelize.col("stars")), "avgRating"],
+    // //     ],
+    // //     raw: true
+    // //   })
+
+    // //   console.log(review.avgRating)
+    // //   const image =  Image.findOne({
+    // //     where: { userId: currentUser },
+    // //   });
+
+    //   // newObj = {
+    //   //   ...spot.dataValues,
+    //   //   avgRating: review[0].avgRating,
+    //   //   previewImage: image.url
+    //   // }
+
+    // // })
+    // // currentSpot.push()
+
+
+    // // res.json({Spots: currentSpot})
+
+  
 
 
   // Get all Bookings for a Spot based on the Spot's id
