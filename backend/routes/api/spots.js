@@ -462,12 +462,12 @@ router.delete("/:spotId", requireAuth, async (req, res) => {
 
 const validateQuery = [
   check("page")
+  .optional()
   .isInt({ min: 0, max: 10})
-  .default(0)
   .withMessage("Page must be greater than or equal to 0"),
   check("size")
+  .optional()
   .isInt({min: 0, max: 10})
-  .default(20)
   .withMessage("Page must be greater than or equal to 0"),
   check("maxLat")
   .isDecimal()
@@ -506,12 +506,15 @@ router.get('/', validateQuery, async (req, res) => {
  page = parseInt(page);
  size = parseInt(size);
 
+ if (!page) page = 0
+ if (!size) size = 20
  if (Number.isNaN(page)) page = 0;
  if (Number.isNaN(size)) size = 20;
- if(page >= 1 && size >= 1) {
+
+
    pagination.limit = size
    pagination.offset = size * (page - 1)
- }
+ 
 
     const allSpots = await Spot.findAll({
       // attributes: {
@@ -572,14 +575,14 @@ router.get('/', validateQuery, async (req, res) => {
       if (!imageUrl) {
         let ratings = {
           ...spots.dataValues,
-          avgRating: avgRating[0].avgRating,
+          avgRating: avgRating[0].avgRating.toFixed(1),
           previewImage: null,
         };
         spot.push(ratings);
       } else {
         let ratings = {
           ...spots.dataValues,
-          avgRating: avgRating[0].avgRating,
+          avgRating: avgRating[0].avgRating.toFixed(1),
           previewImage: imageUrl.url,
         };
         spot.push(ratings);
