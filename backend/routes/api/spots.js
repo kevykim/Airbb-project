@@ -508,9 +508,9 @@ router.get('/', validateQuery, async (req, res) => {
  page = parseInt(page);
  size = parseInt(size);
 
- if (!page) page = 0
+ if (!page) page = 1
  if (!size) size = 20
- if (Number.isNaN(page)) page = 0;
+ if (Number.isNaN(page)) page = 1;
  if (Number.isNaN(size)) size = 20;
 
 
