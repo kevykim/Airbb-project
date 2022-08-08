@@ -88,7 +88,7 @@ router.get('/current',  requireAuth, async (req, res) => {
     // console.log(currentUser)
     // console.log(spot.ownerId)
 
-    res.json(ownedBooking);
+    res.json({Bookings: ownedBooking});
   })
 
 
@@ -144,7 +144,7 @@ handleValidationErrors
         },
       });
 
-      console.log(sameBookingChecker)
+      // console.log(sameBookingChecker)
       // console.log(spotId);
       // console.log(startDate)
 
@@ -269,11 +269,20 @@ router.post('/:spotId/images', requireAuth, async (req, res) => {
 
     const spot = await Spot.findByPk(spotId)
     const { url } = req.body
+
+    if(!spot) {
+        res.status(404)
+        res.json({
+            message: "Spot couldn't be found",
+            statusCode: 404
+        })
+    }
+
     const addImage = await Image.create({
          userId,
          ownerId: userId,
         spotId,
-        reviewId: spotId,
+        // reviewId: spotId,
         url,
         previewImage: true
     });
@@ -286,13 +295,6 @@ router.post('/:spotId/images', requireAuth, async (req, res) => {
     //     })
     // }
 
-    if(!spot) {
-        res.status(404)
-        res.json({
-            message: "Spot couldn't be found",
-            statusCode: 404
-        })
-    }
 
     let image = {}
     image.id = addImage.id
@@ -372,7 +374,7 @@ const validateSpot = [
   check("lat").isDecimal().withMessage("Latitude is not valid"),
   check("lng").isDecimal().withMessage("Longitude is not valid"),
   check("name")
-    .exists({checkFalsy: true})
+    .exists({ checkFalsy: true })
     .isLength({ max: 49 })
     .withMessage("Name must be less than 50 characters"),
   check("description")
@@ -462,12 +464,12 @@ router.delete("/:spotId", requireAuth, async (req, res) => {
 
 const validateQuery = [
   check("page")
+  .optional()
   .isInt({ min: 0, max: 10})
-  .default(0)
   .withMessage("Page must be greater than or equal to 0"),
   check("size")
+  .optional()
   .isInt({min: 0, max: 10})
-  .default(20)
   .withMessage("Page must be greater than or equal to 0"),
   check("maxLat")
   .isDecimal()
@@ -506,12 +508,15 @@ router.get('/', validateQuery, async (req, res) => {
  page = parseInt(page);
  size = parseInt(size);
 
+ if (!page) page = 0
+ if (!size) size = 20
  if (Number.isNaN(page)) page = 0;
  if (Number.isNaN(size)) size = 20;
- if(page >= 1 && size >= 1) {
+
+
    pagination.limit = size
    pagination.offset = size * (page - 1)
- }
+ 
 
     const allSpots = await Spot.findAll({
       // attributes: {
@@ -572,14 +577,14 @@ router.get('/', validateQuery, async (req, res) => {
       if (!imageUrl) {
         let ratings = {
           ...spots.dataValues,
-          avgRating: avgRating[0].avgRating,
+          avgRating: avgRating[0].avgRating.toFixed(1),
           previewImage: null,
         };
         spot.push(ratings);
       } else {
         let ratings = {
           ...spots.dataValues,
-          avgRating: avgRating[0].avgRating,
+          avgRating: avgRating[0].avgRating.toFixed(1),
           previewImage: imageUrl.url,
         };
         spot.push(ratings);
@@ -612,7 +617,7 @@ router.post('/', requireAuth, validateSpot, async (req, res) => {
         price,
     });
 
-    console.log(newSpot)
+    // console.log(newSpot)
 
 
     await newSpot.save();
