@@ -88,7 +88,7 @@ router.get('/current',  requireAuth, async (req, res) => {
     // console.log(currentUser)
     // console.log(spot.ownerId)
 
-    res.json(ownedBooking);
+    res.json({Bookings: ownedBooking});
   })
 
 
