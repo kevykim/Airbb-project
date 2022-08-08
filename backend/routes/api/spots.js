@@ -577,14 +577,14 @@ router.get('/', validateQuery, async (req, res) => {
       if (!imageUrl) {
         let ratings = {
           ...spots.dataValues,
-          avgRating: avgRating[0].avgRating,
+          avgRating: Number(avgRating[0].avgRating).toFixed(1),
           previewImage: null,
         };
         spot.push(ratings);
       } else {
         let ratings = {
           ...spots.dataValues,
-          avgRating: avgRating[0].avgRating,
+          avgRating: Number(avgRating[0].avgRating).toFixed(1),
           previewImage: imageUrl.url,
         };
         spot.push(ratings);
