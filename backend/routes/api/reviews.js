@@ -33,7 +33,55 @@ router.get('/current', requireAuth, async (req, res) => {
     res.json(reviews);
 });
 
-// Add an Image to a Review based on the Review's id FEATURE 4 
+// Add an Image to a Review based on the Review's id  
+router.post('/:reviewId/images', requireAuth, async (req, res) => {
+     const reviewId = req.params.reviewId;
+     const userId = req.user.id;
+
+     const review = await Review.findByPk(reviewId);
+     const { url } = req.body;
+     const addImage = await Image.create({
+       userId,
+       spotId: reviewId,
+       reviewId,
+       url,
+       previewImage: true,
+     });
+
+    //  if (review.ownerId !== userId) {
+    //    res.status(403);
+    //    res.json({
+    //      message: "Cannot add image",
+    //      statusCode: 403,
+    //    });
+    //  }
+
+    console.log(addImage.length)
+    //  if(addImage) {
+    //     res.status(403)
+    //     res.json({
+    //         message: "Maximum number of images for this resource was reached",
+    //         statusCode: 403
+    //     })
+    //  }
+
+     if (!review) {
+       res.status(404);
+       res.json({
+         message: "Review couldn't be found",
+         statusCode: 404,
+       });
+     }
+
+     let image = {};
+     image.id = addImage.id
+     image.imageableId = reviewId;
+     image.url = addImage.url;
+     // image.previewImage = true
+
+     res.json(image);
+})
+
 
 
 const validateReview = [
@@ -65,7 +113,7 @@ router.put('/:reviewId', requireAuth, validateReview, async (req, res) => {
     editReview.review = review
     editReview.stars = stars
 
-    console.log(editReview)
+    // console.log(editReview)
     await editReview.save();
     res.status(200)
     res.json(editReview)
