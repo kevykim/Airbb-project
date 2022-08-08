@@ -277,7 +277,7 @@ router.post('/:spotId/images', requireAuth, async (req, res) => {
             statusCode: 404
         })
     }
-    
+
     const addImage = await Image.create({
          userId,
          ownerId: userId,
@@ -374,7 +374,7 @@ const validateSpot = [
   check("lat").isDecimal().withMessage("Latitude is not valid"),
   check("lng").isDecimal().withMessage("Longitude is not valid"),
   check("name")
-    .exists({checkFalsy: true})
+    .exists({ checkFalsy: true })
     .isLength({ max: 49 })
     .withMessage("Name must be less than 50 characters"),
   check("description")
