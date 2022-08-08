@@ -56,14 +56,14 @@ router.post('/:reviewId/images', requireAuth, async (req, res) => {
     //    });
     //  }
 
-    console.log(addImage)
-     if(addImage.id > 10) {
-        res.status(403)
-        res.json({
-            message: "Maximum number of images for this resource was reached",
-            statusCode: 403
-        })
-     }
+    console.log(addImage.length)
+    //  if(addImage) {
+    //     res.status(403)
+    //     res.json({
+    //         message: "Maximum number of images for this resource was reached",
+    //         statusCode: 403
+    //     })
+    //  }
 
      if (!review) {
        res.status(404);
@@ -113,7 +113,7 @@ router.put('/:reviewId', requireAuth, validateReview, async (req, res) => {
     editReview.review = review
     editReview.stars = stars
 
-    console.log(editReview)
+    // console.log(editReview)
     await editReview.save();
     res.status(200)
     res.json(editReview)

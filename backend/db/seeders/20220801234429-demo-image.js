@@ -9,20 +9,20 @@ const testImages = [
     reviewId: 1,
     userId: 1,
   },
-  {
-    url: "testweb",
-    previewImage: true,
-    spotId: 2,
-    reviewId: 2,
-    userId: 2,
-  },
-  {
-    url: "testsite",
-    previewImage: false,
-    spotId: 3,
-    reviewId: 3,
-    userId: 3,
-  },
+  // {
+  //   url: "testweb",
+  //   previewImage: true,
+  //   spotId: 2,
+  //   reviewId: 2,
+  //   userId: 2,
+  // },
+  // {
+  //   url: "testsite",
+  //   previewImage: false,
+  //   spotId: 3,
+  //   reviewId: 3,
+  //   userId: 3,
+  // },
   {
     url: "memory",
     previewImage: true,
@@ -33,23 +33,16 @@ const testImages = [
   {
     url: "wonder",
     previewImage: true,
-    spotId: 6,
+    spotId: 5,
     reviewId: 5,
-    userId: 6,
+    userId: 4,
   },
   {
-    url: "creation",
+    url: "cool",
     previewImage: true,
     spotId: 6,
     reviewId: 6,
-    userId: 6,
-  },
-  {
-    url: "apple",
-    previewImage: true,
-    spotId: 7,
-    reviewId: 7,
-    userId: 7,
+    userId: 4,
   },
 ];
 
