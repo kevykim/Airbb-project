@@ -40,6 +40,14 @@ router.post('/:reviewId/images', requireAuth, async (req, res) => {
 
      const review = await Review.findByPk(reviewId);
      const { url } = req.body;
+     
+     if (!review) {
+       res.status(404);
+       res.json({
+         message: "Review couldn't be found",
+         statusCode: 404,
+       });
+     }
      const addImage = await Image.create({
        userId,
        spotId: reviewId,
@@ -56,7 +64,7 @@ router.post('/:reviewId/images', requireAuth, async (req, res) => {
     //    });
     //  }
 
-    console.log(addImage.length)
+    // console.log(addImage.length)
      if(addImage.length < 10) {
         res.status(403)
         res.json({
@@ -65,13 +73,6 @@ router.post('/:reviewId/images', requireAuth, async (req, res) => {
         })
      }
 
-     if (!review) {
-       res.status(404);
-       res.json({
-         message: "Review couldn't be found",
-         statusCode: 404,
-       });
-     }
 
      let image = {};
      image.id = addImage.id
