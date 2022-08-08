@@ -144,7 +144,7 @@ handleValidationErrors
         },
       });
 
-      console.log(sameBookingChecker)
+      // console.log(sameBookingChecker)
       // console.log(spotId);
       // console.log(startDate)
 
@@ -612,7 +612,7 @@ router.post('/', requireAuth, validateSpot, async (req, res) => {
         price,
     });
 
-    console.log(newSpot)
+    // console.log(newSpot)
 
 
     await newSpot.save();
