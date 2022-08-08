@@ -20,6 +20,23 @@ const validateLogin = [
   handleValidationErrors,
 ];
 
+
+// Current User
+router.get("/", requireAuth, async (req, res) => {
+
+  // console.log(req.user)
+  res.json({
+    id : req.user.id,
+    firstName: req.user.firstName,
+    lastName: req.user.lastName,
+    email: req.user.email,
+    username: req.user.username
+    // token: req.cookies.token
+    // What is token?? 
+  })
+});
+
+
 // Log in
 router.post('/', validateLogin, async (req, res, next) => {
     const { credential, password } = req.body;
@@ -34,8 +51,8 @@ router.post('/', validateLogin, async (req, res, next) => {
       return next(err);
     };
 
-    await setTokenCookie(res, user);
-
+    const token = await setTokenCookie(res, user);
+    user.dataValues.token = token
     return res.json({user});
   }
 );

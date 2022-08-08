@@ -13,11 +13,24 @@ router.get('/current', requireAuth, async (req, res) => {
     const currentUser = req.user.id
     const bookings = await Booking.findAll({
         where: { userId: currentUser },
-        include: [{model:Spot}]
+        include: {model: Spot, attributes: {exclude: ['createdAt', 'updatedAt']}},
     });
 
+    const image = await Image.findOne({
+        where: {userId: currentUser}
+    })
+
+    let images = []
+    
+    bookings.forEach(el => {
+        let booking = el.toJSON()
+        booking.Spot.previewImage = image.dataValues.url
+        images.push(booking)
+    })
+
+      
     res.status(200)
-    res.json(bookings)
+    res.json(images)
 
 });
 
@@ -39,9 +52,16 @@ router.put('/:bookingId', requireAuth, validateBooking, async (req, res) => {
 
     const booking = await Booking.findByPk(bookingId)
 
-    console.log(booking.endDate)
-    console.log(new Date())
-    console.log(new Date().toISOString().slice(0, 10));
+    // console.log(booking.endDate)
+    // console.log(new Date())
+    // console.log(new Date().toISOString().slice(0, 10));
+    if(!booking) {
+        res.status(404)
+        res.json({
+            message: "Booking couldn't be found",
+            statusCode: 404
+        })
+    };
 
     if (endDate < startDate) {
         res.status(400)
@@ -51,7 +71,9 @@ router.put('/:bookingId', requireAuth, validateBooking, async (req, res) => {
         })
     }
 
-    if(new Date() > endDate) {
+    // console.log(new Date())
+    // console.log(endDate)
+    if(new Date() > new Date(endDate) || new Date() > new Date (startDate) || startDate > endDate) {
         res.status(403)
         res.json({
             message: "Past bookings can't be modified",
@@ -59,13 +81,8 @@ router.put('/:bookingId', requireAuth, validateBooking, async (req, res) => {
         })
     }
 
-    if(!booking) {
-        res.status(404)
-        res.json({
-            message: "Booking couldn't be found",
-            statusCode: 404
-        })
-    };
+
+  
 
     booking.startDate = startDate
     booking.endDate = endDate
@@ -89,6 +106,21 @@ router.delete('/:bookingId', requireAuth, async (req, res) => {
         })
     };
 
+    if (new Date() > booking.startDate) {
+        res.status(403)
+        res.json({
+            message: "Bookings that have been started can't be deleted",
+            statusCode: 403
+        })
+    }
+
+     if(new Date() > new Date(booking.endDate) || new Date() > new Date (booking.startDate) || booking.startDate > booking.endDate) {
+        res.status(403)
+        res.json({
+            message: "Past bookings can't be modified",
+            statusCode: 403
+        })
+    }
 
     booking.destroy();
     res.json({
