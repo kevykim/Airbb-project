@@ -63,7 +63,7 @@ router.post('/', validateSignup, async (req, res) => {
     
     if(duplicateEmail) {
       res.status(403)
-      res.json({
+      return res.json({
         message: "User with that email already exists",
         statusCode: 403
       })
@@ -75,7 +75,7 @@ router.post('/', validateSignup, async (req, res) => {
 
     if(duplicateUsername) {
       res.status(403)
-      res.json({
+      return res.json({
         message: "User with that username already exists",
         statusCode: 403
       })
