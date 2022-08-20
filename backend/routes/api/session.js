@@ -22,19 +22,19 @@ const validateLogin = [
 
 
 // Current User
-router.get("/", requireAuth, async (req, res) => {
+// router.get("/", requireAuth, async (req, res) => {
 
-  // console.log(req.user)
-  res.json({
-    id : req.user.id,
-    firstName: req.user.firstName,
-    lastName: req.user.lastName,
-    email: req.user.email,
-    username: req.user.username
-    // token: req.cookies.token
-    // What is token?? 
-  })
-});
+//   // console.log(req.user)
+//   res.json({
+//     id : req.user.id,
+//     firstName: req.user.firstName,
+//     lastName: req.user.lastName,
+//     email: req.user.email,
+//     username: req.user.username
+//     // token: req.cookies.token
+//     // What is token?? 
+//   })
+// });
 
 
 // Log in
@@ -74,7 +74,7 @@ router.get('/',restoreUser, (req, res) => {
       return res.json({
         user: user.toSafeObject()
       });
-    } else return res.json({});
+    } else return res.json(null);
   }
 );
 
