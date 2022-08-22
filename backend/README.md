@@ -5,7 +5,7 @@
 
 
 
-![airbnb-database-schema](./backend/assets/airbnb_dbdiagram.png)
+![airbnb-database-schema](./assets/airbnb_dbdiagram.png)
 
 
 ## API Documentation
