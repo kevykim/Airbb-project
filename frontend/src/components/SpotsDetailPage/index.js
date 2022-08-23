@@ -30,10 +30,12 @@ const SpotsDetailPage = () => {
         {/* A NAV LINK TO REVIEWS FOR THAT SPOT */}
         <div>{`${test.city}, ${test.state}, ${test.country}`}</div>
 
+        { test.Images &&
          <div>
-          {/* <img src={test.Images[0].url} alt="House test" width="250" height="250"></img> */}
+          <img src={test.Images[0].url} alt="House test" width="250" height="250"></img>
           {/* {image} */}
         </div> 
+        }
 
         <div>{test.description}</div>
 
