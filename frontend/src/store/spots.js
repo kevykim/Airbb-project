@@ -73,6 +73,7 @@ export const getSpots = () => async dispatch => {
 
 export const getASpot = (id) => async dispatch => {
     const response = await csrfFetch(`/api/spots/${id}`)
+    console.log('thunk',id)
     // console.log('Thunk', response)
     const data = await response.json()
     dispatch(oneSpot(data))
