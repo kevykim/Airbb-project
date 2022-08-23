@@ -6,8 +6,8 @@ module.exports = {
       {
         ownerId: 1,
         address: "7151 Apple Lane",
-        city: "Irvinea",
-        state: "Californiac",
+        city: "Los Angeles",
+        state: "California",
         country: "United States Of America",
         lat: 30.1405918,
         lng: -194.2930915,
@@ -18,8 +18,8 @@ module.exports = {
       {
         ownerId: 2,
         address: "711 Peach Lane",
-        city: "Irvined",
-        state: "Californiav",
+        city: "Pasadena",
+        state: "California",
         country: "United States Of America",
         lat: 35.1245918,
         lng: -144.2435915,
