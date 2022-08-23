@@ -1,6 +1,9 @@
+import { csrfFetch } from "./csrf"
+
 // TYPES
 const createASpot = '/spots/createASpot'
 const getAllSpots = '/spots/getAllSpots' //technically READ
+const getOneSpot = '/spots/getOneSpot'
 const updateASpot = '/spots/updateASpot'
 const deleteASpot = '/spots/deleteASpot'
 
@@ -17,6 +20,13 @@ const allSpots = (spots) => {
     return {
         type: getAllSpots,
         spots
+    }
+}
+
+const oneSpot = (spot) => {
+    return {
+        type: getOneSpot,
+        spot
     }
 }
 
@@ -37,7 +47,7 @@ const deleteSpot = (id) => {
 
 // THUNK ACTION CREATORS
 export const createSpots = (payload) => async dispatch => {
-    const response = await fetch('/api/spots', {
+    const response = await csrfFetch('/api/spots', {
         method: 'POST',
         header: {'Content-Type':'application/json'},
         body: JSON.stringify(payload)
@@ -52,7 +62,7 @@ export const createSpots = (payload) => async dispatch => {
 }
 
 export const getSpots = () => async dispatch => {
-    const response = await fetch ('/api/spots')
+    const response = await csrfFetch('/api/spots')
 
     if (response.ok) {
         const data = await response.json()
@@ -61,8 +71,15 @@ export const getSpots = () => async dispatch => {
     }
 }
 
+export const getASpot = (id) => async dispatch => {
+    const response = await csrfFetch(`/api/spots/${id}`)
+    // console.log('Thunk', response)
+    const data = await response.json()
+    dispatch(oneSpot(data))
+}
+
 export const editSpots = (payload) => async dispatch => {
-    const response = await fetch (`/api/spots/${payload.id}`, {
+    const response = await csrfFetch(`/api/spots/${payload.id}`, {
         method: 'PUT',
         header: {'Content-Type':'application/json'},
         body: JSON.stringify(payload)
@@ -75,7 +92,7 @@ export const editSpots = (payload) => async dispatch => {
 }
 
 export const deleteSpots = (payload) => async dispatch => {
-    const response = await fetch(`/api/items/${payload}`, {
+    const response = await csrfFetch(`/api/items/${payload}`, {
         method: 'DELETE'
     })
     if (response.ok) {
@@ -99,6 +116,10 @@ const spotReducer = (state = initalState, action) => {
             action.spots.forEach(spots => {
                 newState[spots.id] = spots
             })
+            return newState
+        case getOneSpot:
+            newState[action.spot.id] = action.spot
+            // console.log('where', action.spot)
             return newState
         case updateASpot:
             const updatedCopy = {...state[action.spots.id]}

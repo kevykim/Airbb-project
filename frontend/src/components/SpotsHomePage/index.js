@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getSpots } from '../../store/spots';
 // import { useParams } from 'react-router-dom'
@@ -21,9 +21,9 @@ const SpotsHomePage = () => {
     const spotsWork = spots.map((spot) => (
         <div key={spot.id}>
           <h1>image placeholders for now</h1>
-          <NavLink to={`/api/spots/${spot.id}`}>
+          <NavLink to={`/spots/${spot.id}`}>
         <img
-          src="https://images.pexels.com/photos/2640604/pexels-photo-2640604.jpeg?cs=srgb&dl=pexels-david-gonzales-2640604.jpg&fm=jpg"
+          src={spot.previewImage}
           alt="House test"
           width="250"
           height="250"
@@ -37,7 +37,7 @@ const SpotsHomePage = () => {
 
     const dispatch = useDispatch();
 
-    console.log(spots)
+    // console.log(spots)
 
     useEffect(() => {
         dispatch(getSpots())
