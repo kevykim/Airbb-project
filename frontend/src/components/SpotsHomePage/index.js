@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getSpots } from '../../store/spots';
 // import { useParams } from 'react-router-dom'
 
+
+
 import {NavLink} from 'react-router-dom'
 
 import './SpotsHomePage.css'
@@ -13,6 +15,7 @@ import './SpotsHomePage.css'
 const SpotsHomePage = () => {
     // const { id } = useParams()
     // console.log('id', id)
+    // const review = useSelector((state) => state.review)
     const allSpot = useSelector((state) => state.spot)
     // console.log('component', allSpot)
     const spots = Object.values(allSpot)
@@ -41,6 +44,8 @@ const SpotsHomePage = () => {
     const dispatch = useDispatch();
 
     // console.log(spots)
+
+    
 
     useEffect(() => {
         dispatch(getSpots())

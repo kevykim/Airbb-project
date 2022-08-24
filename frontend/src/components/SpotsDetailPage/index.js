@@ -2,8 +2,10 @@
 import { useDispatch, useSelector } from "react-redux";
     import { useParams } from "react-router-dom";
 import { getASpot } from "../../store/spots";
+import ReviewsReadPage from "../ReviewsReadPage";
 import SpotsDeletePage from "../SpotsDeletePage";
 import SpotsUpdatePage from "../SpotsUpdatePage";
+
 import './SpotsDetailPage.css'
 
 
@@ -24,8 +26,8 @@ const SpotsDetailPage = () => {
     //  const state = useSelector(state => console.log(state))
     //  console.log(user.user.id)
     //  console.log('WHO ARE YOU',test.ownerId)
-    
-    
+
+
     
     useEffect(() => {
       dispatch(getASpot(id))
@@ -55,6 +57,7 @@ const SpotsDetailPage = () => {
     
             <div>{test.avgStarRating}</div>
             {/* reviews  */}
+            < ReviewsReadPage />
           </div>
         )}
 
