@@ -30,10 +30,10 @@ const oneSpot = (spot) => {
     }
 }
 
-const editSpot = (spots) => {
+const editSpot = (spot) => {
     return {
         type: updateASpot,
-        spots
+        spot
     }
 }
 
@@ -73,21 +73,21 @@ export const getSpots = () => async dispatch => {
 
 export const getASpot = (id) => async dispatch => {
     const response = await csrfFetch(`/api/spots/${id}`)
-    console.log('thunk',id)
+    // console.log('thunk',id)
     // console.log('Thunk', response)
     const data = await response.json()
     dispatch(oneSpot(data))
 }
 
-export const editSpots = (payload) => async dispatch => {
-    const response = await csrfFetch(`/api/spots/${payload.id}`, {
+export const editSpots = (payload, id) => async dispatch => {
+    const response = await csrfFetch(`/api/spots/${id}`, {
         method: 'PUT',
         header: {'Content-Type':'application/json'},
         body: JSON.stringify(payload)
     })
     if (response.ok) {
       const data = await response.json()
-      dispatch(editSpot(payload))
+      dispatch(editSpot(data))
       return data  
     }
 }
@@ -123,8 +123,8 @@ const spotReducer = (state = initalState, action) => {
             // console.log('where', action.spot)
             return newState
         case updateASpot:
-            const updatedCopy = {...state[action.spots.id]}
-            newState[action.spots.id] = updatedCopy
+            // const updatedCopy = {...state[action.spot.id]}
+            newState[action.spot.id] = action.spot
             return newState
         case deleteASpot:
             delete newState[action.id]

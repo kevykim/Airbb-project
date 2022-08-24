@@ -20,7 +20,8 @@ const SpotsHomePage = () => {
     // const city = spots.map(spot => spot.city)
     const spotsWork = spots.map((spot) => (
         <div key={spot.id}>
-          <h1>image placeholders for now</h1>
+        <div>
+          
           <NavLink to={`/spots/${spot.id}`}>
         <img
           src={spot.previewImage}
@@ -29,6 +30,8 @@ const SpotsHomePage = () => {
           height="250"
         ></img>
           </NavLink>
+        </div>
+
         <div>{`${spot.city}, ${spot.state}`}</div>
         <div>{spot.avgRating}</div>
         <div>{`$${spot.price} night`}</div>

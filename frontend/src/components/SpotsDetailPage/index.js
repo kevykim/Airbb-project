@@ -2,12 +2,13 @@
 import { useDispatch, useSelector } from "react-redux";
     import { useParams } from "react-router-dom";
 import { getASpot } from "../../store/spots";
+import SpotsUpdatePage from "../SpotsUpdatePage";
 import './SpotsDetailPage.css'
 
 
 const SpotsDetailPage = () => {
      const {id} = useParams()
-     console.log('id', id)
+    //  console.log('id', id)
      const dispatch = useDispatch()
 
     // const test2 = useSelector(state => state.spot[id].Images)
@@ -18,7 +19,11 @@ const SpotsDetailPage = () => {
 
 
      const test = useSelector(state => state.spot[id])
-     console.log('WHO ARE YOU',test)
+     const user = useSelector(state => state.session.user)
+    //  const state = useSelector(state => console.log(state))
+     console.log(user.user.id)
+     console.log('WHO ARE YOU',test.ownerId)
+
 
      useEffect(() => {
         dispatch(getASpot(id))
@@ -41,6 +46,9 @@ const SpotsDetailPage = () => {
 
         <div>{test.avgStarRating}</div>
         {/* reviews  */}
+        {user.user.id === test.ownerId && (
+          < SpotsUpdatePage />
+        )}
       </>
     );
 }
