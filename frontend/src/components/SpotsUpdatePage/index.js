@@ -15,7 +15,7 @@ const SpotsUpdatePage = () => {
    const dispatch = useDispatch()
 
 //    const spot = useSelector(state => state.spot)
-    console.log('updatepage',spot)
+    // console.log('updatepage',spot)
 
    const [address, setAddress] = useState(spot.address) // address 
    const [city, setCity] = useState (spot.city)//city

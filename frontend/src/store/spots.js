@@ -92,14 +92,14 @@ export const editSpots = (payload, id) => async dispatch => {
     }
 }
 
-export const deleteSpots = (payload) => async dispatch => {
-    const response = await csrfFetch(`/api/items/${payload}`, {
+export const deleteSpots = (id) => async dispatch => {
+    const response = await csrfFetch(`/api/spots/${id}`, {
         method: 'DELETE'
     })
     if (response.ok) {
-        const removal = await response.json()
-        dispatch(deleteSpot(payload))
-        return removal
+        // const removal = await response.json()
+        dispatch(deleteSpot(id))
+        // return removal
     }
 }
 

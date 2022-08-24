@@ -2,6 +2,7 @@
 import { useDispatch, useSelector } from "react-redux";
     import { useParams } from "react-router-dom";
 import { getASpot } from "../../store/spots";
+import SpotsDeletePage from "../SpotsDeletePage";
 import SpotsUpdatePage from "../SpotsUpdatePage";
 import './SpotsDetailPage.css'
 
@@ -58,7 +59,10 @@ const SpotsDetailPage = () => {
         )}
 
         {user?.user.id === test?.ownerId && (
-          < SpotsUpdatePage />
+            <div>
+              < SpotsUpdatePage />
+              < SpotsDeletePage />
+            </div>
         )} 
       </>
     );
