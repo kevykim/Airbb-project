@@ -16,41 +16,53 @@ const SpotsDetailPage = () => {
     //   <img src={image.url} alt="House test" width="250" height="250"></img>
     // ));
     // console.log('WHERE ARE YOU', test2)
-
-
-     const test = useSelector(state => state.spot[id])
-     const user = useSelector(state => state.session.user)
+    
+    
+    const test = useSelector(state => state.spot[id])
+    const user = useSelector(state => state.session.user)
     //  const state = useSelector(state => console.log(state))
-     console.log(user.user.id)
-     console.log('WHO ARE YOU',test.ownerId)
-
-
-     useEffect(() => {
-        dispatch(getASpot(id))
-     }, [dispatch, id])
+    //  console.log(user.user.id)
+    //  console.log('WHO ARE YOU',test.ownerId)
+    
+    
+    
+    useEffect(() => {
+      dispatch(getASpot(id))
+    }, [dispatch, id])
+    
+    
+    // if (!user) {
+    //   return 
+    // }
     return (
       <>
-        <div>{test.name}</div>
-        <div>{test.avgStarRating}</div>
-        {/* A NAV LINK TO REVIEWS FOR THAT SPOT */}
-        <div>{`${test.city}, ${test.state}, ${test.country}`}</div>
-
-        { test.Images &&
-         <div>
-          <img src={test.Images[0].url} alt="House test" width="250" height="250"></img>
-          {/* {image} */}
-        </div> 
-        }
-
-        <div>{test.description}</div>
-
-        <div>{test.avgStarRating}</div>
-        {/* reviews  */}
-        {user.user.id === test.ownerId && (
-          < SpotsUpdatePage />
+        {test && (
+          <div> 
+            <div>{test.name}</div>
+            <div>{test.avgStarRating}</div>
+            {/* A NAV LINK TO REVIEWS FOR THAT SPOT */}
+            <div>{`${test.city}, ${test.state}, ${test.country}`}</div>
+    
+            { test.Images &&
+             <div>
+              <img src={test.Images[0].url} alt="House test" width="250" height="250"></img>
+              {/* {image} */}
+            </div> 
+            }
+    
+            <div>{test.description}</div>
+    
+            <div>{test.avgStarRating}</div>
+            {/* reviews  */}
+          </div>
         )}
+
+        {user?.user.id === test?.ownerId && (
+          < SpotsUpdatePage />
+        )} 
       </>
     );
+    
 }
 
 
