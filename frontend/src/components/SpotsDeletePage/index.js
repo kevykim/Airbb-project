@@ -12,13 +12,17 @@ const SpotsDeletePage = () => {
     const history = useHistory();
     const spot = useSelector(state => state.spot[id])
         // console.log('this is spot', Number(spot.id) === Number(id))
-    const onClick = (event) => {
+    const onClick = async (event) => {
         event.preventDefault()
-        dispatch(deleteSpots(Number(spot.id)))
+        await dispatch(deleteSpots(Number(spot.id)))
         history.push('/')
     }
 
-    
+    // Async and await works! Look into race conditions. 
+    // Will useEffect work instead of event.preventDefault?
+
+
+
     return (
         <button onClick={onClick}>Delete Spot</button>
     )

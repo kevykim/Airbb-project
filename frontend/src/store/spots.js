@@ -128,6 +128,8 @@ const spotReducer = (state = initalState, action) => {
             return newState
         case deleteASpot:
             delete newState[action.id]
+            //console.log(newState)
+            //console.log(action)
             return newState
         default:
         return state
