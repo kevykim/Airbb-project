@@ -2,7 +2,7 @@
 import { useDispatch, useSelector } from "react-redux";
     import { useParams } from "react-router-dom";
 import { getASpot } from "../../store/spots";
-
+import './SpotsDetailPage.css'
 
 
 const SpotsDetailPage = () => {
@@ -40,7 +40,7 @@ const SpotsDetailPage = () => {
         <div>{test.description}</div>
 
         <div>{test.avgStarRating}</div>
-        {/* SHOW ALL REVIEWS BUTTON */}
+        {/* reviews  */}
       </>
     );
 }
