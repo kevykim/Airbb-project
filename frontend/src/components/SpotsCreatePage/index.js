@@ -35,7 +35,7 @@ const SpotsCreatePage = () => {
     if (lng % 1 !== 0 || !lng.length) errors.push('Please enter valid longitude')
     if (!name.length) errors.push('Please enter a name for your spot!')
     if (description.length > 200) errors.push('Please shorten description')
-    if (!isNaN(price)) errors.push('Please add an valid price')
+    if (isNaN(price)) errors.push('Please add an valid price')
     setValidationErrors(errors)
    },[address, city, state, country, lat, lng, name, description, price])
 
