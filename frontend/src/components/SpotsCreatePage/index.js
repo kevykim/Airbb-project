@@ -1,26 +1,59 @@
 import { useState, useEffect } from 'react'
-
+import { useDispatch, useSelector } from 'react-redux'
+import { useHistory } from 'react-router-dom'
+import { createSpots } from '../../store/spots'
 
 import './SpotsCreatePage.css'
 
 
 
 const SpotsCreatePage = () => {
+   const history = useHistory()
+   const dispatch = useDispatch()
+
+//    const spot = useSelector(state => state.spot)
+
+
    const [address, setAddress] = useState('') // address 
    const [city, setCity] = useState ('')//city
    const [state, setState] = useState('') // state
    const [country, setCountry] = useState('') // country
-    // lat
-    // lng
+   const [lat, setLat] = useState(0) // lat
+   const [lng, setLng] = useState(0) // lng
    const [name, setName] = useState('') // name
    const [description, setDescription] = useState('') // description
    const [price, setPrice] = useState(0) // price
 
 
+   const handleSubmit = async (event) => {
+    event.preventDefault()
+
+
+
+        const payload = {
+            address,
+            city,
+            state,
+            country,
+            lat,
+            lng,
+            name,
+            description,
+            price
+        }
+
+
+        let createdSpot = await dispatch(createSpots(payload)) 
+    
+        if (createdSpot) {
+            history.push(`/spots/${createdSpot.id}`)
+        }
+   }
+
     return (
       <div>
         <h1>Create a Spot</h1>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div>
             <input
               type="text"
@@ -50,7 +83,7 @@ const SpotsCreatePage = () => {
               onChange={(event) => setCountry(event.target.value)}
               required
             />
-            {/* <input
+            <input
               type="text"
               placeholder="Lat"
               value={lat}
@@ -63,7 +96,7 @@ const SpotsCreatePage = () => {
               value={lng}
               onChange={(event) => setLng(event.target.value)}
               required
-            /> */}
+            />
             <input
               type="text"
               placeholder="Name of place"
