@@ -7,10 +7,10 @@ import "./Navigation.css";
 
 function Navigation({ isLoaded }) {
   const sessionUser = useSelector((state) => state.session.user);
-
+  
   let sessionLinks;
   if (sessionUser) {
-    sessionLinks = <ProfileButton user={sessionUser} />;
+    sessionLinks = <ProfileButton user={sessionUser} />;          
   } else {
     sessionLinks = (
       <>
@@ -26,6 +26,11 @@ function Navigation({ isLoaded }) {
         <NavLink exact to="/">
           Home
         </NavLink>
+        {sessionUser && (
+          <NavLink exact to="/spots">
+                     Create Spot
+         </NavLink>
+        )}
         {isLoaded && sessionLinks}
       </li>
     </ul>
