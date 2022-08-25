@@ -7,11 +7,12 @@ const deleteAReview = '/reviews/deleteAReview'
 
 
 // ACTION CREATORS 
-const createReview = (review, id) => {
+const createReview = (review, spotId) => {
     return {
         type: createAReview,
         review,
-        id
+        spotId
+        
     }
 }
 
@@ -31,8 +32,9 @@ const deleteReview = (id) => {
 
 // THUNK ACTION CREATORS
 
-export const thunkCreateReview = (payload, id) => async dispatch => {
-    const response = await csrfFetch(`/api/spots/${id}/reviews`, {
+export const thunkCreateReview = (payload) => async dispatch => {
+    console.log('review create  thunk',payload.spotId)
+    const response = await csrfFetch(`/api/spots/${payload.spotId}/reviews`, {
         method: 'POST',
         header: {'Content-Type':'application/json'},
         body: JSON.stringify(payload)

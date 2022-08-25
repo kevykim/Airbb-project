@@ -1,16 +1,19 @@
 
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import './ReviewsCreatePage.css'
 import { useState, useEffect } from 'react';
 import { thunkCreateReview } from '../../store/reviews';
+import ReviewsReadPage from '../ReviewsReadPage';
 
 const ReviewsCreatePage = () => {
     const {id} = useParams()
     const history = useHistory()
     // console.log(id)
     const dispatch = useDispatch()
+
+    const user = useSelector(state => state.session)
 
     const [rating, setRating] = useState(0)
     const [reviewText, setReviewText] = useState('')
@@ -27,11 +30,16 @@ const ReviewsCreatePage = () => {
         event.preventDefault();
 
         const payload = {
-            rating,
-            reviewText
+            review: reviewText,
+            stars: rating,
+            userId: user?.user.id,
+            spotId: id,
+
         }
 
         let createdReview = await dispatch(thunkCreateReview(payload, id))
+
+        // await dispatch(ReviewsReadPage(id))
 
         if (createdReview) {
             history.push(`/spots/${id}`)
