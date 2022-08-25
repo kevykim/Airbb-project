@@ -5,7 +5,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import './ReviewsCreatePage.css'
 import { useState, useEffect } from 'react';
 import { thunkCreateReview } from '../../store/reviews';
-import ReviewsReadPage from '../ReviewsReadPage';
+// import ReviewsReadPage from '../ReviewsReadPage';
 
 const ReviewsCreatePage = () => {
     const {id} = useParams()

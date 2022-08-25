@@ -1,18 +1,24 @@
-import { useDispatch, useSelector } from "react-redux";
-import { login } from "../../store/session";
+import { useDispatch } from "react-redux";
+// import { login } from "../../store/session";
+import { thunkDemoUser } from "../../store/session";
 
 const DemoUser = () => {
     const dispatch = useDispatch()
-    const user = useSelector(state => state)
+    // const user = useSelector(state => state.session)
+    // console.log(user)
 
-    const username = 'Demo-lition'
-    const password = 'password'
-    console.log(user)
+    // const username = 'Demo-lition'
+    // const password = 'password'
+    // console.log(user)
 
-    const payload = {username, password}
+    // const payload = {
+    //     username: 'Demo-lition',
+    //     password: 'password'
+    //     }
      const onClick = async (event) => {
-       event.preventDefault();
-    await dispatch(login( payload))
+    //    event.preventDefault();
+    // await dispatch(login())
+    await dispatch(thunkDemoUser())
         
      }
 
