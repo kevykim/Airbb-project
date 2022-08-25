@@ -40,33 +40,38 @@ const SpotsDetailPage = () => {
     return (
       <>
         {test && (
-          <div> 
+          <div>
             <div>{test.name}</div>
             <div>{test.avgStarRating}</div>
             {/* A NAV LINK TO REVIEWS FOR THAT SPOT */}
             <div>{`${test.city}, ${test.state}, ${test.country}`}</div>
-    
-            { test.Images &&
-             <div>
-              <img src={test.Images[0].url} alt="House test" width="250" height="250"></img>
-              {/* {image} */}
-            </div> 
-            }
-    
+
+            {test.Images && (
+              <div>
+                <img
+                  src={test.Images[0].url}
+                  alt="House test"
+                  width="250"
+                  height="250"
+                ></img>
+                {/* {image} */}
+              </div>
+            )}
+
             <div>{test.description}</div>
-    
+
             <div>{test.avgStarRating}</div>
             {/* reviews  */}
-            < ReviewsReadPage />
+            <ReviewsReadPage />
           </div>
         )}
 
         {user?.user.id === test?.ownerId && (
-            <div>
-              < SpotsUpdatePage />
-              < SpotsDeletePage />
-            </div>
-        )} 
+          <div>
+            <SpotsUpdatePage />
+            <SpotsDeletePage />
+          </div>
+        )}
       </>
     );
     

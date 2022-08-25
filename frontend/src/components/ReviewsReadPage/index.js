@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { thunkReadReview } from '../../store/reviews';
 import ReviewsCreatePage from '../ReviewsCreatePage';
+import ReviewsDeletePage from '../ReviewsDeletePage';
 
 
 import './ReviewsReadPage.css'
@@ -33,8 +34,10 @@ const ReviewsReadPage = () => {
             <div>{`${user?.User?.firstName}`}</div>
             <div>{review?.review}</div>
             {owner?.user?.user && (
-                <ReviewsCreatePage />
-                // DELETE REVIEW
+                <div>
+                    <ReviewsCreatePage />
+                    <ReviewsDeletePage />
+                </div>
                 )}
                 
                 
