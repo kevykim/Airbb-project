@@ -7,10 +7,11 @@ const deleteAReview = '/reviews/deleteAReview'
 
 
 // ACTION CREATORS 
-const createReview = (review) => {
+const createReview = (review, id) => {
     return {
         type: createAReview,
-        review
+        review,
+        id
     }
 }
 
@@ -36,13 +37,12 @@ export const thunkCreateReview = (payload, id) => async dispatch => {
         header: {'Content-Type':'application/json'},
         body: JSON.stringify(payload)
     });
+    console.log('create payload', response)
     if (response.ok) {
         const data = await response.json()
         dispatch(createReview(data))
-        return data
-    } else {
-        return response.json()
-    }
+
+    } 
 }
 
 export const thunkReadReview = (id) => async dispatch => {
@@ -73,6 +73,7 @@ const reviewReducer = (state = initialState, action) => {
     switch (action.type) {
         case createAReview:
             newState[action.review.id] = action.review
+            // console.log(action.review)
             return newState
         case readReview:
             action.reviews.forEach(review => {
