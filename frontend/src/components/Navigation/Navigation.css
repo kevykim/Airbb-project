@@ -1,0 +1,15 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.test {
+    display: flex;
+    justify-content: center;
+    border: 1px red solid
+}
+
+.demouser {
+    display: flex;
+}

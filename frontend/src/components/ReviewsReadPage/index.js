@@ -10,19 +10,19 @@ import './ReviewsReadPage.css'
 
 
 const ReviewsReadPage = () => {
-  const { id } = useParams();
+  const {id} = useParams();
   const dispatch = useDispatch();
 
   // console.log('this id', id)
-  const owner = useSelector(state => state.session)
-  const user = useSelector(state => state.review[id])
+  const owner = useSelector(state => state.session.user)
+
   // const spotId = useSelector(state => state.review[id].spotId)
 
-  const review = useSelector(state => state.review)
+  const reviewsObj = useSelector(state => state.review)
 
-  console.log('what is this', user)
 
-  const review2 = Object.values(review)
+
+  const reviews = Object.values(reviewsObj)
 
   const date = new Date()
   const options = {
@@ -31,7 +31,7 @@ const ReviewsReadPage = () => {
 
   }
 
-  console.log(review2)
+  // console.log(reviews)
   // let newArr = []
   // const review3 = review2.forEach(review => {
   //   if (review.spotId === id) {
@@ -55,17 +55,17 @@ const ReviewsReadPage = () => {
   
   return (
     <div>
-      <div>{`${user?.User?.firstName}`}</div>
-      {review2.map((reviews) => (
-        <div key={reviews?.spotId}>
-          <div>{reviews?.review}</div>
-          <h5>{`${date.toLocaleDateString(undefined ,options)}`}</h5>
+      {/* <div>{`${reviews?.User?.firstName}`}</div> */}
+      {reviews.map((review) => (
+        <div key={review?.id}>
+          <div>{review?.review}</div>
+          <h5>{`${date.toLocaleDateString(undefined, options)}`}</h5>
+      {owner?.id === review.userId && <ReviewsDeletePage reviewId={review.id} />}
         </div>
       ))}
-      {owner?.user?.user && (
+      {!reviews.find(review => review.userId === owner.id) && (
         <div>
           <ReviewsCreatePage />
-          <ReviewsDeletePage />
         </div>
       )}
     </div>

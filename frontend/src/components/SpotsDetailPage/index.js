@@ -25,7 +25,7 @@ const SpotsDetailPage = () => {
     const test = useSelector(state => state.spot[id])
     const user = useSelector(state => state.session.user)
     //  const state = useSelector(state => console.log(state))
-    //  console.log(user.user.id)
+
     //  console.log('WHO ARE YOU',test.ownerId)
     const review = useSelector(state => state)
     console.log('dfs', review)
@@ -73,7 +73,7 @@ const SpotsDetailPage = () => {
           </div>
         )}
 
-        {user?.user.id === test?.ownerId && (
+        {user?.id === test?.ownerId && (
           <div>
             <SpotsUpdatePage />
             <SpotsDeletePage />

@@ -16,24 +16,34 @@ function Navigation({ isLoaded }) {
     sessionLinks = (
       <>
         <LoginFormModal />
-        <NavLink to="/signup">Sign Up</NavLink>
+        <NavLink to="/signup"><button>Sign up</button></NavLink>
       </>
     );
   }
 
   return (
     <ul>
-      <li>
+      <li className="test">
         <NavLink exact to="/">
-          Home
+          <img
+            src="https://icon-library.com/images/home-button-icon-png/home-button-icon-png-11.jpg"
+            alt="Home"
+            width={50}
+            height={50}
+          ></img>
         </NavLink>
+
         {sessionUser && (
           <NavLink exact to="/spots">
-                     Create Spot
-         </NavLink>
+          <button>
+            Create a Spot
+          </button>
+          </NavLink>
         )}
-        <DemoUser />
-        {isLoaded && sessionLinks}
+        <div>
+          <DemoUser />
+          {isLoaded && sessionLinks}
+        </div>
       </li>
     </ul>
   );

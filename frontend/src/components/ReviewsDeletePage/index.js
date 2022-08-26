@@ -7,7 +7,7 @@ import './ReviewsDeletePage.css'
 
 
 
-const ReviewsDeletePage = () => {
+const ReviewsDeletePage = ({reviewId}) => {
     const dispatch = useDispatch();
     const history = useHistory();
     const {id} = useParams();
@@ -18,7 +18,7 @@ const ReviewsDeletePage = () => {
         dispatch(thunkReadReview(id));
       }, [dispatch, id]);
 
-    const review = useSelector(state => state.review[id])
+    const review = useSelector(state => state.review[reviewId])
     console.log('this is delete review state',review)
 
     const onClick = async (event) => {

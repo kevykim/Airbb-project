@@ -13,7 +13,7 @@ const ReviewsCreatePage = () => {
     // console.log(id)
     const dispatch = useDispatch()
 
-    const user = useSelector(state => state.session)
+    const user = useSelector(state => state.session.user)
 
     const [rating, setRating] = useState(0)
     const [reviewText, setReviewText] = useState('')
@@ -32,7 +32,7 @@ const ReviewsCreatePage = () => {
         const payload = {
             review: reviewText,
             stars: rating,
-            userId: user?.user.id,
+            userId: user.id,
             spotId: id,
 
         }

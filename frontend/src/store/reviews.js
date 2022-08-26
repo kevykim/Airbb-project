@@ -78,6 +78,8 @@ const reviewReducer = (state = initialState, action) => {
             // console.log(action.review)
             return newState
         case readReview:
+            // stale state
+            newState = {};
             action.reviews.forEach(review => {
                 newState[review.id] = review
             })

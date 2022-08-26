@@ -303,7 +303,7 @@ handleValidationErrors
           
           if (sameReviewChecker.length >= 2) {
                res.status(403);
-               res.json({
+              return res.json({
                    message: "User already has a review for this spot",
                    statusCode: 403,
                  });
