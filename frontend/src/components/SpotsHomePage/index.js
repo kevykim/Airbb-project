@@ -22,21 +22,23 @@ const SpotsHomePage = () => {
     // const address = spots.map(spot => spot.address)
     // const city = spots.map(spot => spot.city)
     const spotsWork = spots.map((spot) => (
-        <div key={spot.id}>
+      <div key={spot.id}>
         <div>
-          
           <NavLink to={`/spots/${spot.id}`}>
-        <img
-          src={spot?.previewImage}
-          alt="House test"
-          width="250"
-          height="250"
-        ></img>
+            <img
+              src={spot?.previewImage}
+              alt="House test"
+              width="250"
+              height="250"
+            ></img>
           </NavLink>
         </div>
 
         <div>{`${spot.city}, ${spot.state}`}</div>
-        <div>{spot?.avgRating}</div>
+        <div>
+          <i class="fa-solid fa-star"></i>
+          {spot?.avgRating}
+        </div>
         <div>{`$${spot.price} night`}</div>
       </div>
     ));

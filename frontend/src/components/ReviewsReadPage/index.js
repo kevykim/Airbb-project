@@ -13,17 +13,25 @@ const ReviewsReadPage = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
 
-  console.log('this id', id)
+  // console.log('this id', id)
   const owner = useSelector(state => state.session)
   const user = useSelector(state => state.review[id])
   // const spotId = useSelector(state => state.review[id].spotId)
 
   const review = useSelector(state => state.review)
 
-  console.log('what is this', review)
+  console.log('what is this', user)
 
   const review2 = Object.values(review)
-  // console.log(review2)
+
+  const date = new Date()
+  const options = {
+    month: 'long',
+    year: 'numeric'
+
+  }
+
+  console.log(review2)
   // let newArr = []
   // const review3 = review2.forEach(review => {
   //   if (review.spotId === id) {
@@ -33,7 +41,7 @@ const ReviewsReadPage = () => {
   // })
 
   // console.log('loop', review3)
-  console.log("review2", review2);
+  // console.log("review2", review2);
 
 //   console.log('I am the owner', owner)
 
@@ -51,6 +59,7 @@ const ReviewsReadPage = () => {
       {review2.map((reviews) => (
         <div key={reviews?.spotId}>
           <div>{reviews?.review}</div>
+          <h5>{`${date.toLocaleDateString(undefined ,options)}`}</h5>
         </div>
       ))}
       {owner?.user?.user && (

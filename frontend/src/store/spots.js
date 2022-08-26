@@ -55,11 +55,17 @@ export const createSpots = (payload) => async dispatch => {
     })
     if (response.ok) {
         const data = await response.json()
-        dispatch(createSpot(data))
-        return data
-    } else {
-        return response.json()
-    }
+        let dataImage = await csrfFetch(`/api/spots/${data.id}/images`, {
+            method: 'POST',
+            body: JSON.stringify({url: payload.prevImage, previewImage: true})
+        })
+        if (dataImage.ok) {
+            let workingImage = dataImage.json()
+            data.previewImage = workingImage.url
+            dispatch(createSpot(data))
+            return data
+        }
+    } 
 }
 
 export const getSpots = () => async dispatch => {
@@ -80,8 +86,8 @@ export const getASpot = (id) => async dispatch => {
     dispatch(oneSpot(data))
 }
 
-export const editSpots = (payload, id) => async dispatch => {
-    const response = await csrfFetch(`/api/spots/${id}`, {
+export const editSpots = (payload) => async dispatch => {
+    const response = await csrfFetch(`/api/spots/${payload.id}`, {
         method: 'PUT',
         header: {'Content-Type':'application/json'},
         body: JSON.stringify(payload)

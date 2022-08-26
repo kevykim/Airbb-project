@@ -22,11 +22,10 @@ const readAllReview = (reviews) => {
     }
 }
 
-const deleteReview = (id, spotId) => {
+const deleteReview = (id) => {
     return {
         type: deleteAReview,
-        id,
-        spotId
+        id
     }
 }
 
@@ -57,12 +56,12 @@ export const thunkReadReview = (spotId) => async dispatch => {
     }
 }
 
-export const thunkDeleteReview = (id, spotId) => async dispatch => {
-    console.log('where',spotId)
+export const thunkDeleteReview = (id) => async dispatch => {
     const response = await csrfFetch(`/api/reviews/${id}`, {
         //reviewId??
         method: 'DELETE'
     });
+    // console.log('where', Number(id))
     if (response.ok) {
         dispatch(deleteReview(id))
     }

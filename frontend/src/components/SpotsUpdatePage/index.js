@@ -48,6 +48,7 @@ const SpotsUpdatePage = () => {
 
 
         const payload = {
+            id: spot.id,
             address,
             city,
             state,
@@ -60,7 +61,7 @@ const SpotsUpdatePage = () => {
         }
 
         
-        let updatedSpot = await dispatch(editSpots(payload, spot.id)) 
+        let updatedSpot = await dispatch(editSpots(payload)) 
         
         if (updatedSpot) {
             history.push(`/spots/${updatedSpot.id}`)

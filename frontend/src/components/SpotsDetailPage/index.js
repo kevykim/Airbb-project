@@ -55,8 +55,8 @@ const SpotsDetailPage = () => {
                 <img
                   src={test?.Images[0]?.url}
                   alt="House test"
-                  width="250"
-                  height="250"
+                  width="750"
+                  height="500"
                 ></img>
                 {/* {image} */}
               </div>
@@ -64,8 +64,10 @@ const SpotsDetailPage = () => {
 
             <div>{test.description}</div>
             <div>{`$${test.price}`}</div>
-
-            <div>{test.avgStarRating}</div>
+            <div>
+              <i class="fa-solid fa-star-sharp"></i> 
+              {test.avgStarRating}
+            </div>
             {/* reviews  */}
             <ReviewsReadPage />
           </div>
