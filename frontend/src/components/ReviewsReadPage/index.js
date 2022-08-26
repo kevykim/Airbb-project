@@ -13,14 +13,31 @@ const ReviewsReadPage = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
 
+  console.log('this id', id)
   const owner = useSelector(state => state.session)
   const user = useSelector(state => state.review[id])
+  // const spotId = useSelector(state => state.review[id].spotId)
+
   const review = useSelector(state => state.review)
 
+  console.log('what is this', review)
+
   const review2 = Object.values(review)
+  // console.log(review2)
+  // let newArr = []
+  // const review3 = review2.forEach(review => {
+  //   if (review.spotId === id) {
+  //     newArr.push(review)
+  //   }
+  //   console.log(newArr)
+  // })
+
+  // console.log('loop', review3)
+  console.log("review2", review2);
+
 //   console.log('I am the owner', owner)
 
-  console.log("this is review", review2);
+  // console.log("this is review", review2);
 
   useEffect(() => {
     dispatch(thunkReadReview(id));
@@ -29,23 +46,21 @@ const ReviewsReadPage = () => {
 //   if (!user) return null
   
   return (
-      
-      <div>
-            <h2>Temporary this is review box down below</h2>
-            <div>{`${user?.User?.firstName}`}</div>
-            <div>{review2.map(reviews => reviews?.review)}</div>
-            {owner?.user?.user && (
-                <div>
-                    <ReviewsCreatePage />
-                    <ReviewsDeletePage />
-                </div>
-                )}
-                
-                
-                </div>
-       
-
-  )
+    <div>
+      <div>{`${user?.User?.firstName}`}</div>
+      {review2.map((reviews) => (
+        <div key={reviews?.spotId}>
+          <div>{reviews?.review}</div>
+        </div>
+      ))}
+      {owner?.user?.user && (
+        <div>
+          <ReviewsCreatePage />
+          <ReviewsDeletePage />
+        </div>
+      )}
+    </div>
+  );
 }
 
 export default ReviewsReadPage;

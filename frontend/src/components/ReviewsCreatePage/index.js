@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import './ReviewsCreatePage.css'
 import { useState, useEffect } from 'react';
-import { thunkCreateReview } from '../../store/reviews';
+import { thunkCreateReview, thunkReadReview } from '../../store/reviews';
 // import ReviewsReadPage from '../ReviewsReadPage';
 
 const ReviewsCreatePage = () => {
@@ -39,7 +39,7 @@ const ReviewsCreatePage = () => {
 
         let createdReview = await dispatch(thunkCreateReview(payload, id))
 
-        // await dispatch(ReviewsReadPage(id))
+        await dispatch(thunkReadReview(id))
 
         if (createdReview) {
             history.push(`/spots/${id}`)

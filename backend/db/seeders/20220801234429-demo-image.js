@@ -14,22 +14,22 @@ const testImages = [
     previewImage: true,
     spotId: 2,
     reviewId: 2,
-    userId: 2,
+    userId: 1,
   },
   {
     url: "https://images.unsplash.com/photo-1574259392081-dbe3c19cd15e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1104&q=80",
     previewImage: true,
     spotId: 3,
     reviewId: 3,
-    userId: 3,
+    userId: 1,
   },
-  // {
-  //   url: "memory",
-  //   previewImage: true,
-  //   spotId: 4,
-  //   reviewId: 4,
-  //   userId: 4,
-  // },
+  {
+    url: "https://images.unsplash.com/photo-1589129140837-67287c22521b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=930&q=80",
+    previewImage: true,
+    spotId: 4,
+    reviewId: 4,
+    userId: 2,
+  },
 ];
 
 

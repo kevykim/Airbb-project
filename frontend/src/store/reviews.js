@@ -7,11 +7,10 @@ const deleteAReview = '/reviews/deleteAReview'
 
 
 // ACTION CREATORS 
-const createReview = (review, spotId) => {
+const createReview = (review) => {
     return {
         type: createAReview,
         review,
-        spotId
         
     }
 }
@@ -23,10 +22,11 @@ const readAllReview = (reviews) => {
     }
 }
 
-const deleteReview = (id) => {
+const deleteReview = (id, spotId) => {
     return {
         type: deleteAReview,
-        id
+        id,
+        spotId
     }
 }
 
@@ -47,8 +47,8 @@ export const thunkCreateReview = (payload) => async dispatch => {
     } 
 }
 
-export const thunkReadReview = (id) => async dispatch => {
-    const response = await csrfFetch(`/api/spots/${id}/reviews`)
+export const thunkReadReview = (spotId) => async dispatch => {
+    const response = await csrfFetch(`/api/spots/${spotId}/reviews`)
 
     if (response.ok) {
         const data = await response.json()
@@ -57,7 +57,8 @@ export const thunkReadReview = (id) => async dispatch => {
     }
 }
 
-export const thunkDeleteReview = (id) => async dispatch => {
+export const thunkDeleteReview = (id, spotId) => async dispatch => {
+    console.log('where',spotId)
     const response = await csrfFetch(`/api/reviews/${id}`, {
         //reviewId??
         method: 'DELETE'

@@ -1,6 +1,7 @@
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory} from 'react-router-dom'
-import { thunkDeleteReview } from '../../store/reviews';
+import { thunkDeleteReview, thunkReadReview } from '../../store/reviews';
 
 import './ReviewsDeletePage.css'
 
@@ -11,15 +12,23 @@ const ReviewsDeletePage = () => {
     const history = useHistory();
     const {id} = useParams();
 
-    // console.log(id)
+    useEffect(() => {
+        dispatch(thunkReadReview(id))
+    }, [dispatch, id])
 
-    const review = useSelector(state => state.review[id])
-    // console.log(review)
+    const review = useSelector(state => state.review)
+    const array = Object.values(review)
+    const testing = array.map(review => Number(review.spotId))
 
+    console.log('wut', testing.includes(Number(id)))
     const onClick = async (event) => {
         event.preventDefault();
-        await dispatch(thunkDeleteReview(Number(review.id)))
-        history.push(`/spots/${id}`)
+        if (testing.includes(Number(id))) {
+            await dispatch(thunkDeleteReview(Number(review.id)))
+        } else {
+            alert('You must be the owner!')
+        }
+        // history.push(`/spots/${id}`)
     }
 
     return (

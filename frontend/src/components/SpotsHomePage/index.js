@@ -27,7 +27,7 @@ const SpotsHomePage = () => {
           
           <NavLink to={`/spots/${spot.id}`}>
         <img
-          src={spot.previewImage}
+          src={spot?.previewImage}
           alt="House test"
           width="250"
           height="250"
@@ -36,7 +36,7 @@ const SpotsHomePage = () => {
         </div>
 
         <div>{`${spot.city}, ${spot.state}`}</div>
-        <div>{spot.avgRating}</div>
+        <div>{spot?.avgRating}</div>
         <div>{`$${spot.price} night`}</div>
       </div>
     ));
