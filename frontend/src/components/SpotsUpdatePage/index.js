@@ -8,13 +8,13 @@ import { editSpots, getASpot } from '../../store/spots'
 import './SpotsUpdatePage.css'
 
 
-const SpotsUpdatePage = ({spot}) => {
+const SpotsUpdatePage = ({spot, onClick}) => {
     // const {id} = useParams()
     // const spot = useSelector(state => state.spot[id])
       const history = useHistory()
    const dispatch = useDispatch()
 
-  console.log('this',spot)
+  // console.log('this',spot)
 
 //    const spot = useSelector(state => state.spot)
     // console.log('updatepage',spot)
@@ -71,6 +71,7 @@ const SpotsUpdatePage = ({spot}) => {
 
         if (updatedSpot) {
             history.push(`/spots/${updatedSpot.id}`)
+            onClick()
         }
 
         // setAddress('')
@@ -100,6 +101,7 @@ const SpotsUpdatePage = ({spot}) => {
         )}
         <form onSubmit={onSubmit}>
           <div>
+            <div>
             <input
               type="text"
               placeholder="Address"
@@ -107,6 +109,8 @@ const SpotsUpdatePage = ({spot}) => {
               onChange={(event) => setAddress(event.target.value)}
               required
             />
+            </div>
+            <div>
             <input
               type="text"
               placeholder="City"
@@ -114,6 +118,8 @@ const SpotsUpdatePage = ({spot}) => {
               onChange={(event) => setCity(event.target.value)}
               required
             />
+            </div>
+            <div>
             <input
               type="text"
               placeholder="State"
@@ -121,6 +127,8 @@ const SpotsUpdatePage = ({spot}) => {
               onChange={(event) => setState(event.target.value)}
               required
             />
+            </div>
+            <div>
             <input
               type="text"
               placeholder="Country"
@@ -128,6 +136,8 @@ const SpotsUpdatePage = ({spot}) => {
               onChange={(event) => setCountry(event.target.value)}
               required
             />
+            </div>
+            <div>
             <input
               type="text"
               placeholder="Lat"
@@ -135,6 +145,8 @@ const SpotsUpdatePage = ({spot}) => {
               onChange={(event) => setLat(event.target.value)}
               required
             />
+            </div>
+            <div>
             <input
               type="text"
               placeholder="Lng"
@@ -142,6 +154,8 @@ const SpotsUpdatePage = ({spot}) => {
               onChange={(event) => setLng(event.target.value)}
               required
             />
+            </div>
+            <div>
             <input
               type="text"
               placeholder="Name of place"
@@ -149,6 +163,8 @@ const SpotsUpdatePage = ({spot}) => {
               onChange={(event) => setName(event.target.value)}
               required
             />
+            </div>
+            <div>
             <textarea
               type="text-area"
               placeholder="description"
@@ -156,6 +172,8 @@ const SpotsUpdatePage = ({spot}) => {
               onChange={(event) => setDescription(event.target.value)}
               required
             />
+            </div>
+            <div>
             <input
               type="number"
               placeholder="Price"
@@ -163,6 +181,7 @@ const SpotsUpdatePage = ({spot}) => {
               onChange={(event) => setPrice(event.target.value)}
               required
             />
+            </div>
           </div>
           <button type="submit"
             disabled={validationErrors.length > 0}

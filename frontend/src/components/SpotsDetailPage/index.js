@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getASpot } from "../../store/spots";
 import ReviewsReadPage from "../ReviewsReadPage";
 import SpotsDeletePage from "../SpotsDeletePage";
-import SpotsUpdatePage from "../SpotsUpdatePage";
+import SpotsUpdateModal from "../SpotsUpdatePage/SpotsUpdateModal";
 
 import './SpotsDetailPage.css'
 
@@ -74,7 +74,8 @@ const SpotsDetailPage = () => {
 
         {user?.id === spot?.ownerId && (
           <div>
-            <SpotsUpdatePage spot={spot}/>
+            {/* spot ={spot} */}
+            <SpotsUpdateModal spot={spot}/>
             <SpotsDeletePage />
           </div>
         )}
