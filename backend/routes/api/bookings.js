@@ -30,7 +30,7 @@ router.get('/current', requireAuth, async (req, res) => {
 
       
     res.status(200)
-    res.json({Bookings: images})
+   return res.json({Bookings: images})
 
 });
 
@@ -57,7 +57,7 @@ router.put('/:bookingId', requireAuth, validateBooking, async (req, res) => {
     // console.log(new Date().toISOString().slice(0, 10));
     if(!booking) {
         res.status(404)
-        res.json({
+        return res.json({
             message: "Booking couldn't be found",
             statusCode: 404
         })
@@ -65,7 +65,7 @@ router.put('/:bookingId', requireAuth, validateBooking, async (req, res) => {
 
     if (endDate < startDate) {
         res.status(400)
-        res.json({
+        return res.json({
             message: "End date cannot come before start date ",
             statusCode: 400
         })
@@ -75,7 +75,7 @@ router.put('/:bookingId', requireAuth, validateBooking, async (req, res) => {
     // console.log(endDate)
     if(new Date() > new Date(endDate) || new Date() > new Date (startDate) || startDate > endDate) {
         res.status(403)
-        res.json({
+        return res.json({
             message: "Past bookings can't be modified",
             statusCode: 403
         })
@@ -89,7 +89,7 @@ router.put('/:bookingId', requireAuth, validateBooking, async (req, res) => {
 
     await booking.save();
     res.status(200);
-    res.json(booking);
+    return res.json(booking);
 
 })
 
@@ -100,7 +100,7 @@ router.delete('/:bookingId', requireAuth, async (req, res) => {
 
     if(!booking) {
         res.status(404)
-        res.json({
+       return res.json({
             message: "Booking couldn't be found",
             statusCode: 404
         })
@@ -108,7 +108,7 @@ router.delete('/:bookingId', requireAuth, async (req, res) => {
 
     if (new Date() > booking.startDate) {
         res.status(403)
-        res.json({
+        return res.json({
             message: "Bookings that have been started can't be deleted",
             statusCode: 403
         })
@@ -116,14 +116,14 @@ router.delete('/:bookingId', requireAuth, async (req, res) => {
 
      if(new Date() > new Date(booking.endDate) || new Date() > new Date (booking.startDate) || booking.startDate > booking.endDate) {
         res.status(403)
-        res.json({
+       return res.json({
             message: "Past bookings can't be modified",
             statusCode: 403
         })
     }
 
-    booking.destroy();
-    res.json({
+    await booking.destroy();
+    return res.json({
         message: "Successfully deleted",
         statusCode: 200
     })
