@@ -54,9 +54,8 @@ const SpotsHomePage = () => {
     }, [dispatch])
 
     return (
-        <div>
+        <div className='spotcard'>
             {spotsWork}
-            
             
         </div>
     )
