@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { thunkReadReview } from '../../store/reviews';
-import ReviewsCreatePage from '../ReviewsCreatePage';
+import ReviewsFormModal from '../ReviewsCreatePage/ReviewsCreateModal';
 import ReviewsDeletePage from '../ReviewsDeletePage';
 
 
@@ -50,7 +50,7 @@ const ReviewsReadPage = () => {
       ))}
       {!reviews.find(review => review.userId === owner.id) && (
         <div>
-          <ReviewsCreatePage />
+          <ReviewsFormModal />
         </div>
       )}
     </div>
