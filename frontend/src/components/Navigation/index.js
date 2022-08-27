@@ -6,6 +6,7 @@ import LoginFormModal from "../LoginFormModal";
 import "./Navigation.css";
 import DemoUser from "../DemoUser";
 import SpotCreateModal from "../SpotsCreatePage/SpotsCreateModal";
+import SignUpModal from "../SignUpFormPage/SignUpModal";
 
 function Navigation({ isLoaded }) {
   const sessionUser = useSelector((state) => state.session.user);
@@ -17,7 +18,7 @@ function Navigation({ isLoaded }) {
     sessionLinks = (
       <>
         <LoginFormModal />
-        <NavLink to="/signup"><button>Sign up</button></NavLink>
+        <SignUpModal />
       </>
     );
   }

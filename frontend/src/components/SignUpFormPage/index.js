@@ -41,6 +41,7 @@ function SignupFormPage() {
           <li key={idx}>{error}</li>
         ))}
       </ul>
+      <div>
       <label>
         Email
         <input
@@ -50,6 +51,8 @@ function SignupFormPage() {
           required
         />
       </label>
+      </div>
+      <div>
       <label>
         Username
         <input
@@ -59,6 +62,8 @@ function SignupFormPage() {
           required
         />
       </label>
+      </div>
+      <div>
       <label>
         First Name
         <input
@@ -68,6 +73,8 @@ function SignupFormPage() {
           required
         />
       </label>
+      </div>
+      <div>
       <label>
         Last Name
         <input
@@ -77,6 +84,8 @@ function SignupFormPage() {
           required
         />
       </label>
+      </div>
+      <div>
       <label>
         Password
         <input
@@ -86,6 +95,8 @@ function SignupFormPage() {
           required
         />
       </label>
+      </div>
+      <div>
       <label>
         Confirm Password
         <input
@@ -95,6 +106,7 @@ function SignupFormPage() {
           required
         />
       </label>
+      </div>
       <button type="submit">Sign Up</button>
     </form>
   );
