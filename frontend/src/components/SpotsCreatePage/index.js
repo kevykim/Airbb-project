@@ -94,6 +94,7 @@ const SpotsCreatePage = () => {
         )}
         <form onSubmit={onSubmit}>
           <div>
+            <div>
             <input
               type="text"
               placeholder="Address"
@@ -101,6 +102,8 @@ const SpotsCreatePage = () => {
               onChange={(event) => setAddress(event.target.value)}
               required
             />
+            </div>
+            <div>
             <input
               type="text"
               placeholder="City"
@@ -108,6 +111,8 @@ const SpotsCreatePage = () => {
               onChange={(event) => setCity(event.target.value)}
               required
             />
+            </div>
+            <div>
             <input
               type="text"
               placeholder="State"
@@ -115,6 +120,8 @@ const SpotsCreatePage = () => {
               onChange={(event) => setState(event.target.value)}
               required
             />
+            </div>
+            <div>
             <input
               type="text"
               placeholder="Country"
@@ -122,6 +129,8 @@ const SpotsCreatePage = () => {
               onChange={(event) => setCountry(event.target.value)}
               required
             />
+            </div>
+            <div>
             <input
               type="text"
               placeholder="Lat"
@@ -129,6 +138,8 @@ const SpotsCreatePage = () => {
               onChange={(event) => setLat(event.target.value)}
               required
             />
+            </div>
+            <div>
             <input
               type="text"
               placeholder="Lng"
@@ -136,6 +147,8 @@ const SpotsCreatePage = () => {
               onChange={(event) => setLng(event.target.value)}
               required
             />
+            </div>
+            <div>
             <input
               type="text"
               placeholder="Name of place"
@@ -143,6 +156,8 @@ const SpotsCreatePage = () => {
               onChange={(event) => setName(event.target.value)}
               required
             />
+            </div>
+            <div>
             <textarea
               type="text-area"
               placeholder="description"
@@ -150,6 +165,8 @@ const SpotsCreatePage = () => {
               onChange={(event) => setDescription(event.target.value)}
               required
             />
+            </div>
+            <div>
             <input
               type="text"
               placeholder="www.yourimage.com"
@@ -157,6 +174,8 @@ const SpotsCreatePage = () => {
               onChange={(event) => setPrevImage(event.target.value)}
               required
             />
+            </div>
+            <div>
             <input
               type="number"
               placeholder="Price"
@@ -164,6 +183,7 @@ const SpotsCreatePage = () => {
               onChange={(event) => setPrice(event.target.value)}
               required
             />
+            </div>
           </div>
           <button type="submit" disabled={validationErrors.length > 0}>
             Submit new spot
