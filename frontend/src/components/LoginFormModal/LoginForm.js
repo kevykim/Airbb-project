@@ -26,6 +26,7 @@ function LoginForm() {
           <li key={idx}>{error}</li>
         ))}
       </ul>
+      <div>
       <label>
         Username or Email
         <input
@@ -35,6 +36,8 @@ function LoginForm() {
           required
         />
       </label>
+      </div>
+      <div>
       <label>
         Password
         <input
@@ -44,6 +47,7 @@ function LoginForm() {
           required
         />
       </label>
+      </div>
       <button type="submit">Log In</button>
     </form>
   );

@@ -33,6 +33,7 @@ function LoginFormPage() {
           <li key={idx}>{error}</li>
         ))}
       </ul>
+      <div>
       <label>
         Username or Email
         <input
@@ -42,6 +43,7 @@ function LoginFormPage() {
           required
         />
       </label>
+      </div>
       <label>
         Password
         <input
