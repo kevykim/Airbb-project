@@ -1,7 +1,7 @@
     import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
     import { useParams } from "react-router-dom";
-import { thunkReadReview } from "../../store/reviews";
+// import { thunkReadReview } from "../../store/reviews";
 import { getASpot } from "../../store/spots";
 import ReviewsReadPage from "../ReviewsReadPage";
 import SpotsDeletePage from "../SpotsDeletePage";
@@ -22,19 +22,19 @@ const SpotsDetailPage = () => {
     // console.log('WHERE ARE YOU', test2)
     
     
-    const test = useSelector(state => state.spot[id])
+    const spot = useSelector(state => state.spot[id])
     const user = useSelector(state => state.session.user)
     //  const state = useSelector(state => console.log(state))
 
     //  console.log('WHO ARE YOU',test.ownerId)
-    const review = useSelector(state => state)
-    console.log('dfs', review)
+    // const review = useSelector(state => state)
+    // console.log('dfs', review)
 
 
     
     useEffect(() => {
       dispatch(getASpot(id))
-      dispatch(thunkReadReview(id))
+      // dispatch(thunkReadReview(id))
     }, [dispatch, id])
     
     
@@ -43,17 +43,17 @@ const SpotsDetailPage = () => {
     // }
     return (
       <>
-        {test && (
+        {spot && (
           <div>
-            <div>{test?.name}</div>
-            <div>{test?.avgStarRating}</div>
+            <div>{spot?.name}</div>
+            <div>{spot?.avgStarRating}</div>
             {/* A NAV LINK TO REVIEWS FOR THAT SPOT */}
-            <div>{`${test.city}, ${test.state}, ${test.country}`}</div>
+            <div>{`${spot.city}, ${spot.state}, ${spot.country}`}</div>
 
-            {test.Images && (
+            {spot.Images && (
               <div>
                 <img
-                  src={test?.Images[0]?.url}
+                  src={spot?.Images[0]?.url}
                   alt="House test"
                   width="750"
                   height="500"
@@ -62,20 +62,19 @@ const SpotsDetailPage = () => {
               </div>
             )}
 
-            <div>{test.description}</div>
-            <div>{`$${test.price}`}</div>
+            <div>{spot.description}</div>
+            <div>{`$${spot.price}`}</div>
             <div>
-              <i class="fa-solid fa-star-sharp"></i> 
-              {test.avgStarRating}
+              {spot.avgStarRating}
             </div>
             {/* reviews  */}
             <ReviewsReadPage />
           </div>
         )}
 
-        {user?.id === test?.ownerId && (
+        {user?.id === spot?.ownerId && (
           <div>
-            <SpotsUpdatePage />
+            <SpotsUpdatePage spot={spot}/>
             <SpotsDeletePage />
           </div>
         )}

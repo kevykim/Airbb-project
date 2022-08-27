@@ -120,12 +120,13 @@ const spotReducer = (state = initalState, action) => {
             newState[action.spots.id] = action.spots
             return newState
         case getAllSpots:
-            // console.log(action.spots)
+             newState = {}
             action.spots.forEach(spots => {
                 newState[spots.id] = spots
             })
             return newState
         case getOneSpot:
+            newState = {}
             newState[action.spot.id] = action.spot
             // console.log('where', action.spot)
             return newState
