@@ -31,21 +31,6 @@ const ReviewsReadPage = () => {
 
   }
 
-  // console.log(reviews)
-  // let newArr = []
-  // const review3 = review2.forEach(review => {
-  //   if (review.spotId === id) {
-  //     newArr.push(review)
-  //   }
-  //   console.log(newArr)
-  // })
-
-  // console.log('loop', review3)
-  // console.log("review2", review2);
-
-//   console.log('I am the owner', owner)
-
-  // console.log("this is review", review2);
 
   useEffect(() => {
     dispatch(thunkReadReview(id));
@@ -55,11 +40,11 @@ const ReviewsReadPage = () => {
   
   return (
     <div>
-      {/* <div>{`${reviews?.User?.firstName}`}</div> */}
       {reviews.map((review) => (
         <div key={review?.id}>
+          <div>{`${review?.User?.firstName}`}</div>
+          <div>{`${date.toLocaleDateString(undefined, options)}`}</div>
           <div>{review?.review}</div>
-          <h5>{`${date.toLocaleDateString(undefined, options)}`}</h5>
       {owner?.id === review.userId && <ReviewsDeletePage reviewId={review.id} />}
         </div>
       ))}
