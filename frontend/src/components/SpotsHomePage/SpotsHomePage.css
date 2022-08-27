@@ -6,7 +6,7 @@
 
 .spotcityandstate {
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     font-weight: bold;
     padding-left: 10px;
     
@@ -15,7 +15,7 @@
 
 .spotprice {
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     font-weight: 545;
     padding: 10px;
 }

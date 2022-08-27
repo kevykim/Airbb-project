@@ -88,10 +88,11 @@ const SpotsUpdatePage = ({spot, onClick}) => {
    }
 
     return (
-      <div>
+
+      <div className='updatespotform'>
+        <h1>Edit Spot</h1>
         {validationErrors.length > 0 && (
-          <div>
-            The following errors were found:
+          <div className='errorvalidation'>
             <ul>
               {validationErrors.map((error, i) => (
                 <li key={i}>{error}</li>
@@ -103,6 +104,7 @@ const SpotsUpdatePage = ({spot, onClick}) => {
           <div>
             <div>
             <input
+            className='address'
               type="text"
               placeholder="Address"
               value={address}
@@ -112,6 +114,7 @@ const SpotsUpdatePage = ({spot, onClick}) => {
             </div>
             <div>
             <input
+            className='city'
               type="text"
               placeholder="City"
               value={city}
@@ -121,6 +124,7 @@ const SpotsUpdatePage = ({spot, onClick}) => {
             </div>
             <div>
             <input
+            className='state'
               type="text"
               placeholder="State"
               value={state}
@@ -130,6 +134,7 @@ const SpotsUpdatePage = ({spot, onClick}) => {
             </div>
             <div>
             <input
+            className='country'
               type="text"
               placeholder="Country"
               value={country}
@@ -139,6 +144,7 @@ const SpotsUpdatePage = ({spot, onClick}) => {
             </div>
             <div>
             <input
+            className='lat'
               type="text"
               placeholder="Lat"
               value={lat}
@@ -148,6 +154,7 @@ const SpotsUpdatePage = ({spot, onClick}) => {
             </div>
             <div>
             <input
+            className='lng'
               type="text"
               placeholder="Lng"
               value={lng}
@@ -157,6 +164,7 @@ const SpotsUpdatePage = ({spot, onClick}) => {
             </div>
             <div>
             <input
+            className='placename'
               type="text"
               placeholder="Name of place"
               value={name}
@@ -166,6 +174,7 @@ const SpotsUpdatePage = ({spot, onClick}) => {
             </div>
             <div>
             <textarea
+            className='description'
               type="text-area"
               placeholder="description"
               value={description}
@@ -175,6 +184,7 @@ const SpotsUpdatePage = ({spot, onClick}) => {
             </div>
             <div>
             <input
+            className='price'
               type="number"
               placeholder="Price"
               value={price}
@@ -183,7 +193,7 @@ const SpotsUpdatePage = ({spot, onClick}) => {
             />
             </div>
           </div>
-          <button type="submit"
+          <button className='updatespotbutton' type="submit"
             disabled={validationErrors.length > 0}
           >Update Spot</button>
         </form>
