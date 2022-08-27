@@ -5,6 +5,7 @@ import ProfileButton from "./ProfileButton";
 import LoginFormModal from "../LoginFormModal";
 import "./Navigation.css";
 import DemoUser from "../DemoUser";
+import SpotCreateModal from "../SpotsCreatePage/SpotsCreateModal";
 
 function Navigation({ isLoaded }) {
   const sessionUser = useSelector((state) => state.session.user);
@@ -34,11 +35,10 @@ function Navigation({ isLoaded }) {
         </NavLink>
 
         {sessionUser && (
-          <NavLink exact to="/spots">
-          <button>
-            Create a Spot
-          </button>
-          </NavLink>
+          <div>
+            <SpotCreateModal />
+          </div>
+
         )}
         <div>
           <DemoUser />
