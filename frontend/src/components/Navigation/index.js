@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton";
 import LoginFormModal from "../LoginFormModal";
 import "./Navigation.css";
+import DemoUser from "../DemoUser";
 
 function Navigation({ isLoaded }) {
   const sessionUser = useSelector((state) => state.session.user);
@@ -15,23 +16,34 @@ function Navigation({ isLoaded }) {
     sessionLinks = (
       <>
         <LoginFormModal />
-        <NavLink to="/signup">Sign Up</NavLink>
+        <NavLink to="/signup"><button>Sign up</button></NavLink>
       </>
     );
   }
 
   return (
     <ul>
-      <li>
+      <li className="test">
         <NavLink exact to="/">
-          Home
+          <img
+            src="https://icon-library.com/images/home-button-icon-png/home-button-icon-png-11.jpg"
+            alt="Home"
+            width={50}
+            height={50}
+          ></img>
         </NavLink>
+
         {sessionUser && (
           <NavLink exact to="/spots">
-                     Create Spot
-         </NavLink>
+          <button>
+            Create a Spot
+          </button>
+          </NavLink>
         )}
-        {isLoaded && sessionLinks}
+        <div>
+          <DemoUser />
+          {isLoaded && sessionLinks}
+        </div>
       </li>
     </ul>
   );

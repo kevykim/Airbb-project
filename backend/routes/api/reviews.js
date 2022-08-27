@@ -128,15 +128,15 @@ router.delete('/:reviewId', requireAuth, async (req, res) => {
 
     if(!review) {
         res.status(404)
-        res.json({
+       return res.json({
             message: "Review couldn't be found",
             statusCode: 404
         })
     };
 
-    review.destroy() // Why does it work if I take await out? 
+    await review.destroy() // Why does it work if I take await out? 
     res.status(200)
-    res.json({
+    return res.json({
         message: "Successfully deleted",
         statusCode: 200
     });

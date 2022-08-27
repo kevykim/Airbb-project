@@ -1,9 +1,12 @@
     import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
     import { useParams } from "react-router-dom";
+// import { thunkReadReview } from "../../store/reviews";
 import { getASpot } from "../../store/spots";
+import ReviewsReadPage from "../ReviewsReadPage";
 import SpotsDeletePage from "../SpotsDeletePage";
 import SpotsUpdatePage from "../SpotsUpdatePage";
+
 import './SpotsDetailPage.css'
 
 
@@ -19,16 +22,19 @@ const SpotsDetailPage = () => {
     // console.log('WHERE ARE YOU', test2)
     
     
-    const test = useSelector(state => state.spot[id])
+    const spot = useSelector(state => state.spot[id])
     const user = useSelector(state => state.session.user)
     //  const state = useSelector(state => console.log(state))
-    //  console.log(user.user.id)
+
     //  console.log('WHO ARE YOU',test.ownerId)
-    
-    
+    // const review = useSelector(state => state)
+    // console.log('dfs', review)
+
+
     
     useEffect(() => {
       dispatch(getASpot(id))
+      // dispatch(thunkReadReview(id))
     }, [dispatch, id])
     
     
@@ -37,33 +43,41 @@ const SpotsDetailPage = () => {
     // }
     return (
       <>
-        {test && (
-          <div> 
-            <div>{test.name}</div>
-            <div>{test.avgStarRating}</div>
+        {spot && (
+          <div>
+            <div>{spot?.name}</div>
+            <div>{spot?.avgStarRating}</div>
             {/* A NAV LINK TO REVIEWS FOR THAT SPOT */}
-            <div>{`${test.city}, ${test.state}, ${test.country}`}</div>
-    
-            { test.Images &&
-             <div>
-              <img src={test.Images[0].url} alt="House test" width="250" height="250"></img>
-              {/* {image} */}
-            </div> 
-            }
-    
-            <div>{test.description}</div>
-    
-            <div>{test.avgStarRating}</div>
+            <div>{`${spot.city}, ${spot.state}, ${spot.country}`}</div>
+
+            {spot.Images && (
+              <div>
+                <img
+                  src={spot?.Images[0]?.url}
+                  alt="House test"
+                  width="750"
+                  height="500"
+                ></img>
+                {/* {image} */}
+              </div>
+            )}
+
+            <div>{spot.description}</div>
+            <div>{`$${spot.price}`}</div>
+            <div>
+              {spot.avgStarRating}
+            </div>
             {/* reviews  */}
+            <ReviewsReadPage />
           </div>
         )}
 
-        {user?.user.id === test?.ownerId && (
-            <div>
-              < SpotsUpdatePage />
-              < SpotsDeletePage />
-            </div>
-        )} 
+        {user?.id === spot?.ownerId && (
+          <div>
+            <SpotsUpdatePage spot={spot}/>
+            <SpotsDeletePage />
+          </div>
+        )}
       </>
     );
     

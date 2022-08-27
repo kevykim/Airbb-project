@@ -1,18 +1,20 @@
 import { useState, useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { useHistory, useParams } from 'react-router-dom'
+import {  useDispatch } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 
-import { editSpots } from '../../store/spots'
+import { editSpots, getASpot } from '../../store/spots'
 
 
 import './SpotsUpdatePage.css'
 
 
-const SpotsUpdatePage = () => {
-    const {id} = useParams()
-    const spot = useSelector(state => state.spot[id])
+const SpotsUpdatePage = ({spot}) => {
+    // const {id} = useParams()
+    // const spot = useSelector(state => state.spot[id])
       const history = useHistory()
    const dispatch = useDispatch()
+
+  console.log('this',spot)
 
 //    const spot = useSelector(state => state.spot)
     // console.log('updatepage',spot)
@@ -25,6 +27,7 @@ const SpotsUpdatePage = () => {
    const [lng, setLng] = useState(spot.lng) // lng
    const [name, setName] = useState(spot.name) // name
    const [description, setDescription] = useState(spot.description) // description
+   const [previewImage, setPreviewImage] = useState(spot.previewImage)
    const [price, setPrice] = useState(spot.price) // price
    const [validationErrors, setValidationErrors] = useState([])
 
@@ -48,6 +51,7 @@ const SpotsUpdatePage = () => {
 
 
         const payload = {
+            id: spot.id,
             address,
             city,
             state,
@@ -56,17 +60,20 @@ const SpotsUpdatePage = () => {
             lng,
             name,
             description,
-            price
+            price,
+            previewImage
         }
 
         
-        let updatedSpot = await dispatch(editSpots(payload, spot.id)) 
+        let updatedSpot = await dispatch(editSpots(payload)) 
         
+        await dispatch(getASpot(payload.id))
+
         if (updatedSpot) {
             history.push(`/spots/${updatedSpot.id}`)
         }
 
-        setAddress('')
+        // setAddress('')
         setCity('')
         setState('')
         setCountry('')
@@ -74,6 +81,7 @@ const SpotsUpdatePage = () => {
         setLng('')
         setName('')
         setDescription('')
+        setPreviewImage(spot.Images[0].url);
         setPrice('')
         setValidationErrors([])
    }

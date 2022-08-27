@@ -23,6 +23,7 @@ const SpotsCreatePage = () => {
    const [name, setName] = useState('') // name
    const [description, setDescription] = useState('') // description
    const [price, setPrice] = useState() // price
+   const [prevImage, setPrevImage] = useState('')
    const [validationErrors, setValidationErrors] = useState([])
 
    useEffect(() => {
@@ -36,8 +37,9 @@ const SpotsCreatePage = () => {
     if (!name.length) errors.push('Please enter a name for your spot!')
     if (description.length > 200) errors.push('Please shorten description')
     if (isNaN(price)) errors.push('Please add an valid price')
+    if (!prevImage.length) errors.push('Please add an preview Image')
     setValidationErrors(errors)
-   },[address, city, state, country, lat, lng, name, description, price])
+   },[address, city, state, country, lat, lng, name, description, price, prevImage])
 
    const onSubmit = async (event) => {
     event.preventDefault()
@@ -53,7 +55,8 @@ const SpotsCreatePage = () => {
             lng,
             name,
             description,
-            price
+            price,
+            prevImage
         }
 
         
@@ -72,6 +75,7 @@ const SpotsCreatePage = () => {
         setName('')
         setDescription('')
         setPrice('')
+        setPrevImage('')
         setValidationErrors([])
    }
 
@@ -147,6 +151,13 @@ const SpotsCreatePage = () => {
               required
             />
             <input
+              type="text"
+              placeholder="www.yourimage.com"
+              value={prevImage}
+              onChange={(event) => setPrevImage(event.target.value)}
+              required
+            />
+            <input
               type="number"
               placeholder="Price"
               value={price}
@@ -154,9 +165,9 @@ const SpotsCreatePage = () => {
               required
             />
           </div>
-          <button type="submit"
-            disabled={validationErrors.length > 0}
-          >Submit new spot</button>
+          <button type="submit" disabled={validationErrors.length > 0}>
+            Submit new spot
+          </button>
         </form>
       </div>
     );
