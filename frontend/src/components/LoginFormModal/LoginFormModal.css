@@ -38,3 +38,17 @@
         width: 100%;
         border-radius: 5px;
 }
+
+.loginmodal {
+    border-radius: 10px;
+        cursor: pointer;
+        background-color: white;
+        padding: 5px 0 5px 0;
+        margin: 3px 0;
+        width: 100px;
+        height: 50px;
+}
+
+.loginmodal:hover {
+    background-color: ghostwhite;
+}

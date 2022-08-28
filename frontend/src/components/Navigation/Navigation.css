@@ -14,6 +14,7 @@
     width: 75px;
     height: 45px;
     cursor: pointer;
+    position: relative;
 }
 
 .startbutton:hover {
@@ -22,8 +23,11 @@
 
 .startmenu {
     display: flex;
-    justify-content: space-between;
-
+    flex-direction: column;
+    justify-content: space-evenly;
+    position: absolute;
+    top: 9%
+    
 }
 
 
