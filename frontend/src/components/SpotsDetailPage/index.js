@@ -45,18 +45,20 @@ const SpotsDetailPage = () => {
       <>
         {spot && (
           <div>
-            <div>{spot?.name}</div>
-            <div>{spot?.avgStarRating}</div>
+            <h1 className="detailspotname">{spot?.name}</h1>
+
+            <div className="spotavgstarrating">
+              { spot?.avgStarRating}
+            </div>
             {/* A NAV LINK TO REVIEWS FOR THAT SPOT */}
-            <div>{`${spot.city}, ${spot.state}, ${spot.country}`}</div>
+            <div className="spotcityandstate">{`${spot.city}, ${spot.state}, ${spot.country}`}</div>
 
             {spot.Images && (
-              <div>
+              <div className="spotimgdiv">
                 <img
+                  className="spotimgdetail"
                   src={spot?.Images[0]?.url}
                   alt="House test"
-                  width="750"
-                  height="500"
                 ></img>
                 {/* {image} */}
               </div>
@@ -64,9 +66,7 @@ const SpotsDetailPage = () => {
 
             <div>{spot.description}</div>
             <div>{`$${spot.price}`}</div>
-            <div>
-              {spot.avgStarRating}
-            </div>
+            <div>{spot.avgStarRating}</div>
             {/* reviews  */}
             <ReviewsReadPage />
           </div>
@@ -75,7 +75,7 @@ const SpotsDetailPage = () => {
         {user?.id === spot?.ownerId && (
           <div>
             {/* spot ={spot} */}
-            <SpotsUpdateModal spot={spot}/>
+            <SpotsUpdateModal spot={spot} />
             <SpotsDeletePage />
           </div>
         )}
