@@ -31,8 +31,12 @@ function ProfileButton({ user }) {
 
   return (
     <div className="profilecontain">
-      <button classname="profilebuttonk" onClick={openMenu}>
+      <button classname="startbutton" style={{'width':'75px', 
+      'border-radius':'15px', 
+      'height':'45px',
+      'cursor': 'pointer'}} onClick={openMenu}>
         <i className="fa-solid fa-bars"></i>
+        <i class="fa-solid fa-circle-user"></i>
       </button>
       {showMenu && (
         <div className="profile-dropdown">
@@ -46,7 +50,6 @@ function ProfileButton({ user }) {
         </div>
       )}
     </div>
-    
   );
 }
 

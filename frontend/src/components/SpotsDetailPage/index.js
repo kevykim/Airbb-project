@@ -48,7 +48,8 @@ const SpotsDetailPage = () => {
             <h1 className="detailspotname">{spot?.name}</h1>
 
             <div className="spotavgstarrating">
-              { spot?.avgStarRating}
+              <i class="fa-solid fa-star"></i>
+              {spot?.avgStarRating}
             </div>
             {/* A NAV LINK TO REVIEWS FOR THAT SPOT */}
             <div className="spotcityandstate">{`${spot.city}, ${spot.state}, ${spot.country}`}</div>
@@ -66,7 +67,9 @@ const SpotsDetailPage = () => {
 
             <div>{spot.description}</div>
             <div>{`$${spot.price}`}</div>
-            <div>{spot.avgStarRating}</div>
+            <div>
+              <i class="fa-solid fa-star"></i> {spot.avgStarRating}
+            </div>
             {/* reviews  */}
             <ReviewsReadPage />
           </div>

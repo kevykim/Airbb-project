@@ -37,8 +37,8 @@ const SpotsHomePage = () => {
 
         <div className="spotcityandstate">
           <div> {`${spot.city}, ${spot.state}`} </div>
-          <div className='spotavg'>
-             <i class="fa-solid fa-star"></i>{spot?.avgRating}
+          <div className="spotavg">
+            <i class="fa-solid fa-star"></i>{spot?.avgRating}
           </div>
         </div>
         <div className="spotprice">{`$${spot.price} night`}</div>

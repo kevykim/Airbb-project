@@ -27,7 +27,7 @@ function Navigation({ isLoaded }) {
 
           <button className="startbutton" onClick={(event) => setStartMenu(!startMenu)}>
             <i className="fa-solid fa-bars"></i>
-            <i className="fa-solid fa-square-user"></i>
+            <i class="fa-solid fa-circle-user"></i>
           </button>
 
         {startMenu && (
@@ -40,6 +40,7 @@ function Navigation({ isLoaded }) {
       </div>
     );
   }
+
 
   return (
     <div className="wutnav">

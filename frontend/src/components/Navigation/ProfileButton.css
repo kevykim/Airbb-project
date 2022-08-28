@@ -9,11 +9,9 @@
    
 }
 
-.profilebuttonk {
-display: flex;
-    align-items: center;
+.profilebuttonk  {
     border-radius: 15px;
-    width: 75px;
+    width: 75px !important;
     height: 45px;
     cursor: pointer;
     position: relative;
