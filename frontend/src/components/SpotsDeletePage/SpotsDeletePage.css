@@ -1,0 +1,9 @@
+.deletespotbuttono {
+    cursor: pointer;
+        background-color: maroon;
+        color: white;
+        padding: 10px 10px 10px 10px;
+        margin: 2px 0;
+        width: 100px;
+        border-radius: 5px;
+}
