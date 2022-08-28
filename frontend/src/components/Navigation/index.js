@@ -7,46 +7,61 @@ import "./Navigation.css";
 import DemoUser from "../DemoUser";
 import SpotCreateModal from "../SpotsCreatePage/SpotsCreateModal";
 import SignUpModal from "../SignUpFormPage/SignUpModal";
+import { useState } from "react";
 
 function Navigation({ isLoaded }) {
   const sessionUser = useSelector((state) => state.session.user);
-  
+  const [startMenu, setStartMenu] = useState(false)
+
+
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = <ProfileButton user={sessionUser} />;          
   } else {
     sessionLinks = (
-      <>
-        <LoginFormModal />
-        <SignUpModal />
-      </>
+      <div className="whatis">
+
+          <button className="startbutton" onClick={(event) => setStartMenu(!startMenu)}>
+            <i className="fa-solid fa-bars"></i>
+            <i className="fa-solid fa-square-user"></i>
+          </button>
+
+        {startMenu && (
+          <div className="startmenu">
+            <LoginFormModal />
+            <SignUpModal />
+            <DemoUser />
+          </div>
+        )}
+      </div>
     );
   }
 
   return (
-    <ul>
-      <li className="test">
+    <div className="wutnav">
+    <div className="navbar">
+      <div className="actualnavbar">
+      <div className="airbnbhome">
         <NavLink exact to="/">
           <img
-            src="https://icon-library.com/images/home-button-icon-png/home-button-icon-png-11.jpg"
+            src="https://blog.logomyway.com/wp-content/uploads/2020/03/arbnb-logo.jpg"
             alt="Home"
-            width={50}
-            height={50}
-          ></img>
+            ></img>
         </NavLink>
-
-        {sessionUser && (
-          <div>
-            <SpotCreateModal />
-          </div>
-
-        )}
+      </div>
+      <div className="session">
+      {sessionUser && (
         <div>
-          <DemoUser />
-          {isLoaded && sessionLinks}
+          <SpotCreateModal />
         </div>
-      </li>
-    </ul>
+      )}
+      </div>
+      </div>
+      {isLoaded && sessionLinks}
+      </div>
+    <div className="navbottomline">
+    </div>
+    </div>
   );
 }
 

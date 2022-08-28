@@ -1,15 +1,46 @@
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+.whatis {
+    display: flex;
+    align-items: center;
 }
 
-.test {
-    display: flex;
-    justify-content: center;
-    border: 1px red solid
+
+.airbnbhome img{
+ height: 75px;
+ width: 75px;
 }
 
-.demouser {
+.startbutton {
+    border-radius: 15px;
+    width: 75px;
+    height: 45px;
+    cursor: pointer;
+}
+
+.startbutton:hover {
+    box-shadow: 0px 1px black;
+}
+
+.startmenu {
     display: flex;
+    justify-content: space-between;
+
+}
+
+
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 20px;
+}
+
+.actualnavbar {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.navbottomline {
+    border-bottom: 1px black solid;
 }
