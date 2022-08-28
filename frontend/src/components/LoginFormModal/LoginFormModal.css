@@ -1,0 +1,40 @@
+.loginform {
+    display: flex;
+        flex-direction: column;
+        align-items: center;
+}
+
+.loginerror {
+        display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: red;
+            font-weight: bold;
+            padding: 10px 5px 10px 5px;
+}
+
+.loginemailuser {
+    border-radius: 5px;
+        width: 100%;
+        box-sizing: border-box;
+        margin: 2px 0;
+        padding: 10px 10px 10px 10px;
+}
+
+.loginpass {
+    border-radius: 5px;
+        width: 100%;
+        box-sizing: border-box;
+        margin: 2px 0;
+        padding: 10px 10px 10px 10px;
+}
+
+.loginbutton {
+    cursor: pointer;
+        background-color: maroon;
+        color: white;
+        padding: 10px 10px 10px 10px;
+        margin: 2px 0;
+        width: 100%;
+        border-radius: 5px;
+}
