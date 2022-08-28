@@ -58,11 +58,11 @@ const ReviewsCreatePage = () => {
 
 
     return (
-        <div>
+      <div className='reviewcreateform'>
+          <h1>Create Review</h1>
          {validationErrors.length > 0 && (
           <div>
-            The following errors were found:
-            <ul>
+            <ul className='reviewerror'>
               {validationErrors.map((error, i) => (
                 <li key={i}>{error}</li>
               ))}
@@ -70,7 +70,9 @@ const ReviewsCreatePage = () => {
           </div>   
         )}
         <form onSubmit={onSubmit}>
+          <div>
             <input 
+            className='reviewstar'
             type='number'
             value={rating}
             min={1}
@@ -78,14 +80,19 @@ const ReviewsCreatePage = () => {
             onChange={(event) => setRating(event.target.value)}
             required
             />
+          </div>
+          <div>
             <textarea
+            className='reviewtext'
             type='text-area'
             placeholder='Thoughts on the place...'
             value={reviewText}
             onChange={(event) => setReviewText(event.target.value)}
             >
             </textarea>
-            <button type='submit'
+          </div>
+
+            <button className='createreviewbuttony' type='submit'
             disabled={validationErrors.length > 0}
             > Submit Review </button>
 
