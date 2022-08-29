@@ -80,12 +80,11 @@ const SpotsCreatePage = () => {
    }
 
     return (
-      <div>
+      <div className="createspotform">
         <h1>Create a Spot</h1>
         {validationErrors.length > 0 && (
           <div>
-            The following errors were found:
-            <ul>
+            <ul className="errorvalidationupdate">
               {validationErrors.map((error, i) => (
                 <li key={i}>{error}</li>
               ))}
@@ -94,78 +93,108 @@ const SpotsCreatePage = () => {
         )}
         <form onSubmit={onSubmit}>
           <div>
-            <input
-              type="text"
-              placeholder="Address"
-              value={address}
-              onChange={(event) => setAddress(event.target.value)}
-              required
-            />
-            <input
-              type="text"
-              placeholder="City"
-              value={city}
-              onChange={(event) => setCity(event.target.value)}
-              required
-            />
-            <input
-              type="text"
-              placeholder="State"
-              value={state}
-              onChange={(event) => setState(event.target.value)}
-              required
-            />
-            <input
-              type="text"
-              placeholder="Country"
-              value={country}
-              onChange={(event) => setCountry(event.target.value)}
-              required
-            />
-            <input
-              type="text"
-              placeholder="Lat"
-              value={lat}
-              onChange={(event) => setLat(event.target.value)}
-              required
-            />
-            <input
-              type="text"
-              placeholder="Lng"
-              value={lng}
-              onChange={(event) => setLng(event.target.value)}
-              required
-            />
-            <input
-              type="text"
-              placeholder="Name of place"
-              value={name}
-              onChange={(event) => setName(event.target.value)}
-              required
-            />
-            <textarea
-              type="text-area"
-              placeholder="description"
-              value={description}
-              onChange={(event) => setDescription(event.target.value)}
-              required
-            />
-            <input
-              type="text"
-              placeholder="www.yourimage.com"
-              value={prevImage}
-              onChange={(event) => setPrevImage(event.target.value)}
-              required
-            />
-            <input
-              type="number"
-              placeholder="Price"
-              value={price}
-              onChange={(event) => setPrice(event.target.value)}
-              required
-            />
+            <div>
+              <input
+                className="createaddress"
+                type="text"
+                placeholder="Address"
+                value={address}
+                onChange={(event) => setAddress(event.target.value)}
+                required
+              />
+            </div>
+            <div>
+              <input
+              className='createcity'
+                type="text"
+                placeholder="City"
+                value={city}
+                onChange={(event) => setCity(event.target.value)}
+                required
+              />
+            </div>
+            <div>
+              <input
+                className='createstate'
+                type="text"
+                placeholder="State"
+                value={state}
+                onChange={(event) => setState(event.target.value)}
+                required
+              />
+            </div>
+            <div>
+              <input
+                className='createcountry'
+                type="text"
+                placeholder="Country"
+                value={country}
+                onChange={(event) => setCountry(event.target.value)}
+                required
+              />
+            </div>
+            <div>
+              <input
+                className='createlat'
+                type="text"
+                placeholder="Lat"
+                value={lat}
+                onChange={(event) => setLat(event.target.value)}
+                required
+              />
+            </div>
+            <div>
+              <input
+                className='createlng'
+                type="text"
+                placeholder="Lng"
+                value={lng}
+                onChange={(event) => setLng(event.target.value)}
+                required
+              />
+            </div>
+            <div>
+              <input
+                className='createnameplace'
+                type="text"
+                placeholder="Name of place"
+                value={name}
+                onChange={(event) => setName(event.target.value)}
+                required
+              />
+            </div>
+            <div>
+              <textarea
+                className='createdescription'
+                type="text-area"
+                placeholder="description"
+                value={description}
+                onChange={(event) => setDescription(event.target.value)}
+                required
+              />
+            </div>
+            <div>
+              <input
+                className='createimg'
+                type="text"
+                placeholder="www.yourimage.com"
+                value={prevImage}
+                onChange={(event) => setPrevImage(event.target.value)}
+                required
+              />
+            </div>
+            <div>
+              <input
+                className='createprice'
+                type="number"
+                placeholder="Price"
+                value={price}
+                onChange={(event) => setPrice(event.target.value)}
+                required
+              />
+            </div>
           </div>
-          <button type="submit" disabled={validationErrors.length > 0}>
+          <button className='createspotbutton' type="submit" disabled={validationErrors.length > 0}>
             Submit new spot
           </button>
         </form>

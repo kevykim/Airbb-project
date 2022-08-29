@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 // import { login } from "../../store/session";
 import { thunkDemoUser } from "../../store/session";
+import './DemoUser.css'
 
 const DemoUser = () => {
     const dispatch = useDispatch()
@@ -24,7 +25,7 @@ const DemoUser = () => {
 
 
     return (
-        <button onClick={onClick}>Demo User</button>
+        <button className="DemoUserButton" onClick={onClick}>Demo User</button>
     )
 }
 

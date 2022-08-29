@@ -1,0 +1,33 @@
+.spotcard {
+    display: flex;
+    flex-direction: row;
+    padding: 5px 5px 5px 5px;
+}
+
+.spotcityandstate {
+    display: flex;
+    justify-content: flex-start;
+    font-weight: bold;
+    padding-left: 10px;
+    
+
+}
+
+.spotprice {
+    display: flex;
+    justify-content: flex-start;
+    font-weight: 545;
+    padding: 10px;
+}
+
+.eachspot {
+    padding: 10px 10px 10px 10px;
+}
+
+.spotsplashimg {
+    border-radius: 30px;
+}
+
+.spotavg {
+    border: 1px red
+}

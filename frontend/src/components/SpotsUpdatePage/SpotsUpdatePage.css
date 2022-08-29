@@ -1,0 +1,97 @@
+.updatespotform {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.errorvalidation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: red;
+    font-weight: bold;
+    padding: 10px 5px 10px 5px;
+}
+
+.address {
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 2px 0;
+    padding: 10px 10px 10px 10px;
+}
+
+.city {
+    border-radius: 5px;
+        width: 100%;
+        box-sizing: border-box;
+        margin: 2px 0;
+        padding: 10px 10px 10px 10px;
+}
+
+.state {
+    border-radius: 5px;
+        width: 100%;
+        box-sizing: border-box;
+        margin: 2px 0;
+        padding: 10px 10px 10px 10px;
+}
+
+.country {
+    border-radius: 5px;
+        width: 100%;
+        box-sizing: border-box;
+        margin: 2px 0;
+        padding: 10px 10px 10px 10px;
+}
+
+.lat {
+    border-radius: 5px;
+        width: 100%;
+        box-sizing: border-box;
+        margin: 2px 0;
+        padding: 10px 10px 10px 10px;
+}
+
+.lng {
+    border-radius: 5px;
+        width: 100%;
+        box-sizing: border-box;
+        margin: 2px 0;
+        padding: 10px 10px 10px 10px;
+}
+
+.placename {
+    border-radius: 5px;
+        width: 100%;
+        box-sizing: border-box;
+        margin: 2px 0;
+        padding: 10px 10px 10px 10px;
+}
+
+.description {
+    border-radius: 5px;
+        width: 100%;
+        box-sizing: border-box;
+        margin: 2px 0;
+        padding: 10px 10px 10px 10px;
+        resize: none;
+}
+
+.price {
+    border-radius: 5px;
+        width: 100%;
+        box-sizing: border-box;
+        margin: 2px 0;
+        padding: 10px 10px 10px 10px;
+}
+
+.updatespotbutton {
+    cursor: pointer;
+    background-color: maroon;
+    color: white;
+    padding: 10px 10px 10px 10px;
+    margin: 2px 0;
+    width: 100%;
+    border-radius: 5px;
+}

@@ -23,9 +23,10 @@ const SpotsHomePage = () => {
     // const city = spots.map(spot => spot.city)
     const spotsWork = spots.map((spot) => (
       <div key={spot.id}>
-        <div>
+        <div className="eachspot">
           <NavLink to={`/spots/${spot.id}`}>
             <img
+              className="spotsplashimg"
               src={spot?.previewImage}
               alt="House test"
               width="250"
@@ -34,18 +35,18 @@ const SpotsHomePage = () => {
           </NavLink>
         </div>
 
-        <div>{`${spot.city}, ${spot.state}`}</div>
-        <div>
-          <i class="fa-solid fa-star"></i>
-          {spot?.avgRating}
+        <div className="spotcityandstate">
+          <div> {`${spot.city}, ${spot.state}`} </div>
+          <div className="spotavg">
+            <i class="fa-solid fa-star"></i>{spot?.avgRating}
+          </div>
         </div>
-        <div>{`$${spot.price} night`}</div>
+        <div className="spotprice">{`$${spot.price} night`}</div>
       </div>
     ));
 
     const dispatch = useDispatch();
 
-    // console.log(spots)
 
     
 
@@ -54,9 +55,8 @@ const SpotsHomePage = () => {
     }, [dispatch])
 
     return (
-        <div>
+        <div className='spotcard'>
             {spotsWork}
-            
             
         </div>
     )

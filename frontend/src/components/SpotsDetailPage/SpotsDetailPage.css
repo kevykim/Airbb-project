@@ -1,0 +1,25 @@
+.detailspotname {
+    display: flex;
+    padding: 20px 30px;
+}
+
+.spotavgstarrating {
+    font-weight: bold;
+}
+
+.spotcityandstate {
+    font-weight: bolder;
+
+}
+
+.spotimgdiv {
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 50px ;
+}
+
+.spotimgdetail {
+    width: 900px;
+    height: 500px;
+    border-radius: 50px;
+}

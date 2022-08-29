@@ -1,0 +1,65 @@
+.profilecontain {
+    display: flex;
+    align-items: center;
+    border-radius: 15px;
+        width: 75px;
+        height: 45px;
+        cursor: pointer;
+        position: relative;
+   
+}
+
+.profilebuttonk  {
+    border-radius: 15px;
+    width: 75px !important;
+    height: 45px;
+    cursor: pointer;
+    position: relative;
+}
+
+.profile-dropdown {
+display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    position: absolute;
+    top: 100%
+
+}
+
+.profile-username {
+    border-radius: 10px;
+        border: 1px solid black;
+        display: flex;
+            justify-content: center;
+            align-items: center;
+
+        background-color: white;
+        padding: 5px 0 5px 0;
+        margin: 3px 0;
+        width: 100px;
+        height: 50px;
+}
+
+.profile-email {
+    border-radius: 10px;
+        border: 1px solid black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        background-color: white;
+        padding: 5px 0 5px 0;
+        margin: 3px 0;
+        width: 100px;
+        height: 50px;
+}
+
+.profilelogout {
+    border-radius: 10px;
+        cursor: pointer;
+        background-color: white;
+        padding: 5px 0 5px 0;
+        margin: 3px 0;
+        width: 100px;
+        height: 50px;
+}

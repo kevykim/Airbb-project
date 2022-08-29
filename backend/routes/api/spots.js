@@ -47,7 +47,7 @@ for (let spots of currentSpots) {
   currentSpot.push(newSpot);
 }
 res.status(200)
-res.json({ Spots: currentSpot });
+return res.json({ Spots: currentSpot });
 
 
 });
@@ -137,20 +137,20 @@ res.json({ Spots: currentSpot });
     
     if(!spot) {
       res.status(404)
-      res.json({
+      return res.json({
         message: "Spot couldn't be found",
         statusCode: 404
       })
     }
     
     if (currentUser !== spot.ownerId) {
-      res.json(notOwnedBooking)
+     return res.json(notOwnedBooking)
     };
 
     // console.log(currentUser)
     // console.log(spot.ownerId)
 
-    res.json({Bookings: ownedBooking});
+    return res.json({Bookings: ownedBooking});
   })
 
 
@@ -175,7 +175,7 @@ handleValidationErrors
     
     if(!spot) {
       res.status(404)
-      res.json({
+     return res.json({
         message: "Spot couldn't be found",
         statusCode: 404
       })
@@ -183,7 +183,7 @@ handleValidationErrors
     
     if (endDate < startDate) {
       res.status(400);
-      res.json({
+     return res.json({
         message: "End date cannot come before start date ",
         statusCode: 400,
       });
@@ -191,7 +191,7 @@ handleValidationErrors
 
     if (spot.userId === req.user.id) {
       res.status(403)
-      res,json({
+     return res,json({
         message: "Cannot book at own spot",
         statusCode: 403
       })
@@ -212,7 +212,7 @@ handleValidationErrors
 
       if (sameBookingChecker.length >= 2) {
         res.status(403);
-        res.json({
+       return res.json({
           message: "Sorry, this spot is already booked for the specified dates",
           statusCode: 403,
         });
@@ -228,7 +228,7 @@ handleValidationErrors
     // console.log(spot)
 
     // await newBooking.save();
-    res.json(booking);
+   return res.json(booking);
 
   })
 
@@ -253,13 +253,13 @@ handleValidationErrors
 
     if(!spotHandler) {
       res.status(404)
-      res.json({
+     return res.json({
         message: "Spot couldn't be found",
         statusCode: 404
       })
     };
 
-    res.json(reviews)
+   return res.json(reviews)
   });
 
 
@@ -281,7 +281,7 @@ handleValidationErrors
     
     if(!spot) {
       res.status(404)
-      res.json({
+    return res.json({
         message: "Spot couldn't be found",
         statusCode: 404
       })
@@ -320,7 +320,7 @@ handleValidationErrors
               
     // await newReview.save();
     res.status(201)
-    res.json(newReview)
+   return res.json(newReview)
  });
 
 
@@ -334,7 +334,7 @@ router.post('/:spotId/images', requireAuth, async (req, res) => {
 
     if(!spot) {
         res.status(404)
-        res.json({
+       return res.json({
             message: "Spot couldn't be found",
             statusCode: 404
         })
@@ -365,7 +365,7 @@ router.post('/:spotId/images', requireAuth, async (req, res) => {
     image.url = addImage.url
     // image.previewImage = true
 
-    res.json(image)
+    return res.json(image)
 });
 
 
@@ -402,7 +402,7 @@ router.get('/:spotId', async (req, res) => {
     if(!spot) {
 
         res.status(404)
-        res.json({
+       return res.json({
             message: "Spot couldn't be found",
             statusCode: 404
         })
@@ -418,7 +418,7 @@ router.get('/:spotId', async (req, res) => {
 
 
 
-    res.json(spots)
+   return res.json(spots)
 });
 
 
@@ -458,7 +458,7 @@ router.put("/:spotId", requireAuth, validateSpot, async (req, res) => {
   const spot = await Spot.findByPk(spotId);
   if (!spot) {
     res.status(404)
-    res.json({
+   return res.json({
       message: "Spot couldn't be found",
       statusCode: 404,
     });
@@ -466,7 +466,7 @@ router.put("/:spotId", requireAuth, validateSpot, async (req, res) => {
 
   if (spot.ownerId !== req.user.id) {
     res.status(403)
-    res.json({
+    return res.json({
       message: "Cannot edit spot",
       statusCode: 403,
     });
@@ -488,7 +488,7 @@ router.put("/:spotId", requireAuth, validateSpot, async (req, res) => {
   // console.log(req.user.id)
   await spot.save();
   res.status(200);
-  res.json(spot);
+ return res.json(spot);
 });
 
 
@@ -502,14 +502,14 @@ router.delete("/:spotId", requireAuth, async (req, res) => {
   const spot = await Spot.findByPk(spotId);
   if (!spot) {
     res.status(404);
-    res.json({
+   return res.json({
       message: "Spot couldn't be found",
       statusCode: 404,
     });
   }
 
   if (spot.ownerId !== req.user.id) {
-    res.json({
+   return res.json({
       message: "Cannot delete",
       statusCode: 403,
     });
@@ -517,7 +517,7 @@ router.delete("/:spotId", requireAuth, async (req, res) => {
 
 
   await spot.destroy();
-  res.json({
+  return res.json({
     message: "Successfully deleted",
     statusCode: 200,
   });
@@ -653,7 +653,7 @@ router.get('/', validateQuery, async (req, res) => {
       }
     }
 
-    res.json({ Spots: spot, page: page, size: size });
+   return res.json({ Spots: spot, page: page, size: size });
 
     
 });
@@ -684,7 +684,7 @@ router.post('/', requireAuth, validateSpot, async (req, res) => {
 
     await newSpot.save();
     res.status(201)
-    res.json(newSpot)
+    return res.json(newSpot)
 });
 
 

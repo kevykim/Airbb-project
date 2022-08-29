@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getASpot } from "../../store/spots";
 import ReviewsReadPage from "../ReviewsReadPage";
 import SpotsDeletePage from "../SpotsDeletePage";
-import SpotsUpdatePage from "../SpotsUpdatePage";
+import SpotsUpdateModal from "../SpotsUpdatePage/SpotsUpdateModal";
 
 import './SpotsDetailPage.css'
 
@@ -45,18 +45,21 @@ const SpotsDetailPage = () => {
       <>
         {spot && (
           <div>
-            <div>{spot?.name}</div>
-            <div>{spot?.avgStarRating}</div>
+            <h1 className="detailspotname">{spot?.name}</h1>
+
+            <div className="spotavgstarrating">
+              <i class="fa-solid fa-star"></i>
+              {spot?.avgStarRating}
+            </div>
             {/* A NAV LINK TO REVIEWS FOR THAT SPOT */}
-            <div>{`${spot.city}, ${spot.state}, ${spot.country}`}</div>
+            <div className="spotcityandstate">{`${spot.city}, ${spot.state}, ${spot.country}`}</div>
 
             {spot.Images && (
-              <div>
+              <div className="spotimgdiv">
                 <img
+                  className="spotimgdetail"
                   src={spot?.Images[0]?.url}
                   alt="House test"
-                  width="750"
-                  height="500"
                 ></img>
                 {/* {image} */}
               </div>
@@ -65,7 +68,7 @@ const SpotsDetailPage = () => {
             <div>{spot.description}</div>
             <div>{`$${spot.price}`}</div>
             <div>
-              {spot.avgStarRating}
+              <i class="fa-solid fa-star"></i> {spot.avgStarRating}
             </div>
             {/* reviews  */}
             <ReviewsReadPage />
@@ -74,7 +77,8 @@ const SpotsDetailPage = () => {
 
         {user?.id === spot?.ownerId && (
           <div>
-            <SpotsUpdatePage spot={spot}/>
+            {/* spot ={spot} */}
+            <SpotsUpdateModal spot={spot} />
             <SpotsDeletePage />
           </div>
         )}

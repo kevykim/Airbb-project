@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { thunkReadReview } from '../../store/reviews';
-import ReviewsCreatePage from '../ReviewsCreatePage';
+import ReviewsFormModal from '../ReviewsCreatePage/ReviewsCreateModal';
 import ReviewsDeletePage from '../ReviewsDeletePage';
 
 
@@ -40,19 +40,21 @@ const ReviewsReadPage = () => {
   
   return (
     <div>
-      {reviews.map((review) => (
+      {reviews?.map((review) => (
         <div key={review?.id}>
           <div>{`${review?.User?.firstName}`}</div>
           <div>{`${date.toLocaleDateString(undefined, options)}`}</div>
           <div>{review?.review}</div>
-      {owner?.id === review.userId && <ReviewsDeletePage reviewId={review.id} />}
+      {owner?.id === review?.userId && <ReviewsDeletePage reviewId={review.id} />}
         </div>
       ))}
-      {!reviews.find(review => review.userId === owner.id) && (
-        <div>
-          <ReviewsCreatePage />
-        </div>
-      )}
+
+        {owner && !reviews?.find(review => review?.userId === owner?.id) && (
+          <div>
+            <ReviewsFormModal />
+          </div>
+        )}
+
     </div>
   );
 }

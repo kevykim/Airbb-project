@@ -8,13 +8,13 @@ import { editSpots, getASpot } from '../../store/spots'
 import './SpotsUpdatePage.css'
 
 
-const SpotsUpdatePage = ({spot}) => {
+const SpotsUpdatePage = ({spot, onClick}) => {
     // const {id} = useParams()
     // const spot = useSelector(state => state.spot[id])
       const history = useHistory()
    const dispatch = useDispatch()
 
-  console.log('this',spot)
+  // console.log('this',spot)
 
 //    const spot = useSelector(state => state.spot)
     // console.log('updatepage',spot)
@@ -71,6 +71,7 @@ const SpotsUpdatePage = ({spot}) => {
 
         if (updatedSpot) {
             history.push(`/spots/${updatedSpot.id}`)
+            onClick()
         }
 
         // setAddress('')
@@ -87,10 +88,11 @@ const SpotsUpdatePage = ({spot}) => {
    }
 
     return (
-      <div>
+
+      <div className='updatespotform'>
+        <h1>Edit Spot</h1>
         {validationErrors.length > 0 && (
-          <div>
-            The following errors were found:
+          <div className='errorvalidation'>
             <ul>
               {validationErrors.map((error, i) => (
                 <li key={i}>{error}</li>
@@ -100,71 +102,98 @@ const SpotsUpdatePage = ({spot}) => {
         )}
         <form onSubmit={onSubmit}>
           <div>
+            <div>
             <input
+            className='address'
               type="text"
               placeholder="Address"
               value={address}
               onChange={(event) => setAddress(event.target.value)}
               required
             />
+            </div>
+            <div>
             <input
+            className='city'
               type="text"
               placeholder="City"
               value={city}
               onChange={(event) => setCity(event.target.value)}
               required
             />
+            </div>
+            <div>
             <input
+            className='state'
               type="text"
               placeholder="State"
               value={state}
               onChange={(event) => setState(event.target.value)}
               required
             />
+            </div>
+            <div>
             <input
+            className='country'
               type="text"
               placeholder="Country"
               value={country}
               onChange={(event) => setCountry(event.target.value)}
               required
             />
+            </div>
+            <div>
             <input
+            className='lat'
               type="text"
               placeholder="Lat"
               value={lat}
               onChange={(event) => setLat(event.target.value)}
               required
             />
+            </div>
+            <div>
             <input
+            className='lng'
               type="text"
               placeholder="Lng"
               value={lng}
               onChange={(event) => setLng(event.target.value)}
               required
             />
+            </div>
+            <div>
             <input
+            className='placename'
               type="text"
               placeholder="Name of place"
               value={name}
               onChange={(event) => setName(event.target.value)}
               required
             />
+            </div>
+            <div>
             <textarea
+            className='description'
               type="text-area"
               placeholder="description"
               value={description}
               onChange={(event) => setDescription(event.target.value)}
               required
             />
+            </div>
+            <div>
             <input
+            className='price'
               type="number"
               placeholder="Price"
               value={price}
               onChange={(event) => setPrice(event.target.value)}
               required
             />
+            </div>
           </div>
-          <button type="submit"
+          <button className='updatespotbutton' type="submit"
             disabled={validationErrors.length > 0}
           >Update Spot</button>
         </form>
