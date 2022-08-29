@@ -2,14 +2,16 @@
     display: flex;
     flex-direction: row;
     padding: 5px 5px 5px 5px;
+    width: 1256px;
+    height: 800px;
+    /* border: 1px red solid; */
 }
 
 .spotcityandstate {
     display: flex;
-    justify-content: flex-start;
-    font-weight: bold;
-    padding-left: 10px;
-    
+    justify-content: space-between;
+    padding: 10px 10px 5px 20px;
+    font-size: small;
 
 }
 
@@ -17,7 +19,7 @@
     display: flex;
     justify-content: flex-start;
     font-weight: 545;
-    padding: 10px;
+    padding: 5px 5px 5px 20px;
 }
 
 .eachspot {
@@ -26,8 +28,14 @@
 
 .spotsplashimg {
     border-radius: 30px;
+    width: 250px;
+    height: 250px;
 }
 
-.spotavg {
-    border: 1px red
-}
+/* .hi {
+    border: 1px red solid;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    box-sizing: border-box;
+} */

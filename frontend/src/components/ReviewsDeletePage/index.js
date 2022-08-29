@@ -28,7 +28,7 @@ const ReviewsDeletePage = ({reviewId}) => {
     }
 
     return (
-        <button onClick={onClick}>Delete Review</button>
+        <button className='deletereviewbutton' onClick={onClick}>Delete Review</button>
     )
 }
 

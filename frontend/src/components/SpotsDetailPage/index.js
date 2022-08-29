@@ -42,17 +42,21 @@ const SpotsDetailPage = () => {
     //   return 
     // }
     return (
-      <>
+      <div>
         {spot && (
           <div>
-            <h1 className="detailspotname">{spot?.name}</h1>
+            <div className="spotheadercontainer">
+              <div className="detailspotname" style={{ "font-weight": "bold" }}>
+                {spot?.name}
+              </div>
 
-            <div className="spotavgstarrating">
-              <i class="fa-solid fa-star"></i>
-              {spot?.avgStarRating}
+              <div className="spotavgstarrating">
+                <i class="fa-solid fa-star"></i>
+
+                {`${spot?.avgStarRating}  ${spot.city}, ${spot.state}, ${spot.country}`}
+              </div>
+              {/* A NAV LINK TO REVIEWS FOR THAT SPOT */}
             </div>
-            {/* A NAV LINK TO REVIEWS FOR THAT SPOT */}
-            <div className="spotcityandstate">{`${spot.city}, ${spot.state}, ${spot.country}`}</div>
 
             {spot.Images && (
               <div className="spotimgdiv">
@@ -61,28 +65,32 @@ const SpotsDetailPage = () => {
                   src={spot?.Images[0]?.url}
                   alt="House test"
                 ></img>
-                {/* {image} */}
               </div>
             )}
-
-            <div>{spot.description}</div>
-            <div>{`$${spot.price}`}</div>
-            <div>
-              <i class="fa-solid fa-star"></i> {spot.avgStarRating}
+            <div className="descandpricecontainer">
+              <div className="spotdescript">{spot.description}</div>
+              <div className="rightpricereview">
+                <div>{`$${spot.price} night`}</div>
+                <div>
+                  <i class="fa-solid fa-star"></i>
+                  {`${spot.avgStarRating} reviews`}
+                </div>
+              </div>
             </div>
-            {/* reviews  */}
-            <ReviewsReadPage />
           </div>
         )}
+        <div>
+          <ReviewsReadPage />
+        </div>
 
         {user?.id === spot?.ownerId && (
-          <div>
+          <div className="spottybutton">
             {/* spot ={spot} */}
             <SpotsUpdateModal spot={spot} />
             <SpotsDeletePage />
           </div>
         )}
-      </>
+      </div>
     );
     
 }

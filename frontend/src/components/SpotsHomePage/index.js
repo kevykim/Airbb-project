@@ -13,24 +13,21 @@ import './SpotsHomePage.css'
 
 
 const SpotsHomePage = () => {
-    // const { id } = useParams()
-    // console.log('id', id)
-    // const review = useSelector((state) => state.review)
+  
     const allSpot = useSelector((state) => state.spot)
     // console.log('component', allSpot)
     const spots = Object.values(allSpot)
     // const address = spots.map(spot => spot.address)
     // const city = spots.map(spot => spot.city)
+
     const spotsWork = spots.map((spot) => (
-      <div key={spot.id}>
+      <div className='hi' key={spot.id}>
         <div className="eachspot">
           <NavLink to={`/spots/${spot.id}`}>
             <img
               className="spotsplashimg"
               src={spot?.previewImage}
               alt="House test"
-              width="250"
-              height="250"
             ></img>
           </NavLink>
         </div>
@@ -41,7 +38,7 @@ const SpotsHomePage = () => {
             <i class="fa-solid fa-star"></i>{spot?.avgRating}
           </div>
         </div>
-        <div className="spotprice">{`$${spot.price} night`}</div>
+        <div className="spotprice">{`$${spot.price}`} night</div>
       </div>
     ));
 

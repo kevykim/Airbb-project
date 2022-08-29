@@ -40,20 +40,27 @@ const ReviewsReadPage = () => {
   
   return (
     <div>
+      <h2>Reviews</h2>
       {reviews?.map((review) => (
-        <div key={review?.id}>
-          <div>{`${review?.User?.firstName}`}</div>
-          <div>{`${date.toLocaleDateString(undefined, options)}`}</div>
-          <div>{review?.review}</div>
-      {owner?.id === review?.userId && <ReviewsDeletePage reviewId={review.id} />}
+        <div className="reviewcontainer" key={review?.id}>
+          <div className="profilereview">
+            <div style={{ "font-weight": "bold" }}>
+              <i class="fa-solid fa-user"></i>
+               {` ${review?.User?.firstName}`}
+            </div>
+            <div style={{"color":"grey"}}>{`${date.toLocaleDateString(undefined, options)}`}</div>
+          </div>
+          <div className='allreviewcontainer'>{review?.review}</div>
+          {owner?.id === review?.userId && (
+            <ReviewsDeletePage reviewId={review.id} />
+          )}
+      {owner && !reviews?.find((review) => review?.userId === owner?.id) && (
+        <div>
+          <ReviewsFormModal />
+        </div>
+      )}
         </div>
       ))}
-
-        {owner && !reviews?.find(review => review?.userId === owner?.id) && (
-          <div>
-            <ReviewsFormModal />
-          </div>
-        )}
 
     </div>
   );

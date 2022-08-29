@@ -1,0 +1,20 @@
+.reviewcontainer {
+    border-bottom: 1px black solid;
+}
+
+.profilereview {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    font-size: 85%;
+
+
+
+}
+
+.allreviewcontainer {
+    display: flex;
+    flex-direction: column;
+    padding: 15px 15px 15px 15px;
+
+}
