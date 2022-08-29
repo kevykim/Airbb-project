@@ -52,10 +52,12 @@ const SpotsHomePage = () => {
     }, [dispatch])
 
     return (
+      <div className='spotcontainerdiv'>
         <div className='spotcard'>
             {spotsWork}
             
         </div>
+      </div>
     )
 }
 

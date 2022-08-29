@@ -1,9 +1,8 @@
 .spotcard {
     display: flex;
     flex-direction: row;
+    align-items: flex-start;
     padding: 5px 5px 5px 5px;
-    width: 1256px;
-    height: 800px;
     /* border: 1px red solid; */
 }
 
@@ -32,10 +31,17 @@
     height: 250px;
 }
 
-/* .hi {
-    border: 1px red solid;
+.hi {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     flex-direction: column;
     box-sizing: border-box;
-} */
+}
+
+.spotcontainerdiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
