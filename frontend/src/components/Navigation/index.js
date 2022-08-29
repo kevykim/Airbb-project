@@ -45,7 +45,7 @@ function Navigation({ isLoaded }) {
   return (
     <div className="wutnav">
     <div className="navbar">
-      <div className="actualnavbar">
+      {/* <div className="actualnavbar"> */}
       <div className="airbnbhome">
         <NavLink exact to="/">
           <img
@@ -56,12 +56,12 @@ function Navigation({ isLoaded }) {
       </div>
       <div className="session">
       {sessionUser && (
-        <div>
+        <div className="this">
           <SpotCreateModal />
         </div>
       )}
       </div>
-      </div>
+      {/* </div> */}
       {isLoaded && sessionLinks}
       </div>
     <div className="navbottomline">
