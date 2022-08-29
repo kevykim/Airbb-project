@@ -17,7 +17,6 @@ module.exports = {
       address: {
         type: Sequelize.STRING,
         allowNull: false,
-
       },
       city: {
         type: Sequelize.STRING,
@@ -50,6 +49,9 @@ module.exports = {
       price: {
         type: Sequelize.INTEGER,
         allowNull: false,
+      },
+      previewImage: {
+        type: Sequelize.STRING,
       },
       createdAt: {
         allowNull: false,

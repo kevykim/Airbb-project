@@ -15,19 +15,19 @@ const testBookings = [
   },
   {
     spotId: 3,
-    userId: 3,
+    userId: 1,
     startDate: new Date("2022-08-08"),
     endDate: new Date("2022-08-10"),
   },
   // {
   //   spotId: 4,
-  //   userId: 4,
+  //   userId: 2,
   //   startDate: new Date("2022-09-08"),
   //   endDate: new Date ("2022-09-10"),
   // },
   // {
   //   spotId: 5,
-  //   userId: 5,
+  //   userId: 1,
   //   startDate: new Date("2022-10-08"),
   //   endDate: new Date ("2022-10-10"),
   // },

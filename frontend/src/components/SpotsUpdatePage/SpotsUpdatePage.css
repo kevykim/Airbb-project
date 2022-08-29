@@ -95,3 +95,20 @@
     width: 100%;
     border-radius: 5px;
 }
+
+.updatespotbuttonm {
+    cursor: pointer;
+    background-color: maroon;
+    color: white;
+    padding: 10px 10px 10px 10px;
+    margin: 2px 0;
+
+    border-radius: 5px;
+}
+
+.spottybutton {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 120px;
+}
