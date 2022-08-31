@@ -56,11 +56,12 @@ const SpotsCreatePage = () => {
             name,
             description,
             price,
-            prevImage
+            previewImage:prevImage
         }
 
         
         let createdSpot = await dispatch(createSpots(payload)) 
+        
         
         if (createdSpot) {
             history.push(`/spots/${createdSpot.id}`)
@@ -195,7 +196,7 @@ const SpotsCreatePage = () => {
             </div>
           </div>
           <button className='createspotbutton' type="submit" disabled={validationErrors.length > 0}>
-            Submit new spot
+            Submit New Spot
           </button>
         </form>
       </div>
