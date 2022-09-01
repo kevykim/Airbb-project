@@ -18,7 +18,6 @@ const ReviewsReadPage = () => {
   const reviews = Object.values(reviewsObj)
 
   const spot = useSelector(state => state.spot[id])
-  console.log(spot)
 
   const date = new Date()
   const options = {
@@ -56,7 +55,7 @@ const ReviewsReadPage = () => {
           {owner?.id === review?.userId && (
             <ReviewsDeletePage reviewId={review.id} />
           )}
-          {owner && !reviews?.find((review) => review?.userId === owner?.id) && (
+          {!reviews.length && !reviews?.find((review) => review?.userId === owner?.id) && (
             <div>
               <ReviewsFormModal />
             </div>
