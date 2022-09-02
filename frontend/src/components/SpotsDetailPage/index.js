@@ -34,7 +34,7 @@ const SpotsDetailPage = () => {
     //   return 
     // }
     return (
-      <div>
+      <div className="splash-container">
         {spot && (
           <div>
             <div className="spotheadercontainer">

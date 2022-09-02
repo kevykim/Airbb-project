@@ -51,10 +51,7 @@ const ReviewsCreatePage = () => {
         setValidationErrors([])
     }
 
-    // const review = useSelector(state => state.review[id])
-
-    // console.log('create review', id)
-    // console.log('CreatingReviewwwww', review)
+  
 
 
     return (
