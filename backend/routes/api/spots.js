@@ -411,7 +411,7 @@ router.get('/:spotId', async (req, res) => {
        let spots = spot.toJSON();
        spots.numReviews = reviewFunctions.numReviews;
        if (!reviewFunctions.avgStarRating) {
-         spots.avgStarRating = "This spot does not have any ratings";
+         spots.avgStarRating = "This spot does not have any stars";
        } else {
          spots.avgStarRating = Number(reviewFunctions.avgStarRating).toFixed(1);
        }

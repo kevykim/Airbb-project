@@ -56,14 +56,11 @@ const ReviewsReadPage = () => {
           {owner?.id === review?.userId && (
             <ReviewsDeletePage reviewId={review.id} />
           )}
-          {/* {owner && !reviews?.find((review) => review?.userId === owner?.id) && (
+          {reviews.length ? !reviews?.find((review) => review?.userId === owner?.id) && (
             <div>
               <ReviewsFormModal />
             </div>
-          )} */}
-          <div>
-            <ReviewsFormModal />
-          </div>
+          ) : <div> this is just a test</div>}
         </div>
       ))}
     </div>
