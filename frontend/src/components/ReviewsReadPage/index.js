@@ -26,6 +26,7 @@ const ReviewsReadPage = () => {
 
   }
 
+  // console.log("review finds",reviews?.find((review) => review?.userId === owner?.id))
 
   useEffect(() => {
     dispatch(thunkReadReview(id));
@@ -35,7 +36,7 @@ const ReviewsReadPage = () => {
   
   return (
     <div>
-      <div className='reviewstitlediv'>
+      <div className="reviewstitlediv">
         <i class="fa-solid fa-star"></i>{" "}
         {`${spot.avgStarRating} · ${reviews.length} reviews`}
       </div>
@@ -55,11 +56,14 @@ const ReviewsReadPage = () => {
           {owner?.id === review?.userId && (
             <ReviewsDeletePage reviewId={review.id} />
           )}
-          {owner && !reviews?.find((review) => review?.userId === owner?.id) && (
+          {/* {owner && !reviews?.find((review) => review?.userId === owner?.id) && (
             <div>
               <ReviewsFormModal />
             </div>
-          )}
+          )} */}
+          <div>
+            <ReviewsFormModal />
+          </div>
         </div>
       ))}
     </div>

@@ -21,7 +21,7 @@ const ReviewsCreatePage = () => {
 
     useEffect(() => {
         const errors = [];
-        if (rating < 1 || rating > 5) errors.push('Ratings must be within the range of 1 to 5')
+        if (rating < 1 || rating > 5) errors.push('Stars must be within the range of 1 to 5')
         if (!reviewText.length || reviewText.length > 256) errors.push('Must have review')
         setValidationErrors(errors)
     }, [rating, reviewText])
