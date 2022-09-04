@@ -28,7 +28,7 @@ const ReviewsCreatePage = () => {
 
     useEffect(() => {
       dispatch(thunkReadReview(id))
-    })
+    }, [dispatch, id])
 
     const onSubmit = async (event) => {
         event.preventDefault();

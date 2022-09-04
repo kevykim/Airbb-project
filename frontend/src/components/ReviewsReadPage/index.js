@@ -58,7 +58,7 @@ const ReviewsReadPage = () => {
           )}
         </div>
       ))}
-      {owner && reviews?.find((review) => review?.userId === owner?.id) && (
+      {owner && (
         <div>
           <ReviewsFormModal />
         </div>
