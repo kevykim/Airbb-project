@@ -26,6 +26,10 @@ const ReviewsCreatePage = () => {
         setValidationErrors(errors)
     }, [rating, reviewText])
 
+    useEffect(() => {
+      dispatch(thunkReadReview(id))
+    })
+
     const onSubmit = async (event) => {
         event.preventDefault();
 
@@ -39,7 +43,7 @@ const ReviewsCreatePage = () => {
 
         let createdReview = await dispatch(thunkCreateReview(payload, id))
 
-        await dispatch(thunkReadReview(id))
+        // await dispatch(thunkReadReview(id))
 
         if (createdReview) {
             history.push(`/spots/${id}`)

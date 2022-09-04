@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getSpots } from '../../store/spots';
 import {NavLink} from 'react-router-dom'
-import { thunkReadReview } from '../../store/reviews';
 import './SpotsHomePage.css'
 
 // How to seperate each spot within a div? 
@@ -22,7 +21,6 @@ const SpotsHomePage = () => {
   
     useEffect(() => {
         dispatch(getSpots())
-        dispatch(thunkReadReview())
     }, [dispatch])
 
     return (
