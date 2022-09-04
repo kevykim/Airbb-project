@@ -1,26 +1,34 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getSpots } from '../../store/spots';
-// import { useParams } from 'react-router-dom'
-
-
-
 import {NavLink} from 'react-router-dom'
-
+import { thunkReadReview } from '../../store/reviews';
 import './SpotsHomePage.css'
 
 // How to seperate each spot within a div? 
 
 
 const SpotsHomePage = () => {
+  const dispatch = useDispatch();
   
-    const allSpot = useSelector((state) => state.spot)
-    // console.log('component', allSpot)
-    const spots = Object.values(allSpot)
-    // const address = spots.map(spot => spot.address)
-    // const city = spots.map(spot => spot.city)
 
-    const spotsWork = spots.map((spot) => (
+    const allSpot = useSelector((state) => state.spot)
+    const spots = Object.values(allSpot)
+  
+
+
+
+
+  
+    useEffect(() => {
+        dispatch(getSpots())
+        dispatch(thunkReadReview())
+    }, [dispatch])
+
+    return (
+      <div className='spotcontainerdiv'>
+        <div className='spotcard'>
+          {spots.map((spot) => (
       <div className='hi' key={spot.id}>
         <div className="eachspot">
           <NavLink to={`/spots/${spot.id}`}>
@@ -40,21 +48,7 @@ const SpotsHomePage = () => {
         </div>
         <div className="spotprice">{`$${spot.price}`} night</div>
       </div>
-    ));
-
-    const dispatch = useDispatch();
-
-
-    
-
-    useEffect(() => {
-        dispatch(getSpots())
-    }, [dispatch])
-
-    return (
-      <div className='spotcontainerdiv'>
-        <div className='spotcard'>
-            {spotsWork}
+    ))}
             
         </div>
       </div>
