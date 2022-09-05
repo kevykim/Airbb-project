@@ -1,3 +1,5 @@
+import './ReviewsUpdatePage.css'
+
 
 const ReviewsUpdatePage = () => {
     return (
