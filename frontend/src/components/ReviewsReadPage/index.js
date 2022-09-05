@@ -54,6 +54,7 @@ const ReviewsReadPage = () => {
           </div>
           <div className="allreviewcontainer">{review?.review}</div>
           {owner?.id === review?.userId && (
+            // ReviewsUpdatePage
             <ReviewsDeletePage reviewId={review.id} />
           )}
         </div>
