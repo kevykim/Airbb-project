@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Modal } from "../../context/Modal";
 import ReviewsUpdatePage from ".";
 
-function ReviewsFormModal() {
+function ReviewsUpdateModal({reviewId, spotId}) {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -15,11 +15,11 @@ function ReviewsFormModal() {
       </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-            <ReviewsUpdatePage />
+            <ReviewsUpdatePage reviewId={reviewId} spotId={spotId} />
         </Modal>
       )}
     </>
   );
 }
 
-export default ReviewsFormModal;
+export default ReviewsUpdateModal;

@@ -65,7 +65,7 @@ export const thunkReadReview = (spotId) => async dispatch => {
 }
 
 export const thunkUpdateReview = (payload) => async dispatch => {
-    const response = await csrfFetch(`/api/reviews/${payload.id}`, {
+    const response = await csrfFetch(`/api/reviews/${payload.reviewId}`, {
         // payload.reviewId??
         method: 'PUT',
         header: {'Content-Type': 'application/json'},

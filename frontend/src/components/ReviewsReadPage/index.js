@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { thunkReadReview } from '../../store/reviews';
 import ReviewsFormModal from '../ReviewsCreatePage/ReviewsCreateModal';
 import ReviewsDeletePage from '../ReviewsDeletePage';
+import ReviewsUpdateModal from '../ReviewsUpdatePage/ReviewsUpdateModal';
 
 
 import './ReviewsReadPage.css'
@@ -54,8 +55,10 @@ const ReviewsReadPage = () => {
           </div>
           <div className="allreviewcontainer">{review?.review}</div>
           {owner?.id === review?.userId && (
-            // ReviewsUpdatePage
-            <ReviewsDeletePage reviewId={review.id} />
+            <div>
+              <ReviewsUpdateModal reviewId={review.id} spotId={spot.id}/>
+              <ReviewsDeletePage reviewId={review.id} />
+              </div>
           )}
         </div>
       ))}
