@@ -7,7 +7,7 @@ import './SpotsCreatePage.css'
 
 
 
-const SpotsCreatePage = () => {
+const SpotsCreatePage = ({onClick}) => {
    const history = useHistory()
    const dispatch = useDispatch()
 
@@ -65,6 +65,7 @@ const SpotsCreatePage = () => {
         
         if (createdSpot) {
             history.push(`/spots/${createdSpot.id}`)
+            onClick()
         }
 
         setAddress('')

@@ -14,6 +14,9 @@ const ReviewsUpdatePage = ({reviewId, spotId, onClick}) => {
 
        const user = useSelector((state) => state.session.user);
 
+
+
+
        const [rating, setRating] = useState(0);
        const [reviewText, setReviewText] = useState("");
        const [validationErrors, setValidationErrors] = useState([]);
@@ -46,6 +49,7 @@ const ReviewsUpdatePage = ({reviewId, spotId, onClick}) => {
              history.push(`/spots/${spotId}`);
              onClick()
            }
+
 
            setRating("");
            setReviewText("");

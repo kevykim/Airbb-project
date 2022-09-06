@@ -40,13 +40,13 @@ const deleteReview = (id) => {
 // THUNK ACTION CREATORS
 
 export const thunkCreateReview = (payload) => async dispatch => {
-    console.log('review create  thunk',payload.spotId)
+    // console.log('review create  thunk',payload.spotId)
     const response = await csrfFetch(`/api/spots/${payload.spotId}/reviews`, {
         method: 'POST',
         header: {'Content-Type':'application/json'},
         body: JSON.stringify(payload)
     });
-    console.log('create payload', response)
+    // console.log('create payload', response)
     if (response.ok) {
         const data = await response.json()
         dispatch(createReview(data))

@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { thunkReadReview } from '../../store/reviews';
-import ReviewsFormModal from '../ReviewsCreatePage/ReviewsCreateModal';
+import ReviewsCreateModal from '../ReviewsCreatePage/ReviewsCreateModal';
 import ReviewsDeletePage from '../ReviewsDeletePage';
 import ReviewsUpdateModal from '../ReviewsUpdatePage/ReviewsUpdateModal';
 
@@ -56,7 +56,7 @@ const ReviewsReadPage = () => {
           <div className="allreviewcontainer">{review?.review}</div>
           {owner?.id === review?.userId && (
             <div>
-              <ReviewsUpdateModal reviewId={review.id} spotId={spot.id}/>
+              <ReviewsUpdateModal firstName={review?.User?.firstName} reviewId={review.id} spotId={spot.id}/>
               <ReviewsDeletePage reviewId={review.id} />
               </div>
           )}
@@ -64,7 +64,7 @@ const ReviewsReadPage = () => {
       ))}
       {owner && (
         <div>
-          <ReviewsFormModal />
+          <ReviewsCreateModal spotId={spot.id} />
         </div>
       )}
     </div>

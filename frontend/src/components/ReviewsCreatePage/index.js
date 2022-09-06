@@ -7,7 +7,9 @@ import { useState, useEffect } from 'react';
 import { thunkCreateReview, thunkReadReview } from '../../store/reviews';
 // import ReviewsReadPage from '../ReviewsReadPage';
 
-const ReviewsCreatePage = () => {
+const ReviewsCreatePage = ({spotId, onClick}) => {
+
+
     const {id} = useParams()
     const history = useHistory()
     // console.log(id)
@@ -26,9 +28,9 @@ const ReviewsCreatePage = () => {
         setValidationErrors(errors)
     }, [rating, reviewText])
 
-    useEffect(() => {
-      dispatch(thunkReadReview(id))
-    }, [dispatch, id])
+    // useEffect(() => {
+    //   dispatch(thunkReadReview(id))
+    // }, [dispatch, id])
 
     const onSubmit = async (event) => {
         event.preventDefault();
@@ -37,23 +39,24 @@ const ReviewsCreatePage = () => {
             review: reviewText,
             stars: rating,
             userId: user.id,
-            spotId: id,
+            spotId: spotId,
 
         }
 
-        let createdReview = await dispatch(thunkCreateReview(payload, id))
+        let createdReview = await dispatch(thunkCreateReview(payload))
 
-        // await dispatch(thunkReadReview(id))
+        await dispatch(thunkReadReview(id))
 
         if (createdReview) {
-            history.push(`/spots/${id}`)
+            history.push(`/spots/${spotId}`);
+            onClick()
         }
 
 
         setRating('')
         setReviewText('')
         setValidationErrors([])
-    }
+    };
 
   
 
