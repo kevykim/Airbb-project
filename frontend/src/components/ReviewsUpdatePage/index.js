@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 
 import { thunkUpdateReview } from '../../store/reviews';
 
-const ReviewsUpdatePage = ({reviewId, spotId}) => {
+const ReviewsUpdatePage = ({reviewId, spotId, onClick}) => {
     const history = useHistory()
     const dispatch = useDispatch()
 
@@ -44,6 +44,7 @@ const ReviewsUpdatePage = ({reviewId, spotId}) => {
 
            if (updatedReview) {
              history.push(`/spots/${spotId}`);
+             onClick()
            }
 
            setRating("");

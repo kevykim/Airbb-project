@@ -15,7 +15,7 @@ function ReviewsUpdateModal({reviewId, spotId}) {
       </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-            <ReviewsUpdatePage reviewId={reviewId} spotId={spotId} />
+            <ReviewsUpdatePage reviewId={reviewId} spotId={spotId} onClick={(event) => setShowModal(false)} />
         </Modal>
       )}
     </>
