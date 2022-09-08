@@ -2,14 +2,13 @@
 
 * {
  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
+    box-sizing: border-box;
 }
 
 body {
+    margin: 0;
     border: 1px solid red;
 
 }
 
-html {
-    border: 1px solid green;
-}
+
