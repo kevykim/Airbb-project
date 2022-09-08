@@ -38,19 +38,25 @@ const SpotsHomePage = () => {
                 </NavLink>
               </div>
 
-              <div className='spot_detail_container'>
-                <div className='city_state_container'> {`${spot.city}, ${spot.state}`}  </div>
-                <div className='spot_star_container'>
+              <div className="spot_detail_container">
+                <div className="city_state_container">
+                  {" "}
+                  {`${spot.city}, ${spot.state}`}{" "}
+                </div>
+                <div className="spot_star_container">
                   <i class="fa-solid fa-star"></i>
-                  {`${" "}${spot?.avgRating}`}
+                  &nbsp;{`${spot?.avgRating}`}
                 </div>
               </div>
-              <div className='spot_price_container'>{`$${spot.price}`} night</div>
+              <p className="spot_price_container">
+                <span style={{ fontWeight: "bold" }}>{`$${spot.price}`}</span>
+                &nbsp;night
+              </p>
             </div>
           ))}
         </div>
         <div className="footer_container">
-          <div>@ 2022 Airbb, Inc.</div>
+          <div>@ 2022 Airbb, Inc. · · ·</div>
         </div>
       </div>
     );

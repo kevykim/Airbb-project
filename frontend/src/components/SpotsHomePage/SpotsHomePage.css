@@ -17,7 +17,7 @@
 .spot_image {
     display: flex;
     justify-content: center;
-    border-radius: 25px;
+    border-radius: 15px;
     width: 260px;
     height: 260px;
     cursor: pointer;
@@ -51,14 +51,16 @@
     display: flex;
     font-size: 14px;
     align-items: flex-start;
-    padding: 10px 10px 10px 10px;
+    padding: 5px 5px 5px 10px ;
 }
 
 .footer_container {
     border-top: 1px solid grey;
-    background-color: antiquewhite;
+    background-color: white;
     bottom: 0;
     width: 100%;
+    display: flex;
+    flex-wrap: wrap;
     padding: 25px;
     position: fixed;
 }
