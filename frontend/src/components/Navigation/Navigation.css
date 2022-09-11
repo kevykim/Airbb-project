@@ -18,7 +18,7 @@
 }
 
 .startbutton:hover {
-    box-shadow: 0px 1px black;
+    box-shadow: 0 5px 6px rgba(0, 0, 0, 0.18);
 }
 
 .startmenu {
@@ -46,7 +46,7 @@
 }
 
 .navbottomline {
-    border-bottom: 1px black solid;
+    border-bottom: 1px grey solid;
 }
 
 .this {

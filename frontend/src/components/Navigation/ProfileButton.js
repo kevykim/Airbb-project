@@ -31,12 +31,12 @@ function ProfileButton({ user }) {
 
   return (
     <div className="profilecontain">
-      <button classname="startbutton" style={{'width':'75px', 
-      'border-radius':'15px', 
+      <button className="startbutton" style={{'width':'75px', 
+      'borderRadius':'15px', 
       'height':'45px',
       'cursor': 'pointer'}} onClick={openMenu}>
         <i className="fa-solid fa-bars"></i>
-        <i class="fa-solid fa-circle-user"></i>
+        <i className="fa-solid fa-circle-user"></i>
       </button>
       {showMenu && (
         <div className="profile-dropdown">

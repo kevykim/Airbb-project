@@ -82,6 +82,16 @@ const SpotsDetailPage = () => {
             <SpotsDeletePage />
           </div>
         )}
+        <div className="footer_container">
+          <div>
+            @ 2022 Airbb, Inc. &nbsp;·&nbsp;
+            <a href="https://github.com/kevykim">Github</a>
+            &nbsp;·&nbsp;
+            <a href="/">LinkedIn</a>
+            &nbsp;·&nbsp;
+            <a href="/">Email</a>
+          </div>
+        </div>
       </div>
     );
     

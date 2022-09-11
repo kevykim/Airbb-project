@@ -44,7 +44,7 @@ const SpotsHomePage = () => {
                   {`${spot.city}, ${spot.state}`}{" "}
                 </div>
                 <div className="spot_star_container">
-                  <i class="fa-solid fa-star"></i>
+                  <i className="fa-solid fa-star"></i>
                   &nbsp;{`${spot?.avgRating}`}
                 </div>
               </div>
@@ -56,7 +56,14 @@ const SpotsHomePage = () => {
           ))}
         </div>
         <div className="footer_container">
-          <div>@ 2022 Airbb, Inc. · · ·</div>
+          <div>
+            @ 2022 Airbb, Inc. &nbsp;·&nbsp;
+            <a href="https://github.com/kevykim">Github</a>
+            &nbsp;·&nbsp;
+            <a href="/">LinkedIn</a>
+            &nbsp;·&nbsp;
+            <a href="/">Email</a>
+          </div>
         </div>
       </div>
     );
