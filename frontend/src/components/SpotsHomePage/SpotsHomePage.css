@@ -61,6 +61,6 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    padding: 25px;
+    padding: 13px 80px 14px;
     position: fixed;
 }

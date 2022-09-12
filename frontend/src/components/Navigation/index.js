@@ -23,11 +23,11 @@ function Navigation({ isLoaded }) {
     );       
   } else {
     sessionLinks = (
-      <div className="whatis">
+      <div className="startbutton_container">
 
           <button className="startbutton" onClick={(event) => setStartMenu(!startMenu)}>
-            <i className="fa-solid fa-bars"></i>
-            <i class="fa-solid fa-circle-user"></i>
+            <i className="fa-solid fa-bars" style={{color: 'rgb(113, 113, 113'}}></i>
+            <i className="fa-solid fa-circle-user" style={{color: 'rgb(113, 113, 113)'}}></i>
           </button>
 
         {startMenu && (
@@ -43,9 +43,8 @@ function Navigation({ isLoaded }) {
 
 
   return (
-    <div className="wutnav">
+    <div className="navbar_container">
     <div className="navbar">
-      {/* <div className="actualnavbar"> */}
       <div className="airbnbhome">
         <NavLink exact to="/">
           <img
@@ -54,18 +53,15 @@ function Navigation({ isLoaded }) {
             ></img>
         </NavLink>
       </div>
-      <div className="session">
+      <div>
       {sessionUser && (
-        <div className="this">
+        <div className="host_container">
           <SpotCreateModal />
         </div>
       )}
       </div>
-      {/* </div> */}
       {isLoaded && sessionLinks}
       </div>
-    <div className="navbottomline">
-    </div>
     </div>
   );
 }
