@@ -35,8 +35,8 @@ function ProfileButton({ user }) {
       'borderRadius':'15px', 
       'height':'45px',
       'cursor': 'pointer'}} onClick={openMenu}>
-        <i className="fa-solid fa-bars"></i>
-        <i className="fa-solid fa-circle-user"></i>
+        <i className="fa-solid fa-bars fa-sm" style={{color: 'rgb(113, 113, 113)'}}></i>
+        <i className="fa-solid fa-circle-user fa-2xl" style={{color: 'rgb(113, 113, 113)'}}></i>
       </button>
       {showMenu && (
         <div className="profile-dropdown">

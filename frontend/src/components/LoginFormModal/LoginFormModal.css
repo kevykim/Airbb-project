@@ -40,12 +40,11 @@
 }
 
 .loginmodal {
-    border-radius: 10px;
+        text-align: left;   
+        font-size: medium;
         cursor: pointer;
+        border: none;
         background-color: white;
-        padding: 5px 0 5px 0;
-        margin: 3px 0;
-        width: 100px;
         height: 50px;
 }
 

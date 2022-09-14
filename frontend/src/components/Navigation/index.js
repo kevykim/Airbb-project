@@ -24,16 +24,17 @@ function Navigation({ isLoaded }) {
   } else {
     sessionLinks = (
       <div className="startbutton_container">
-
+        <div className="startbutton_div">
           <button className="startbutton" onClick={(event) => setStartMenu(!startMenu)}>
-            <i className="fa-solid fa-bars" style={{color: 'rgb(113, 113, 113'}}></i>
-            <i className="fa-solid fa-circle-user" style={{color: 'rgb(113, 113, 113)'}}></i>
+            <i className="fa-solid fa-bars fa-2xl" style={{color: 'rgb(113, 113, 113', "margin-right": "12px" }}></i>
+            <i className="fa-solid fa-circle-user fa-2xl" style={{color: 'rgb(113, 113, 113)'}}></i>
           </button>
+        </div>
 
         {startMenu && (
           <div className="startmenu">
-            <LoginFormModal />
             <SignUpModal />
+            <LoginFormModal />
             <DemoUser />
           </div>
         )}
