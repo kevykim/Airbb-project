@@ -73,6 +73,10 @@
 
 .signupmodal {
         border: none;
+        text-align: left;
+        display: flex;
+            flex-direction: column;
+            justify-content: center;
         cursor: pointer;
         background-color: white;
         height: 50px;

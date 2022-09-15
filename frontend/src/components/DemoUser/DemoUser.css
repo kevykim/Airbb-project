@@ -1,5 +1,9 @@
 .DemoUserButton {
     border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
     cursor: pointer;
     background-color: white;
     border-bottom-left-radius: 15px;
