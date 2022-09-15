@@ -49,6 +49,7 @@
         background-color: white;
         height: 50px;
     border-top: 1px solid rgb(235, 235, 235);
+    font-family: "Monteserrat-Regular";
 }
 
 .loginmodal:hover {

@@ -9,6 +9,7 @@
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
     height: 50px;
+    font-family: "Monteserrat-Regular";
 }
 
 .DemoUserButton:hover {

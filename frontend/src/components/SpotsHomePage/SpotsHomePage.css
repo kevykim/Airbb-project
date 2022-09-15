@@ -44,6 +44,8 @@
 
 .spot_star_container {
     display: flex;
+    flex-direction: row;
+    align-items: center;
     font-size: 14px;
 }
 
@@ -63,4 +65,5 @@
     flex-wrap: wrap;
     padding: 13px 80px 14px;
     position: fixed;
+    font-family: "Monteserrat-Regular";
 }

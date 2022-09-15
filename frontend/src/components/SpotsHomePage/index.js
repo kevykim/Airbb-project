@@ -49,7 +49,7 @@ const SpotsHomePage = () => {
                 </div>
               </div>
               <p className="spot_price_container">
-                <span style={{ fontWeight: "bold" }}>{`$${spot.price}`}</span>
+                <span style={{ fontFamily: "Monteserrat-SemiBold" }}>{`$${spot.price}`}</span>
                 &nbsp;night
               </p>
             </div>
