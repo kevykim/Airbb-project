@@ -49,7 +49,9 @@ const SpotsHomePage = () => {
                 </div>
               </div>
               <p className="spot_price_container">
-                <span style={{ fontFamily: "Monteserrat-SemiBold" }}>{`$${spot.price}`}</span>
+                <span
+                  style={{ fontFamily: "Monteserrat-SemiBold" }}
+                >{`$${spot.price}`}</span>
                 &nbsp;night
               </p>
             </div>
@@ -58,11 +60,32 @@ const SpotsHomePage = () => {
         <div className="footer_container">
           <div>
             @ 2022 Airbb, Inc. &nbsp;·&nbsp;
-            <a href="https://github.com/kevykim">Github</a>
+            <a
+              className="github_link"
+              href="https://github.com/kevykim"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Github
+            </a>
             &nbsp;·&nbsp;
-            <a href="/">LinkedIn</a>
+            <a
+              className="linkedin_link"
+              href="/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn
+            </a>
             &nbsp;·&nbsp;
-            <a href="/">Email</a>
+            <a
+              className="email_link"
+              href="/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Email
+            </a>
           </div>
         </div>
       </div>

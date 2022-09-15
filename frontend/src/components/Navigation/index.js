@@ -6,29 +6,35 @@ import LoginFormModal from "../LoginFormModal";
 import "./Navigation.css";
 import DemoUser from "../DemoUser";
 import SignUpModal from "../SignUpFormPage/SignUpModal";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import BecomeAHost from "../SignUpFormPage/BecomeHostModal.js";
 
 function Navigation({ isLoaded }) {
   const sessionUser = useSelector((state) => state.session.user);
   const [startMenu, setStartMenu] = useState(false)
 
-    // useEffect(() => {
-    //   if (!startMenu) return;
+    const openMenu = () => {
+      if (startMenu) return;
+      setStartMenu(true);
+    };
 
-    //   const closeMenu = () => {
-    //     setStartMenu(false);
-    //   };
+    useEffect(() => {
+      if (!startMenu) return;
 
-    //   document.addEventListener("click", closeMenu);
+      const closeMenu = () => {
+        setStartMenu(false);
+      };
 
-    //   return () => document.removeEventListener("click", closeMenu);
-    // }, [startMenu]);
+      document.addEventListener("click", closeMenu);
+
+      return () => document.removeEventListener("click", closeMenu);
+    }, [startMenu]);
 
   let becomeHost;
   if (!sessionUser) {
     becomeHost = (
       <div>
-        <SignUpModal />
+        <BecomeAHost />
       </div>
     );
   }
@@ -44,12 +50,18 @@ function Navigation({ isLoaded }) {
     sessionLinks = (
       <div className="startbutton_container">
         <div className="startbutton_div">
-       <div className="host_container">
-          {becomeHost}
-        </div>
-          <button className="startbutton" onClick={(event) => setStartMenu(!startMenu)}>
-            <i className="fa-solid fa-bars fa-2xl" style={{color: 'rgb(113, 113, 113', "marginRight": "12px" }}></i>
-            <i className="fa-solid fa-circle-user fa-2xl" style={{color: 'rgb(113, 113, 113)'}}></i>
+          <div style={{ marginRight: "10px" }} className="">
+            {becomeHost}
+          </div>
+          <button className="startbutton" onClick={openMenu}>
+            <i
+              className="fa-solid fa-bars fa-2xl"
+              style={{ color: "rgb(113, 113, 113", marginRight: "12px" }}
+            ></i>
+            <i
+              className="fa-solid fa-circle-user fa-2xl"
+              style={{ color: "rgb(113, 113, 113)" }}
+            ></i>
           </button>
         </div>
 

@@ -67,3 +67,30 @@
     position: fixed;
     font-family: "Monteserrat-Regular";
 }
+
+.github_link {
+    text-decoration: none;
+    color: black;
+}
+
+.linkedin_link {
+    text-decoration: none;
+    color: black;
+}
+
+.email_link {
+    text-decoration: none;
+    color: black;
+}
+
+.github_link:hover {
+    text-decoration: underline;
+}
+
+.linkedin_link:hover {
+    text-decoration: underline;
+}
+
+.email_link:hover {
+    text-decoration: underline;
+}
