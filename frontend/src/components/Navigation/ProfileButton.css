@@ -1,65 +1,69 @@
-.profilecontain {
+.profile_container {
     display: flex;
+    flex-direction: row;
     align-items: center;
-    border-radius: 15px;
-        width: 75px;
+    border-radius: 50px;
         height: 45px;
         cursor: pointer;
-        position: relative;
-   
 }
 
-.profilebuttonk  {
+.startbutton_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+/* .profilebuttonk  {
     border-radius: 15px;
     width: 75px !important;
     height: 45px;
     cursor: pointer;
     position: relative;
-}
+} */
 
 .profile-dropdown {
 display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
     position: absolute;
-    top: 120%;
+    top: 7%;
+    right: 7%;
+    background-color: white;
+    border: 1px solid rgb(235, 235, 235);
+    border-radius: 10px;
+    width: 200px;
+    box-shadow: 0 5px 6px rgba(0, 0, 0, 0.18);
 
 }
 
 .profile-username {
-    border-radius: 10px;
-        border: 1px solid black;
+    text-align: left;
         display: flex;
-            justify-content: center;
-            align-items: center;
-
+        flex-direction: column;
+        justify-content: center;
+        cursor: pointer;
+        border: none;
         background-color: white;
-        padding: 5px 0 5px 0;
-        margin: 3px 0;
-        width: 100px;
         height: 50px;
 }
 
 .profile-email {
-    border-radius: 10px;
-        border: 1px solid black;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        background-color: white;
-        padding: 5px 0 5px 0;
-        margin: 3px 0;
-        width: 100px;
-        height: 50px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    background-color: white;
+    height: 50px;
 }
 
 .profilelogout {
-    border-radius: 10px;
-        cursor: pointer;
-        background-color: white;
-        padding: 5px 0 5px 0;
-        margin: 3px 0;
-        width: 100px;
-        height: 50px;
+text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    background-color: white;
+    height: 50px;
 }

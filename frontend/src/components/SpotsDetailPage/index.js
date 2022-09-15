@@ -38,7 +38,7 @@ const SpotsDetailPage = () => {
         {spot && (
           <div>
             <div className="spotheadercontainer">
-              <div className="detailspotname" style={{ "font-weight": "bold" }}>
+              <div className="detailspotname" style={{ "fontWeight": "bold" }}>
                 {spot?.name}
               </div>
 

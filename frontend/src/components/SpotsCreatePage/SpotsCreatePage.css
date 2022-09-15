@@ -104,17 +104,22 @@
 }
 
 .becomehostbutt {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    cursor: pointer;
-    border-radius: 15px;
-    padding: 10px 10px 10px 10px;
-    margin: 2px 0;
+            border: none;
+                text-align: left;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                cursor: pointer;
+                background-color: white;
+                height: 50px;
+                border-bottom: 1px solid rgb(235, 235, 235);
+                /* border-top-left-radius: 15px;
+                border-top-right-radius: 15px; */
+                border-radius: 15px;
 }
 
 .becomehostbutt:hover {
-    box-shadow: 0px 1px black;
+    box-shadow: 0 5px 6px rgba(0, 0, 0, 0.18);
 }
 
 

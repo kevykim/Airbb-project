@@ -5,7 +5,6 @@ import ProfileButton from "./ProfileButton";
 import LoginFormModal from "../LoginFormModal";
 import "./Navigation.css";
 import DemoUser from "../DemoUser";
-import SpotCreateModal from "../SpotsCreatePage/SpotsCreateModal";
 import SignUpModal from "../SignUpFormPage/SignUpModal";
 import { useState } from "react";
 
@@ -13,6 +12,26 @@ function Navigation({ isLoaded }) {
   const sessionUser = useSelector((state) => state.session.user);
   const [startMenu, setStartMenu] = useState(false)
 
+    // useEffect(() => {
+    //   if (!startMenu) return;
+
+    //   const closeMenu = () => {
+    //     setStartMenu(false);
+    //   };
+
+    //   document.addEventListener("click", closeMenu);
+
+    //   return () => document.removeEventListener("click", closeMenu);
+    // }, [startMenu]);
+
+  let becomeHost;
+  if (!sessionUser) {
+    becomeHost = (
+      <div>
+        <SignUpModal />
+      </div>
+    );
+  }
 
   let sessionLinks;
   if (sessionUser) {
@@ -25,8 +44,11 @@ function Navigation({ isLoaded }) {
     sessionLinks = (
       <div className="startbutton_container">
         <div className="startbutton_div">
+       <div className="host_container">
+          {becomeHost}
+        </div>
           <button className="startbutton" onClick={(event) => setStartMenu(!startMenu)}>
-            <i className="fa-solid fa-bars fa-2xl" style={{color: 'rgb(113, 113, 113', "margin-right": "12px" }}></i>
+            <i className="fa-solid fa-bars fa-2xl" style={{color: 'rgb(113, 113, 113', "marginRight": "12px" }}></i>
             <i className="fa-solid fa-circle-user fa-2xl" style={{color: 'rgb(113, 113, 113)'}}></i>
           </button>
         </div>
@@ -42,7 +64,6 @@ function Navigation({ isLoaded }) {
     );
   }
 
-
   return (
     <div className="navbar_container">
     <div className="navbar">
@@ -53,13 +74,6 @@ function Navigation({ isLoaded }) {
             alt="Home"
             ></img>
         </NavLink>
-      </div>
-      <div>
-      {sessionUser && (
-        <div className="host_container">
-          <SpotCreateModal />
-        </div>
-      )}
       </div>
       {isLoaded && sessionLinks}
       </div>

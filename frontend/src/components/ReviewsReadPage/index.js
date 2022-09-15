@@ -44,7 +44,7 @@ const ReviewsReadPage = () => {
       {reviews?.map((review) => (
         <div className="reviewcontainer" key={review?.id}>
           <div className="profilereview">
-            <div style={{ "font-weight": "bold" }}>
+            <div style={{ "fontWeight": "bold" }}>
               <i class="fa-solid fa-user"></i>
               {` ${review?.User?.firstName}`}
             </div>

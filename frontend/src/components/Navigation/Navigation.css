@@ -2,6 +2,12 @@
     padding: 10px 10px 10px 10px;
 }
 
+.startbutton_div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
 
 .navbar_container {
     display: flex;
