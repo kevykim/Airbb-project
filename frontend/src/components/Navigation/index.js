@@ -67,7 +67,7 @@ function Navigation({ isLoaded }) {
 
         {startMenu && (
           <div className="startmenu">
-            <SignUpModal />
+            <SignUpModal showMenu={startMenu} setShowMenu={setStartMenu}/>
             <LoginFormModal />
             <DemoUser />
           </div>
