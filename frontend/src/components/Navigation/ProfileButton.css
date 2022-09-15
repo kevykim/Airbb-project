@@ -13,13 +13,6 @@
     align-items: center;
 }
 
-/* .profilebuttonk  {
-    border-radius: 15px;
-    width: 75px !important;
-    height: 45px;
-    cursor: pointer;
-    position: relative;
-} */
 
 .profile-dropdown {
 display: flex;
@@ -44,6 +37,12 @@ display: flex;
         border: none;
         background-color: white;
         height: 50px;
+        border-radius: 10px;
+        margin-left: 5px;
+}
+
+.profile-username:hover {
+    background-color: rgb(249, 248, 248);
 }
 
 .profile-email {
@@ -55,6 +54,12 @@ display: flex;
     border: none;
     background-color: white;
     height: 50px;
+        border-top: 1px solid rgb(235, 235, 235);
+        margin-left: 5px;
+}
+
+.profile-email:hover {
+    background-color: rgb(249, 248, 248);
 }
 
 .profilelogout {
@@ -66,4 +71,10 @@ text-align: left;
     border: none;
     background-color: white;
     height: 50px;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.profilelogout:hover {
+    background-color: rgb(249, 248, 248);
 }
