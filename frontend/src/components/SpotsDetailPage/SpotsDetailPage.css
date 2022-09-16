@@ -3,10 +3,18 @@
     flex-direction: column;
     justify-content: center;
 }
+
+.title_img_div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .spotheadercontainer {
     display: flex;
-    flex-direction:column;
-    margin-left: 10px;
+    flex-direction: column;
+    margin-right: 310px;
     padding: 0px 80px;
 }
 
@@ -28,7 +36,7 @@
 
 .spotimgdiv {
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     padding: 0px 80px 24px;
 }
 
@@ -44,12 +52,12 @@
 }
 
 
-.descandpricecontainer {
+.descript_pricecontainer {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     padding: 10px;
-    border-bottom: 1px black solid;
+
 }
 
 .spotdescript {
@@ -59,9 +67,10 @@
     justify-content: center;
     border: 1px black solid;
     padding: 10px;
+    margin-right: 280px;
     border-radius: 15px;
     height: 100px;
-    width: 500px;
+    width: 600px;
     box-shadow: 0px 0px 5px black;
 }
 
@@ -75,4 +84,12 @@
     border-radius: 10px;
     width: 200px;
     box-shadow:  0px 0px 5px black;
+}
+
+.review_container {
+    border-top: 1px solid rgb(222, 221, 221);
+    width: 700px;
+    padding-top: 25px;
+    margin-right: 390px;
+    border-bottom: 1px solid rgb(222, 221, 221);
 }

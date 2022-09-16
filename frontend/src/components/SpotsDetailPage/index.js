@@ -33,6 +33,7 @@ const SpotsDetailPage = () => {
       <div className="splash-container">
         {spot && (
           <div>
+            <div className="title_img_div">
             <div className="spotheadercontainer">
               <div className="detailspotname" style={{ fontWeight: "bold" }}>
                 {spot?.name}
@@ -55,7 +56,7 @@ const SpotsDetailPage = () => {
                 ></img>
               </div>
             )}
-            <div className="descandpricecontainer">
+            <div className="descript_pricecontainer">
               <div className="spotdescript">{spot.description}</div>
               <div className="rightpricereview">
                 <div>{`$${spot.price} night`}</div>
@@ -65,11 +66,12 @@ const SpotsDetailPage = () => {
                 </div>
               </div>
             </div>
-          </div>
-        )}
-        <div>
+        <div className="review_container">
           <ReviewsReadPage />
         </div>
+            </div>
+          </div>
+        )}
 
         {user?.id === spot?.ownerId && (
           <div className="spottybutton">
