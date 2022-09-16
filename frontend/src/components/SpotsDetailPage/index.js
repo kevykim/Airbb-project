@@ -14,16 +14,12 @@ const SpotsDetailPage = () => {
      const {id} = useParams()
      const dispatch = useDispatch()
 
-
-    
-    
     const spot = useSelector(state => state.spot[id])
     const user = useSelector(state => state.session.user)
    
     const review = useSelector(state => state.review)
     const reviewCounter = (Object.values(review).length);
 
-    
     useEffect(() => {
       dispatch(getASpot(id))
       // dispatch(thunkReadReview(id))
@@ -31,7 +27,7 @@ const SpotsDetailPage = () => {
     
     
     // if (!user) {
-    //   return 
+    //   return null 
     // }
     return (
       <div className="splash-container">
@@ -43,8 +39,8 @@ const SpotsDetailPage = () => {
               </div>
 
               <div className="spotavgstarrating">
-                <i class="fa-solid fa-star"></i>
-
+                <i className="fa-solid fa-star"></i>
+                &nbsp;
                 {`${spot?.avgStarRating} · ${reviewCounter} reviews · ${spot.city}, ${spot.state}, ${spot.country}`}
               </div>
               {/* A NAV LINK TO REVIEWS FOR THAT SPOT */}
@@ -64,8 +60,8 @@ const SpotsDetailPage = () => {
               <div className="rightpricereview">
                 <div>{`$${spot.price} night`}</div>
                 <div>
-                  <i class="fa-solid fa-star"></i>
-                  {`${spot.avgStarRating} · ${reviewCounter} reviews`}
+                  <i className="fa-solid fa-star"></i>
+                  {`${spot?.avgStarRating} · ${reviewCounter} reviews`}
                 </div>
               </div>
             </div>

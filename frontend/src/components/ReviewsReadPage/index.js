@@ -38,14 +38,14 @@ const ReviewsReadPage = () => {
   return (
     <div>
       <div className="reviewstitlediv">
-        <i class="fa-solid fa-star"></i>{" "}
-        {`${spot.avgStarRating} · ${reviews.length} reviews`}
+        <i className="fa-solid fa-star"></i>{" "}
+        {`${spot?.avgStarRating} · ${reviews.length} reviews`}
       </div>
       {reviews?.map((review) => (
         <div className="reviewcontainer" key={review?.id}>
           <div className="profilereview">
             <div style={{ "fontWeight": "bold" }}>
-              <i class="fa-solid fa-user"></i>
+              <i className="fa-solid fa-user"></i>
               {` ${review?.User?.firstName}`}
             </div>
             <div style={{ color: "grey" }}>{`${date.toLocaleDateString(
@@ -56,15 +56,15 @@ const ReviewsReadPage = () => {
           <div className="allreviewcontainer">{review?.review}</div>
           {owner?.id === review?.userId && (
             <div>
-              <ReviewsUpdateModal firstName={review?.User?.firstName} reviewId={review.id} spotId={spot.id}/>
-              <ReviewsDeletePage reviewId={review.id} />
+              <ReviewsUpdateModal firstName={review?.User?.firstName} reviewId={review?.id} spotId={spot?.id}/>
+              <ReviewsDeletePage reviewId={review?.id} />
               </div>
           )}
         </div>
       ))}
       {owner && (
         <div>
-          <ReviewsCreateModal spotId={spot.id} />
+          <ReviewsCreateModal spotId={spot?.id} />
         </div>
       )}
     </div>

@@ -59,6 +59,11 @@
     height: 80px;
     padding: 0px 80px;
     border-bottom: 1px solid rgb(235, 235, 235);
+    background-color: white;
+    /* position: fixed; */
+    /* top: 0; */
+    /* width: 100%; */
+    /* overflow: hidden; */
 }
 
 
