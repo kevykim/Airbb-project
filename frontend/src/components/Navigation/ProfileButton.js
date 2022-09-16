@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import * as sessionActions from "../../store/session";
+import SpotCreateModal from "../SpotsCreatePage/SpotsCreateModal";
 import './ProfileButton.css'
 
 function ProfileButton({ user }) {
@@ -30,14 +31,22 @@ function ProfileButton({ user }) {
   };
 
   return (
-    <div className="profilecontain">
-      <button classname="startbutton" style={{'width':'75px', 
-      'border-radius':'15px', 
-      'height':'45px',
-      'cursor': 'pointer'}} onClick={openMenu}>
-        <i className="fa-solid fa-bars"></i>
-        <i class="fa-solid fa-circle-user"></i>
+    <div className="profile_container">
+      <div className="startbutton_container">
+      <div style={{"marginRight": "10px"}}>
+        <SpotCreateModal />
+      </div>
+      <button className="startbutton" onClick={openMenu}>
+        <i
+          className="fa-solid fa-bars fa-2xl"
+          style={{ color: 'rgb(113, 113, 113)', "marginRight": "12px" }}
+        ></i>
+        <i
+          className="fa-solid fa-circle-user fa-2xl"
+          style={{ color: "rgb(113, 113, 113)" }}
+        ></i>
       </button>
+      </div>
       {showMenu && (
         <div className="profile-dropdown">
           <div className="profile-username">{user.username}</div>

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Modal } from "../../context/Modal";
-import SpotsCreatePage from '.'
-import './SpotsCreatePage.css'
+import SignupFormPage from ".";
+import './SignupForm.css'
 
-function SpotCreateModal() {
+function BecomeAHost() {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -11,11 +11,11 @@ function SpotCreateModal() {
       <button className="becomehostbutt" onClick={() => setShowModal(true)}>Become a Host</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-            <SpotsCreatePage onClick={(event) => setShowModal(false)} />
+            < SignupFormPage />
         </Modal>
       )}
     </>
   );
 }
 
-export default SpotCreateModal;
+export default BecomeAHost;

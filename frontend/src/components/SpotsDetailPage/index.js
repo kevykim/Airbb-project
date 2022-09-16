@@ -12,24 +12,16 @@ import './SpotsDetailPage.css'
 
 const SpotsDetailPage = () => {
      const {id} = useParams()
-    //  console.log('id', id)
      const dispatch = useDispatch()
 
-    // const test2 = useSelector(state => state.spot[id].Images)
-    // const image = test2.map((image) => (
-    //   <img src={image.url} alt="House test" width="250" height="250"></img>
-    // ));
-    // console.log('WHERE ARE YOU', test2)
+
     
     
     const spot = useSelector(state => state.spot[id])
     const user = useSelector(state => state.session.user)
-    //  const state = useSelector(state => console.log(state))
-
-    //  console.log('WHO ARE YOU',test.ownerId)
-    // const review = useSelector(state => state)
-    // console.log('dfs', review)
-
+   
+    const review = useSelector(state => state.review)
+    const reviewCounter = (Object.values(review).length);
 
     
     useEffect(() => {
@@ -42,18 +34,18 @@ const SpotsDetailPage = () => {
     //   return 
     // }
     return (
-      <div>
+      <div className="splash-container">
         {spot && (
           <div>
             <div className="spotheadercontainer">
-              <div className="detailspotname" style={{ "font-weight": "bold" }}>
+              <div className="detailspotname" style={{ fontWeight: "bold" }}>
                 {spot?.name}
               </div>
 
               <div className="spotavgstarrating">
                 <i class="fa-solid fa-star"></i>
 
-                {`${spot?.avgStarRating}  ${spot.city}, ${spot.state}, ${spot.country}`}
+                {`${spot?.avgStarRating} · ${reviewCounter} reviews · ${spot.city}, ${spot.state}, ${spot.country}`}
               </div>
               {/* A NAV LINK TO REVIEWS FOR THAT SPOT */}
             </div>
@@ -73,7 +65,7 @@ const SpotsDetailPage = () => {
                 <div>{`$${spot.price} night`}</div>
                 <div>
                   <i class="fa-solid fa-star"></i>
-                  {`${spot.avgStarRating} reviews`}
+                  {`${spot.avgStarRating} · ${reviewCounter} reviews`}
                 </div>
               </div>
             </div>
@@ -90,6 +82,37 @@ const SpotsDetailPage = () => {
             <SpotsDeletePage />
           </div>
         )}
+        <div className="footer_container">
+          <div>
+            @ 2022 Airbb, Inc. &nbsp;·&nbsp;
+            <a
+              className="github_link"
+              href="https://github.com/kevykim"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Github
+            </a>
+            &nbsp;·&nbsp;
+            <a
+              className="linkedin_link"
+              href="/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn
+            </a>
+            &nbsp;·&nbsp;
+            <a
+              className="email_link"
+              href="/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Email
+            </a>
+          </div>
+        </div>
       </div>
     );
     

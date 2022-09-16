@@ -1,12 +1,30 @@
 /* TODO Add site wide styles */
 
+@font-face {
+    font-family: "Monteserrat-Medium";
+    src: url('../public/fonts/static/Montserrat-Medium.ttf');
+}
+
+@font-face {
+    font-family: "Monteserrat-Regular";
+    src: url('../public/fonts/static/Montserrat-Regular.ttf');
+}
+
+@font-face {
+    font-family: "Monteserrat-SemiBold";
+    src: url('../public/fonts/static/Montserrat-SemiBold.ttf');
+}
+
+
 * {
- font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
+    box-sizing: border-box;
 }
 
-html {
+body {
     margin: 0;
-    padding: 0;
+    /* border: 1px solid red; */
+    font-family: "Monteserrat-Medium";
+
 }
+
 

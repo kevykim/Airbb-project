@@ -47,7 +47,7 @@ const testReviews = [
     review: "Enjoying the view. ",
     stars: 5,
     userId: 2,
-    spotId: 5,
+    spotId: 6,
   },
 ];
 

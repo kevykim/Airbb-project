@@ -1,64 +1,95 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getSpots } from '../../store/spots';
-// import { useParams } from 'react-router-dom'
-
-
-
 import {NavLink} from 'react-router-dom'
-
 import './SpotsHomePage.css'
 
 // How to seperate each spot within a div? 
 
 
 const SpotsHomePage = () => {
+  const dispatch = useDispatch();
   
+
     const allSpot = useSelector((state) => state.spot)
-    // console.log('component', allSpot)
     const spots = Object.values(allSpot)
-    // const address = spots.map(spot => spot.address)
-    // const city = spots.map(spot => spot.city)
-
-    const spotsWork = spots.map((spot) => (
-      <div className='hi' key={spot.id}>
-        <div className="eachspot">
-          <NavLink to={`/spots/${spot.id}`}>
-            <img
-              className="spotsplashimg"
-              src={spot?.previewImage}
-              alt="House test"
-            ></img>
-          </NavLink>
-        </div>
-
-        <div className="spotcityandstate">
-          <div> {`${spot.city}, ${spot.state}`} </div>
-          <div className="spotavg">
-            <i class="fa-solid fa-star"></i>{spot?.avgRating}
-          </div>
-        </div>
-        <div className="spotprice">{`$${spot.price}`} night</div>
-      </div>
-    ));
-
-    const dispatch = useDispatch();
+  
 
 
-    
 
+
+  
     useEffect(() => {
         dispatch(getSpots())
     }, [dispatch])
 
     return (
-      <div className='spotcontainerdiv'>
-        <div className='spotcard'>
-            {spotsWork}
-            
+      <div className="spot_container_div">
+        <div className="spotcard">
+          {spots.map((spot) => (
+            <div key={spot.id}>
+              <div className="spot_image_container">
+                <NavLink to={`/spots/${spot.id}`}>
+                  <img
+                    className="spot_image"
+                    src={spot?.previewImage}
+                    alt="House test"
+                  ></img>
+                </NavLink>
+              </div>
+
+              <div className="spot_detail_container">
+                <div className="city_state_container">
+                  {" "}
+                  {`${spot.city}, ${spot.state}`}{" "}
+                </div>
+                <div className="spot_star_container">
+                  <i className="fa-solid fa-star"></i>
+                  &nbsp;{`${spot?.avgRating}`}
+                </div>
+              </div>
+              <p className="spot_price_container">
+                <span
+                  style={{ fontFamily: "Monteserrat-SemiBold" }}
+                >{`$${spot.price}`}</span>
+                &nbsp;night
+              </p>
+            </div>
+          ))}
+        </div>
+        <div className="footer_container">
+          <div>
+            @ 2022 Airbb, Inc. &nbsp;·&nbsp;
+            <a
+              className="github_link"
+              href="https://github.com/kevykim"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Github
+            </a>
+            &nbsp;·&nbsp;
+            <a
+              className="linkedin_link"
+              href="/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn
+            </a>
+            &nbsp;·&nbsp;
+            <a
+              className="email_link"
+              href="/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Email
+            </a>
+          </div>
         </div>
       </div>
-    )
+    );
 }
 
 export default SpotsHomePage;

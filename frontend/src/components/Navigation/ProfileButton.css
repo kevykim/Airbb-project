@@ -1,65 +1,84 @@
-.profilecontain {
+.profile_container {
     display: flex;
+    flex-direction: row;
     align-items: center;
-    border-radius: 15px;
-        width: 75px;
+    border-radius: 50px;
         height: 45px;
         cursor: pointer;
-        position: relative;
-   
 }
 
-.profilebuttonk  {
-    border-radius: 15px;
-    width: 75px !important;
-    height: 45px;
-    cursor: pointer;
-    position: relative;
+.startbutton_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
+
 
 .profile-dropdown {
 display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
     position: absolute;
-    top: 120%;
+    top: 7%;
+    right: 7%;
+    background-color: white;
+    border: 1px solid rgb(235, 235, 235);
+    border-radius: 10px;
+    width: 200px;
+    font-size: 10pt;
+    box-shadow: 0 5px 6px rgba(0, 0, 0, 0.18);
 
 }
 
 .profile-username {
-    border-radius: 10px;
-        border: 1px solid black;
+    text-align: left;
         display: flex;
-            justify-content: center;
-            align-items: center;
-
+        flex-direction: column;
+        justify-content: center;
+        cursor: pointer;
+        border: none;
         background-color: white;
-        padding: 5px 0 5px 0;
-        margin: 3px 0;
-        width: 100px;
         height: 50px;
+        border-radius: 10px;
+        margin-left: 5px;
+    font-family: "Monteserrat-Regular";
+}
+
+.profile-username:hover {
+    background-color: rgb(249, 248, 248);
 }
 
 .profile-email {
-    border-radius: 10px;
-        border: 1px solid black;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    background-color: white;
+    height: 50px;
+        border-top: 1px solid rgb(235, 235, 235);
+        margin-left: 5px;
+    font-family: "Monteserrat-Regular";
+}
 
-        background-color: white;
-        padding: 5px 0 5px 0;
-        margin: 3px 0;
-        width: 100px;
-        height: 50px;
+.profile-email:hover {
+    background-color: rgb(249, 248, 248);
 }
 
 .profilelogout {
+text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    background-color: white;
+    height: 50px;
     border-radius: 10px;
-        cursor: pointer;
-        background-color: white;
-        padding: 5px 0 5px 0;
-        margin: 3px 0;
-        width: 100px;
-        height: 50px;
+    width: 100%;
+    font-family: "Monteserrat-Regular";
+}
+
+.profilelogout:hover {
+    background-color: rgb(249, 248, 248);
 }

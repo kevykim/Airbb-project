@@ -3,6 +3,7 @@ import { csrfFetch } from "./csrf"
 // TYPES
 const createAReview = '/reviews/createAReview'
 const readReview = '/reviews/readAReview'
+const updateAReview = '/reviews/updateReview'
 const deleteAReview = '/reviews/deleteAReview'
 
 
@@ -22,6 +23,13 @@ const readAllReview = (reviews) => {
     }
 }
 
+const updateReview = (review) => {
+    return {
+        type: updateAReview,
+        review
+    }
+}
+
 const deleteReview = (id) => {
     return {
         type: deleteAReview,
@@ -32,13 +40,13 @@ const deleteReview = (id) => {
 // THUNK ACTION CREATORS
 
 export const thunkCreateReview = (payload) => async dispatch => {
-    console.log('review create  thunk',payload.spotId)
+    // console.log('review create  thunk',payload.spotId)
     const response = await csrfFetch(`/api/spots/${payload.spotId}/reviews`, {
         method: 'POST',
         header: {'Content-Type':'application/json'},
         body: JSON.stringify(payload)
     });
-    console.log('create payload', response)
+    // console.log('create payload', response)
     if (response.ok) {
         const data = await response.json()
         dispatch(createReview(data))
@@ -53,6 +61,20 @@ export const thunkReadReview = (spotId) => async dispatch => {
         const data = await response.json()
         dispatch(readAllReview(data))
         // data.Spots??? 
+    }
+}
+
+export const thunkUpdateReview = (payload) => async dispatch => {
+    const response = await csrfFetch(`/api/reviews/${payload.reviewId}`, {
+        // payload.reviewId??
+        method: 'PUT',
+        header: {'Content-Type': 'application/json'},
+        body: JSON.stringify(payload)
+    })
+    if (response.ok) {
+        const data = await response.json()
+        dispatch(updateReview(data))
+        return data
     }
 }
 
@@ -83,6 +105,9 @@ const reviewReducer = (state = initialState, action) => {
             action.reviews.forEach(review => {
                 newState[review.id] = review
             })
+            return newState
+        case updateAReview:
+            newState[action.review.id] = action.review
             return newState
         case deleteAReview:
             delete newState[action.id]

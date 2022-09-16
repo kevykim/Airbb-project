@@ -5,14 +5,39 @@ import ProfileButton from "./ProfileButton";
 import LoginFormModal from "../LoginFormModal";
 import "./Navigation.css";
 import DemoUser from "../DemoUser";
-import SpotCreateModal from "../SpotsCreatePage/SpotsCreateModal";
 import SignUpModal from "../SignUpFormPage/SignUpModal";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import BecomeAHost from "../SignUpFormPage/BecomeHostModal.js";
 
 function Navigation({ isLoaded }) {
   const sessionUser = useSelector((state) => state.session.user);
   const [startMenu, setStartMenu] = useState(false)
 
+    const openMenu = () => {
+      if (startMenu) return;
+      setStartMenu(true);
+    };
+
+    useEffect(() => {
+      if (!startMenu) return;
+
+      const closeMenu = () => {
+        setStartMenu(false);
+      };
+
+      document.addEventListener("click", closeMenu);
+
+      return () => document.removeEventListener("click", closeMenu);
+    }, [startMenu]);
+
+  let becomeHost;
+  if (!sessionUser) {
+    becomeHost = (
+      <div>
+        <BecomeAHost />
+      </div>
+    );
+  }
 
   let sessionLinks;
   if (sessionUser) {
@@ -23,17 +48,27 @@ function Navigation({ isLoaded }) {
     );       
   } else {
     sessionLinks = (
-      <div className="whatis">
-
-          <button className="startbutton" onClick={(event) => setStartMenu(!startMenu)}>
-            <i className="fa-solid fa-bars"></i>
-            <i class="fa-solid fa-circle-user"></i>
+      <div className="startbutton_container">
+        <div className="startbutton_div">
+          <div style={{ marginRight: "10px" }} className="">
+            {becomeHost}
+          </div>
+          <button className="startbutton" onClick={openMenu}>
+            <i
+              className="fa-solid fa-bars fa-2xl"
+              style={{ color: "rgb(113, 113, 113", marginRight: "12px" }}
+            ></i>
+            <i
+              className="fa-solid fa-circle-user fa-2xl"
+              style={{ color: "rgb(113, 113, 113)" }}
+            ></i>
           </button>
+        </div>
 
         {startMenu && (
           <div className="startmenu">
+            <SignUpModal showMenu={startMenu} setShowMenu={setStartMenu}/>
             <LoginFormModal />
-            <SignUpModal />
             <DemoUser />
           </div>
         )}
@@ -41,11 +76,9 @@ function Navigation({ isLoaded }) {
     );
   }
 
-
   return (
-    <div className="wutnav">
+    <div className="navbar_container">
     <div className="navbar">
-      {/* <div className="actualnavbar"> */}
       <div className="airbnbhome">
         <NavLink exact to="/">
           <img
@@ -54,18 +87,8 @@ function Navigation({ isLoaded }) {
             ></img>
         </NavLink>
       </div>
-      <div className="session">
-      {sessionUser && (
-        <div className="this">
-          <SpotCreateModal />
-        </div>
-      )}
-      </div>
-      {/* </div> */}
       {isLoaded && sessionLinks}
       </div>
-    <div className="navbottomline">
-    </div>
     </div>
   );
 }

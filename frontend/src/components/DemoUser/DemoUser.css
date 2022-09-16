@@ -1,13 +1,17 @@
 .DemoUserButton {
-    border-radius: 10px;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
     cursor: pointer;
     background-color: white;
-    padding: 5px 0 5px 0;
-    margin: 3px 0;
-    width: 100px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
     height: 50px;
+    font-family: "Monteserrat-Regular";
 }
 
 .DemoUserButton:hover {
-    background-color: ghostwhite;
+    background-color: rgb(249, 248, 248);
 }
