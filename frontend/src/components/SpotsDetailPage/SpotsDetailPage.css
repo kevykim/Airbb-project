@@ -14,7 +14,9 @@
 .spotheadercontainer {
     display: flex;
     flex-direction: column;
-    margin-right: 310px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 1245px;
     padding: 0px 80px;
 }
 
@@ -48,7 +50,6 @@
 
 .spotimgdetail:hover {
     cursor: pointer;
-    opacity: 0.85;
 }
 
 .descript_container {
@@ -70,7 +71,6 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
     margin-right: 85px;
     height: 100px;
     width: 700px;

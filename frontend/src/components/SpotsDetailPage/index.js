@@ -63,9 +63,11 @@ const SpotsDetailPage = () => {
                       margin: "10px 0px 20px 0px",
                       display: "flex",
                       justifyContent: "space-between",
+                      alignItems: "center",
                       width: "700px",
-                      padding: "10px",
+                      paddingBottom: "15px",
                       borderBottom: "1px solid rgb(222, 221, 221)",
+                      "fontSize": "18pt",
                     }}
                   >
                     Entire home hosted by {spot?.Owner?.firstName}
