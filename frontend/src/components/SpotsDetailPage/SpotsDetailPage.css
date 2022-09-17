@@ -51,6 +51,11 @@
     opacity: 0.85;
 }
 
+.descript_container {
+    display: flex;
+    flex-direction: column;
+    padding: 32px 0px;
+}
 
 .descript_pricecontainer {
     display: flex;
@@ -61,25 +66,37 @@
 }
 
 .spotdescript {
+    border-top: 1px solid rgb(222, 221, 221);
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    padding: 10px;
     margin-right: 85px;
     height: 100px;
     width: 700px;
 
 }
 
+.reviewprice_container {
+    display: flex;
+    justify-content: space-between;
+}
+
 .rightpricereview {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 25px;
     border: 1px solid rgb(222, 221, 221);
     border-radius: 10px;
     width: 300px;
     height: 300px;
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+}
+
+.avg_rating_div {
+   font-size: 10pt;
+   margin-top: 4px;
 }
 
 .review_container {

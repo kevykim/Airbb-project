@@ -41,8 +41,8 @@ const ReviewsReadPage = () => {
         <i className="fa-solid fa-star"></i>&nbsp;
         {`${spot?.avgStarRating} · ${reviews.length} reviews`}
       </div>
-      {reviews?.map((review) => (
-        <div className="reviewcontainer" key={review?.id}>
+      {reviews.map((review) => (
+        <div className="reviewcontainer" key={review.id}>
           <div className="profilereview">
             <div style={{ fontFamily: "Monteserrat-SemiBold" }}>
               <i className="fa-solid fa-user"></i>&nbsp;
@@ -52,7 +52,7 @@ const ReviewsReadPage = () => {
               undefined,
               options
             )}`}</div>
-          <div className="reviewtext_container">{review?.review}</div>
+          <div className="reviewtext_container">{review.review}</div>
           {owner?.id === review?.userId && (
             <div>
               <ReviewsUpdateModal
