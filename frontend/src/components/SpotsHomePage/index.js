@@ -71,7 +71,7 @@ const SpotsHomePage = () => {
             &nbsp;·&nbsp;
             <a
               className="linkedin_link"
-              href="/"
+              href="https://linkedin.com/in/kevin-kim-a88429150"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -80,7 +80,7 @@ const SpotsHomePage = () => {
             &nbsp;·&nbsp;
             <a
               className="email_link"
-              href="/"
+              href="mailto:kebonkim@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
             >

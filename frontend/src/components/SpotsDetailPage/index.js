@@ -67,7 +67,7 @@ const SpotsDetailPage = () => {
                       width: "700px",
                       paddingBottom: "15px",
                       borderBottom: "1px solid rgb(222, 221, 221)",
-                      "fontSize": "18pt",
+                      fontSize: "18pt",
                     }}
                   >
                     Entire home hosted by {spot?.Owner?.firstName}
@@ -83,7 +83,7 @@ const SpotsDetailPage = () => {
                       &nbsp; {spot?.Owner?.firstName} is a Super Host
                     </div>
                     <div
-                      style={{padding: "15px 0px 15px 0px" , width: "600px" }}
+                      style={{ padding: "15px 0px 15px 0px", width: "600px" }}
                     >
                       <i class="fa-solid fa-calendar fa-2xl"></i>
                       &nbsp; Free cancellation for 48 hours.
@@ -144,7 +144,7 @@ const SpotsDetailPage = () => {
             &nbsp;·&nbsp;
             <a
               className="linkedin_link"
-              href="/"
+              href="https://linkedin.com/in/kevin-kim-a88429150"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -153,7 +153,7 @@ const SpotsDetailPage = () => {
             &nbsp;·&nbsp;
             <a
               className="email_link"
-              href="/"
+              href="mailto:kebonkim@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
             >
