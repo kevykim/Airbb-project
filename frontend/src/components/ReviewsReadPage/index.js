@@ -36,31 +36,35 @@ const ReviewsReadPage = () => {
 //   if (!user) return null
   
   return (
-    <div>
+    <div className='allreviews_container'>
       <div className="reviewstitlediv">
-        <i className="fa-solid fa-star"></i>{" "}
+        <i className="fa-solid fa-star"></i>&nbsp;
         {`${spot?.avgStarRating} · ${reviews.length} reviews`}
       </div>
       {reviews?.map((review) => (
         <div className="reviewcontainer" key={review?.id}>
           <div className="profilereview">
-            <div style={{ "fontWeight": "bold" }}>
-              <i className="fa-solid fa-user"></i>
+            <div style={{ fontFamily: "Monteserrat-SemiBold" }}>
+              <i className="fa-solid fa-user"></i>&nbsp;
               {` ${review?.User?.firstName}`}
             </div>
             <div style={{ color: "grey" }}>{`${date.toLocaleDateString(
               undefined,
               options
             )}`}</div>
-          </div>
-          <div className="allreviewcontainer">{review?.review}</div>
+          <div className="reviewtext_container">{review?.review}</div>
           {owner?.id === review?.userId && (
             <div>
-              <ReviewsUpdateModal firstName={review?.User?.firstName} reviewId={review?.id} spotId={spot?.id}/>
+              <ReviewsUpdateModal
+                firstName={review?.User?.firstName}
+                reviewId={review?.id}
+                spotId={spot?.id}
+                />
               <ReviewsDeletePage reviewId={review?.id} />
-              </div>
+            </div>
           )}
         </div>
+          </div>
       ))}
       {owner && (
         <div>
