@@ -3,8 +3,6 @@ import { useEffect } from "react";
 import { getSpots } from "../../store/spots";
 function MySpot() {
     const user = useSelector(state => state.session.user)
-
-
     const dispatch = useDispatch();
 
        useEffect(() => {
@@ -14,7 +12,6 @@ function MySpot() {
     const allSpot = useSelector((state) => state.spot);
     const spots = Object.values(allSpot);
     const ownedSpots = spots.filter(spot => spot.ownerId === user.id)
-    console.log(ownedSpots)
    
 
     return (

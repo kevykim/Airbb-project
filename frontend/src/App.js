@@ -23,14 +23,14 @@ function App() {
           <Route exact path="/">
             <SpotsHomePage />
           </Route>
+          <Route exact path={"/reviews"}>
+            <MyReview />
+          </Route>
           <Route exact path="/spots/current">
               <MySpot />
           </Route>
           <Route exact path="/spots/:id">
             <SpotsDetailPage />
-          </Route>
-          <Route exact path={"/reviews/current"}>
-            <MyReview />
           </Route>
           <Route>
             <h1>Page Not Found</h1>
