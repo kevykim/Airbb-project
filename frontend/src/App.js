@@ -5,6 +5,8 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import SpotsHomePage from "./components/SpotsHomePage";
 import SpotsDetailPage from "./components/SpotsDetailPage";
+import MySpot from "./components/CurrentSRB/myspot";
+import MyReview from "./components/CurrentSRB/myreview";
 
 function App() {
   const dispatch = useDispatch();
@@ -21,14 +23,14 @@ function App() {
           <Route exact path="/">
             <SpotsHomePage />
           </Route>
+          <Route exact path="/spots/current">
+              <MySpot />
+          </Route>
           <Route exact path="/spots/:id">
             <SpotsDetailPage />
           </Route>
-          <Route exact path="/spots/current">
-            {/* My Spots Component */}
-          </Route>
           <Route exact path={"/reviews/current"}>
-            {/* My Reviews Component */}
+            <MyReview />
           </Route>
           <Route>
             <h1>Page Not Found</h1>
