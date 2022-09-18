@@ -74,7 +74,13 @@ const SpotsDetailPage = () => {
                     Entire home hosted by {spot?.Owner?.firstName}
                     <i class="fa-regular fa-circle-user fa-2xl"></i>
                   </div>
-                  <div style={{ marginBottom: "15px", width: "650px" }}>
+                  <div
+                    style={{
+                      marginBottom: "15px",
+                      width: "650px",
+                      fontFamily: "Monteserrat-Regular",
+                    }}
+                  >
                     <div style={{ padding: "15px 0px 15px 0px" }}>
                       <i class="fa-solid fa-door-open fa-2xl"></i>
                       &nbsp; Self Check In
@@ -149,15 +155,69 @@ const SpotsDetailPage = () => {
                       {`${spot?.avgStarRating} · ${reviewCounter} reviews`}
                     </div>
                   </div>
-                  <div>Calender will go here</div>
-                  <div>Booking button?</div>
-                  <div>Cleaning Fee</div>
-                  <div>Service Fee</div>
+                  <div style={{ fontFamily: "Monteserrat-Regular" }}>
+                    Calender will go here
+                  </div>
+                  <div style={{ fontFamily: "Monteserrat-Regular" }}>
+                    Booking button?
+                  </div>
+                  <div style={{ fontFamily: "Monteserrat-Regular" }}>
+                    Cleaning Fee
+                  </div>
+                  <div style={{ fontFamily: "Monteserrat-Regular" }}>
+                    Service Fee
+                  </div>
                   <div>Total</div>
                 </div>
               </div>
+
               <div className="review_container">
                 <ReviewsReadPage />
+              </div>
+              <div className="things_div">
+                <h3 style={{ fontFamily: "Monteserrat-SemiBold" }}>
+                  Things to know
+                </h3>
+
+                <div className="toknow_text">
+                  <div>
+                    <div style={{ fontFamily: "Monteserrat-SemiBold" }}>
+                      House Rules
+                    </div>
+                    <div>
+                      <i class="fa-regular fa-clock"></i>&nbsp;Check-in
+                    </div>
+                    <div>
+                      <i class="fa-regular fa-clock"></i>&nbsp;Check-out
+                    </div>
+                    <div>
+                      <i class="fa-solid fa-ban-smoking"></i>&nbsp;No smoking
+                    </div>
+                  </div>
+                  <div>
+                    <div style={{ fontFamily: "Monteserrat-SemiBold" }}>
+                      {`Health & safety`}
+                    </div>
+                    <div>
+                      <i class="fa-solid fa-notes-medical"></i>&nbsp;COVID-19
+                      safety
+                    </div>
+                    <div>
+                      <i class="fa-solid fa-video"></i>&nbsp;Security camera
+                    </div>
+                    <div>
+                      <i class="fa-solid fa-shield-heart"></i>&nbsp;Carbon
+                      monoxide alarm
+                    </div>
+                  </div>
+                  <div>
+                    <div style={{ fontFamily: "Monteserrat-SemiBold" }}>
+                      Cancellation policy
+                    </div>
+                    <div>Free cancellation for 48 hours</div>
+                    <div>Review the Host's full cancellation policy</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

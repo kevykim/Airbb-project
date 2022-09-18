@@ -74,6 +74,9 @@
     margin-right: 85px;
     height: 100px;
     width: 700px;
+    font-family: "Monteserrat-Regular";
+            
+        
 
 }
 
@@ -110,6 +113,21 @@
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-between;
+    font-family: "Monteserrat-Regular";
+}
+.toknow_text {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-family: "Monteserrat-Regular";
+}
+
+.things_div {
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    width: 1090px;
+    border-top: 1px solid rgb(222, 221, 221);
 }
 
 .review_container {
@@ -117,5 +135,4 @@
     width: 700px;
     padding-top: 25px;
     margin-right: 390px;
-    border-bottom: 1px solid rgb(222, 221, 221);
 }
