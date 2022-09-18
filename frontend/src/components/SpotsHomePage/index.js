@@ -14,11 +14,6 @@ const SpotsHomePage = () => {
     const allSpot = useSelector((state) => state.spot)
     const spots = Object.values(allSpot)
   
-
-
-
-
-  
     useEffect(() => {
         dispatch(getSpots())
     }, [dispatch])
@@ -40,8 +35,7 @@ const SpotsHomePage = () => {
 
               <div className="spot_detail_container">
                 <div className="city_state_container">
-                  {" "}
-                  {`${spot.city}, ${spot.state}`}{" "}
+                  {`${spot.city}, ${spot.state}`}
                 </div>
                 <div className="spot_star_container">
                   <i className="fa-solid fa-star"></i>
@@ -71,7 +65,7 @@ const SpotsHomePage = () => {
             &nbsp;·&nbsp;
             <a
               className="linkedin_link"
-              href="/"
+              href="https://linkedin.com/in/kevin-kim-a88429150"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -80,7 +74,7 @@ const SpotsHomePage = () => {
             &nbsp;·&nbsp;
             <a
               className="email_link"
-              href="/"
+              href="mailto:kebonkim@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
             >

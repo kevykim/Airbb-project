@@ -1,20 +1,38 @@
+.allreviews_container {
+    width: 1090px;
+}
+
 .reviewcontainer {
-    border-bottom: 1px black solid;
+    /* border-bottom: 1px black solid; */
+    display: inline-flex;
+    flex-direction: row;
+
+
+}
+
+.reviewstitlediv {
+    font-family: "Monteserrat-SemiBold";
+    font-size: 16.5pt;
+}
+
+.profile_container {
+    display: flex;
+    flex-direction: row;
 }
 
 .profilereview {
     display: flex;
     flex-direction: column;
-    padding: 15px;
-    font-size: 85%;
-
-
-
+    justify-content: space-between;
+    padding: 15px 8px;
+    font-size: 11pt;
+    width: 450px;
 }
 
-.allreviewcontainer {
+.reviewtext_container {
+    font-family: "Monteserrat-Regular";
     display: flex;
     flex-direction: column;
-    padding: 15px 15px 15px 15px;
-
+    padding-top: 10px;
+    padding-bottom: 10px;
 }

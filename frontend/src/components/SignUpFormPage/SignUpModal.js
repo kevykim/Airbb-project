@@ -3,21 +3,21 @@ import { Modal } from "../../context/Modal";
 import SignupFormPage from ".";
 import './SignupForm.css'
 
-function SignUpModal({showMenu, setShowMenu}) {
+function SignUpModal({menu, setMenu}) {
   const [showModal, setShowModal] = useState(false);
-  console.log('df', showMenu)
 
   const test = () => {
-    setShowMenu(false)
-    setShowModal(true)
+    setShowModal(false)
+    setMenu(false)
   }
+
 
   return (
     <>
-      <button className="signupmodal" onClick={() => test()}>Sign Up</button>
+      <button className="signupmodal" onClick={() => setShowModal(true)}>Sign Up</button>
       {showModal && (
-        <Modal onClose={() => setShowModal(false)}>
-            < SignupFormPage showMenu={showMenu} setShowMenu={setShowMenu}/>
+        <Modal onClose={() => test()}>
+            < SignupFormPage />
         </Modal>
       )}
     </>

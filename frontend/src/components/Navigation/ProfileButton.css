@@ -38,8 +38,9 @@ display: flex;
         border: none;
         background-color: white;
         height: 50px;
-        border-radius: 10px;
-        margin-left: 5px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    padding-left: 4px;
     font-family: "Monteserrat-Regular";
 }
 
@@ -57,7 +58,7 @@ display: flex;
     background-color: white;
     height: 50px;
         border-top: 1px solid rgb(235, 235, 235);
-        margin-left: 5px;
+    padding-left: 4px;
     font-family: "Monteserrat-Regular";
 }
 
@@ -74,11 +75,51 @@ text-align: left;
     border: none;
     background-color: white;
     height: 50px;
-    border-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
     width: 100%;
     font-family: "Monteserrat-Regular";
 }
 
 .profilelogout:hover {
+    background-color: rgb(249, 248, 248);
+}
+
+.my_spot_link {
+text-align: left;
+    text-decoration: none;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    background-color: white;
+    padding-left: 6px;
+    height: 50px;
+    font-family: "Monteserrat-Regular";
+}
+
+.my_spot_link:hover {
+    background-color: rgb(249, 248, 248);
+}
+
+.my_review_link {
+text-align: left;
+    padding-left: 6px;
+    display: flex;
+    color: black;
+    text-decoration: none;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    background-color: white;
+    height: 50px;
+    width: auto;
+    font-family: "Monteserrat-Regular";
+}
+
+.my_review_link:hover {
     background-color: rgb(249, 248, 248);
 }

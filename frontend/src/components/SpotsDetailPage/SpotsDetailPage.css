@@ -4,65 +4,137 @@
     justify-content: center;
 }
 
-.detailspotname {
+.title_img_div {
     display: flex;
-    padding: 20px 30px;
-}
-
-.spotavgstarrating {
-    font-size: 80%;
-    padding-bottom: 10px;
-}
-
-
-
-.spotimgdiv {
-    display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-}
-
-.spotimgdetail {
-    width: 1000px;
-    height: 500px;
-    border-radius: 30px;
+    padding: 0px 80px;
 }
 
 .spotheadercontainer {
     display: flex;
-    flex-direction:column;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 1255px;
+    padding: 0px 80px;
 }
 
-.descandpricecontainer {
+.detailspotname {
+    font-family: "Monteserrat-SemiBold";
+    font-size: 20pt;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+.spotavgstarrating {
+    display: flex;
+    align-items: center;
+    font-size: 11pt;
+    padding-bottom: 24px;
+}
+
+
+.spotimgdiv {
+    display: flex;
+    /* justify-content: center; */
+    padding: 0px 80px 0px;
+}
+
+.spotimgdetail {
+    width: 1095px;
+    height: 545px;
+    border-radius: 15px;
+}
+
+.spotimgdetail:hover {
+    cursor: pointer;
+}
+
+.descript_container {
+    display: flex;
+    flex-direction: column;
+    padding: 32px 0px;
+}
+
+.descript_pricecontainer {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     padding: 10px;
-    border-bottom: 1px black solid;
+    width: 1115px;
+
 }
 
 .spotdescript {
+    border-top: 1px solid rgb(222, 221, 221);
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
-    border: 1px black solid;
-    padding: 10px;
-    border-radius: 15px;
+    margin-right: 85px;
     height: 100px;
-    width: 500px;
-    box-shadow: 0px 0px 5px black;
+    width: 700px;
+    font-family: "Monteserrat-Regular";
+            
+        
+
+}
+
+.reviewprice_container {
+    display: flex;
+    justify-content: space-between;
 }
 
 .rightpricereview {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 25px;
+    border: 1px solid rgb(222, 221, 221);
+    border-radius: 10px;
+    width: 300px;
+    height: 400px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+}
+
+.avg_rating_div {
+   font-size: 10pt;
+   margin-top: 4px;
+}
+
+.placeoffer_div {
+    border-top: 1px solid rgb(222, 221, 221);
+    width: 700px;
+}
+
+.placeoffer_container {
+    height: 130px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-family: "Monteserrat-Regular";
+}
+.toknow_text {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: flex-end;
-    justify-content: center;
-    border: 1px solid black;
-    border-radius: 10px;
-    width: 200px;
-    box-shadow:  0px 0px 5px black;
+    justify-content: space-between;
+    font-family: "Monteserrat-Regular";
+}
+
+.things_div {
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    width: 1090px;
+    border-top: 1px solid rgb(222, 221, 221);
+}
+
+.review_container {
+    border-top: 1px solid rgb(222, 221, 221);
+    width: 700px;
+    padding-top: 25px;
+    margin-right: 390px;
 }

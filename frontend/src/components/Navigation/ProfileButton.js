@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { NavLink } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import SpotCreateModal from "../SpotsCreatePage/SpotsCreateModal";
 import './ProfileButton.css'
@@ -49,8 +50,10 @@ function ProfileButton({ user }) {
       </div>
       {showMenu && (
         <div className="profile-dropdown">
-          <div className="profile-username">{user.username}</div>
+          <div className="profile-username">Hello, {user.username}</div>
           <div className="profile-email">{user.email}</div>
+          <NavLink className="my_spot_link" to={'/spots/current'}>My Spots</NavLink>
+          <NavLink className="my_review_link" to={'/reviews/current'}>My Reviews</NavLink>
           <div>
             <button className="profilelogout" onClick={logout}>
               Log Out

@@ -22,9 +22,16 @@
 
 body {
     margin: 0;
-    /* border: 1px solid red; */
     font-family: "Monteserrat-Medium";
 
 }
+
+/* html {
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+} */
 
 
