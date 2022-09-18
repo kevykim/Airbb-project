@@ -25,6 +25,12 @@ function App() {
           <Route exact path='/spots/:id'>
             <SpotsDetailPage />
           </Route>
+          <Route exact path='/spots/current'>
+            {/* My Spots Component */}
+          </Route>
+          <Route exact path={'/reviews/current'}>
+            {/* My Reviews Component */}
+          </Route>
           <Route>
             <h1>Page Not Found</h1>
           </Route>

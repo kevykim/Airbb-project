@@ -1,7 +1,7 @@
     import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
     import { useParams } from "react-router-dom";
-// import { thunkReadReview } from "../../store/reviews";
+import { thunkReadReview } from "../../store/reviews";
 import { getASpot } from "../../store/spots";
 import ReviewsReadPage from "../ReviewsReadPage";
 import SpotsDeletePage from "../SpotsDeletePage";
@@ -22,7 +22,7 @@ const SpotsDetailPage = () => {
 
     useEffect(() => {
       dispatch(getASpot(id))
-      // dispatch(thunkReadReview(id))
+      dispatch(thunkReadReview(id))
     }, [dispatch, id])
     
     
@@ -82,17 +82,17 @@ const SpotsDetailPage = () => {
                     }}
                   >
                     <div style={{ padding: "15px 0px 15px 0px" }}>
-                      <i class="fa-solid fa-door-open fa-2xl"></i>
+                      <i class="fa-solid fa-door-open fa-xl"></i>
                       &nbsp; Self Check In
                     </div>
                     <div style={{ padding: "15px 0px 15px 0px" }}>
-                      <i class="fa-solid fa-medal fa-2xl"></i>
+                      <i class="fa-solid fa-medal fa-xl"></i>
                       &nbsp; {spot?.Owner?.firstName} is a Super Host
                     </div>
                     <div
                       style={{ padding: "15px 0px 15px 0px", width: "600px" }}
                     >
-                      <i class="fa-solid fa-calendar fa-2xl"></i>
+                      <i class="fa-solid fa-calendar fa-xl"></i>
                       &nbsp; Free cancellation for 48 hours.
                     </div>
                   </div>
@@ -180,29 +180,39 @@ const SpotsDetailPage = () => {
                 </h3>
 
                 <div className="toknow_text">
-                  <div>
-                    <div style={{ fontFamily: "Monteserrat-SemiBold" }}>
+                  <div style={{ width: "350px" }}>
+                    <div
+                      style={{
+                        fontFamily: "Monteserrat-SemiBold",
+                        paddingBottom: "10px",
+                      }}
+                    >
                       House Rules
                     </div>
-                    <div>
+                    <div style={{ paddingBottom: "10px" }}>
                       <i class="fa-regular fa-clock"></i>&nbsp;Check-in
                     </div>
-                    <div>
+                    <div style={{ paddingBottom: "10px" }}>
                       <i class="fa-regular fa-clock"></i>&nbsp;Check-out
                     </div>
                     <div>
                       <i class="fa-solid fa-ban-smoking"></i>&nbsp;No smoking
                     </div>
                   </div>
-                  <div>
-                    <div style={{ fontFamily: "Monteserrat-SemiBold" }}>
+                  <div style={{ width: "350px" }}>
+                    <div
+                      style={{
+                        fontFamily: "Monteserrat-SemiBold",
+                        paddingBottom: "10px",
+                      }}
+                    >
                       {`Health & safety`}
                     </div>
-                    <div>
+                    <div style={{ paddingBottom: "10px" }}>
                       <i class="fa-solid fa-notes-medical"></i>&nbsp;COVID-19
                       safety
                     </div>
-                    <div>
+                    <div style={{ paddingBottom: "10px" }}>
                       <i class="fa-solid fa-video"></i>&nbsp;Security camera
                     </div>
                     <div>
@@ -210,12 +220,21 @@ const SpotsDetailPage = () => {
                       monoxide alarm
                     </div>
                   </div>
-                  <div>
-                    <div style={{ fontFamily: "Monteserrat-SemiBold" }}>
+                  <div style={{ width: "350px" }}>
+                    <div
+                      style={{
+                        fontFamily: "Monteserrat-SemiBold",
+                        paddingBottom: "10px",
+                      }}
+                    >
                       Cancellation policy
                     </div>
-                    <div>Free cancellation for 48 hours</div>
-                    <div>Review the Host's full cancellation policy</div>
+                    <div style={{ paddingBottom: "10px" }}>
+                      Free cancellation for 48 hours
+                    </div>
+                    <div style={{ paddingBottom: "10px" }}>
+                      Review the Host's full cancellation policy
+                    </div>
                   </div>
                 </div>
               </div>

@@ -44,14 +44,18 @@ const ReviewsReadPage = () => {
       {reviews.map((review) => (
         <div className="reviewcontainer" key={review.id}>
           <div className="profilereview">
+            <div className='profile_container'>
+              <i className="fa-solid fa-user fa-2xl"></i>&nbsp;
+              <div style={{padding: "5px"}}>
             <div style={{ fontFamily: "Monteserrat-SemiBold" }}>
-              <i className="fa-solid fa-user"></i>&nbsp;
               {` ${review?.User?.firstName}`}
             </div>
             <div style={{ color: "grey" }}>{`${date.toLocaleDateString(
               undefined,
               options
             )}`}</div>
+            </div>
+            </div>
           <div className="reviewtext_container">{review.review}</div>
           {owner?.id === review?.userId && (
             <div>

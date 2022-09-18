@@ -9,6 +9,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 0px 80px;
 }
 
 .spotheadercontainer {
@@ -16,14 +17,13 @@
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: flex-start;
-    width: 1245px;
+    width: 1255px;
     padding: 0px 80px;
 }
 
 .detailspotname {
     font-family: "Monteserrat-SemiBold";
     font-size: 20pt;
-    /* padding: 10px 10px 10px 10px; */
     margin-top: 25px;
     margin-bottom: 15px;
 }
@@ -39,11 +39,11 @@
 .spotimgdiv {
     display: flex;
     /* justify-content: center; */
-    padding: 0px 80px 24px;
+    padding: 0px 80px 0px;
 }
 
 .spotimgdetail {
-    width: 1080px;
+    width: 1095px;
     height: 545px;
     border-radius: 15px;
 }
@@ -63,6 +63,7 @@
     flex-direction: row;
     justify-content: space-between;
     padding: 10px;
+    width: 1115px;
 
 }
 
@@ -86,6 +87,7 @@
 }
 
 .rightpricereview {
+
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -93,7 +95,7 @@
     border: 1px solid rgb(222, 221, 221);
     border-radius: 10px;
     width: 300px;
-    height: 300px;
+    height: 400px;
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
 }
 
