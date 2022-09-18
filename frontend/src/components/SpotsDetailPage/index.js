@@ -67,7 +67,8 @@ const SpotsDetailPage = () => {
                       width: "700px",
                       paddingBottom: "15px",
                       borderBottom: "1px solid rgb(222, 221, 221)",
-                      fontSize: "18pt",
+                      fontFamily: "Monteserrat-SemiBold",
+                      fontSize: "20pt",
                     }}
                   >
                     Entire home hosted by {spot?.Owner?.firstName}
@@ -90,6 +91,45 @@ const SpotsDetailPage = () => {
                     </div>
                   </div>
                   <div className="spotdescript">{spot.description}</div>
+                  <div className="placeoffer_div">
+                    <h3 style={{ fontFamily: "Monteserrat-SemiBold" }}>
+                      What this place offers
+                    </h3>
+                    <div className="placeoffer_container">
+                      <div style={{ padding: "4px 0px 4px 0px" }}>
+                        <i class="fa-solid fa-utensils fa-xl"></i>
+                        &nbsp;Kitchen
+                      </div>
+                      <div style={{ padding: "4px 0px 4px 0px" }}>
+                        <i class="fa-solid fa-car fa-xl"></i>
+                        &nbsp;Parking
+                      </div>
+                      <div style={{ padding: "4px 0px 4px 0px" }}>
+                        <i class="fa-solid fa-paw fa-xl"></i>
+                        &nbsp;Pets allowed
+                      </div>
+                      <div style={{ padding: "4px 0px 4px 0px" }}>
+                        <i class="fa-solid fa-wifi fa-xl"></i>
+                        &nbsp;Wifi
+                      </div>
+                      <div style={{ padding: "4px 0px 4px 0px" }}>
+                        <i class="fa-regular fa-snowflake fa-xl"></i>
+                        &nbsp;Air Conditioning
+                      </div>
+                      <div style={{ padding: "4px 0px 4px 0px" }}>
+                        <i class="fa-solid fa-tv fa-xl"></i>
+                        &nbsp;TV
+                      </div>
+                      <div style={{ padding: "4px 0px 4px 0px" }}>
+                        <i class="fa-solid fa-charging-station fa-xl"></i>
+                        &nbsp;EV charger
+                      </div>
+                      <div style={{ padding: "4px 0px 4px 0px" }}>
+                        <i class="fa-solid fa-video fa-xl"></i>
+                        &nbsp;Security Camera
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
                 <div className="rightpricereview">

@@ -99,6 +99,19 @@
    margin-top: 4px;
 }
 
+.placeoffer_div {
+    border-top: 1px solid rgb(222, 221, 221);
+    width: 700px;
+}
+
+.placeoffer_container {
+    height: 130px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
 .review_container {
     border-top: 1px solid rgb(222, 221, 221);
     width: 700px;
