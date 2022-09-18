@@ -6,29 +6,31 @@ import LoginFormModal from "../LoginFormModal";
 import "./Navigation.css";
 import DemoUser from "../DemoUser";
 import SignUpModal from "../SignUpFormPage/SignUpModal";
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import BecomeAHost from "../SignUpFormPage/BecomeHostModal.js";
 
 function Navigation({ isLoaded }) {
+
   const sessionUser = useSelector((state) => state.session.user);
   const [startMenu, setStartMenu] = useState(false)
+
 
     const openMenu = () => {
       if (startMenu) return;
       setStartMenu(true);
     };
 
-    useEffect(() => {
-      if (!startMenu) return;
+    // useEffect(() => {
+    //   if (!startMenu) return;
 
-      const closeMenu = () => {
-        setStartMenu(false);
-      };
+    //   const closeMenu = () => {
+    //     setStartMenu(false);
+    //   };
 
-      document.addEventListener("click", closeMenu);
+    //   document.addEventListener("click", closeMenu);
 
-      return () => document.removeEventListener("click", closeMenu);
-    }, [startMenu]);
+    //   return () => document.removeEventListener("click", closeMenu);
+    // }, [startMenu]);
 
   let becomeHost;
   if (!sessionUser) {
@@ -67,8 +69,8 @@ function Navigation({ isLoaded }) {
 
         {startMenu && (
           <div className="startmenu">
-            <SignUpModal showMenu={startMenu} setShowMenu={setStartMenu}/>
-            <LoginFormModal />
+            <SignUpModal menu={startMenu} setMenu={setStartMenu} />
+            <LoginFormModal menu={startMenu} setMenu={setStartMenu} />
             <DemoUser />
           </div>
         )}

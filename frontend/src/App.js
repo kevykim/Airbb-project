@@ -6,7 +6,6 @@ import Navigation from "./components/Navigation";
 import SpotsHomePage from "./components/SpotsHomePage";
 import SpotsDetailPage from "./components/SpotsDetailPage";
 
-
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -19,16 +18,16 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
-          <Route exact path='/'>
+          <Route exact path="/">
             <SpotsHomePage />
           </Route>
-          <Route exact path='/spots/:id'>
+          <Route exact path="/spots/:id">
             <SpotsDetailPage />
           </Route>
-          <Route exact path='/spots/current'>
+          <Route exact path="/spots/current">
             {/* My Spots Component */}
           </Route>
-          <Route exact path={'/reviews/current'}>
+          <Route exact path={"/reviews/current"}>
             {/* My Reviews Component */}
           </Route>
           <Route>
