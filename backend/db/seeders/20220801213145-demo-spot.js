@@ -108,6 +108,31 @@ module.exports = {
         "Lake side house near Mammoth Lake. A nice vacation house that for many activities for the summer and winter such as fishing, hiking, snowboarding, and more.",
         price: 650,
       },
+      {
+        ownerId: 1,
+        address: "1827 Palo Rd",
+        city: "Palo Alto",
+        state: "California",
+        country: "United States of America",
+        lat: 20.0938183,
+        lng: -114.2359102,
+        name: "White and Brown Wooden Home in the city of Palo Alto",
+        description: 
+        "19th century styled home with wonderful features such as a pool, gym, and more. In a quiet neighborhood, that is not too far from Silicon Valley.",
+        price: 630
+      },
+      {
+        ownerId: 1,
+        address: "1051 Dorothy Rd",
+        city: "Thousand Oaks",
+        state: "California",
+        country: "United States of America",
+        lat: 28.2013947,
+        lng: -103.3950293,
+        name: "Gray bricked home in the city of Thousand Oaks",
+        description: "Rustic styled brick home with modern utilities inside. A nice home within a quiet neighborhood that is not too far from Malibu.",
+        price: 520
+      },
     ]);
   },
 

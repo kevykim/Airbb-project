@@ -57,6 +57,18 @@ const testImages = [
     spotId: 8,
     userId: 2,
   },
+  {
+    url: "https://images.pexels.com/photos/343240/pexels-photo-343240.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    previewImage: true,
+    spotId: 9,
+    userId: 1,
+  },
+  {
+    url: "https://images.pexels.com/photos/448360/pexels-photo-448360.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    previewImage: true,
+    spotId: 10,
+    userId: 1,
+  },
 ];
 
 
