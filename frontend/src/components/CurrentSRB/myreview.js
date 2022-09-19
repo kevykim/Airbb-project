@@ -3,7 +3,9 @@ import { useEffect } from "react";
 import { thunkAllCurrentReview } from "../../store/reviews";
 import ReviewsDeletePage from "../ReviewsDeletePage";
 import ReviewsUpdateModal from "../ReviewsUpdatePage/ReviewsUpdateModal";
+import { getSpots } from "../../store/spots";
 
+import './myreview.css'
 
 
 function MyReview() {
@@ -11,25 +13,33 @@ function MyReview() {
     
     useEffect(() => {
         dispatch(thunkAllCurrentReview())
+         dispatch(getSpots());
+
     },[dispatch])
 
     const allReview = useSelector(state => state.review)
+    const spot = useSelector(state => state.spot)
+    console.log(Object.values(spot))
     const reviews = Object.values(allReview)
 
 
     return (
-        <div>
-            <h1>My reviews</h1>
-            <div>{reviews.map(review => (
-                <div key={review.id}>
-                    <div>{review.review}</div>
-                    <div>{review.stars}</div>
-                    <ReviewsUpdateModal />
-                    <ReviewsDeletePage />
-                </div>
-            ))}
+      <div className="myreview_container">
+        <div className="myreview_text">My reviews</div>
+        <div className="myreview_box">
+          {reviews.map((review) => (
+            <div className="myreview_review" key={review.id}>
+              <div>
+                <i className="fa-solid fa-star"></i>
+                &nbsp;{review.stars}
+              </div>
+              <div>{review.review}</div>
+              <ReviewsUpdateModal />
+              <ReviewsDeletePage />
             </div>
-              <div className="footer_container">
+          ))}
+        </div>
+        <div className="footer_container">
           <div>
             @ 2022 Airbb, Inc. &nbsp;·&nbsp;
             <a
@@ -60,8 +70,8 @@ function MyReview() {
             </a>
           </div>
         </div>
-        </div>
-    )
+      </div>
+    );
 }
 
 export default MyReview;

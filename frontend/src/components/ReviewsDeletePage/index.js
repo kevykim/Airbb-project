@@ -19,7 +19,6 @@ const ReviewsDeletePage = ({reviewId}) => {
       }, [dispatch, id]);
 
     const review = useSelector(state => state.review[reviewId])
-    console.log('this is delete review state',review)
 
     const onClick = async (event) => {
         event.preventDefault();
