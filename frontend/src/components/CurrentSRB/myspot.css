@@ -9,7 +9,7 @@
     justify-content: center;
     font-family: "Monteserrat-SemiBold";
     font-size: 26pt;
-    padding-bottom: 15px;
+    padding: 15px;
 }
 
 .myspot_card {
@@ -36,6 +36,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-size: 10.5pt;
 
 }
 

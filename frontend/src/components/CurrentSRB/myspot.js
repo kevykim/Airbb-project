@@ -36,15 +36,23 @@ function MySpot() {
                 </NavLink>
               </div>
               <div className="myspot_info_div">
-                <div className="myspot_firstline"> 
-              <div>{`${spot.city}, ${spot.state}`}</div>
-              <div>{spot.avgRating}</div>
+                <div className="myspot_firstline">
+                  <div>{`${spot.city}, ${spot.state}`}</div>
+                  <div>
+                    <i className="fa-solid fa-star"></i>
+                    &nbsp;{spot.avgRating}
+                  </div>
                 </div>
-              <div className="myspot_secondline">{`$${spot.price}`}</div>
+                <p className="myspot_secondline">
+                  <span
+                    style={{ fontFamily: "Monteserrat-SemiBold" }}
+                  >{`$${spot.price}`}</span>
+                  &nbsp;night
+                </p>
               </div>
               <div className="myspot_buttons">
-              <SpotsUpdateModal />
-              <SpotsDeletePage />
+                <SpotsUpdateModal />
+                <SpotsDeletePage />
               </div>
             </div>
           ))}
