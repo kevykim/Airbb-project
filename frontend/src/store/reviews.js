@@ -3,6 +3,7 @@ import { csrfFetch } from "./csrf"
 // TYPES
 const createAReview = '/reviews/createAReview'
 const readReview = '/reviews/readAReview'
+const readCurrentReview = '/reviews/readCurrentReview'
 const updateAReview = '/reviews/updateReview'
 const deleteAReview = '/reviews/deleteAReview'
 
@@ -19,6 +20,13 @@ const createReview = (review) => {
 const readAllReview = (reviews) => {
     return {
         type:readReview,
+        reviews
+    }
+}
+
+const readAllCurrent = (reviews) => {
+    return {
+        type: readCurrentReview,
         reviews
     }
 }
@@ -53,6 +61,17 @@ export const thunkCreateReview = (payload) => async dispatch => {
 
     } 
 }
+
+export const thunkAllCurrentReview = () => async dispatch => {
+    const response = await csrfFetch(`/api/reviews/current`)
+
+    if (response.ok) {
+        const data = await response.json()
+        // const ownedReview = data.map(review => review.review)
+        dispatch(readAllCurrent(data))
+    }
+}
+
 
 export const thunkReadReview = (spotId) => async dispatch => {
     const response = await csrfFetch(`/api/spots/${spotId}/reviews`)
@@ -101,6 +120,12 @@ const reviewReducer = (state = initialState, action) => {
             return newState
         case readReview:
             // stale state
+            newState = {};
+            action.reviews.forEach(review => {
+                newState[review.id] = review
+            })
+            return newState
+        case readCurrentReview:
             newState = {};
             action.reviews.forEach(review => {
                 newState[review.id] = review
