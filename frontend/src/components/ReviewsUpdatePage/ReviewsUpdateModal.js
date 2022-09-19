@@ -8,7 +8,7 @@ function ReviewsUpdateModal({firstName, reviewId, spotId}) {
   return (
     <>
       <button
-        // className="createreviewbuttonm"
+        className="createreviewbutton"
         onClick={() => setShowModal(true)}
       >
         Edit Review

@@ -18,10 +18,10 @@ function MyReview() {
     },[dispatch])
 
     const allReview = useSelector(state => state.review)
-    const spot = useSelector(state => state.spot)
-    console.log(Object.values(spot))
+    // const spot = useSelector(state => state.spot)
     const reviews = Object.values(allReview)
 
+    // const allSpot = Object.values(spot).map(spot => spot.id)
 
     return (
       <div className="myreview_container">
@@ -34,8 +34,12 @@ function MyReview() {
                 &nbsp;{review.stars}
               </div>
               <div>{review.review}</div>
-              <ReviewsUpdateModal />
-              <ReviewsDeletePage />
+              <ReviewsUpdateModal
+                firstName={review?.User?.firstName}
+                reviewId={review.id}
+                spotId={review.spotId}
+              />
+              <ReviewsDeletePage reviewId={review.id} spotId={review.spotId}/>
             </div>
           ))}
         </div>

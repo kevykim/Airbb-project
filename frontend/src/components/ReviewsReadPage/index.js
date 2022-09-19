@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { thunkReadReview } from '../../store/reviews';
 import ReviewsCreateModal from '../ReviewsCreatePage/ReviewsCreateModal';
-import ReviewsDeletePage from '../ReviewsDeletePage';
-import ReviewsUpdateModal from '../ReviewsUpdatePage/ReviewsUpdateModal';
+// import ReviewsDeletePage from '../ReviewsDeletePage';
+// import ReviewsUpdateModal from '../ReviewsUpdatePage/ReviewsUpdateModal';
 
 
 import './ReviewsReadPage.css'
@@ -57,7 +57,7 @@ const ReviewsReadPage = () => {
             </div>
             </div>
           <div className="reviewtext_container">{review.review}</div>
-          {owner?.id === review?.userId && (
+          {/* {owner?.id === review?.userId && (
             <div>
               <ReviewsUpdateModal
                 firstName={review?.User?.firstName}
@@ -66,7 +66,7 @@ const ReviewsReadPage = () => {
                 />
               <ReviewsDeletePage reviewId={review?.id} />
             </div>
-          )}
+          )} */}
         </div>
           </div>
       ))}
