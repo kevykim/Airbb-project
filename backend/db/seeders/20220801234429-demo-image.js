@@ -24,20 +24,39 @@ const testImages = [
     userId: 1,
   },
   {
+    url: "https://images.pexels.com/photos/259685/pexels-photo-259685.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    previewImage: true,
+    spotId: 4,
+    userId: 1,
+  },
+  {
     url: "https://images.unsplash.com/photo-1589129140837-67287c22521b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=930&q=80",
     previewImage: true,
 
-    spotId: 4,
+    spotId: 5,
     userId: 2,
   },
   {
     url: "https://www.precisioncraft.com/log-homes-blog/wp-content/uploads/2017/04/timber-home-utah-1020x554.jpg",
     previewImage: true,
 
-    spotId: 5,
+    spotId: 6,
     userId: 2,
   },
-  
+  {
+    url: "https://images.pexels.com/photos/2183521/pexels-photo-2183521.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    previewImage: true,
+
+    spotId: 7,
+    userId: 2,
+  },
+  {
+    url: "https://images.pexels.com/photos/1732414/pexels-photo-1732414.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    previewImage: true,
+
+    spotId: 8,
+    userId: 2,
+  },
 ];
 
 

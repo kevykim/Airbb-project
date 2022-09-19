@@ -45,6 +45,18 @@ module.exports = {
         price: 700,
       },
       {
+        ownerId: 1,
+        address: "5149 Bridge Rd.",
+        city: "Alhambra",
+        state: "California",
+        country: "United States Of America",
+        lat: 59.190192,
+        lng: 124.0192834,
+        name: "Modern-styled home in the city of Alhambra",
+        description: "18th century styled home that has modern utilities inside. Placed in a quiet neighborhood that has easy access to many stores nearby.",
+        price: 350
+      },
+      {
         ownerId: 2,
         address: "7131 Brick Lane",
         city: "Big Bear",
@@ -69,6 +81,32 @@ module.exports = {
         description:
           "Modern home with a great view of Arcadia on top of the San Gabriel Mountains. ",
         price: 950,
+      },
+      {
+        ownerId: 2,
+        address: "1049 Desert Ave",
+        city: "Palm Springs",
+        state: "California",
+        country: "United States of America",
+        lat: 10.1092834,
+        lng: -192.2940182,
+        name: "Rustic Cabin in the deserts of Palm Springs",
+        description:
+        "Rustic appearance that is furnished with modern utilities. Great for a nice get away from the city with only 20 minutes distance from casinos and a shopping center.",
+        price: 500,
+      },
+      {
+        ownerId: 2,
+        address: "9810 Lake Rd",
+        city: "Mammoth Lakes",
+        state: "California",
+        country: "United States of America",
+        lat: 38.1983746,
+        lng: -149.2983717,
+        name: "Brown Concrete Styled House near Mammoth Lake",
+        description: 
+        "Lake side house near Mammoth Lake. A nice vacation house that for many activities for the summer and winter such as fishing, hiking, snowboarding, and more.",
+        price: 650,
       },
     ]);
   },
