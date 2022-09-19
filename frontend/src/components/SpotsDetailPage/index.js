@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { thunkReadReview } from "../../store/reviews";
 import { getASpot } from "../../store/spots";
 import ReviewsReadPage from "../ReviewsReadPage";
-import SpotsDeletePage from "../SpotsDeletePage";
-import SpotsUpdateModal from "../SpotsUpdatePage/SpotsUpdateModal";
+// import SpotsDeletePage from "../SpotsDeletePage";
+// import SpotsUpdateModal from "../SpotsUpdatePage/SpotsUpdateModal";
 
 import './SpotsDetailPage.css'
 
@@ -15,7 +15,7 @@ const SpotsDetailPage = () => {
      const dispatch = useDispatch()
 
     const spot = useSelector(state => state.spot[id])
-    const user = useSelector(state => state.session.user)
+    // const user = useSelector(state => state.session.user)
    
     const review = useSelector(state => state.review)
     const reviewCounter = (Object.values(review).length);
@@ -242,13 +242,12 @@ const SpotsDetailPage = () => {
           </div>
         )}
 
-        {user?.id === spot?.ownerId && (
+        {/* {user?.id === spot?.ownerId && (
           <div className="spottybutton">
-            {/* spot ={spot} */}
             <SpotsUpdateModal spot={spot} />
             <SpotsDeletePage />
           </div>
-        )}
+        )} */}
         <div className="footer_container">
           <div>
             @ 2022 Airbb, Inc. &nbsp;·&nbsp;

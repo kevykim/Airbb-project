@@ -51,8 +51,8 @@ function MySpot() {
                 </p>
               </div>
               <div className="myspot_buttons">
-                <SpotsUpdateModal />
-                <SpotsDeletePage />
+                <SpotsUpdateModal spot={spot}/>
+                <SpotsDeletePage spot={spot}/>
               </div>
             </div>
           ))}
