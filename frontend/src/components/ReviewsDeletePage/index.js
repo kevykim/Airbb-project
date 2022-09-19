@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
 import { useHistory} from 'react-router-dom'
-import { thunkDeleteReview, thunkReadReview } from '../../store/reviews';
+import { thunkDeleteReview} from '../../store/reviews';
 
 import './ReviewsDeletePage.css'
 
@@ -12,11 +11,10 @@ const ReviewsDeletePage = ({reviewId, spotId}) => {
     const history = useHistory();
     // const {id} = useParams();
 
-    // console.log(id)
 
-      useEffect(() => {
-        dispatch(thunkReadReview(spotId));
-      }, [dispatch, spotId]);
+      // useEffect(() => {
+      //   dispatch(thunkReadReview(spotId));
+      // }, [dispatch]);
 
     const review = useSelector(state => state.review[reviewId])
 
