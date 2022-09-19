@@ -2,6 +2,36 @@
         display: flex;
             flex-direction: column;
             align-items: center;
+            padding: 10px 10px 10px 10px;
+}
+
+.closeButton {
+    border: none;
+    background-color: white;
+    font-family: "Monteserrat-SemiBold";
+    font-size: 14pt;
+    margin-left: 20px;
+    }
+
+.closeButton:hover {
+    background-color: rgb(235,235,235);
+    border-radius: 13px;
+    /* opacity: 0.85; */
+    cursor: pointer;
+}
+
+.signup_header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 24px 24px 0px;
+    border-bottom: 1px solid rgb(235, 235, 235);
+    width: 568px;
+    font-family: "Monteserrat-SemiBold";
+}
+
+.signup_text {
+    margin-right: 225px;
 }
 
 .signuperror {
@@ -16,33 +46,45 @@
 .signupemail {
     border-radius: 5px;
         width: 100%;
+        height: 42px;
         box-sizing: border-box;
         margin: 2px 0;
         padding: 10px 10px 10px 10px;
+        font-family: "Monteserrat-Regular";
+        border: 1px solid black;
 }
 
 .signupusername {
     border-radius: 5px;
         width: 100%;
+        height: 42px;
         box-sizing: border-box;
         margin: 2px 0;
         padding: 10px 10px 10px 10px;
+        font-family: "Monteserrat-Regular";
+        border: 1px solid black;
 }
 
 .signupfirst {
     border-radius: 5px;
         width: 100%;
+        height: 42px;
         box-sizing: border-box;
         margin: 2px 0;
         padding: 10px 10px 10px 10px;
+        font-family: "Monteserrat-Regular";
+        border: 1px solid black;
 }
 
 .signuplast {
     border-radius: 5px;
         width: 100%;
+        height: 42px;
         box-sizing: border-box;
         margin: 2px 0;
         padding: 10px 10px 10px 10px;
+        font-family: "Monteserrat-Regular";
+        border: 1px solid black;
 }
 
 .signuppass {
@@ -50,7 +92,10 @@
         width: 100%;
         box-sizing: border-box;
         margin: 2px 0;
+        height: 42px;
         padding: 10px 10px 10px 10px;
+        font-family: "Monteserrat-Regular";
+        border: 1px solid black;
 }
 
 .signupconfpass {
@@ -58,17 +103,29 @@
         width: 100%;
         box-sizing: border-box;
         margin: 2px 0;
+        height: 42px;
         padding: 10px 10px 10px 10px;
+        font-family: "Monteserrat-Regular";
+        border: 1px solid black;
 }
+
+/* .signupconfpass:focus {
+    outline: none !important;
+    border: 2px solid black;
+} */
 
 .signupbutty {
     cursor: pointer;
-        background-color: maroon;
+        background-color: rgb(230, 30, 77);
         color: white;
         padding: 10px 10px 10px 10px;
         margin: 2px 0;
         width: 100%;
+        height: 42px;
         border-radius: 5px;
+        font-family: "Monteserrat-SemiBold";
+        font-size: 12pt;
+        border: none;
 }
 
 .signupmodal {
