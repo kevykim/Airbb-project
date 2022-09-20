@@ -41,6 +41,7 @@ function MyReview() {
               </div>
               <div>{review.review}</div>
               <ReviewsUpdateModal
+                review={allReview}
                 firstName={review?.User?.firstName}
                 reviewId={review.id}
                 spotId={review.spotId}

@@ -17,16 +17,16 @@ const ReviewsCreatePage = ({spotId, closeModal}) => {
 
     const user = useSelector(state => state.session.user)
 
-    const [rating, setRating] = useState(0)
+    const [star, setStar] = useState(0)
     const [reviewText, setReviewText] = useState('')
     const [validationErrors, setValidationErrors] = useState([])
 
     useEffect(() => {
         const errors = [];
-        if (rating < 1 || rating > 5) errors.push('Stars must be within the range of 1 to 5')
+        if (star < 1 || star > 5) errors.push('Stars must be within the range of 1 to 5')
         if (!reviewText.length || reviewText.length > 256) errors.push('Must have review')
         setValidationErrors(errors)
-    }, [rating, reviewText])
+    }, [star, reviewText])
 
     // useEffect(() => {
     //   dispatch(thunkReadReview(id))
@@ -37,7 +37,7 @@ const ReviewsCreatePage = ({spotId, closeModal}) => {
 
         const payload = {
             review: reviewText,
-            stars: rating,
+            stars: star,
             userId: user.id,
             spotId: spotId,
 
@@ -53,7 +53,7 @@ const ReviewsCreatePage = ({spotId, closeModal}) => {
         }
 
 
-        setRating('')
+        setStar('')
         setReviewText('')
         setValidationErrors([])
     };
@@ -72,10 +72,10 @@ const ReviewsCreatePage = ({spotId, closeModal}) => {
             <input
               className="createreviewstar"
               type="number"
-              value={rating}
+              value={star}
               min={1}
               max={5}
-              onChange={(event) => setRating(event.target.value)}
+              onChange={(event) => setStar(event.target.value)}
               required
             />
           </div>
