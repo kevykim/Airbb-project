@@ -80,16 +80,16 @@ function Navigation({ isLoaded }) {
 
   return (
     <div className="navbar_container">
-    <div className="navbar">
-      <div className="airbnbhome">
-        <NavLink exact to="/">
-          <img
-            src="https://blog.logomyway.com/wp-content/uploads/2020/03/arbnb-logo.jpg"
-            alt="Home"
+      <div className="navbar">
+        <div className="airbnbhome">
+          <NavLink exact to="/">
+            <img
+              src="https://blog.logomyway.com/wp-content/uploads/2020/03/arbnb-logo.jpg"
+              alt="Home"
             ></img>
-        </NavLink>
-      </div>
-      {isLoaded && sessionLinks}
+          </NavLink>
+        </div>
+        {isLoaded && sessionLinks}
       </div>
     </div>
   );

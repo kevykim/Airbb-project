@@ -1,6 +1,8 @@
-.spot_container_div {
+
+
+.spothome_container {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
 }
 
 .spotcard {
@@ -9,6 +11,7 @@
     flex-direction: row;
     justify-content: center;
     padding: 15px;
+    max-width: 1200px;
 }
 
 .spot_image_container {
@@ -62,14 +65,18 @@
     border-top: 1px solid grey;
     background-color: white;
     bottom: 0;
+    left: 0;
+    right: 0;
     width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    padding: 13px 80px 14px;
+    /* display: flex;
+    flex-wrap: wrap; */
+    padding: 15px 80px 15px;
     position: fixed;
     font-family: "Monteserrat-Regular";
     font-size: 10pt;
 }
+
+
 
 .github_link {
     text-decoration: none;
