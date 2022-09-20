@@ -8,7 +8,7 @@ function SpotCreateModal() {
 
   return (
     <>
-      <button className="becomehostbutt" onClick={() => setShowModal(true)}>Become a Host</button>
+      <button className="becomehostbutton" onClick={() => setShowModal(true)}>Become a Host</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
             <SpotsCreatePage onClick={(event) => setShowModal(false)} />
