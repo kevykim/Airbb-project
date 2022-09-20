@@ -2,9 +2,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 10px 10px 10px 10px;
 }
 
-.errorvalidation {
+.updatespot_error {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -13,102 +14,160 @@
     padding: 10px 5px 10px 5px;
 }
 
-.address {
+.updatespot_header {
+    display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0px 24px 24px 0px;
+        border-bottom: 1px solid rgb(235, 235, 235);
+        width: 568px;
+        font-family: "Monteserrat-SemiBold";
+}
+
+.updatespot_text {
+    margin-right: 225px;
+}
+
+.updateaddress {
     border-radius: 5px;
+        width: 100%;
+        height: 42px;
+        box-sizing: border-box;
+        margin: 2px 0;
+        padding: 10px 10px 10px 10px;
+        font-family: "Monteserrat-Regular";
+        border: 1px solid black;
+}
+
+.updatecity {
+border-radius: 5px;
     width: 100%;
+    height: 42px;
     box-sizing: border-box;
     margin: 2px 0;
     padding: 10px 10px 10px 10px;
+    font-family: "Monteserrat-Regular";
+    border: 1px solid black;
 }
 
-.city {
+.updatestate {
+border-radius: 5px;
+    width: 100%;
+    height: 42px;
+    box-sizing: border-box;
+    margin: 2px 0;
+    padding: 10px 10px 10px 10px;
+    font-family: "Monteserrat-Regular";
+    border: 1px solid black;
+}
+
+.updatecountry {
+border-radius: 5px;
+    width: 100%;
+    height: 42px;
+    box-sizing: border-box;
+    margin: 2px 0;
+    padding: 10px 10px 10px 10px;
+    font-family: "Monteserrat-Regular";
+    border: 1px solid black;
+}
+
+.updatelat {
+border-radius: 5px;
+    width: 100%;
+    height: 42px;
+    box-sizing: border-box;
+    margin: 2px 0;
+    padding: 10px 10px 10px 10px;
+    font-family: "Monteserrat-Regular";
+    border: 1px solid black;
+}
+
+.updatelng {
+border-radius: 5px;
+    width: 100%;
+    height: 42px;
+    box-sizing: border-box;
+    margin: 2px 0;
+    padding: 10px 10px 10px 10px;
+    font-family: "Monteserrat-Regular";
+    border: 1px solid black;
+}
+
+.updateplacename {
+border-radius: 5px;
+    width: 100%;
+    height: 42px;
+    box-sizing: border-box;
+    margin: 2px 0;
+    padding: 10px 10px 10px 10px;
+    font-family: "Monteserrat-Regular";
+    border: 1px solid black;
+}
+
+.updatedescription {
     border-radius: 5px;
         width: 100%;
+        height: 42px;
         box-sizing: border-box;
         margin: 2px 0;
         padding: 10px 10px 10px 10px;
-}
-
-.state {
-    border-radius: 5px;
-        width: 100%;
-        box-sizing: border-box;
-        margin: 2px 0;
-        padding: 10px 10px 10px 10px;
-}
-
-.country {
-    border-radius: 5px;
-        width: 100%;
-        box-sizing: border-box;
-        margin: 2px 0;
-        padding: 10px 10px 10px 10px;
-}
-
-.lat {
-    border-radius: 5px;
-        width: 100%;
-        box-sizing: border-box;
-        margin: 2px 0;
-        padding: 10px 10px 10px 10px;
-}
-
-.lng {
-    border-radius: 5px;
-        width: 100%;
-        box-sizing: border-box;
-        margin: 2px 0;
-        padding: 10px 10px 10px 10px;
-}
-
-.placename {
-    border-radius: 5px;
-        width: 100%;
-        box-sizing: border-box;
-        margin: 2px 0;
-        padding: 10px 10px 10px 10px;
-}
-
-.description {
-    border-radius: 5px;
-        width: 100%;
-        box-sizing: border-box;
-        margin: 2px 0;
-        padding: 10px 10px 10px 10px;
+        font-family: "Monteserrat-Regular";
+        border: 1px solid black;
         resize: none;
+        overflow: hidden;
 }
 
-.price {
+.updatedescription:hover {
+    overflow-y: scroll;
+}
+
+.updateprice {
     border-radius: 5px;
         width: 100%;
+        height: 42px;
         box-sizing: border-box;
         margin: 2px 0;
         padding: 10px 10px 10px 10px;
+        font-family: "Monteserrat-Regular";
+        border: 1px solid black;
 }
 
 .updatespotbutton {
     cursor: pointer;
-    background-color: maroon;
-    color: white;
-    padding: 10px 10px 10px 10px;
-    margin: 2px 0;
-    width: 100%;
-    border-radius: 5px;
+        background-color: rgb(230, 30, 77);
+        color: white;
+        padding: 10px 10px 10px 10px;
+        margin: 2px 0;
+        width: 100%;
+        height: 42px;
+        border-radius: 5px;
+        font-family: "Monteserrat-SemiBold";
+        font-size: 12pt;
+        border: none;
 }
 
-.updatespotbuttonm {
+.updatespotbutton:hover {
+    opacity: 0.85;
+}
+
+.updatespotbuttonmodal {
     cursor: pointer;
-    background-color: maroon;
-    color: white;
-    padding: 10px 10px 10px 10px;
-    margin: 2px 0;
-
-    border-radius: 5px;
+        background-color: rgb(230, 30, 77);
+        color: white;
+        padding: 10px 10px 10px 10px;
+        margin: 2px 0;
+        width: 100px;
+        height: 42px;
+        border-radius: 5px;
+        font-family: "Monteserrat-SemiBold";
+        font-size: 12pt;
+        border: none;
 }
 
-.spottybutton {
+/* .spottybutton {
     display: flex;
     flex-direction: row;
     justify-content: center;
     padding: 120px;
-}
+} */

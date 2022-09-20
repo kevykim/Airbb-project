@@ -8,7 +8,7 @@ import { editSpots, getASpot } from '../../store/spots'
 import './SpotsUpdatePage.css'
 
 
-const SpotsUpdatePage = ({spot, onClick}) => {
+const SpotsUpdatePage = ({spot, closeModal}) => {
     // const {id} = useParams()
     // const spot = useSelector(state => state.spot[id])
       const history = useHistory()
@@ -32,16 +32,20 @@ const SpotsUpdatePage = ({spot, onClick}) => {
    const [validationErrors, setValidationErrors] = useState([])
 
    useEffect(() => {
+    // if (!address || !city || !state || !country || !lat || !lng || !name || !description || !price) {
+    //   setValidationErrors([])
+    //   return;
+    // }
     const errors = [];
     if (!address.length) errors.push('Please enter an address')
     if (!city.length) errors.push('Please enter a city')
     if (!state.length) errors.push('Please enter a state')
     if (!country.length) errors.push('Please enter a country')
-    if (!lat.length) errors.push('Please enter valid latitude')
-    if (!lng.length) errors.push('Please enter valid longitude')
+    if (lat.length === 0) errors.push('Please enter valid latitude')
+    if (lng.length === 0) errors.push('Please enter valid longitude')
     if (!name.length) errors.push('Please enter a name for your spot!')
     if (description.length > 200) errors.push('Please shorten description')
-    if (!price.length) errors.push('Please add an valid price')
+    if (price.length === 0) errors.push('Please add a valid price')
     setValidationErrors(errors)
    },[address, city, state, country, lat, lng, name, description, price])
 
@@ -71,7 +75,7 @@ const SpotsUpdatePage = ({spot, onClick}) => {
 
         if (updatedSpot) {
             history.push(`/spots/${updatedSpot.id}`)
-            onClick()
+            closeModal(false)
         }
 
         // setAddress('')
@@ -88,114 +92,121 @@ const SpotsUpdatePage = ({spot, onClick}) => {
    }
 
     return (
+      <div className="updatespotform">
+        <div className='updatespot_header'>
+        <button className='closeButton' onClick={() => closeModal(false)} >X</button>
+        <div className='updatespot_text'>Edit spot</div>
+        </div>
 
-      <div className='updatespotform'>
-        <h1>Edit Spot</h1>
-        {validationErrors.length > 0 && (
-          <div className='errorvalidation'>
-            <ul>
-              {validationErrors.map((error, i) => (
-                <li key={i}>{error}</li>
-              ))}
-            </ul>
-          </div>
-        )}
-        <form onSubmit={onSubmit}>
+        <form style={{width: "568px", padding: "24px"}} onSubmit={onSubmit}>
           <div>
             <div>
-            <input
-            className='address'
-              type="text"
-              placeholder="Address"
-              value={address}
-              onChange={(event) => setAddress(event.target.value)}
-              required
-            />
+              <input
+                className="updateaddress"
+                type="text"
+                placeholder="Address"
+                value={address}
+                onChange={(event) => setAddress(event.target.value)}
+                required
+              />
             </div>
             <div>
-            <input
-            className='city'
-              type="text"
-              placeholder="City"
-              value={city}
-              onChange={(event) => setCity(event.target.value)}
-              required
-            />
+              <input
+                className="updatecity"
+                type="text"
+                placeholder="City"
+                value={city}
+                onChange={(event) => setCity(event.target.value)}
+                required
+              />
             </div>
             <div>
-            <input
-            className='state'
-              type="text"
-              placeholder="State"
-              value={state}
-              onChange={(event) => setState(event.target.value)}
-              required
-            />
+              <input
+                className="updatestate"
+                type="text"
+                placeholder="State"
+                value={state}
+                onChange={(event) => setState(event.target.value)}
+                required
+              />
             </div>
             <div>
-            <input
-            className='country'
-              type="text"
-              placeholder="Country"
-              value={country}
-              onChange={(event) => setCountry(event.target.value)}
-              required
-            />
+              <input
+                className="updatecountry"
+                type="text"
+                placeholder="Country"
+                value={country}
+                onChange={(event) => setCountry(event.target.value)}
+                required
+              />
             </div>
             <div>
-            <input
-            className='lat'
-              type="text"
-              placeholder="Lat"
-              value={lat}
-              onChange={(event) => setLat(event.target.value)}
-              required
-            />
+              <input
+                className="updatelat"
+                type="text"
+                placeholder="Lat"
+                value={lat}
+                onChange={(event) => setLat(event.target.value)}
+                required
+              />
             </div>
             <div>
-            <input
-            className='lng'
-              type="text"
-              placeholder="Lng"
-              value={lng}
-              onChange={(event) => setLng(event.target.value)}
-              required
-            />
+              <input
+                className="updatelng"
+                type="text"
+                placeholder="Lng"
+                value={lng}
+                onChange={(event) => setLng(event.target.value)}
+                required
+              />
             </div>
             <div>
-            <input
-            className='placename'
-              type="text"
-              placeholder="Name of place"
-              value={name}
-              onChange={(event) => setName(event.target.value)}
-              required
-            />
+              <input
+                className="updateplacename"
+                type="text"
+                placeholder="Name of place"
+                value={name}
+                onChange={(event) => setName(event.target.value)}
+                required
+              />
             </div>
             <div>
-            <textarea
-            className='description'
-              type="text-area"
-              placeholder="description"
-              value={description}
-              onChange={(event) => setDescription(event.target.value)}
-              required
-            />
+              <textarea
+                className="updatedescription"
+                type="text-area"
+                placeholder="description"
+                value={description}
+                onChange={(event) => setDescription(event.target.value)}
+                required
+              />
             </div>
             <div>
-            <input
-            className='price'
-              type="number"
-              placeholder="Price"
-              value={price}
-              onChange={(event) => setPrice(event.target.value)}
-              required
-            />
+              <input
+                className="updateprice"
+                type="number"
+                placeholder="Price"
+                value={price}
+                onChange={(event) => setPrice(event.target.value)}
+                required
+              />
             </div>
           </div>
-          <button className='updatespotbutton' type="submit"
+          {validationErrors.length > 0 && (
+            <div className="updatespot_error">
+              <ul>
+                {validationErrors.map((error, i) => (
+                  <li key={i}>{error}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+          <button
+            className="updatespotbutton"
+            type="submit"
             disabled={validationErrors.length > 0}
-          >Update Spot</button>
+          >
+            Edit Spot
+          </button>
         </form>
       </div>
     );

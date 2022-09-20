@@ -7,7 +7,7 @@ import './SpotsCreatePage.css'
 
 
 
-const SpotsCreatePage = ({onClick}) => {
+const SpotsCreatePage = ({closeModal}) => {
    const history = useHistory()
    const dispatch = useDispatch()
 
@@ -27,10 +27,10 @@ const SpotsCreatePage = ({onClick}) => {
    const [validationErrors, setValidationErrors] = useState([])
 
    useEffect(() => {
-    if (!address || !city || !state || !country || !lat || !lng || !name || !description || !price || !prevImage) {
-      setValidationErrors([]);
-      return;
-    }
+    // if (!address || !city || !state || !country || !lat || !lng || !name || !description || !price || !prevImage) {
+    //   setValidationErrors([]);
+    //   return;
+    // }
 
     const errors = [];
     if (!address.length) errors.push('Please enter an address')
@@ -70,6 +70,7 @@ const SpotsCreatePage = ({onClick}) => {
         
         if (createdSpot) {
             history.push(`/spots/${createdSpot.id}`)
+            closeModal(false)
         }
 
         setAddress('')
@@ -88,7 +89,7 @@ const SpotsCreatePage = ({onClick}) => {
     return (
       <div className="createspotform">
         <div className='createspot_header'>
-        <button className='closeButton' onClick={onClick}>X</button>
+        <button className='closeButton' onClick={() => closeModal(false)}>X</button>
         <div className='createspot_text'>Create Spot</div>
         </div>
         <form style={{width: "568px", padding: "24px"}} onSubmit={onSubmit}>
