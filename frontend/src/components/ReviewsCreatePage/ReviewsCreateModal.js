@@ -7,10 +7,10 @@ function ReviewsCreateModal({spotId}) {
 
   return (
     <>
-      <button className="createreviewbuttonm" onClick={() => setShowModal(true)}>Create Review</button>
+      <button className="createreviewbuttonmodal" onClick={() => setShowModal(true)}>Create Review</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-            <ReviewsCreatePage spotId={spotId} onClick={() => setShowModal(false)}/>
+            <ReviewsCreatePage spotId={spotId} closeModal={setShowModal}/>
         </Modal>
       )}
     </>

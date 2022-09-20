@@ -195,7 +195,7 @@ const SpotsUpdatePage = ({spot, closeModal}) => {
             <div className="updatespot_error">
               <ul>
                 {validationErrors.map((error, i) => (
-                  <li key={i}>{error}</li>
+                  <div key={i}>{error}</div>
                 ))}
               </ul>
             </div>

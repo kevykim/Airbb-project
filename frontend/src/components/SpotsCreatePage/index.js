@@ -199,7 +199,7 @@ const SpotsCreatePage = ({closeModal}) => {
             <div>
               <ul className="createspot_error">
                 {validationErrors.map((error, i) => (
-                  <li key={i}>{error}</li>
+                  <div key={i}>{error}</div>
                 ))}
               </ul>
             </div>

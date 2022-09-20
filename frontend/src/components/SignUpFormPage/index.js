@@ -111,7 +111,7 @@ function SignupFormPage({closeModal}) {
         </div>
         <ul className="signuperror">
           {errors.map((error, idx) => (
-            <li key={idx}>{error}</li>
+            <div key={idx}>{error}</div>
           ))}
         </ul>
         <button className="signupbutton" type="submit">

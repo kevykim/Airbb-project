@@ -57,7 +57,7 @@ function LoginForm({closeModal}) {
     </form>
       <ul className="loginerror">
         {errors.map((error, idx) => (
-          <li key={idx}>{error}</li>
+          <div key={idx}>{error}</div>
         ))}
       </ul>
     </div>
