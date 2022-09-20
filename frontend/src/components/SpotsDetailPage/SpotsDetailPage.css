@@ -44,12 +44,14 @@
 
 .spotimgdetail {
     width: 1095px;
-    height: 545px;
+    height: 600px;
     border-radius: 15px;
+    margin-bottom: 15px;
 }
 
 .spotimgdetail:hover {
     cursor: pointer;
+    opacity: 0.85;
 }
 
 .descript_container {

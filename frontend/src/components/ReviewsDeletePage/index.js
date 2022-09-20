@@ -1,29 +1,27 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import { useParams, useHistory} from 'react-router-dom'
-import { thunkDeleteReview, thunkReadReview } from '../../store/reviews';
+import { useHistory} from 'react-router-dom'
+import { thunkDeleteReview} from '../../store/reviews';
 
 import './ReviewsDeletePage.css'
 
 
 
-const ReviewsDeletePage = ({reviewId}) => {
+const ReviewsDeletePage = ({reviewId, spotId}) => {
     const dispatch = useDispatch();
     const history = useHistory();
-    const {id} = useParams();
+    // const {id} = useParams();
 
-    // console.log(id)
 
-      useEffect(() => {
-        dispatch(thunkReadReview(id));
-      }, [dispatch, id]);
+      // useEffect(() => {
+      //   dispatch(thunkReadReview(spotId));
+      // }, [dispatch]);
 
     const review = useSelector(state => state.review[reviewId])
 
     const onClick = async (event) => {
         event.preventDefault();
         await dispatch(thunkDeleteReview(Number(review.id)))
-        history.push(`/spots/${id}`)
+        history.push(`/spots/${spotId}`)
     }
 
     return (

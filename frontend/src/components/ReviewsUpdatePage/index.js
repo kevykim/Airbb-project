@@ -1,41 +1,36 @@
-import './ReviewsUpdatePage.css'
-
-
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { useSelector } from 'react-redux';
-
 import { thunkUpdateReview } from '../../store/reviews';
+import './ReviewsUpdatePage.css'
 
-const ReviewsUpdatePage = ({reviewId, spotId, onClick}) => {
+const ReviewsUpdatePage = ({review, reviewId, spotId, closeModal}) => {
     const history = useHistory()
     const dispatch = useDispatch()
 
+
        const user = useSelector((state) => state.session.user);
 
-
-
-
-       const [rating, setRating] = useState(0);
-       const [reviewText, setReviewText] = useState("");
+       const [star, setStar] = useState(review[reviewId].stars);
+       const [reviewText, setReviewText] = useState(review[reviewId].review);
        const [validationErrors, setValidationErrors] = useState([]);
 
        useEffect(() => {
          const errors = [];
-         if (rating < 1 || rating > 5)
+         if (star < 1 || star > 5)
            errors.push("Stars must be within the range of 1 to 5");
          if (!reviewText.length || reviewText.length > 256)
            errors.push("Must have review");
          setValidationErrors(errors);
-       }, [rating, reviewText]);
+       }, [star, reviewText]);
 
          const onSubmit = async (event) => {
            event.preventDefault();
 
            const payload = {
              review: reviewText,
-             stars: rating,
+             stars: star,
              userId: user.id,
              reviewId: reviewId,
              spotId: spotId
@@ -47,39 +42,35 @@ const ReviewsUpdatePage = ({reviewId, spotId, onClick}) => {
 
            if (updatedReview) {
              history.push(`/spots/${spotId}`);
-             onClick()
+             closeModal(false)
            }
 
 
-           setRating("");
+           setStar("");
            setReviewText("");
            setValidationErrors([]);
          };
     return (
-      <div>
-        <h1>Edit Review</h1>
-        {validationErrors.length > 0 && (
-          <div>
-            <ul>
-              {validationErrors.map((error, i) => (
-                <li key={i}>{error}</li>
-              ))}
-            </ul>
-          </div>
-        )}
-        <form onSubmit={onSubmit}>
+      <div className="updatereviewform">
+        <div className="updatereview_header">
+        <button className="closeButton" onClick={() => closeModal(false)}>X</button>
+        <div className="updatereview_text">Edit a review</div>
+        </div>
+        <form style={{width: "568px", padding: "24px"}} onSubmit={onSubmit}>
           <div>
             <input 
+            className="updatereviewstar"
             type='number'
-            value={rating}
+            value={star}
             min={1}
             max={5}
-            onChange={(event) => setRating(event.target.value)}
+            onChange={(event) => setStar(event.target.value)}
             required
             />
           </div>
           <div>
             <textarea
+            className="updatereviewtext"
             type='text-area'
             placeholder='Thoughts on the place...'
             value={reviewText}
@@ -87,10 +78,18 @@ const ReviewsUpdatePage = ({reviewId, spotId, onClick}) => {
             >
             </textarea>
           </div>
-
-            <button type='submit'
+          {validationErrors.length > 0 && (
+          <div className="updatereview_error">
+            <ul>
+              {validationErrors.map((error, i) => (
+                <div key={i}>{error}</div>
+              ))}
+            </ul>
+          </div>
+        )}
+            <button className="updatereviewbutton" type='submit'
             disabled={validationErrors.length > 0}
-            > Update Review </button>
+            > Submit Review </button>
 
         </form>
       </div>

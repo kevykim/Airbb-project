@@ -6,7 +6,7 @@ import './SignupForm.css'
 function SignUpModal({menu, setMenu}) {
   const [showModal, setShowModal] = useState(false);
 
-  const test = () => {
+  const closeAll = () => {
     setShowModal(false)
     setMenu(false)
   }
@@ -16,8 +16,8 @@ function SignUpModal({menu, setMenu}) {
     <>
       <button className="signupmodal" onClick={() => setShowModal(true)}>Sign Up</button>
       {showModal && (
-        <Modal onClose={() => test()}>
-            < SignupFormPage />
+        <Modal onClose={() => closeAll()}>
+            < SignupFormPage closeModal={closeAll}/>
         </Modal>
       )}
     </>

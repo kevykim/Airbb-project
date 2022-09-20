@@ -7,14 +7,14 @@ function SpotsUpdateModal({spot}) {
 
   return (
     <>
-      <button className="updatespotbuttonm " onClick={() => setShowModal(true)}>
+      <button className="updatespotbuttonmodal " onClick={() => setShowModal(true)}>
         Edit Spot
       </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <SpotsUpdatePage
             spot={spot}
-            onClick={(event) => setShowModal(false)}
+            closeModal={setShowModal}
           />
         </Modal>
       )}

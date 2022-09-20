@@ -5,7 +5,7 @@ import * as sessionActions from "../../store/session";
 
 import "./SignupForm.css";
 
-function SignupFormPage() {
+function SignupFormPage({closeModal}) {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
   const [email, setEmail] = useState("");
@@ -15,6 +15,8 @@ function SignupFormPage() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
+
+
   
   // const history = useHistory([]);
 
@@ -41,13 +43,12 @@ function SignupFormPage() {
 
   return (
     <div className="signupform">
-      <form onSubmit={handleSubmit}>
-        <h1>Sign up</h1>
-        <ul className="signuperror">
-          {errors.map((error, idx) => (
-            <li key={idx}>{error}</li>
-          ))}
-        </ul>
+        <div className="signup_header">
+          <button onClick={() => closeModal()} className="closeButton">X</button>
+          <div className="signup_text">Sign up</div>
+        </div>
+      <form style={{ width: "568px", padding: "24px" }} onSubmit={handleSubmit}>
+        <h2>Welcome to Airbb</h2>
         <div>
           <input
             className="signupemail"
@@ -108,8 +109,12 @@ function SignupFormPage() {
             required
           />
         </div>
-
-        <button className="signupbutty" type="submit">
+        <ul className="signuperror">
+          {errors.map((error, idx) => (
+            <div key={idx}>{error}</div>
+          ))}
+        </ul>
+        <button className="signupbutton" type="submit">
           Sign Up
         </button>
       </form>

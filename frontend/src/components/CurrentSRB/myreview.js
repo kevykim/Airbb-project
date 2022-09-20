@@ -6,11 +6,14 @@ import ReviewsUpdateModal from "../ReviewsUpdatePage/ReviewsUpdateModal";
 import { getSpots } from "../../store/spots";
 
 import './myreview.css'
+import { useHistory } from "react-router-dom";
 
 
 function MyReview() {
     const dispatch = useDispatch();
-    
+    const history = useHistory();
+    const user = useSelector(state => state.session.user)
+
     useEffect(() => {
         dispatch(thunkAllCurrentReview())
          dispatch(getSpots());
@@ -18,9 +21,12 @@ function MyReview() {
     },[dispatch])
 
     const allReview = useSelector(state => state.review)
-    const spot = useSelector(state => state.spot)
-    console.log(Object.values(spot))
+    // const spot = useSelector(state => state.spot)
     const reviews = Object.values(allReview)
+
+    // const allSpot = Object.values(spot).map(spot => spot.id)
+
+    if (!user) history.push("/");
 
 
     return (
@@ -34,8 +40,13 @@ function MyReview() {
                 &nbsp;{review.stars}
               </div>
               <div>{review.review}</div>
-              <ReviewsUpdateModal />
-              <ReviewsDeletePage />
+              <ReviewsUpdateModal
+                review={allReview}
+                firstName={review?.User?.firstName}
+                reviewId={review.id}
+                spotId={review.spotId}
+              />
+              <ReviewsDeletePage reviewId={review.id} spotId={review.spotId}/>
             </div>
           ))}
         </div>

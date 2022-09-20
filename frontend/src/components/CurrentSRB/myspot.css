@@ -58,4 +58,5 @@
     display: flex;
     padding: 15px 15px 15px 15px;
     justify-content: center;
+    justify-content: space-between;
 }

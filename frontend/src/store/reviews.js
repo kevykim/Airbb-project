@@ -2,7 +2,7 @@ import { csrfFetch } from "./csrf"
 
 // TYPES
 const createAReview = '/reviews/createAReview'
-const readReview = '/reviews/readAReview'
+const readReview = '/reviews/readReview'
 const readCurrentReview = '/reviews/readCurrentReview'
 const updateAReview = '/reviews/updateReview'
 const deleteAReview = '/reviews/deleteAReview'

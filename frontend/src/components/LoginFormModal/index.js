@@ -6,7 +6,7 @@ import './LoginFormModal.css'
 function LoginFormModal({menu, setMenu}) {
   const [showModal, setShowModal] = useState(false);
 
-  const test = () => {
+  const closeModal = () => {
     setShowModal(false)
     setMenu(false)
   }
@@ -15,8 +15,8 @@ function LoginFormModal({menu, setMenu}) {
     <>
       <button className="loginmodal" onClick={() => setShowModal(true)}>Log In</button>
       {showModal && (
-        <Modal onClose={() => test()}>
-          <LoginForm />
+        <Modal onClose={() => closeModal()}>
+          <LoginForm closeModal={closeModal} />
         </Modal>
       )}
     </>

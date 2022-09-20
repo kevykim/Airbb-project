@@ -3,7 +3,7 @@ import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import './LoginFormModal.css'
 
-function LoginForm() {
+function LoginForm({closeModal}) {
   const dispatch = useDispatch();
   const [credential, setCredential] = useState("");
   const [password, setPassword] = useState("");
@@ -22,17 +22,16 @@ function LoginForm() {
     
   return (
     <div className="loginform">
-      <h1>Log In</h1>
-    <form onSubmit={handleSubmit}>
-      <ul className="loginerror">
-        {errors.map((error, idx) => (
-          <li key={idx}>{error}</li>
-        ))}
-      </ul>
+      <div className="login_header">
+      <button onClick={() => closeModal()} className="closeButton">X</button>
+      <div className="login_text">Log In</div>
+      </div>
+    <form style={{ width: "568px", padding: "24px"}}onSubmit={handleSubmit}>
+      <h2>Welcome to Airbb</h2>
       <div>
      
         <input
-          className="loginemailuser"
+          className="loginemail"
           placeholder="Email or Username"
           type="text"
           value={credential}
@@ -56,6 +55,11 @@ function LoginForm() {
       </div>
       <button className="loginbutton" type="submit">Log In</button>
     </form>
+      <ul className="loginerror">
+        {errors.map((error, idx) => (
+          <div key={idx}>{error}</div>
+        ))}
+      </ul>
     </div>
   );
 }

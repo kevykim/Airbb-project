@@ -9,6 +9,7 @@ function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
 
+
   const openMenu = () => {
     if (showMenu) return;
     setShowMenu(true);
@@ -52,7 +53,7 @@ function ProfileButton({ user }) {
         <div className="profile-dropdown">
           <div className="profile-username">Hello, {user.username}</div>
           <div className="profile-email">{user.email}</div>
-          <NavLink className="my_spot_link" to={'/spots/current'}>My Spots</NavLink>
+          <NavLink className="my_spot_link" to={'/spots'}>My Spots</NavLink>
           <NavLink className="my_review_link" to={'/reviews'}>My Reviews</NavLink>
           <div>
             <button className="profilelogout" onClick={logout}>

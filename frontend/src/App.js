@@ -23,10 +23,10 @@ function App() {
           <Route exact path="/">
             <SpotsHomePage />
           </Route>
-          <Route exact path={"/reviews"}>
+          <Route exact path="/reviews">
             <MyReview />
           </Route>
-          <Route exact path="/spots/current">
+          <Route exact path="/spots">
               <MySpot />
           </Route>
           <Route exact path="/spots/:id">
