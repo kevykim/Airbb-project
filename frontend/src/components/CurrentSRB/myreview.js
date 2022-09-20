@@ -6,11 +6,14 @@ import ReviewsUpdateModal from "../ReviewsUpdatePage/ReviewsUpdateModal";
 import { getSpots } from "../../store/spots";
 
 import './myreview.css'
+import { useHistory } from "react-router-dom";
 
 
 function MyReview() {
     const dispatch = useDispatch();
-    
+    const history = useHistory();
+    const user = useSelector(state => state.session.user)
+
     useEffect(() => {
         dispatch(thunkAllCurrentReview())
          dispatch(getSpots());
@@ -22,6 +25,9 @@ function MyReview() {
     const reviews = Object.values(allReview)
 
     // const allSpot = Object.values(spot).map(spot => spot.id)
+
+    if (!user) history.push("/");
+
 
     return (
       <div className="myreview_container">
