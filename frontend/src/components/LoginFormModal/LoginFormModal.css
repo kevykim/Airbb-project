@@ -64,6 +64,10 @@
         border: none;
 }
 
+.loginbutton:hover {
+    opacity: 0.85;
+}
+
 .loginmodal {
         text-align: left;   
         display: flex;

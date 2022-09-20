@@ -2,9 +2,10 @@
         display: flex;
             flex-direction: column;
             align-items: center;
+            padding: 10px 10px 10px 10px;
 }
 
-.errorvalidationupdate {
+.createspot_error {
     display: flex;
         flex-direction: column;
         align-items: center;
@@ -13,94 +14,152 @@
         padding: 10px 5px 10px 5px;
 }
 
+.createspot_header {
+    display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0px 24px 24px 0px;
+        border-bottom: 1px solid rgb(235, 235, 235);
+        width: 568px;
+        font-family: "Monteserrat-SemiBold";
+}
+
+.createspot_text {
+    margin-right: 210px;
+}
+
 .createaddress {
     border-radius: 5px;
         width: 100%;
+        height: 42px;
         box-sizing: border-box;
         margin: 2px 0;
         padding: 10px 10px 10px 10px;
+        font-family: "Monteserrat-Regular";
+        border: 1px solid black;
 }
 
 .createcity {
     border-radius: 5px;
         width: 100%;
+        height: 42px;
         box-sizing: border-box;
         margin: 2px 0;
         padding: 10px 10px 10px 10px;
+        font-family: "Monteserrat-Regular";
+        border: 1px solid black;
 }
 
 .createstate {
     border-radius: 5px;
         width: 100%;
+        height: 42px;
         box-sizing: border-box;
         margin: 2px 0;
         padding: 10px 10px 10px 10px;
+        font-family: "Monteserrat-Regular";
+        border: 1px solid black;
 }
 
 .createcountry {
     border-radius: 5px;
         width: 100%;
+        height: 42px;
         box-sizing: border-box;
         margin: 2px 0;
         padding: 10px 10px 10px 10px;
+        font-family: "Monteserrat-Regular";
+        border: 1px solid black;
 }
 
 .createlat {
     border-radius: 5px;
         width: 100%;
+        height: 42px;
         box-sizing: border-box;
         margin: 2px 0;
         padding: 10px 10px 10px 10px;
+        font-family: "Monteserrat-Regular";
+        border: 1px solid black;
 }
 
 .createlng {
     border-radius: 5px;
         width: 100%;
+        height: 42px;
         box-sizing: border-box;
         margin: 2px 0;
         padding: 10px 10px 10px 10px;
+        font-family: "Monteserrat-Regular";
+        border: 1px solid black;
 }
 
 .createnameplace {
     border-radius: 5px;
         width: 100%;
+        height: 42px;
         box-sizing: border-box;
         margin: 2px 0;
         padding: 10px 10px 10px 10px;
+        font-family: "Monteserrat-Regular";
+        border: 1px solid black;
 }
 
 .createdescription {
     border-radius: 5px;
         width: 100%;
+        height: 42px;
         box-sizing: border-box;
         margin: 2px 0;
         padding: 10px 10px 10px 10px;
+        font-family: "Monteserrat-Regular";
+        border: 1px solid black;
+        resize: none;
+        overflow: hidden;
+}
+
+.createdescription:hover {
+    overflow-y: scroll
 }
 
 .createimg {
     border-radius: 5px;
         width: 100%;
+        height: 42px;
         box-sizing: border-box;
         margin: 2px 0;
         padding: 10px 10px 10px 10px;
+        font-family: "Monteserrat-Regular";
+        border: 1px solid black;
 }
 
 .createprice {
     border-radius: 5px;
         width: 100%;
+        height: 42px;
         box-sizing: border-box;
         margin: 2px 0;
         padding: 10px 10px 10px 10px;
+        font-family: "Monteserrat-Regular";
+        border: 1px solid black;
 }
 
 .createspotbutton {
     cursor: pointer;
-        background-color: maroon;
+        background-color: rgb(230, 30, 77);
         color: white;
         padding: 10px 10px 10px 10px;
         margin: 2px 0;
         width: 100%;
+        height: 42px;
         border-radius: 5px;
+        font-family: "Monteserrat-SemiBold";
+        font-size: 12pt;
+        border: none;
+}
+
+.createspotbutton:hover {
+    opacity: 0.85;
 }
 
 .becomehostbutton {
@@ -118,6 +177,7 @@
                 border-radius: 15px;
     font-family:"Monteserrat-Regular";
 }
+
 
 .becomehostbutton:hover {
     box-shadow: 0 5px 6px rgba(0, 0, 0, 0.18);

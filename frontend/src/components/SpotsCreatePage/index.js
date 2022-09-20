@@ -27,6 +27,11 @@ const SpotsCreatePage = ({onClick}) => {
    const [validationErrors, setValidationErrors] = useState([])
 
    useEffect(() => {
+    if (!address || !city || !state || !country || !lat || !lng || !name || !description || !price || !prevImage) {
+      setValidationErrors([]);
+      return;
+    }
+
     const errors = [];
     if (!address.length) errors.push('Please enter an address')
     if (!city.length) errors.push('Please enter a city')
@@ -65,7 +70,6 @@ const SpotsCreatePage = ({onClick}) => {
         
         if (createdSpot) {
             history.push(`/spots/${createdSpot.id}`)
-            onClick()
         }
 
         setAddress('')
@@ -83,17 +87,11 @@ const SpotsCreatePage = ({onClick}) => {
 
     return (
       <div className="createspotform">
-        <h1>Create a Spot</h1>
-        {validationErrors.length > 0 && (
-          <div>
-            <ul className="errorvalidationupdate">
-              {validationErrors.map((error, i) => (
-                <li key={i}>{error}</li>
-              ))}
-            </ul>
-          </div>
-        )}
-        <form onSubmit={onSubmit}>
+        <div className='createspot_header'>
+        <button className='closeButton' onClick={onClick}>X</button>
+        <div className='createspot_text'>Create Spot</div>
+        </div>
+        <form style={{width: "568px", padding: "24px"}} onSubmit={onSubmit}>
           <div>
             <div>
               <input
@@ -107,7 +105,7 @@ const SpotsCreatePage = ({onClick}) => {
             </div>
             <div>
               <input
-              className='createcity'
+                className="createcity"
                 type="text"
                 placeholder="City"
                 value={city}
@@ -117,7 +115,7 @@ const SpotsCreatePage = ({onClick}) => {
             </div>
             <div>
               <input
-                className='createstate'
+                className="createstate"
                 type="text"
                 placeholder="State"
                 value={state}
@@ -127,7 +125,7 @@ const SpotsCreatePage = ({onClick}) => {
             </div>
             <div>
               <input
-                className='createcountry'
+                className="createcountry"
                 type="text"
                 placeholder="Country"
                 value={country}
@@ -137,7 +135,7 @@ const SpotsCreatePage = ({onClick}) => {
             </div>
             <div>
               <input
-                className='createlat'
+                className="createlat"
                 type="text"
                 placeholder="Lat"
                 value={lat}
@@ -147,7 +145,7 @@ const SpotsCreatePage = ({onClick}) => {
             </div>
             <div>
               <input
-                className='createlng'
+                className="createlng"
                 type="text"
                 placeholder="Lng"
                 value={lng}
@@ -157,7 +155,7 @@ const SpotsCreatePage = ({onClick}) => {
             </div>
             <div>
               <input
-                className='createnameplace'
+                className="createnameplace"
                 type="text"
                 placeholder="Name of place"
                 value={name}
@@ -167,7 +165,7 @@ const SpotsCreatePage = ({onClick}) => {
             </div>
             <div>
               <textarea
-                className='createdescription'
+                className="createdescription"
                 type="text-area"
                 placeholder="description"
                 value={description}
@@ -177,7 +175,7 @@ const SpotsCreatePage = ({onClick}) => {
             </div>
             <div>
               <input
-                className='createimg'
+                className="createimg"
                 type="text"
                 placeholder="www.yourimage.com"
                 value={prevImage}
@@ -187,7 +185,7 @@ const SpotsCreatePage = ({onClick}) => {
             </div>
             <div>
               <input
-                className='createprice'
+                className="createprice"
                 type="number"
                 placeholder="Price"
                 value={price}
@@ -196,8 +194,21 @@ const SpotsCreatePage = ({onClick}) => {
               />
             </div>
           </div>
-          <button className='createspotbutton' type="submit" disabled={validationErrors.length > 0}>
-            Submit New Spot
+          {validationErrors.length > 0 && (
+            <div>
+              <ul className="createspot_error">
+                {validationErrors.map((error, i) => (
+                  <li key={i}>{error}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+          <button
+            className="createspotbutton"
+            type="submit"
+            disabled={validationErrors.length > 0}
+          >
+            Create New Spot
           </button>
         </form>
       </div>
