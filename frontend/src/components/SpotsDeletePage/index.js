@@ -23,7 +23,7 @@ const SpotsDeletePage = ({spot}) => {
 
 
     return (
-        <button className='deletespotbuttono' onClick={onClick}>Delete Spot</button>
+        <button className='deletespotbutton' onClick={onClick}>Delete Spot</button>
     )
 }
 

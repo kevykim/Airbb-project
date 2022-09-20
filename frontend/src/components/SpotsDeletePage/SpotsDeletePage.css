@@ -1,9 +1,13 @@
-.deletespotbuttono {
-    cursor: pointer;
-        background-color: maroon;
-        color: white;
-        padding: 10px 10px 10px 10px;
-        margin: 2px 0;
-        width: 100px;
-        border-radius: 5px;
+.deletespotbutton {
+cursor: pointer;
+    background-color: rgb(230, 30, 77);
+    color: white;
+    padding: 10px 10px 10px 10px;
+    margin: 2px 0;
+    width: 120px;
+    height: 42px;
+    border-radius: 5px;
+    font-family: "Monteserrat-SemiBold";
+    font-size: 12pt;
+    border: none;
 }
