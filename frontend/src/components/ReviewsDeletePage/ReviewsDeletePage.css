@@ -1,8 +1,13 @@
 .deletereviewbutton {
-    cursor: pointer;
-        background-color: maroon;
-        color: white;
-        padding: 10px 10px 10px 10px;
-        margin: 2px 0;
-        border-radius: 5px;
+cursor: pointer;
+    background-color: rgb(230, 30, 77);
+    color: white;
+    padding: 10px 10px 10px 10px;
+    margin: 2px 0;
+    width: 140px;
+    height: 42px;
+    border-radius: 5px;
+    font-family: "Monteserrat-SemiBold";
+    font-size: 12pt;
+    border: none;
 }
