@@ -114,7 +114,7 @@ function SignupFormPage({closeModal}) {
             <li key={idx}>{error}</li>
           ))}
         </ul>
-        <button className="signupbutty" type="submit">
+        <button className="signupbutton" type="submit">
           Sign Up
         </button>
       </form>
