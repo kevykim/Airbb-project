@@ -61,8 +61,9 @@ function MySpot() {
             </div>
           ))}
           </div>
-          <div className="footer_container">
           <div>
+          <div className="footer_container">
+          <div className="footer_div">
           @ 2022 Airbb, Inc. &nbsp;·&nbsp;
           <a
           className="github_link"
@@ -90,6 +91,7 @@ function MySpot() {
           >
           Email
           </a>
+          </div>
           </div>
           </div>
           </div>  

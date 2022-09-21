@@ -248,15 +248,16 @@ const SpotsDetailPage = () => {
             <SpotsDeletePage />
           </div>
         )} */}
+        <div>
         <div className="footer_container">
-          <div>
+          <div className="footer_div">
             @ 2022 Airbb, Inc. &nbsp;·&nbsp;
             <a
               className="github_link"
               href="https://github.com/kevykim"
               target="_blank"
               rel="noopener noreferrer"
-            >
+              >
               Github
             </a>
             &nbsp;·&nbsp;
@@ -265,7 +266,7 @@ const SpotsDetailPage = () => {
               href="https://linkedin.com/in/kevin-kim-a88429150"
               target="_blank"
               rel="noopener noreferrer"
-            >
+              >
               LinkedIn
             </a>
             &nbsp;·&nbsp;
@@ -274,9 +275,10 @@ const SpotsDetailPage = () => {
               href="mailto:kebonkim@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
-            >
+              >
               Email
             </a>
+          </div>
           </div>
         </div>
       </div>
