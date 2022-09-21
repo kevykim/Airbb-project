@@ -10,8 +10,12 @@
     /* top: 0; */
     /* overflow: hidden; */
 }
+
 .startbutton_container {
-    padding: 10px 10px 10px 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
 }
 
 .startbutton_div {
@@ -56,7 +60,8 @@ justify-content: flex-start;
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 6%;
+    margin-top: 220px;
+    margin-left: 5px;
     background-color: white;
     border: 1px solid rgb(235, 235, 235);
     border-radius: 10px;
