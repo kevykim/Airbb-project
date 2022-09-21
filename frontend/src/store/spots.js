@@ -3,6 +3,7 @@ import { csrfFetch } from "./csrf"
 // TYPES
 const createASpot = '/spots/createASpot'
 const getAllSpots = '/spots/getAllSpots' //technically READ
+const getCurrentSpot = '/spots/getCurrentSpot'
 const getOneSpot = '/spots/getOneSpot'
 const updateASpot = '/spots/updateASpot'
 const deleteASpot = '/spots/deleteASpot'
@@ -19,6 +20,13 @@ const createSpot = (spots) => {
 const allSpots = (spots) => {
     return {
         type: getAllSpots,
+        spots
+    }
+}
+
+const currentSpots = (spots) => {
+    return {
+        type: getCurrentSpot,
         spots
     }
 }
@@ -77,6 +85,15 @@ export const getSpots = () => async dispatch => {
     }
 }
 
+export const thunkCurrentSpots = () => async dispatch => {
+    const response = await csrfFetch('/api/spots/current')
+    
+    if (response.ok) {
+        const data = await response.json()
+        dispatch(currentSpots(data.Spots))
+    }
+}
+
 export const getASpot = (id) => async dispatch => {
     // console.log('thunk', id)
     const response = await csrfFetch(`/api/spots/${id}`)
@@ -119,6 +136,12 @@ const spotReducer = (state = initalState, action) => {
             newState[action.spots.id] = action.spots
             return newState
         case getAllSpots:
+             newState = {}
+            action.spots.forEach(spots => {
+                newState[spots.id] = spots
+            })
+            return newState
+        case getCurrentSpot: 
              newState = {}
             action.spots.forEach(spots => {
                 newState[spots.id] = spots

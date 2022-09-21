@@ -21,6 +21,19 @@
     max-width: 1200px;
 }
 
+.myreview_links {
+    padding: 15px;
+    border-bottom: 1px solid rgb(222, 221, 221);
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    font-family: "Monteserrat-SemiBold";
+}
+
+.myreview_links:hover {
+    color: red;
+}
+
 .myreview_star {
     padding: 15px;
 }
