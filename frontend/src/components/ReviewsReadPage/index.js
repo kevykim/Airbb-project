@@ -40,11 +40,6 @@ const ReviewsReadPage = () => {
       <div className="reviewstitlediv">
         <i className="fa-solid fa-star"></i>&nbsp;
         {`${spot?.avgStarRating} · ${reviews.length} reviews`}
-        {owner && (
-          <div>
-            <ReviewsCreateModal spotId={spot?.id} />
-          </div>
-        )}
       </div>
       {reviews.map((review) => (
         <div className="reviewcontainer" key={review.id}>
@@ -75,6 +70,11 @@ const ReviewsReadPage = () => {
           </div>
         </div>
       ))}
+      {owner && (
+        <div className="reviewcreate_button">
+          <ReviewsCreateModal spotId={spot?.id} />
+        </div>
+      )}
     </div>
   );
 }

@@ -14,11 +14,15 @@
 
 .myreview_box {
     display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
         justify-content: center;
         padding: 10px 10px 10px 10px;
     max-width: 1200px;
+}
+
+.myreview_outer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .myreview_links {
@@ -65,4 +69,5 @@
     border: 1px solid rgb(235, 235, 235);
     border-radius: 15px;
     padding: 10px 10px 10px 10px;
+    margin: 15px;
 }

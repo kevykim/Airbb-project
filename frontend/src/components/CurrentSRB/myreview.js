@@ -41,22 +41,26 @@ function MyReview() {
       <div className="myreview_container">
         <div className="myreview_text">My reviews</div>
         <div className="myreview_box">
+          <div className="myreview_outer">
           {reviews.map((review) => (
             <div className="myreview_div" key={review.id}>
-              <NavLink to={`/spots/${review.spotId}`}
-              className="myreview_links"
-              >{`${review.Spot?.city}, ${review.Spot?.state}`}</NavLink>
-              <div className="myreview_review">
-                <div className="myreview_star">
-                  <i className="fa-solid fa-star"></i>
-                  &nbsp;{review.stars}
+              <NavLink
+                to={`/spots/${review.spotId}`}
+                className="myreview_links"
+              >
+                {`${review.Spot?.city}, ${review.Spot?.state}`}
+                <div className="myreview_review">
+                  <div className="myreview_star">
+                    <i className="fa-solid fa-star"></i>
+                    &nbsp;{review.stars}
+                  </div>
+                  <div>{review.review}</div>
+                  <div className="myreview_date">{`${date.toLocaleDateString(
+                    undefined,
+                    options
+                  )}`}</div>
                 </div>
-                <div>{review.review}</div>
-                <div className="myreview_date">{`${date.toLocaleDateString(
-                  undefined,
-                  options
-                )}`}</div>
-              </div>
+              </NavLink>
               <div className="myreview_buttons">
                 <ReviewsUpdateModal
                   review={allReview}
@@ -71,6 +75,7 @@ function MyReview() {
               </div>
             </div>
           ))}
+          </div>
         </div>
         <div>
           <div className="footer_container">
