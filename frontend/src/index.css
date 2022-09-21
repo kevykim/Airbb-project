@@ -22,16 +22,18 @@
 
 body {
     margin: 0;
+    /* position: relative; */
+    /* min-height: 100%; */
     font-family: "Monteserrat-Medium";
-
+    padding-bottom: 15px;
+    box-sizing: inherit;
+    
 }
 
-/* html {
-    width: auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-} */
+html {
+    height: 100%;
+    box-sizing: border-box;
+
+}
 
 

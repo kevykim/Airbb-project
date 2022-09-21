@@ -7,22 +7,27 @@
         cursor: pointer;
 }
 
-.startbutton_container {
+.profile_drop_container {
+    position: relative;
     display: flex;
-    flex-direction: row;
     align-items: center;
+    flex-direction: column;
 }
+
+
 
 
 .profile-dropdown {
 display: flex;
     flex-direction: column;
     position: absolute;
-    top: 7%;
-    right: 7%;
+
+
     background-color: white;
     border: 1px solid rgb(235, 235, 235);
     border-radius: 10px;
+    margin-top: 35px;
+    margin-right: 240px;
     width: 200px;
     font-size: 10pt;
     box-shadow: 0 5px 6px rgba(0, 0, 0, 0.18);

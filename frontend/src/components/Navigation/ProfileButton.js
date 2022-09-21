@@ -50,6 +50,7 @@ function ProfileButton({ user }) {
       </button>
       </div>
       {showMenu && (
+        <div className="profile_drop_container">
         <div className="profile-dropdown">
           <div className="profile-username">Hello, {user.username}</div>
           <div className="profile-email">{user.email}</div>
@@ -60,6 +61,7 @@ function ProfileButton({ user }) {
               Log Out
             </button>
           </div>
+        </div>
         </div>
       )}
     </div>

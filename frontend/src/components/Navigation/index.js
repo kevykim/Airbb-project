@@ -9,22 +9,25 @@ import SignUpModal from "../SignUpFormPage/SignUpModal";
 import { useState} from "react";
 import BecomeAHost from "../SignUpFormPage/BecomeHostModal.js";
 
+
+
 function Navigation({ isLoaded }) {
 
   const sessionUser = useSelector((state) => state.session.user);
   const [startMenu, setStartMenu] = useState(false)
 
 
-    const openMenu = () => {
-      if (startMenu) return;
-      setStartMenu(true);
-    };
+    // const openMenu = () => {
+    //   if (startMenu) return;
+    //   setStartMenu(true);
+    // };
+
 
     // useEffect(() => {
     //   if (!startMenu) return;
 
-    //   const closeMenu = () => {
-    //     setStartMenu(false);
+    //   const closeMenu = (event) => {
+    //       setStartMenu(false);
     //   };
 
     //   document.addEventListener("click", closeMenu);
@@ -36,7 +39,7 @@ function Navigation({ isLoaded }) {
   if (!sessionUser) {
     becomeHost = (
       <div>
-        <BecomeAHost />
+        <BecomeAHost showMenu={setStartMenu}/>
       </div>
     );
   }
@@ -55,7 +58,7 @@ function Navigation({ isLoaded }) {
           <div style={{ marginRight: "10px" }} className="">
             {becomeHost}
           </div>
-          <button className="startbutton" onClick={openMenu}>
+          <button className="startbutton" onClick={ () => setStartMenu(banana => !banana)}>
             <i
               className="fa-solid fa-bars fa-2xl"
               style={{ color: "rgb(113, 113, 113", marginRight: "12px" }}
@@ -69,8 +72,8 @@ function Navigation({ isLoaded }) {
 
         {startMenu && (
           <div className="startmenu">
-            <SignUpModal menu={startMenu} setMenu={setStartMenu} />
-            <LoginFormModal menu={startMenu} setMenu={setStartMenu} />
+            <SignUpModal menu={startMenu} showMenu={setStartMenu} />
+              <LoginFormModal showMenu={setStartMenu} />
             <DemoUser />
           </div>
         )}
@@ -80,16 +83,16 @@ function Navigation({ isLoaded }) {
 
   return (
     <div className="navbar_container">
-    <div className="navbar">
-      <div className="airbnbhome">
-        <NavLink exact to="/">
-          <img
-            src="https://blog.logomyway.com/wp-content/uploads/2020/03/arbnb-logo.jpg"
-            alt="Home"
+      <div className="navbar">
+        <div className="airbnbhome">
+          <NavLink exact to="/">
+            <img
+              src="https://blog.logomyway.com/wp-content/uploads/2020/03/arbnb-logo.jpg"
+              alt="Home"
             ></img>
-        </NavLink>
-      </div>
-      {isLoaded && sessionLinks}
+          </NavLink>
+        </div>
+        {isLoaded && sessionLinks}
       </div>
     </div>
   );

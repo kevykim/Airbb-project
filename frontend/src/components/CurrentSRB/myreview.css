@@ -1,6 +1,7 @@
 .myreview_container {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .myreview_text {
@@ -17,15 +18,38 @@
         flex-wrap: wrap;
         justify-content: center;
         padding: 10px 10px 10px 10px;
+    max-width: 1200px;
+}
+
+.myreview_star {
+    padding: 15px;
+}
+
+.myreview_date {
+    color: gray;
+    padding: 15px;
+}
+
+.myreview_buttons {
+    display: flex;
+    padding: 15px;;
+    justify-content: space-between;
 }
 
 .myreview_review {
     display: flex;
     flex-direction: column;
-    width: 200px;
+    align-items: center;
+    padding: 15px;
+}
+
+.myreview_div {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 300px;
     justify-content: center;
     border: 1px solid rgb(235, 235, 235);
     border-radius: 15px;
-    align-items: center;
     padding: 10px 10px 10px 10px;
 }
