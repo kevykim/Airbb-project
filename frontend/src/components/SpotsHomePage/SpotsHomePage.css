@@ -61,19 +61,23 @@
     padding: 5px 5px 5px 10px ;
 }
 
+.footer_div {
+    width: 1110px;
+}
+
 .footer_container {
+    display: flex;
+    justify-content: center;
     border-top: 1px solid grey;
     background-color: white;
     bottom: 0;
     left: 0;
     right: 0;
-    width: 100%;
-    /* display: flex;
-    flex-wrap: wrap; */
     padding: 15px 80px 15px;
     position: fixed;
     font-family: "Monteserrat-Regular";
     font-size: 10pt;
+    width: 100%;
 }
 
 

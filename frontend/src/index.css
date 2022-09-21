@@ -22,8 +22,8 @@
 
 body {
     margin: 0;
-    position: relative;
-    min-height: 100%;
+    /* position: relative; */
+    /* min-height: 100%; */
     font-family: "Monteserrat-Medium";
     padding-bottom: 15px;
     box-sizing: inherit;
