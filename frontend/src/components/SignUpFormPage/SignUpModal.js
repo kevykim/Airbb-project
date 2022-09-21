@@ -3,12 +3,12 @@ import { Modal } from "../../context/Modal";
 import SignupFormPage from ".";
 import './SignupForm.css'
 
-function SignUpModal({menu, setMenu}) {
+function SignUpModal({menu, showMenu}) {
   const [showModal, setShowModal] = useState(false);
 
   const closeAll = () => {
     setShowModal(false)
-    setMenu(false)
+    showMenu(false)
   }
 
 
