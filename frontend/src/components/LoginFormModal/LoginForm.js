@@ -36,7 +36,7 @@ function LoginForm({closeModal}) {
           type="text"
           value={credential}
           onChange={(e) => setCredential(e.target.value)}
-          required
+
         />
 
       </div>
@@ -49,17 +49,17 @@ function LoginForm({closeModal}) {
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          required
+
         />
 
       </div>
       <button className="loginbutton" type="submit">Log In</button>
     </form>
-      <ul className="loginerror">
+      <div className="loginerror">
         {errors.map((error, idx) => (
-          <div key={idx}>{error}</div>
+          <div className="loginerror_text" key={idx}>{error}</div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }

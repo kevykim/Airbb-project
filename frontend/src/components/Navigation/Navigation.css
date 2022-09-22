@@ -6,7 +6,7 @@
     padding: 0px 80px;
     background-color: white;
     min-width: 1265px;
-    max-width: 1265px;
+    /* max-width: 1265px; */
 }
 
 
@@ -38,7 +38,7 @@
 .airbnbhome {
     display: flex;
     align-items: center;
-    margin-left: 5px;
+    /* margin-left: 5px; */
     text-decoration: none;
 }
 

@@ -7,7 +7,11 @@
 
 .createspotform {
     width: 568px;
+    height: 560px;
      padding: 24px;
+     overflow-y: scroll;
+
+
  
 }
 
@@ -16,7 +20,6 @@
         flex-direction: column;
         align-items: center;
         color: red;
-        font-weight: bold;
         padding: 10px 5px 10px 5px;
 }
 
