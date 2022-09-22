@@ -27,6 +27,7 @@
     width: 260px;
     height: 260px;
     cursor: pointer;
+    z-index: 0;
 }
 
 .spot_image:hover {
@@ -64,7 +65,14 @@
 }
 
 .footer_div {
-    width: 1110px;
+    width: 955px;
+    /* max-width: 955px; */
+    display: flex;
+}
+
+.footer_maindiv {
+    display: flex;
+    justify-content: space-between;
 }
 
 .footer_container {
@@ -79,7 +87,8 @@
     position: fixed;
     font-family: "Monteserrat-Regular";
     font-size: 10pt;
-    width: 100%;
+    /* min-width: 955px; */
+    /* max-width: 955px; */
 }
 
 

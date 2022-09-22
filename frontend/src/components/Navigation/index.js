@@ -86,7 +86,7 @@ function Navigation({ isLoaded }) {
   return (
     <div className="navbar_container">
       <div className="navbar">
-        <div>
+        <div className="airbnbhome_div">
           <NavLink className="airbnbhome" exact to="/">
             <img
               style={{ width: "40px", height: "40px" }}
