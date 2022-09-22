@@ -7,6 +7,7 @@ import SpotsHomePage from "./components/SpotsHomePage";
 import SpotsDetailPage from "./components/SpotsDetailPage";
 import MySpot from "./components/CurrentSRB/myspot";
 import MyReview from "./components/CurrentSRB/myreview";
+import PageNotFound from "./components/PageNotFound/pagenotfound";
 
 function App() {
   const dispatch = useDispatch();
@@ -27,13 +28,13 @@ function App() {
             <MyReview />
           </Route>
           <Route exact path="/spots">
-              <MySpot />
+            <MySpot />
           </Route>
           <Route exact path="/spots/:id">
             <SpotsDetailPage />
           </Route>
           <Route>
-            <h1>Page Not Found</h1>
+            <PageNotFound />
           </Route>
         </Switch>
       )}
