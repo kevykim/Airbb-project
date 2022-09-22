@@ -105,15 +105,15 @@ function SignupFormPage({closeModal}) {
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
         </div>
-        <button className="signupbutton" type="submit">
-          Sign Up
-        </button>
-      </form>
         <div className="signuperror">
           {errors.map((error, idx) => (
             <div classname="signuperror_text" key={idx}>{error}</div>
           ))}
         </div>
+        <button className="signupbutton" type="submit">
+          Sign Up
+        </button>
+      </form>
     </div>
   );
 }

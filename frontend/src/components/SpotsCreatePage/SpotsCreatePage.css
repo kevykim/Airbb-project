@@ -7,12 +7,9 @@
 
 .createspotform {
     width: 568px;
-    height: 560px;
+    height: 600px;
      padding: 24px;
      overflow-y: scroll;
-
-
- 
 }
 
 .createspot_error {
@@ -21,6 +18,7 @@
         align-items: center;
         color: red;
         padding: 10px 5px 10px 5px;
+        font-family: "Monteserrat-SemiBold";
 }
 
 .createspot_header {

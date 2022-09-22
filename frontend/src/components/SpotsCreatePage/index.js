@@ -24,33 +24,30 @@ const SpotsCreatePage = ({closeModal}) => {
    const [description, setDescription] = useState('') // description
    const [price, setPrice] = useState() // price
    const [prevImage, setPrevImage] = useState('')
+   const [submitted, setSubmitted] = useState(false)
    const [validationErrors, setValidationErrors] = useState([])
 
    useEffect(() => {
-    // if (!address || !city || !state || !country || !lat || !lng || !name || !description || !price || !prevImage) {
-    //   setValidationErrors([]);
-    //   return;
-    // }
-
     const errors = [];
     if (!address.length) errors.push('Please enter an address')
     if (!city.length) errors.push('Please enter a city')
     if (!state.length) errors.push('Please enter a state')
     if (!country.length) errors.push('Please enter a country')
-    if (lat % 1 !== 0 || !lat.length) errors.push('Please enter valid latitude')
-    if (lng % 1 !== 0 || !lng.length) errors.push('Please enter valid longitude')
+    if ((lat % 1 === 0) || (!lat.length)) errors.push('Please enter valid latitude')
+    if ((lng % 1 === 0) || (!lng.length)) errors.push('Please enter valid longitude')
     if (!name.length) errors.push('Please enter a name for your spot!')
+    if (description.length === 0) errors.push('Please provide description')
     if (description.length > 200) errors.push('Please shorten description')
+    if (!price) errors.push("Please add a price");
     if (isNaN(price)) errors.push('Please add an valid price')
-    if (!prevImage.length) errors.push('Please add an preview Image')
+    if ((!prevImage.includes("jpg")) && (!prevImage.includes("png")) && (!prevImage.includes('jpeg')))
+      errors.push("Please add an preview Image");
     setValidationErrors(errors)
    },[address, city, state, country, lat, lng, name, description, price, prevImage])
 
    const onSubmit = async (event) => {
     event.preventDefault()
-
-
-
+    setSubmitted(!submitted)
         const payload = {
             address,
             city,
@@ -88,11 +85,22 @@ const SpotsCreatePage = ({closeModal}) => {
 
     return (
       <div className="createspotdiv">
-        <div className='createspot_header'>
-        <button className='closeButton' onClick={() => closeModal(false)}>X</button>
-        <div className='createspot_text'>Create Spot</div>
+        <div className="createspot_header">
+          <button className="closeButton" onClick={() => closeModal(false)}>
+            X
+          </button>
+          <div className="createspot_text">Create Spot</div>
         </div>
-        <form className='createspotform' onSubmit={onSubmit}>
+        <form className="createspotform" onSubmit={onSubmit}>
+          {(validationErrors.length > 0 && submitted === true) && (
+            <div>
+              <ul className="createspot_error">
+                {validationErrors.map((error, i) => (
+                  <div key={i}>{error}</div>
+                ))}
+              </ul>
+            </div>
+          )}
           <div>
             <div>
               <input
@@ -101,7 +109,7 @@ const SpotsCreatePage = ({closeModal}) => {
                 placeholder="Address"
                 value={address}
                 onChange={(event) => setAddress(event.target.value)}
-                required
+
               />
             </div>
             <div>
@@ -111,7 +119,7 @@ const SpotsCreatePage = ({closeModal}) => {
                 placeholder="City"
                 value={city}
                 onChange={(event) => setCity(event.target.value)}
-                required
+
               />
             </div>
             <div>
@@ -121,7 +129,7 @@ const SpotsCreatePage = ({closeModal}) => {
                 placeholder="State"
                 value={state}
                 onChange={(event) => setState(event.target.value)}
-                required
+
               />
             </div>
             <div>
@@ -131,7 +139,7 @@ const SpotsCreatePage = ({closeModal}) => {
                 placeholder="Country"
                 value={country}
                 onChange={(event) => setCountry(event.target.value)}
-                required
+
               />
             </div>
             <div>
@@ -141,7 +149,7 @@ const SpotsCreatePage = ({closeModal}) => {
                 placeholder="Lat"
                 value={lat}
                 onChange={(event) => setLat(event.target.value)}
-                required
+
               />
             </div>
             <div>
@@ -151,7 +159,7 @@ const SpotsCreatePage = ({closeModal}) => {
                 placeholder="Lng"
                 value={lng}
                 onChange={(event) => setLng(event.target.value)}
-                required
+
               />
             </div>
             <div>
@@ -161,7 +169,7 @@ const SpotsCreatePage = ({closeModal}) => {
                 placeholder="Name of place"
                 value={name}
                 onChange={(event) => setName(event.target.value)}
-                required
+
               />
             </div>
             <div>
@@ -171,7 +179,7 @@ const SpotsCreatePage = ({closeModal}) => {
                 placeholder="description"
                 value={description}
                 onChange={(event) => setDescription(event.target.value)}
-                required
+
               />
             </div>
             <div>
@@ -181,7 +189,7 @@ const SpotsCreatePage = ({closeModal}) => {
                 placeholder="www.yourimage.com"
                 value={prevImage}
                 onChange={(event) => setPrevImage(event.target.value)}
-                required
+
               />
             </div>
             <div>
@@ -191,23 +199,14 @@ const SpotsCreatePage = ({closeModal}) => {
                 placeholder="Price"
                 value={price}
                 onChange={(event) => setPrice(event.target.value)}
-                required
+
               />
             </div>
           </div>
-          {validationErrors.length > 0 && (
-            <div>
-              <ul className="createspot_error">
-                {validationErrors.map((error, i) => (
-                  <div key={i}>{error}</div>
-                ))}
-              </ul>
-            </div>
-          )}
           <button
             className="createspotbutton"
             type="submit"
-            disabled={validationErrors.length > 0}
+            disabled={validationErrors.length > 0 && submitted}
           >
             Create New Spot
           </button>
