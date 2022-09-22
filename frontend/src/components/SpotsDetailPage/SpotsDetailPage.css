@@ -45,20 +45,15 @@
 .spotimgdetail {
     width: 1095px;
     height: 600px;
+    object-fit: cover;
     border-radius: 15px;
     margin-bottom: 15px;
 }
 
-.spotimgdetail:hover {
+/* .spotimgdetail:hover {
     cursor: pointer;
     opacity: 0.85;
-}
-
-.descript_container {
-    display: flex;
-    flex-direction: column;
-    padding: 32px 0px;
-}
+} */
 
 .descript_pricecontainer {
     display: flex;
@@ -69,6 +64,42 @@
 
 }
 
+.descript_container {
+    display: flex;
+    flex-direction: column;
+    padding: 32px 0px;
+}
+
+.descript_div {
+    margin: 10px 0px 20px 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 700px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgb(222, 221, 221);
+    font-family: "Monteserrat-SemiBold";
+    font-size: 20pt;
+}
+
+.secondbox_div {
+    margin-bottom: 15px;
+            width: 650px;
+            font-family: "Monteserrat-Regular";
+}
+
+.secondbox_container{
+    padding: 15px 0px 15px 0px;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
+
+.secondbox_text {
+    margin-left: 15px;
+}
+
+
 .spotdescript {
     border-top: 1px solid rgb(222, 221, 221);
     display: flex;
@@ -78,33 +109,8 @@
     height: 100px;
     width: 700px;
     font-family: "Monteserrat-Regular";
-            
-        
-
 }
 
-.reviewprice_container {
-    display: flex;
-    justify-content: space-between;
-}
-
-.rightpricereview {
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 25px;
-    border: 1px solid rgb(222, 221, 221);
-    border-radius: 10px;
-    width: 300px;
-    height: 400px;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
-}
-
-.avg_rating_div {
-   font-size: 10pt;
-   margin-top: 4px;
-}
 
 .placeoffer_div {
     border-top: 1px solid rgb(222, 221, 221);
@@ -119,11 +125,76 @@
     justify-content: space-between;
     font-family: "Monteserrat-Regular";
 }
-.toknow_text {
+
+.fourthbox_header {
+    font-family: "Monteserrat-SemiBold";
+}
+
+.fourthbox_div {
+    padding: 4px 0px 4px 0px;
+        display: flex;
+            flex-direction: row;
+            text-align: center;
+}
+
+
+.fourthbox_text {
+    margin-left: 15px;
+}
+
+.rightpricereview {
+
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
+    padding: 25px;
+    border: 1px solid rgb(222, 221, 221);
+    border-radius: 10px;
+    width: 350px;
+    height: 250px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+}
+
+.reviewprice_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+.reviewprice_text {
+    font-size: 10pt;
+}
+
+.reviewprice_span {
+    font-family: "Monteserrat-SemiBold";
+    font-size: "14pt";
+}
+
+
+.avg_rating_div {
+   font-size: 10pt;
+}
+
+.fifthbox_maindiv {
+    margin-top: 60px;
+}
+
+.fifthbox_div {
+    display: flex;
+
+    justify-content: space-between;
+    text-align: center;
     font-family: "Monteserrat-Regular";
+    padding: 5px;
+}
+
+.fifthbox_total {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid rgb(222, 221, 221);
+  padding-top: 10px;
+         
 }
 
 .things_div {
@@ -133,6 +204,37 @@
     width: 1090px;
     border-top: 1px solid rgb(222, 221, 221);
 }
+
+.seventhbox_header {
+    font-family: "Monteserrat-SemiBold"; 
+}
+
+.seventhbox_div {
+    width: 350px;
+}
+
+.seventhbox_lineone {
+    font-family: "Monteserrat-SemiBold";
+    padding-bottom: 10px;
+}
+
+.seventhbox_icon {
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.seventhbox_text {
+    margin-left: 15px;
+}
+
+.toknow_text {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-family: "Monteserrat-Regular";
+}
+
 
 .review_container {
     border-top: 1px solid rgb(222, 221, 221);

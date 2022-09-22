@@ -5,14 +5,15 @@
     height: 80px;
     padding: 0px 80px;
     background-color: white;
-    width: 1280px;
+    min-width: 1265px;
+    max-width: 1265px;
 }
+
 
 .startbutton_container {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 10px;
 }
 
 .startbutton_div {
@@ -28,16 +29,25 @@
     align-items: center;
     border-bottom: 1px solid rgb(235, 235, 235);
     position: sticky;
+    
+
+    min-width: 1265px;
     top: 0;
 }
 
-.airbnbhome img{
- height: 75px;
- width: 75px;
- padding: 10px 10px 10px 10px;
- display: flex;
-justify-content: flex-start;
+.airbnbhome {
+    display: flex;
+    align-items: center;
+    margin-left: 5px;
+    text-decoration: none;
 }
+
+.airbnbhome_text {
+    color: rgb(206, 69, 72);
+    font-family: "Monteserrat-SemiBold";
+    font-size: 20pt;
+}
+
 
 .startbutton {
     background-color: white;
@@ -66,7 +76,6 @@ justify-content: flex-start;
     border-radius: 10px;
     width: 200px;
     box-shadow: 0 5px 6px rgba(0, 0, 0, 0.18);
-    z-index: 1;
 }
 
 

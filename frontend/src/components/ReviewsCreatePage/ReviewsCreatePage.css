@@ -1,8 +1,15 @@
-.createreviewform {
+.createreviewdiv {
     display: flex;
         flex-direction: column;
         align-items: center;
         padding: 10px 10px 10px 10px;
+}
+
+.createreviewform {
+    
+    width: 568px;
+     padding: 24px;
+      
 }
 
 .createreview_error {

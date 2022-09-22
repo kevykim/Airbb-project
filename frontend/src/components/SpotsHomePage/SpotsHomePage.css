@@ -13,6 +13,7 @@
     justify-content: center;
     padding: 10px;
     max-width: 1200px;
+
 }
 
 .spot_image_container {
@@ -23,15 +24,14 @@
     display: flex;
     justify-content: center;
     border-radius: 15px;
+    object-fit: cover;
     width: 260px;
     height: 260px;
     cursor: pointer;
 }
 
 .spot_image:hover {
-    box-shadow: 0 5px 6px rgba(0,0,0,0.18);
-    opacity: 0.85;
-    /* border: 1px solid green; */
+    box-shadow: 0 7px 16px rgba(0,0,0,0.18);
 }
 
 .spot_detail_container {
@@ -60,10 +60,23 @@
     font-size: 14px;
     align-items: flex-start;
     padding: 5px 5px 5px 10px ;
+    font-family: "Monteserrat-Regular";
+}
+
+.spot_price_span {
+    font-family: "Monteserrat-SemiBold";
+
 }
 
 .footer_div {
-    width: 1110px;
+    width: 955px;
+    /* max-width: 955px; */
+    display: flex;
+}
+
+.footer_maindiv {
+    display: flex;
+    justify-content: space-between;
 }
 
 .footer_container {
@@ -75,10 +88,12 @@
     left: 0;
     right: 0;
     padding: 10px 80px 10px;
+
     position: fixed;
     font-family: "Monteserrat-Regular";
     font-size: 10pt;
-    width: 100%;
+    /* min-width: 955px; */
+    /* max-width: 955px; */
 }
 
 

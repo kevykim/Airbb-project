@@ -1,8 +1,14 @@
-.updatespotform {
+.updatespotdiv {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 10px 10px 10px 10px;
+}
+
+.updatespotform {
+    width: 568px;
+   padding: 24px;
+          
 }
 
 .updatespot_error {

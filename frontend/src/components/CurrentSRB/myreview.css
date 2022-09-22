@@ -14,12 +14,27 @@
 
 .myreview_box {
     display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
         justify-content: center;
         padding: 10px 10px 10px 10px;
     max-width: 1200px;
 }
+
+.myreview_outer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.myreview_links {
+    padding: 15px;
+    border-bottom: 1px solid rgb(222, 221, 221);
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    font-family: "Monteserrat-SemiBold";
+}
+
+
 
 .myreview_star {
     padding: 15px;
@@ -52,4 +67,9 @@
     border: 1px solid rgb(235, 235, 235);
     border-radius: 15px;
     padding: 10px 10px 10px 10px;
+    margin: 15px;
+}
+
+.myreview_div:hover {
+    box-shadow: 0 7px 16px rgba(0, 0, 0, 0.18);
 }

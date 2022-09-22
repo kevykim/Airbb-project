@@ -1,8 +1,15 @@
-.signupform {
+.signupdiv {
         display: flex;
             flex-direction: column;
             align-items: center;
             padding: 10px 10px 10px 10px;
+}
+
+.signupform {
+
+    width: 568px;
+     padding: 24px;
+      
 }
 
 .closeButton {

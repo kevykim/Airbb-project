@@ -40,22 +40,17 @@ const ReviewsReadPage = () => {
       <div className="reviewstitlediv">
         <i className="fa-solid fa-star"></i>&nbsp;
         {`${spot?.avgStarRating} · ${reviews.length} reviews`}
-        {owner && (
-          <div>
-            <ReviewsCreateModal spotId={spot?.id} />
-          </div>
-        )}
       </div>
       {reviews.map((review) => (
         <div className="reviewcontainer" key={review.id}>
           <div className="profilereview">
-            <div className="profile_container">
+            <div className="profilereview_container">
               <i className="fa-solid fa-user fa-2xl"></i>&nbsp;
-              <div style={{ padding: "5px" }}>
-                <div style={{ fontFamily: "Monteserrat-SemiBold" }}>
+              <div className="reviewnamedate">
+                <div className='reviewuserfirstname'>
                   {` ${review?.User?.firstName}`}
                 </div>
-                <div style={{ color: "grey" }}>{`${date.toLocaleDateString(
+                <div className='reviewdate_color'>{`${date.toLocaleDateString(
                   undefined,
                   options
                 )}`}</div>
@@ -75,6 +70,11 @@ const ReviewsReadPage = () => {
           </div>
         </div>
       ))}
+      {owner && (
+        <div className="reviewcreate_button">
+          <ReviewsCreateModal spotId={spot?.id} />
+        </div>
+      )}
     </div>
   );
 }

@@ -28,9 +28,14 @@
     display: flex;
         justify-content: center;
         border-radius: 15px;
+        object-fit: cover;
     width: 260px;
     height: 260px;
     cursor: pointer;
+}
+
+.myspot_image:hover {
+    box-shadow: 0 7px 16px rgba(0, 0, 0, 0.18);
 }
 
 .myspot_info_div {
@@ -53,6 +58,12 @@
     justify-content: flex-start;
     align-self: flex-start;
     padding: 5px 5px 5px 10px;
+    font-family: "Monteserrat-Regular";
+}
+
+.myspot_span {
+    font-family: "Monteserrat-SemiBold";
+                     
 }
 
 .myspot_buttons {

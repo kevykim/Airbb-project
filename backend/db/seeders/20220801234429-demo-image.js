@@ -3,34 +3,34 @@
 
 const testImages = [
   {
-    url: "https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=930&q=80",
+    url: "https://images.pexels.com/photos/8092380/pexels-photo-8092380.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     previewImage: true,
     spotId: 1,
 
     userId: 1,
   },
   {
-    url: "https://images.unsplash.com/photo-1572120360610-d971b9d7767c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+    url: "https://images.pexels.com/photos/8583869/pexels-photo-8583869.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     previewImage: true,
     spotId: 2,
 
     userId: 1,
   },
   {
-    url: "https://images.unsplash.com/photo-1574259392081-dbe3c19cd15e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1104&q=80",
+    url: "https://images.pexels.com/photos/2104139/pexels-photo-2104139.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     previewImage: true,
 
     spotId: 3,
     userId: 1,
   },
   {
-    url: "https://images.pexels.com/photos/259685/pexels-photo-259685.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    url: "https://images.pexels.com/photos/8092385/pexels-photo-8092385.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     previewImage: true,
     spotId: 4,
     userId: 1,
   },
   {
-    url: "https://images.unsplash.com/photo-1589129140837-67287c22521b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=930&q=80",
+    url: "https://images.pexels.com/photos/7746560/pexels-photo-7746560.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     previewImage: true,
 
     spotId: 5,
@@ -44,7 +44,7 @@ const testImages = [
     userId: 2,
   },
   {
-    url: "https://images.pexels.com/photos/2183521/pexels-photo-2183521.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    url: "https://images.pexels.com/photos/5997994/pexels-photo-5997994.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     previewImage: true,
 
     spotId: 7,
@@ -58,13 +58,13 @@ const testImages = [
     userId: 2,
   },
   {
-    url: "https://images.pexels.com/photos/343240/pexels-photo-343240.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    url: "https://images.pexels.com/photos/7031594/pexels-photo-7031594.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     previewImage: true,
     spotId: 9,
     userId: 1,
   },
   {
-    url: "https://images.pexels.com/photos/448360/pexels-photo-448360.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    url: "https://images.pexels.com/photos/2692254/pexels-photo-2692254.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     previewImage: true,
     spotId: 10,
     userId: 1,
