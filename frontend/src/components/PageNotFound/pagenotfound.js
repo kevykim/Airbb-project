@@ -13,12 +13,14 @@ const PageNotFound = () => {
               src="https://images.pexels.com/photos/4587995/pexels-photo-4587995.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
               alt="404"
             ></img>
-            <div className="pagenotfound_secondline">Click me to go back home...</div>
+            <div className="pagenotfound_secondline">
+              Click me to go back home...
+            </div>
           </NavLink>
         </div>
         <div className="footer_container">
           <div className="footer_div">
-            @ 2022 Airbb, Inc. &nbsp;·&nbsp;
+            &copy; 2022 Airbb, Inc. &nbsp;·&nbsp;
             <a
               className="github_link"
               href="https://github.com/kevykim"

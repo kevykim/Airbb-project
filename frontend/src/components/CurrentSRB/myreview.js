@@ -42,45 +42,45 @@ function MyReview() {
         <div className="myreview_text">My reviews</div>
         <div className="myreview_box">
           <div className="myreview_outer">
-          {reviews.map((review) => (
-            <div className="myreview_div" key={review.id}>
-              <NavLink
-                to={`/spots/${review.spotId}`}
-                className="myreview_links"
-              >
-                {`${review.Spot?.city}, ${review.Spot?.state}`}
-                <div className="myreview_review">
-                  <div className="myreview_star">
-                    <i className="fa-solid fa-star"></i>
-                    &nbsp;{review.stars}
+            {reviews.map((review) => (
+              <div className="myreview_div" key={review.id}>
+                <NavLink
+                  to={`/spots/${review.spotId}`}
+                  className="myreview_links"
+                >
+                  {`${review.Spot?.city}, ${review.Spot?.state}`}
+                  <div className="myreview_review">
+                    <div className="myreview_star">
+                      <i className="fa-solid fa-star"></i>
+                      &nbsp;{review.stars}
+                    </div>
+                    <div>{review.review}</div>
+                    <div className="myreview_date">{`${date.toLocaleDateString(
+                      undefined,
+                      options
+                    )}`}</div>
                   </div>
-                  <div>{review.review}</div>
-                  <div className="myreview_date">{`${date.toLocaleDateString(
-                    undefined,
-                    options
-                  )}`}</div>
+                </NavLink>
+                <div className="myreview_buttons">
+                  <ReviewsUpdateModal
+                    review={allReview}
+                    firstName={review?.User?.firstName}
+                    reviewId={review.id}
+                    spotId={review.spotId}
+                  />
+                  <ReviewsDeletePage
+                    reviewId={review.id}
+                    spotId={review.spotId}
+                  />
                 </div>
-              </NavLink>
-              <div className="myreview_buttons">
-                <ReviewsUpdateModal
-                  review={allReview}
-                  firstName={review?.User?.firstName}
-                  reviewId={review.id}
-                  spotId={review.spotId}
-                />
-                <ReviewsDeletePage
-                  reviewId={review.id}
-                  spotId={review.spotId}
-                />
               </div>
-            </div>
-          ))}
+            ))}
           </div>
         </div>
         <div>
           <div className="footer_container">
             <div className="footer_div">
-              @ 2022 Airbb, Inc. &nbsp;·&nbsp;
+              &copy; 2022 Airbb, Inc. &nbsp;·&nbsp;
               <a
                 className="github_link"
                 href="https://github.com/kevykim"

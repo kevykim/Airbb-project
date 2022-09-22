@@ -5,14 +5,13 @@
     height: 80px;
     padding: 0px 80px;
     background-color: white;
-    width: 1280px;
+    width: 1265px;
 }
 
 .startbutton_container {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 10px;
 }
 
 .startbutton_div {
@@ -34,7 +33,7 @@
 .airbnbhome {
     display: flex;
     align-items: center;
-    padding: 10px;
+
     text-decoration: none;
 }
 
