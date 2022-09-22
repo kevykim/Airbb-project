@@ -43,7 +43,8 @@ const SpotsHomePage = () => {
               </div>
               <p className="spot_price_container">
                 <span
-                  style={{ fontFamily: "Monteserrat-SemiBold" }}
+                className='spot_price_span'
+                  
                 >{`$${spot.price}`}</span>
                 &nbsp;night
               </p>

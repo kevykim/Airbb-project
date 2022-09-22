@@ -1,8 +1,14 @@
-.createspotform {
+.createspotdiv {
         display: flex;
             flex-direction: column;
             align-items: center;
             padding: 10px 10px 10px 10px;
+}
+
+.createspotform {
+    width: 568px;
+     padding: 24px;
+ 
 }
 
 .createspot_error {

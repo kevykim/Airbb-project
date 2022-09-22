@@ -58,6 +58,12 @@
     justify-content: flex-start;
     align-self: flex-start;
     padding: 5px 5px 5px 10px;
+    font-family: "Monteserrat-Regular";
+}
+
+.myspot_span {
+    font-family: "Monteserrat-SemiBold";
+                     
 }
 
 .myspot_buttons {

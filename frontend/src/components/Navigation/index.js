@@ -54,7 +54,7 @@ function Navigation({ isLoaded }) {
     sessionLinks = (
       <div className="startbutton_container">
         <div className="startbutton_div">
-          <div style={{ marginRight: "10px" }} className="">
+          <div style={{ marginRight: "10px" }}>
             {becomeHost}
           </div>
           <button

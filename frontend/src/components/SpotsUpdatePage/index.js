@@ -92,13 +92,13 @@ const SpotsUpdatePage = ({spot, closeModal}) => {
    }
 
     return (
-      <div className="updatespotform">
+      <div className="updatespotdiv">
         <div className='updatespot_header'>
         <button className='closeButton' onClick={() => closeModal(false)} >X</button>
         <div className='updatespot_text'>Edit spot</div>
         </div>
 
-        <form style={{width: "568px", padding: "24px"}} onSubmit={onSubmit}>
+        <form className="updatespotform" onSubmit={onSubmit}>
           <div>
             <div>
               <input

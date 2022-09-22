@@ -62,12 +62,12 @@ const ReviewsCreatePage = ({spotId, closeModal}) => {
 
 
     return (
-      <div className="createreviewform">
+      <div className="createreviewdiv">
         <div className='createreview_header'>
         <button className='closeButton' onClick={() => closeModal(false)}>X</button>
         <div className='createreview_text'>Create a review</div>
         </div>
-        <form style={{width: "568px", padding: "24px"}} onSubmit={onSubmit}>
+        <form className='createreviewform' onSubmit={onSubmit}>
           <div>
             <input
               className="createreviewstar"

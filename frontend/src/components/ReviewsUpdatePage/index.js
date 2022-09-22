@@ -51,12 +51,12 @@ const ReviewsUpdatePage = ({review, reviewId, spotId, closeModal}) => {
            setValidationErrors([]);
          };
     return (
-      <div className="updatereviewform">
+      <div className="updatereviewdiv">
         <div className="updatereview_header">
         <button className="closeButton" onClick={() => closeModal(false)}>X</button>
         <div className="updatereview_text">Edit a review</div>
         </div>
-        <form style={{width: "568px", padding: "24px"}} onSubmit={onSubmit}>
+        <form className="updatereviewform" onSubmit={onSubmit}>
           <div>
             <input 
             className="updatereviewstar"

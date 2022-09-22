@@ -6,8 +6,22 @@
     /* border-bottom: 1px black solid; */
     display: inline-flex;
     flex-direction: row;
+}
 
+.reviewnamedate {
+ 
+    padding: "5px";
 
+}
+
+.reviewuserfirstname {
+    font-family: "Monteserrat-SemiBold";
+}
+
+.reviewdate_color {
+
+    color: grey;
+     
 }
 
 .reviewstitlediv {

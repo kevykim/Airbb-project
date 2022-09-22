@@ -60,6 +60,12 @@
     font-size: 14px;
     align-items: flex-start;
     padding: 5px 5px 5px 10px ;
+    font-family: "Monteserrat-Regular";
+}
+
+.spot_price_span {
+    font-family: "Monteserrat-SemiBold";
+
 }
 
 .footer_div {

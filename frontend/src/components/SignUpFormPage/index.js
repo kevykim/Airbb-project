@@ -42,12 +42,12 @@ function SignupFormPage({closeModal}) {
 
 
   return (
-    <div className="signupform">
+    <div className="signupdiv">
         <div className="signup_header">
           <button onClick={() => closeModal()} className="closeButton">X</button>
           <div className="signup_text">Sign up</div>
         </div>
-      <form style={{ width: "568px", padding: "24px" }} onSubmit={handleSubmit}>
+      <form className="signupform" onSubmit={handleSubmit}>
         <h2>Welcome to Airbb</h2>
         <div>
           <input

@@ -87,12 +87,12 @@ const SpotsCreatePage = ({closeModal}) => {
    }
 
     return (
-      <div className="createspotform">
+      <div className="createspotdiv">
         <div className='createspot_header'>
         <button className='closeButton' onClick={() => closeModal(false)}>X</button>
         <div className='createspot_text'>Create Spot</div>
         </div>
-        <form style={{width: "568px", padding: "24px"}} onSubmit={onSubmit}>
+        <form className='createspotform' onSubmit={onSubmit}>
           <div>
             <div>
               <input

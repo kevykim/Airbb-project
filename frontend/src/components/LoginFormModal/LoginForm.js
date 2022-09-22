@@ -21,12 +21,12 @@ function LoginForm({closeModal}) {
     };
     
   return (
-    <div className="loginform">
+    <div className="logindiv">
       <div className="login_header">
       <button onClick={() => closeModal()} className="closeButton">X</button>
       <div className="login_text">Log In</div>
       </div>
-    <form style={{ width: "568px", padding: "24px"}}onSubmit={handleSubmit}>
+    <form className="loginform" onSubmit={handleSubmit}>
       <h2>Welcome to Airbb</h2>
       <div>
      

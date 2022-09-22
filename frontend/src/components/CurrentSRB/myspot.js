@@ -48,7 +48,7 @@ function MySpot() {
                 </div>
                 <p className="myspot_secondline">
                   <span
-                    style={{ fontFamily: "Monteserrat-SemiBold" }}
+                  className="myspot_span"
                   >{`$${spot.price}`}</span>
                   &nbsp;night
                 </p>

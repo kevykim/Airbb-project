@@ -1,8 +1,14 @@
-.loginform {
+.logindiv {
     display: flex;
         flex-direction: column;
         align-items: center;
         padding: 10px 10px 10px 10px;
+}
+
+.loginform {
+    width: 568px;
+     padding: 24px;
+
 }
 
 .login_header {

@@ -1,8 +1,15 @@
-.updatereviewform {
+.updatereviewdiv{
     display: flex;
     flex-direction: column;
         align-items: center;
         padding: 10px 10px 10px 10px;
+}
+
+.updatereviewform {
+ 
+      width: 568px;
+      padding: 24px;
+
 }
 
 .updatereview_error {
