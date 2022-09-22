@@ -44,7 +44,7 @@ const ReviewsReadPage = () => {
       {reviews.map((review) => (
         <div className="reviewcontainer" key={review.id}>
           <div className="profilereview">
-            <div className="profile_container">
+            <div className="profilereview_container">
               <i className="fa-solid fa-user fa-2xl"></i>&nbsp;
               <div style={{ padding: "5px" }}>
                 <div style={{ fontFamily: "Monteserrat-SemiBold" }}>

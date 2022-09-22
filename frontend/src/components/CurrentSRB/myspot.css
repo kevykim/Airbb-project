@@ -34,6 +34,10 @@
     cursor: pointer;
 }
 
+.myspot_image:hover {
+    box-shadow: 0 7px 16px rgba(0, 0, 0, 0.18);
+}
+
 .myspot_info_div {
     display: flex;
     flex-direction: column;

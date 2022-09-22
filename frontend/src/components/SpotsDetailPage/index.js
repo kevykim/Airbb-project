@@ -35,10 +35,7 @@ const SpotsDetailPage = () => {
           <div>
             <div className="title_img_div">
               <div className="spotheadercontainer">
-                <div className="detailspotname" style={{ fontWeight: "bold" }}>
-                  {spot?.name}
-                </div>
-
+                <div className="detailspotname">{spot?.name}</div>
                 <div className="spotavgstarrating">
                   <i className="fa-solid fa-star"></i>
                   &nbsp;
@@ -58,81 +55,85 @@ const SpotsDetailPage = () => {
               )}
               <div className="descript_pricecontainer">
                 <div className="descript_container">
-                  <div
-                    style={{
-                      margin: "10px 0px 20px 0px",
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "center",
-                      width: "700px",
-                      paddingBottom: "15px",
-                      borderBottom: "1px solid rgb(222, 221, 221)",
-                      fontFamily: "Monteserrat-SemiBold",
-                      fontSize: "20pt",
-                    }}
-                  >
+                  <div className="descript_div">
                     Entire home hosted by {spot?.Owner?.firstName}
-                    <i class="fa-regular fa-circle-user fa-2xl"></i>
+                    <i className="fa-regular fa-circle-user fa-2xl"></i>
                   </div>
-                  <div
-                    style={{
-                      marginBottom: "15px",
-                      width: "650px",
-                      fontFamily: "Monteserrat-Regular",
-                    }}
-                  >
-                    <div style={{ padding: "15px 0px 15px 0px" }}>
-                      <i class="fa-solid fa-door-open fa-xl"></i>
-                      &nbsp; Self Check In
+                  <div className="secondbox_div">
+                    <div className="secondbox_container">
+                      <div>
+                        <i className="fa-solid fa-door-open fa-xl"></i>
+                      </div>
+                      <div className="secondbox_text">Self Check In</div>
                     </div>
-                    <div style={{ padding: "15px 0px 15px 0px" }}>
-                      <i class="fa-solid fa-medal fa-xl"></i>
-                      &nbsp; {spot?.Owner?.firstName} is a Super Host
+                    <div className="secondbox_container">
+                      <div>
+                        <i className="fa-solid fa-medal fa-xl"></i>
+                      </div>
+                      <div className="secondbox_text">
+                        {spot?.Owner?.firstName} is a Super Host
+                      </div>
                     </div>
-                    <div
-                      style={{ padding: "15px 0px 15px 0px", width: "600px" }}
-                    >
-                      <i class="fa-solid fa-calendar fa-xl"></i>
-                      &nbsp; Free cancellation for 48 hours.
+                    <div className="secondbox_container">
+                      <div>
+                        <i className="fa-solid fa-calendar fa-xl"></i>
+                      </div>
+                      <div className="secondbox_text">
+                        Free cancellation for 48 hours
+                      </div>
                     </div>
                   </div>
                   <div className="spotdescript">{spot.description}</div>
                   <div className="placeoffer_div">
-                    <h3 style={{ fontFamily: "Monteserrat-SemiBold" }}>
-                      What this place offers
-                    </h3>
+                    <h3 className="fourthbox_header">What this place offers</h3>
                     <div className="placeoffer_container">
-                      <div style={{ padding: "4px 0px 4px 0px" }}>
-                        <i class="fa-solid fa-utensils fa-xl"></i>
-                        &nbsp;Kitchen
+                      <div className="fourthbox_div">
+                        <div>
+                          <i className="fa-solid fa-utensils fa-xl"></i>
+                        </div>
+                        <div className="fourthbox_text">Kitchen</div>
                       </div>
-                      <div style={{ padding: "4px 0px 4px 0px" }}>
-                        <i class="fa-solid fa-car fa-xl"></i>
-                        &nbsp;Parking
+                      <div className="fourthbox_div">
+                        <div>
+                          <i className="fa-solid fa-car fa-xl"></i>
+                        </div>
+                        <div className="fourthbox_text">Parking</div>
                       </div>
-                      <div style={{ padding: "4px 0px 4px 0px" }}>
-                        <i class="fa-solid fa-paw fa-xl"></i>
-                        &nbsp;Pets allowed
+                      <div className="fourthbox_div">
+                        <div>
+                          <i className="fa-solid fa-paw fa-xl"></i>
+                        </div>
+                        <div className="fourthbox_text">Pets allowed</div>
                       </div>
-                      <div style={{ padding: "4px 0px 4px 0px" }}>
-                        <i class="fa-solid fa-wifi fa-xl"></i>
-                        &nbsp;Wifi
+                      <div className="fourthbox_div">
+                        <div>
+                          <i className="fa-solid fa-wifi fa-xl"></i>
+                        </div>
+                        <div className="fourthbox_text">Wifi</div>
                       </div>
-                      <div style={{ padding: "4px 0px 4px 0px" }}>
-                        <i class="fa-regular fa-snowflake fa-xl"></i>
-                        &nbsp;Air Conditioning
+                      <div className="fourthbox_div">
+                        <div>
+                          <i className="fa-regular fa-snowflake fa-xl"></i>
+                        </div>
+                        <div className="fourthbox_text">Air Conditioning</div>
                       </div>
-                      <div style={{ padding: "4px 0px 4px 0px" }}>
-                        <i class="fa-solid fa-tv fa-xl"></i>
-                        &nbsp;TV
+                      <div className="fourthbox_div">
+                        <div>
+                          <i className="fa-solid fa-tv fa-xl"></i>
+                        </div>
+                        <div className="fourthbox_text">TV</div>
                       </div>
-                      <div style={{ padding: "4px 0px 4px 0px" }}>
-                        <i class="fa-solid fa-charging-station fa-xl"></i>
-                        &nbsp;EV charger
+                      <div className="fourthbox_div">
+                        <div>
+                          <i className="fa-solid fa-charging-station fa-xl"></i>
+                        </div>
+                        <div className="fourthbox_text">EV charger</div>
                       </div>
-                      <div style={{ padding: "4px 0px 4px 0px" }}>
-                        <i class="fa-solid fa-video fa-xl"></i>
-                        &nbsp;Security Camera
+                      <div className="fourthbox_div">
+                        <div>
+                          <i className="fa-solid fa-video fa-xl"></i>
+                        </div>
+                        <div className="fourthbox_text">Security Camera</div>
                       </div>
                     </div>
                   </div>
@@ -140,13 +141,8 @@ const SpotsDetailPage = () => {
 
                 <div className="rightpricereview">
                   <div className="reviewprice_container">
-                    <div style={{ fontSize: "10pt" }}>
-                      <span
-                        style={{
-                          fontFamily: "Monteserrat-SemiBold",
-                          fontSize: "14pt",
-                        }}
-                      >{`$${spot.price}`}</span>
+                    <div className="reviewprice_text">
+                      <span className="reviewprice_span">{`$${spot.price}`}</span>
                       night
                     </div>
                     <div className="avg_rating_div">
@@ -155,19 +151,30 @@ const SpotsDetailPage = () => {
                       {`${spot?.avgStarRating} · ${reviewCounter} reviews`}
                     </div>
                   </div>
-                  <div style={{ fontFamily: "Monteserrat-Regular" }}>
+                  {/* <div style={{ fontFamily: "Monteserrat-Regular" }}>
                     Calender will go here
                   </div>
                   <div style={{ fontFamily: "Monteserrat-Regular" }}>
                     Booking button?
+                  </div> */}
+                  <div className="fifthbox_maindiv">
+                    <div className="fifthbox_div">
+                      <div>{`$${spot.price} x 5 nights`}</div>
+                      <div>{`$${spot.price * 5}`}</div>
+                    </div>
+                    <div className="fifthbox_div">
+                      <div>Cleaning Fee</div>
+                      <div>Free</div>
+                    </div>
+                    <div className="fifthbox_div">
+                      <div>Service Fee</div>
+                      <div>Free</div>
+                    </div>
                   </div>
-                  <div style={{ fontFamily: "Monteserrat-Regular" }}>
-                    Cleaning Fee
+                  <div className="fifthbox_total">
+                    <div>Total</div>
+                    <div>{`$${spot.price}`}</div>
                   </div>
-                  <div style={{ fontFamily: "Monteserrat-Regular" }}>
-                    Service Fee
-                  </div>
-                  <div>Total</div>
                 </div>
               </div>
 
@@ -175,64 +182,72 @@ const SpotsDetailPage = () => {
                 <ReviewsReadPage />
               </div>
               <div className="things_div">
-                <h3 style={{ fontFamily: "Monteserrat-SemiBold" }}>
-                  Things to know
-                </h3>
-
+                <h3 className="seventhbox_header">Things to know</h3>
                 <div className="toknow_text">
-                  <div style={{ width: "350px" }}>
-                    <div
-                      style={{
-                        fontFamily: "Monteserrat-SemiBold",
-                        paddingBottom: "10px",
-                      }}
-                    >
-                      House Rules
+                  <div className="seventhbox_div">
+                    <div className="seventhbox_lineone">House Rules</div>
+                    <div className="seventhbox_icon">
+                      <div>
+                        <i className="fa-regular fa-clock"></i>
+                      </div>
+                        <div className="seventhbox_text">Check-in </div>
                     </div>
-                    <div style={{ paddingBottom: "10px" }}>
-                      <i class="fa-regular fa-clock"></i>&nbsp;Check-in
+                    <div className="seventhbox_icon">
+                      <div>
+                      <i className="fa-regular fa-clock"></i>
+                      </div>
+                      <div className="seventhbox_text">Check-out</div>
                     </div>
-                    <div style={{ paddingBottom: "10px" }}>
-                      <i class="fa-regular fa-clock"></i>&nbsp;Check-out
-                    </div>
-                    <div>
-                      <i class="fa-solid fa-ban-smoking"></i>&nbsp;No smoking
+                    <div className="seventhbox_icon">
+                      <div>
+                      <i className="fa-solid fa-ban-smoking"></i>
+                      </div>
+                      <div className="seventhbox_text">
+                      No smoking
+                      </div>
                     </div>
                   </div>
-                  <div style={{ width: "350px" }}>
+                  <div className="seventhbox_div">
                     <div
-                      style={{
-                        fontFamily: "Monteserrat-SemiBold",
-                        paddingBottom: "10px",
-                      }}
+                     className="seventhbox_lineone"
                     >
                       {`Health & safety`}
                     </div>
-                    <div style={{ paddingBottom: "10px" }}>
-                      <i class="fa-solid fa-notes-medical"></i>&nbsp;COVID-19
-                      safety
+                    <div className="seventhbox_icon">
+                      <div>
+                      <i className="fa-solid fa-notes-medical"></i>
+                      </div>
+                      <div className="seventhbox_text">
+                      COVID-19 safety
+                      </div>
                     </div>
-                    <div style={{ paddingBottom: "10px" }}>
-                      <i class="fa-solid fa-video"></i>&nbsp;Security camera
+                    <div className="seventhbox_icon">
+                      <div>
+                      <i class="fa-solid fa-video"></i>
+                      </div>
+                      <div className="seventhbox_text">
+                      Security camera
+                      </div>
                     </div>
-                    <div>
-                      <i class="fa-solid fa-shield-heart"></i>&nbsp;Carbon
-                      monoxide alarm
+                    <div className="seventhbox_icon">
+                      <div>
+                      <i class="fa-solid fa-shield-heart"></i>
+                      </div>
+                      <div className="seventhbox_text">
+                      Carbon monoxide alarm
+                      </div>
                     </div>
                   </div>
-                  <div style={{ width: "350px" }}>
+                  <div className="seventhbox_div">
                     <div
-                      style={{
-                        fontFamily: "Monteserrat-SemiBold",
-                        paddingBottom: "10px",
-                      }}
+                      className="seventhbox_lineone"
                     >
                       Cancellation policy
                     </div>
-                    <div style={{ paddingBottom: "10px" }}>
+                    <div className="seventhbox_icon">
                       Free cancellation for 48 hours
                     </div>
-                    <div style={{ paddingBottom: "10px" }}>
+                    <div className="seventhbox_icon">
                       Review the Host's full cancellation policy
                     </div>
                   </div>

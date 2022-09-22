@@ -13,6 +13,7 @@
     justify-content: center;
     padding: 10px;
     max-width: 1200px;
+
 }
 
 .spot_image_container {
@@ -27,13 +28,10 @@
     width: 260px;
     height: 260px;
     cursor: pointer;
-    z-index: 0;
 }
 
 .spot_image:hover {
-    box-shadow: 0 5px 6px rgba(0,0,0,0.18);
-    opacity: 0.85;
-    /* border: 1px solid green; */
+    box-shadow: 0 7px 16px rgba(0,0,0,0.18);
 }
 
 .spot_detail_container {
@@ -84,6 +82,7 @@
     left: 0;
     right: 0;
     padding: 10px 80px 10px;
+
     position: fixed;
     font-family: "Monteserrat-Regular";
     font-size: 10pt;

@@ -24,12 +24,12 @@
 
 
 .navbar_container {
-    z-index: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     border-bottom: 1px solid rgb(235, 235, 235);
     position: sticky;
+    
 
     min-width: 1265px;
     top: 0;
@@ -38,7 +38,7 @@
 .airbnbhome {
     display: flex;
     align-items: center;
-
+    margin-left: 5px;
     text-decoration: none;
 }
 
@@ -76,7 +76,6 @@
     border-radius: 10px;
     width: 200px;
     box-shadow: 0 5px 6px rgba(0, 0, 0, 0.18);
-    z-index: 1;
 }
 
 

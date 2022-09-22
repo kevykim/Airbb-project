@@ -34,9 +34,7 @@
     font-family: "Monteserrat-SemiBold";
 }
 
-.myreview_links:hover {
-    color: red;
-}
+
 
 .myreview_star {
     padding: 15px;
@@ -70,4 +68,8 @@
     border-radius: 15px;
     padding: 10px 10px 10px 10px;
     margin: 15px;
+}
+
+.myreview_div:hover {
+    box-shadow: 0 7px 16px rgba(0, 0, 0, 0.18);
 }
