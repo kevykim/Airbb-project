@@ -36,47 +36,66 @@ function MyReview() {
 
     if (!user) history.push("/");
 
+    
 
     return (
       <div className="myreview_container">
-        <div className="myreview_text">My reviews</div>
-        <div className="myreview_box">
-          <div className="myreview_outer">
-            {reviews.map((review) => (
-              <div className="myreview_div" key={review.id}>
-                <NavLink
-                  to={`/spots/${review.spotId}`}
-                  className="myreview_links"
-                >
-                  {`${review.Spot?.city}, ${review.Spot?.state}`}
-                  <div className="myreview_review">
-                    <div className="myreview_star">
-                      <i className="fa-solid fa-star"></i>
-                      &nbsp;{review.stars}
-                    </div>
-                    <div>{review.review}</div>
-                    <div className="myreview_date">{`${date.toLocaleDateString(
-                      undefined,
-                      options
-                    )}`}</div>
-                  </div>
-                </NavLink>
-                <div className="myreview_buttons">
-                  <ReviewsUpdateModal
-                    review={allReview}
-                    firstName={review?.User?.firstName}
-                    reviewId={review.id}
-                    spotId={review.spotId}
-                  />
-                  <ReviewsDeletePage
-                    reviewId={review.id}
-                    spotId={review.spotId}
-                  />
-                </div>
-              </div>
-            ))}
+        {reviews?.length === 0 ? (
+          <div className="myreview_notshown">
+            <div className="myreview_notinner">
+              <NavLink className="myreview_nolink" to={"/"}>
+                <div className="myreview_notext">No Reviews Here... </div>
+                <img
+                  className="myreview_notshownimage"
+                  src="https://images.pexels.com/photos/5428829/pexels-photo-5428829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                  alt="Not Shown"
+                ></img>
+                <div className="myreview_notext">Make some here!</div>
+              </NavLink>
+            </div>
           </div>
-        </div>
+        ) : (
+          <div>
+            <div className="myreview_text">My reviews</div>
+            <div className="myreview_box">
+              <div className="myreview_outer">
+                {reviews.map((review) => (
+                  <div className="myreview_div" key={review.id}>
+                    <NavLink
+                      to={`/spots/${review.spotId}`}
+                      className="myreview_links"
+                    >
+                      {`${review.Spot?.city}, ${review.Spot?.state}`}
+                      <div className="myreview_review">
+                        <div className="myreview_star">
+                          <i className="fa-solid fa-star"></i>
+                          &nbsp;{review.stars}
+                        </div>
+                        <div>{review.review}</div>
+                        <div className="myreview_date">{`${date.toLocaleDateString(
+                          undefined,
+                          options
+                        )}`}</div>
+                      </div>
+                    </NavLink>
+                    <div className="myreview_buttons">
+                      <ReviewsUpdateModal
+                        review={allReview}
+                        firstName={review?.User?.firstName}
+                        reviewId={review.id}
+                        spotId={review.spotId}
+                      />
+                      <ReviewsDeletePage
+                        reviewId={review.id}
+                        spotId={review.spotId}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
         <div>
           <div className="footer_container">
             <div className="footer_maindiv">
@@ -110,7 +129,7 @@ function MyReview() {
                 </a>
               </div>
               <div>
-                <i class="fa-solid fa-globe"></i>
+                <i className="fa-solid fa-globe"></i>
                 &nbsp;English(US) &nbsp;&nbsp;$ USD
               </div>
             </div>

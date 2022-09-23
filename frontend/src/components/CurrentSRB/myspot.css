@@ -72,3 +72,40 @@
     justify-content: center;
     justify-content: space-between;
 }
+
+
+.myspot_notshown{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.myspot_notinner {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.myspot_nolink {
+        text-decoration: none;
+            color: black;
+}
+
+.myspot_nolink:hover {
+    color: red;
+}
+
+.myspot_notext {
+    text-align: center;
+    padding: 15px;
+    font-family: "Monteserrat-SemiBold";
+    font-size: 24pt;
+}
+
+.myspot_notshownimage {
+    width: 400px;
+    height: 400px;
+    border-radius: 15px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+}
