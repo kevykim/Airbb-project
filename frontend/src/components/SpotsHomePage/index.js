@@ -84,7 +84,7 @@ const SpotsHomePage = () => {
                 </a>
               </div>
               <div>
-                <i class="fa-solid fa-globe"></i>
+                <i className="fa-solid fa-globe"></i>
                 &nbsp;English(US) &nbsp;&nbsp;$ USD
               </div>
             </div>

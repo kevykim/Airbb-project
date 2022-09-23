@@ -34,7 +34,7 @@ function SignupFormPage({closeModal}) {
         });
       }
       return setErrors([
-        "Confirm Password field must be the same as the Password field",
+        "Password must match", 
       ]);
 
     };
@@ -43,10 +43,12 @@ function SignupFormPage({closeModal}) {
 
   return (
     <div className="signupdiv">
-        <div className="signup_header">
-          <button onClick={() => closeModal()} className="closeButton">X</button>
-          <div className="signup_text">Sign up</div>
-        </div>
+      <div className="signup_header">
+        <button onClick={() => closeModal()} className="closeButton">
+          X
+        </button>
+        <div className="signup_text">Sign up</div>
+      </div>
       <form className="signupform" onSubmit={handleSubmit}>
         <h2>Welcome to Airbb</h2>
         <div>
@@ -56,7 +58,6 @@ function SignupFormPage({closeModal}) {
             type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            required
           />
         </div>
         <div>
@@ -66,7 +67,6 @@ function SignupFormPage({closeModal}) {
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            required
           />
         </div>
         <div>
@@ -76,7 +76,6 @@ function SignupFormPage({closeModal}) {
             type="text"
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
-            required
           />
         </div>
         <div>
@@ -86,7 +85,6 @@ function SignupFormPage({closeModal}) {
             type="text"
             value={lastName}
             onChange={(e) => setLastName(e.target.value)}
-            required
           />
         </div>
         <div>
@@ -96,7 +94,6 @@ function SignupFormPage({closeModal}) {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            required
           />
         </div>
         <div>
@@ -106,14 +103,13 @@ function SignupFormPage({closeModal}) {
             type="password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
-            required
           />
         </div>
-        <ul className="signuperror">
+        <div className="signuperror">
           {errors.map((error, idx) => (
-            <div key={idx}>{error}</div>
+            <div classname="signuperror_text" key={idx}>{error}</div>
           ))}
-        </ul>
+        </div>
         <button className="signupbutton" type="submit">
           Sign Up
         </button>

@@ -1,82 +1,104 @@
 
 
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, useParams } from 'react-router-dom';
+import {   useHistory } from 'react-router-dom';
 import './ReviewsCreatePage.css'
 import { useState, useEffect } from 'react';
 import { thunkCreateReview, thunkReadReview } from '../../store/reviews';
-// import ReviewsReadPage from '../ReviewsReadPage';
+import { useParams } from 'react-router-dom';
+import { getASpot } from '../../store/spots';
 
 const ReviewsCreatePage = ({spotId, closeModal}) => {
 
 
     const {id} = useParams()
-    const history = useHistory()
-    // console.log(id)
     const dispatch = useDispatch()
 
+    const history = useHistory()
     const user = useSelector(state => state.session.user)
+    const reviewObj = useSelector(state => state.review)
+    const review = Object.values(reviewObj)
 
-    const [star, setStar] = useState(0)
+    const [star, setStar] = useState('')
     const [reviewText, setReviewText] = useState('')
+    const [submitted, setSubmitted] = useState(false)
     const [validationErrors, setValidationErrors] = useState([])
 
     useEffect(() => {
+
         const errors = [];
         if (star < 1 || star > 5) errors.push('Stars must be within the range of 1 to 5')
+        if (isNaN(star)) errors.push("Star must be a number")
         if (!reviewText.length || reviewText.length > 256) errors.push('Must have review')
         setValidationErrors(errors)
     }, [star, reviewText])
-
-    // useEffect(() => {
-    //   dispatch(thunkReadReview(id))
-    // }, [dispatch, id])
-
+    
+    
     const onSubmit = async (event) => {
-        event.preventDefault();
+      event.preventDefault();
+      setSubmitted(!submitted);
+      const payload = {
+        review: reviewText,
+        stars: star,
+        userId: user.id,
+        spotId: spotId,
+      };
+      const ownedReview = review.map((review) => review.userId === user.id);
 
-        const payload = {
-            review: reviewText,
-            stars: star,
-            userId: user.id,
-            spotId: spotId,
+      const toOwned = ownedReview.filter((reviews) => reviews === true);
+      
+      // let createdReview = await dispatch(thunkCreateReview(payload));
 
-        }
-
-        let createdReview = await dispatch(thunkCreateReview(payload))
-
-        await dispatch(thunkReadReview(id))
-
-        if (createdReview) {
-            history.push(`/spots/${spotId}`);
-            closeModal(false)
-        }
+      if (toOwned.length >= 1) {
+        alert("You cannot have more than one review for a Spot. Go delete or edit the review.");
+        history.push(`/reviews`)
+      } else {
+      await dispatch(thunkCreateReview(payload));
+     history.push(`/spots/${spotId}`);
+     closeModal(false);
+      }
 
 
-        setStar('')
-        setReviewText('')
-        setValidationErrors([])
+      await dispatch(thunkReadReview(id));
+
+      await dispatch(getASpot(spotId));
+
+      // if (createdReview) {
+      //   history.push(`/spots/${spotId}`);
+      //   closeModal(false);
+      // }
     };
 
-  
+      
+    
 
 
     return (
       <div className="createreviewdiv">
-        <div className='createreview_header'>
-        <button className='closeButton' onClick={() => closeModal(false)}>X</button>
-        <div className='createreview_text'>Create a review</div>
+        <div className="createreview_header">
+          <button className="closeButton" onClick={() => closeModal(false)}>
+            X
+          </button>
+          <div className="createreview_text">Create a review</div>
         </div>
-        <form className='createreviewform' onSubmit={onSubmit}>
+        <form className="createreviewform" onSubmit={onSubmit}>
+          {(validationErrors.length > 0 && submitted === true) && (
+            <div>
+              <div className="createreview_error">
+                {validationErrors.map((error, i) => (
+                  <div key={i}>{error}</div>
+                ))}
+              </div>
+            </div>
+          )}
           <div>
             <input
               className="createreviewstar"
-              type="number"
               value={star}
-              min={1}
-              max={5}
+              placeholder='Stars'
+              
               onChange={(event) => setStar(event.target.value)}
-              required
+
             />
           </div>
           <div>
@@ -88,19 +110,11 @@ const ReviewsCreatePage = ({spotId, closeModal}) => {
               onChange={(event) => setReviewText(event.target.value)}
             ></textarea>
           </div>
-          {validationErrors.length > 0 && (
-            <div>
-              <ul className="createreview_error">
-                {validationErrors.map((error, i) => (
-                  <div key={i}>{error}</div>
-                ))}
-              </ul>
-            </div>
-          )}
+
           <button
             className="createreviewbutton"
             type="submit"
-            disabled={validationErrors.length > 0}
+            disabled={validationErrors.length > 0 && submitted}
           >
             Submit Review
           </button>

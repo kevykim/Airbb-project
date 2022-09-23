@@ -23,7 +23,7 @@
 body {
     margin: 0;
     /* position: relative; */
-    /* min-height: 100%; */
+    min-height: 100%;
     font-family: "Monteserrat-Medium";
     padding-bottom: 15px;
     box-sizing: inherit;
@@ -31,6 +31,7 @@ body {
 }
 
 html {
+    margin: 0;
     height: 100%;
     box-sizing: border-box;
 

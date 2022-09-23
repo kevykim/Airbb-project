@@ -21,6 +21,8 @@
     font-family: "Monteserrat-SemiBold";
 }
 
+
+
 .login_text {
     margin-right: 230px;
 }
@@ -28,10 +30,17 @@
 .loginerror {
         display: flex;
             flex-direction: column;
+            justify-content: center;
             align-items: center;
             color: red;
-            font-weight: bold;
+            font-family: "Monteserrat-Medium";
             padding: 10px 5px 10px 5px;
+}
+
+.loginerror_text {
+    display: flex;
+    text-align: center;
+    padding: 1px;
 }
 
 .loginemail {

@@ -73,3 +73,40 @@
 .myreview_div:hover {
     box-shadow: 0 7px 16px rgba(0, 0, 0, 0.18);
 }
+
+.myreview_notshown {
+    display: flex;
+        justify-content: center;
+        flex-direction: column;
+}
+
+.myreview_notinner {
+margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.myreview_nolink {
+text-decoration: none;
+    color: black;
+}
+
+.myreview_nolink:hover {
+    color: red;
+}
+
+.myreview_notext {
+text-align: center;
+    padding: 15px;
+    font-family: "Monteserrat-SemiBold";
+    font-size: 24pt;
+}
+
+.myreview_notshownimage {
+width: 400px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+}

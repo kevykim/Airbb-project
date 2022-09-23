@@ -444,8 +444,7 @@ const validateSpot = [
     .withMessage("Description is required"),
   check("price")
     .isInt()
-    .exists({ checkFalsy: true })
-    .withMessage("Price per day is required"),
+    .withMessage("Price is required"),
   handleValidationErrors,
 ];
 
