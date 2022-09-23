@@ -30,7 +30,13 @@ function LoginForm({closeModal}) {
       </div>
       <form className="loginform" onSubmit={handleSubmit}>
         <h2>Welcome to Airbb</h2>
-
+        <div className="loginerror">
+          {errors.map((error, idx) => (
+            <div className="loginerror_text" key={idx}>
+              {error}
+            </div>
+          ))}
+        </div>
         <div>
           <input
             className="loginemail"
@@ -48,14 +54,6 @@ function LoginForm({closeModal}) {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-        </div>
-
-        <div className="loginerror">
-          {errors.map((error, idx) => (
-            <div className="loginerror_text" key={idx}>
-              {error}
-            </div>
-          ))}
         </div>
 
         <button className="loginbutton" type="submit">
