@@ -179,7 +179,7 @@ const SpotsDetailPage = () => {
               </div>
 
               <div className="review_container">
-                <ReviewsReadPage />
+                <ReviewsReadPage spotId={spot.id} />
               </div>
               <div className="things_div">
                 <h3 className="seventhbox_header">Things to know</h3>

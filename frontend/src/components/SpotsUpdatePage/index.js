@@ -101,6 +101,15 @@ const SpotsUpdatePage = ({spot, closeModal}) => {
         </div>
 
         <form className="updatespotform" onSubmit={onSubmit}>
+          {validationErrors.length > 0 && submitted === true && (
+            <div className="updatespot_error">
+              <div>
+                {validationErrors.map((error, i) => (
+                  <div key={i}>{error}</div>
+                ))}
+              </div>
+            </div>
+          )}
           <div>
             <div>
               <input
@@ -193,15 +202,6 @@ const SpotsUpdatePage = ({spot, closeModal}) => {
               />
             </div>
           </div>
-          {validationErrors.length > 0 && submitted === true && (
-            <div className="updatespot_error">
-              <div>
-                {validationErrors.map((error, i) => (
-                  <div key={i}>{error}</div>
-                ))}
-              </div>
-            </div>
-          )}
           <button
             className="updatespotbutton"
             type="submit"

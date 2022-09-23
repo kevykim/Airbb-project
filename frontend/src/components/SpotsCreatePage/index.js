@@ -33,8 +33,8 @@ const SpotsCreatePage = ({closeModal}) => {
     if (!city.length) errors.push('Please enter a city')
     if (!state.length) errors.push('Please enter a state')
     if (!country.length) errors.push('Please enter a country')
-    if ((lat % 1 === 0) || (!lat.length)) errors.push('Please enter valid latitude')
-    if ((lng % 1 === 0) || (!lng.length)) errors.push('Please enter valid longitude')
+    if ((lat % 1 === 0) || (!lat)) errors.push('Please enter valid latitude')
+    if ((lng % 1 === 0) || (!lng)) errors.push('Please enter valid longitude')
     if (!name.length) errors.push('Please enter a name for your spot!')
     if (description.length === 0) errors.push('Please provide description')
     if (description.length > 200) errors.push('Please shorten description')
@@ -63,6 +63,7 @@ const SpotsCreatePage = ({closeModal}) => {
 
         
         let createdSpot = await dispatch(createSpots(payload)) 
+
         
         
         if (createdSpot) {

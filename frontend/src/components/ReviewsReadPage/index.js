@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { thunkReadReview } from '../../store/reviews';
 import ReviewsCreateModal from '../ReviewsCreatePage/ReviewsCreateModal';
+import { getASpot } from '../../store/spots';
 // import ReviewsDeletePage from '../ReviewsDeletePage';
 // import ReviewsUpdateModal from '../ReviewsUpdatePage/ReviewsUpdateModal';
 
@@ -10,7 +11,7 @@ import ReviewsCreateModal from '../ReviewsCreatePage/ReviewsCreateModal';
 import './ReviewsReadPage.css'
 
 
-const ReviewsReadPage = () => {
+const ReviewsReadPage = ({spotId}) => {
   const {id} = useParams();
   const dispatch = useDispatch();
 
@@ -30,8 +31,9 @@ const ReviewsReadPage = () => {
   // console.log("review finds",reviews?.find((review) => review?.userId === owner?.id))
 
   useEffect(() => {
+      dispatch(getASpot(spotId));
     dispatch(thunkReadReview(id));
-  }, [dispatch, id]);
+  }, [dispatch, spotId, id]);
 
 //   if (!user) return null
   
