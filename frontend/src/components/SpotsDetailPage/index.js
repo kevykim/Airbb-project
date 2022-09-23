@@ -152,10 +152,10 @@ const SpotsDetailPage = () => {
                     </div>
                   </div>
                   {/* <div style={{ fontFamily: "Monteserrat-Regular" }}>
-                    Calender will go here
+                    Calender will go here for Booking Feature
                   </div>
                   <div style={{ fontFamily: "Monteserrat-Regular" }}>
-                    Booking button?
+                    Booking button will go here for Booking Feature
                   </div> */}
                   <div className="fifthbox_maindiv">
                     <div className="fifthbox_div">
@@ -172,8 +172,8 @@ const SpotsDetailPage = () => {
                     </div>
                   </div>
                   <div className="fifthbox_total">
-                    <div>Total</div>
-                    <div>{`$${spot.price}`}</div>
+                    <div>Total before taxes</div>
+                    <div>{`$${spot.price * 5}`}</div>
                   </div>
                 </div>
               </div>

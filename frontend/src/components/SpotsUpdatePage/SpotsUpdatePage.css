@@ -7,8 +7,8 @@
 
 .updatespotform {
     width: 568px;
-    height: 600px;
-   padding: 24px;
+    height: 568px;
+   padding: 10px 20px 10px 20px;
     overflow-y: scroll;
           
 }
@@ -18,7 +18,7 @@
     flex-direction: column;
     align-items: center;
     color: red;
-    padding: 10px 5px 10px 5px;
+    padding: 0px 5px 10px 5px;
     font-family: "Monteserrat-SemiBold";
 }
 

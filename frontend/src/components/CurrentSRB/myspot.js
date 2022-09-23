@@ -38,7 +38,7 @@ function MySpot() {
                 src="https://images.pexels.com/photos/4032024/pexels-photo-4032024.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                 alt="Not Shown"
               ></img>
-              <div className="myspot_notext"> Make some here!</div>
+              <div className="myspot_notext"> Click to go back Home!</div>
               </NavLink>
             </div>
           </div>

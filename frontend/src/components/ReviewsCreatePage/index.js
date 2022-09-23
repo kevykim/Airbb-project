@@ -50,7 +50,7 @@ const ReviewsCreatePage = ({spotId, closeModal}) => {
       // let createdReview = await dispatch(thunkCreateReview(payload));
 
       if (toOwned.length >= 1) {
-        alert("You cannot have more than one review. Delete or edit the original review.");
+        alert("You cannot have more than one review for a Spot. Go delete or edit the review.");
         history.push(`/reviews`)
       } else {
       await dispatch(thunkCreateReview(payload));

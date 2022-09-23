@@ -33,15 +33,15 @@ const SpotsUpdatePage = ({spot, closeModal}) => {
     if (!city.length) errors.push('Please enter a city')
     if (!state.length) errors.push('Please enter a state')
     if (!country.length) errors.push('Please enter a country')
-    if ((lat.length === 0) || (lat % 1 === 0 )) errors.push('Please enter valid latitude')
-    if (lng.length === 0 || lng % 1 === 0 ) errors.push('Please enter valid longitude')
+    if ((lat.length === 0) || (lat % 1 === 0 )) errors.push('Please enter valid latitude with a decimal')
+    if (lng.length === 0 || lng % 1 === 0 ) errors.push('Please enter valid longitude with a decimal')
     if (!name.length) errors.push('Please enter a name for your spot!')
     if (description.length === 0) errors.push("Please provide description");
     if (description.length > 200) errors.push('Please shorten description')
-    if (price.length === 0) errors.push('Please add a price')
-    if (isNaN(price)) errors.push("Please add an valid price");
+    // if (price.length === 0) errors.push('Please add a price')
     if ((!prevImage.includes("jpg")) && (!prevImage.includes("png")) && (!prevImage.includes('jpeg')))
-      errors.push("Please add an preview Image");
+      errors.push("Please add a preview Image");
+    if (isNaN(price) || !price) errors.push("Please add a valid price");
 
     
     setValidationErrors(errors)
@@ -102,13 +102,13 @@ const SpotsUpdatePage = ({spot, closeModal}) => {
 
         <form className="updatespotform" onSubmit={onSubmit}>
           {validationErrors.length > 0 && submitted === true && (
-            <div className="updatespot_error">
               <div>
+            <div className="updatespot_error">
                 {validationErrors.map((error, i) => (
                   <div key={i}>{error}</div>
                 ))}
-              </div>
             </div>
+              </div>
           )}
           <div>
             <div>
@@ -187,7 +187,7 @@ const SpotsUpdatePage = ({spot, closeModal}) => {
               <input
                 className="updateimg"
                 type="text"
-                placeholder="www.yourimage.com"
+                placeholder="Image Url with a jpeg, png, jpg, etc."
                 value={prevImage}
                 onChange={(event) => setPrevImage(event.target.value)}
               />
@@ -195,7 +195,6 @@ const SpotsUpdatePage = ({spot, closeModal}) => {
             <div>
               <input
                 className="updateprice"
-                type="number"
                 placeholder="Price"
                 value={price}
                 onChange={(event) => setPrice(event.target.value)}

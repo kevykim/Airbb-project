@@ -32,6 +32,9 @@ const validateSignup = [
   check("lastName")
   .exists({ checkFalsy: true })
   .withMessage("Please provide a last name"),
+  // check("lastName")
+  // .isLength({min: 3})
+  // .withMessage("Please provide a last name longer than 3 characters"),
   handleValidationErrors,
 ];
 

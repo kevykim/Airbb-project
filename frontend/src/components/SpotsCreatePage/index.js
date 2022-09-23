@@ -33,15 +33,15 @@ const SpotsCreatePage = ({closeModal}) => {
     if (!city.length) errors.push('Please enter a city')
     if (!state.length) errors.push('Please enter a state')
     if (!country.length) errors.push('Please enter a country')
-    if ((lat % 1 === 0) || (!lat)) errors.push('Please enter valid latitude')
-    if ((lng % 1 === 0) || (!lng)) errors.push('Please enter valid longitude')
+    if ((lat % 1 === 0) || (!lat)) errors.push('Please enter valid latitude with a decimal')
+    if ((lng % 1 === 0) || (!lng)) errors.push('Please enter valid longitude with a decimal')
     if (!name.length) errors.push('Please enter a name for your spot!')
     if (description.length === 0) errors.push('Please provide description')
     if (description.length > 200) errors.push('Please shorten description')
-    if (!price) errors.push("Please add a price");
-    if (isNaN(price)) errors.push('Please add an valid price')
+    // if (!price) errors.push("Please add a price");
     if ((!prevImage.includes("jpg")) && (!prevImage.includes("png")) && (!prevImage.includes('jpeg')))
-      errors.push("Please add an preview Image");
+      errors.push("Please add a preview Image");
+    if (isNaN(price) || !price) errors.push('Please add a valid price')
     setValidationErrors(errors)
    },[address, city, state, country, lat, lng, name, description, price, prevImage])
 
@@ -95,11 +95,11 @@ const SpotsCreatePage = ({closeModal}) => {
         <form className="createspotform" onSubmit={onSubmit}>
           {(validationErrors.length > 0 && submitted === true) && (
             <div>
-              <ul className="createspot_error">
+              <div className="createspot_error">
                 {validationErrors.map((error, i) => (
                   <div key={i}>{error}</div>
                 ))}
-              </ul>
+              </div>
             </div>
           )}
           <div>
@@ -187,7 +187,7 @@ const SpotsCreatePage = ({closeModal}) => {
               <input
                 className="createimg"
                 type="text"
-                placeholder="www.yourimage.com"
+                placeholder="Image Url with a jpeg, png, or jpg, etc."
                 value={prevImage}
                 onChange={(event) => setPrevImage(event.target.value)}
 
@@ -196,7 +196,7 @@ const SpotsCreatePage = ({closeModal}) => {
             <div>
               <input
                 className="createprice"
-                type="number"
+                type="text"
                 placeholder="Price"
                 value={price}
                 onChange={(event) => setPrice(event.target.value)}

@@ -64,13 +64,13 @@ const ReviewsUpdatePage = ({review, reviewId, spotId, closeModal}) => {
         </div>
         <form className="updatereviewform" onSubmit={onSubmit}>
           {(validationErrors.length > 0 && submitted === true) && (
-            <div className="updatereview_error">
-              <div>
+            <div>
+                <div className="updatereview_error">
                 {validationErrors.map((error, i) => (
                   <div key={i}>{error}</div>
                 ))}
-              </div>
             </div>
+              </div>
           )}
           <div>
             <input
