@@ -1,4 +1,4 @@
-# About Airbb
+# About Airbb 🏠
 
 Airbb is a web application clone inspired by [Airbnb](https://www.airbnb.com/), that allows online users to rent homes and other types of properties for vacations and other kinds of activities. 
 * [Click here to view Airbb Live Site](https://backend-project-airbb.herokuapp.com/)
@@ -35,11 +35,20 @@ This project is built with:
     JWT_EXPIRES_IN=
     ```
 5. Move to backend directory.
-6. Run `npx dotenv sequelize db:migrate`
-8. Run `npx dotenv sequelize db:seed:all`
-9. With two terminals, Run `npm start` in both frontend folder and backend folder to start the application.
+6. Run `npx dotenv sequelize db:migrate` 
+7. Run `npx dotenv sequelize db:seed:all`
+8. With two terminals, Run `npm start` in both frontend folder and backend folder to start the application.
 
 # Features Direction
 
 ## Splash Page
-![SplashPage]()
+![SplashPage](./frontend/public/readmeimages/Airbb%20Splash1024_1.jpg)
+
+## Detail Page
+<img src="./frontend/public/readmeimages/Airbb%20Detail.jpg" height='900' width='900'/> 
+
+## My Spot Page
+<img src="./frontend/public/readmeimages/Airbb%20myspot.png"/>
+
+## My Review Page
+<img src='./frontend/public/readmeimages/Airbb%20myreview.png'/>
