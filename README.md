@@ -35,8 +35,9 @@ This project is built with:
     JWT_EXPIRES_IN=
     ```
 5. Move to backend directory.
-6. Run `npx dotenv sequelize db:migrate98. Run `npx dotenv sequelize db:seed:all`
-9. With two terminals, Run `npm start` in both frontend folder and backend folder to start the application.
+6. Run `npx dotenv sequelize db:migrate98. 
+7. Run `npx dotenv sequelize db:seed:all`
+8. With two terminals, Run `npm start` in both frontend folder and backend folder to start the application.
 
 # Features Direction
 
