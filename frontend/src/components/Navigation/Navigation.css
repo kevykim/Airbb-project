@@ -38,7 +38,6 @@
 .airbnbhome {
     display: flex;
     align-items: center;
-    /* margin-left: 5px; */
     text-decoration: none;
 }
 
@@ -47,6 +46,11 @@
     font-family: "Monteserrat-SemiBold";
     font-size: 20pt;
 }
+
+/* .airbnbhome_div {
+    margin-left: 5px;
+    
+} */
 
 
 .startbutton {

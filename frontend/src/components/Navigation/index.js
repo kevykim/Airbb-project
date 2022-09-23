@@ -8,6 +8,7 @@ import DemoUser from "../DemoUser";
 import SignUpModal from "../SignUpFormPage/SignUpModal";
 import { useState} from "react";
 import BecomeAHost from "../SignUpFormPage/BecomeHostModal.js";
+import logo from '../../images/airbb.png'
 
 
 
@@ -89,8 +90,8 @@ function Navigation({ isLoaded }) {
         <div className="airbnbhome_div">
           <NavLink className="airbnbhome" exact to="/">
             <img
-              style={{ width: "40px", height: "40px" }}
-              src="favicon_io/apple-touch-icon.png"
+              style={{ width: "40px", height: "40px", objectFit: 'contain' }}
+              src={logo}
               alt="Home"
             ></img>
             <div className="airbnbhome_text">&nbsp;airbb</div>
