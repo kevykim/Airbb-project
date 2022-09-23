@@ -200,7 +200,7 @@
 .things_div {
     display: flex;
     flex-direction: column;
-    height: 400px;
+    height: 300px;
     width: 1090px;
     border-top: 1px solid rgb(222, 221, 221);
 }
