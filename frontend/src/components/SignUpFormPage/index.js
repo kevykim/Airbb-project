@@ -51,6 +51,13 @@ function SignupFormPage({closeModal}) {
       </div>
       <form className="signupform" onSubmit={handleSubmit}>
         <h2>Welcome to Airbb</h2>
+        <div className="signuperror">
+          {errors.map((error, idx) => (
+            <div classname="signuperror_text" key={idx}>
+              {error}
+            </div>
+          ))}
+        </div>
         <div>
           <input
             className="signupemail"
@@ -105,11 +112,7 @@ function SignupFormPage({closeModal}) {
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
         </div>
-        <div className="signuperror">
-          {errors.map((error, idx) => (
-            <div classname="signuperror_text" key={idx}>{error}</div>
-          ))}
-        </div>
+
         <button className="signupbutton" type="submit">
           Sign Up
         </button>
