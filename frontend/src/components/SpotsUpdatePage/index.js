@@ -22,7 +22,7 @@ const SpotsUpdatePage = ({spot, closeModal}) => {
    const [lng, setLng] = useState(spot.lng) // lng
    const [name, setName] = useState(spot.name) // name
    const [description, setDescription] = useState(spot.description) // description
-   const [prevImage, setPrevImage] = useState(spot.previewImage);
+  //  const [prevImage, setPrevImage] = useState(spot.previewImage);  THIS WILL BE USED WHEN WORKING ON IMAGE FEATURE
    const [price, setPrice] = useState(spot.price) // price
    const [submitted, setSubmitted] = useState(false)
    const [validationErrors, setValidationErrors] = useState([])
@@ -33,19 +33,24 @@ const SpotsUpdatePage = ({spot, closeModal}) => {
     if (!city.length) errors.push('Please enter a city')
     if (!state.length) errors.push('Please enter a state')
     if (!country.length) errors.push('Please enter a country')
-    if ((lat.length === 0) || (lat % 1 === 0 )) errors.push('Please enter valid latitude with a decimal')
-    if (lng.length === 0 || lng % 1 === 0 ) errors.push('Please enter valid longitude with a decimal')
+    if ((lat.length === 0) || (lat % 1 === 0) || isNaN(lat)) errors.push('Please enter a valid latitude with a decimal')
+    if (lng.length === 0 || lng % 1 === 0 || isNaN(lng)) errors.push('Please enter valid a longitude with a decimal')
     if (!name.length) errors.push('Please enter a name for your spot!')
     if (description.length === 0) errors.push("Please provide description");
     if (description.length > 200) errors.push('Please shorten description')
     // if (price.length === 0) errors.push('Please add a price')
-    if ((!prevImage.includes("jpg")) && (!prevImage.includes("png")) && (!prevImage.includes('jpeg')))
-      errors.push("Please add a preview Image");
+    //  if (
+    //    (!prevImage.includes("jpg") &&
+    //      !prevImage.includes("png") &&
+    //      !prevImage.includes("jpeg")) ||
+    //    (!prevImage.includes("https") && !prevImage.includes("http"))
+    //  )
+    //    errors.push("Please add a preview Image");
     if (isNaN(price) || !price) errors.push("Please add a valid price");
 
     
     setValidationErrors(errors)
-   },[address, city, state, country, lat, lng, name, description, price, prevImage])
+   },[address, city, state, country, lat, lng, name, description, price])
 
    const onSubmit = async (event) => {
     event.preventDefault()
@@ -64,7 +69,7 @@ const SpotsUpdatePage = ({spot, closeModal}) => {
             name,
             description,
             price,
-            previewImage:prevImage
+            // previewImage:prevImage
         }
 
         
@@ -77,18 +82,6 @@ const SpotsUpdatePage = ({spot, closeModal}) => {
             closeModal(false)
         }
 
-        setAddress('')
-        setCity('')
-        setState('')
-        setCountry('')
-        setLat('')
-        setLng('')
-        setName('')
-        setDescription('')
-        setPrevImage('');
-        setPrice('')
-        setPrevImage("");
-        setValidationErrors([])
    }
 
     return (
@@ -183,7 +176,7 @@ const SpotsUpdatePage = ({spot, closeModal}) => {
                 onChange={(event) => setDescription(event.target.value)}
               />
             </div>
-            <div>
+            {/* <div>
               <input
                 className="updateimg"
                 type="text"
@@ -191,7 +184,7 @@ const SpotsUpdatePage = ({spot, closeModal}) => {
                 value={prevImage}
                 onChange={(event) => setPrevImage(event.target.value)}
               />
-            </div>
+            </div> */}
             <div>
               <input
                 className="updateprice"

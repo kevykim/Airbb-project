@@ -33,13 +33,13 @@ const SpotsCreatePage = ({closeModal}) => {
     if (!city.length) errors.push('Please enter a city')
     if (!state.length) errors.push('Please enter a state')
     if (!country.length) errors.push('Please enter a country')
-    if ((lat % 1 === 0) || (!lat)) errors.push('Please enter valid latitude with a decimal')
-    if ((lng % 1 === 0) || (!lng)) errors.push('Please enter valid longitude with a decimal')
+    if ((lat % 1 === 0) || (!lat) || isNaN(lat)) errors.push('Please enter valid a latitude with a decimal')
+    if ((lng % 1 === 0) || (!lng) || isNaN(lng)) errors.push('Please enter valid a longitude with a decimal')
     if (!name.length) errors.push('Please enter a name for your spot!')
     if (description.length === 0) errors.push('Please provide description')
     if (description.length > 200) errors.push('Please shorten description')
     // if (!price) errors.push("Please add a price");
-    if ((!prevImage.includes("jpg")) && (!prevImage.includes("png")) && (!prevImage.includes('jpeg')))
+    if (((!prevImage.includes("jpg")) && (!prevImage.includes("png")) && (!prevImage.includes('jpeg'))) || (!prevImage.includes('https') && (!prevImage.includes('http'))))
       errors.push("Please add a preview Image");
     if (isNaN(price) || !price) errors.push('Please add a valid price')
     setValidationErrors(errors)
