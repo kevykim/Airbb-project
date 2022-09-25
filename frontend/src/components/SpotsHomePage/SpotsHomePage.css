@@ -101,16 +101,19 @@
 .github_link {
     text-decoration: none;
     color: black;
+    outline: none;
 }
 
 .linkedin_link {
     text-decoration: none;
     color: black;
+    outline: none;
 }
 
 .email_link {
     text-decoration: none;
     color: black;
+    outline: none;
 }
 
 .github_link:hover {

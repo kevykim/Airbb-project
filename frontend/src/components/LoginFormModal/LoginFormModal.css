@@ -54,6 +54,10 @@
         border: 1px solid black;
 }
 
+.loginemail:focus {
+        outline: 1px solid black;
+}
+
 .loginpass {
     border-radius: 5px;
         width: 100%;
@@ -63,6 +67,10 @@
         padding: 10px 10px 10px 10px;
         font-family: "Monteserrat-Regular";
             border: 1px solid black;      
+}
+
+.loginpass:focus {
+        outline: 1px solid black;
 }
 
 .loginbutton {

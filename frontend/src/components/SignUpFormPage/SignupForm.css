@@ -68,6 +68,10 @@ display: flex;
         border: 1px solid black;
 }
 
+.signupemail:focus {
+        outline: 1px solid black;
+}
+
 .signupusername {
     border-radius: 5px;
         width: 100%;
@@ -77,6 +81,10 @@ display: flex;
         padding: 10px 10px 10px 10px;
         font-family: "Monteserrat-Regular";
         border: 1px solid black;
+}
+
+.signupusername:focus {
+        outline: 1px solid black;
 }
 
 .signupfirst {
@@ -90,6 +98,10 @@ display: flex;
         border: 1px solid black;
 }
 
+.signupfirst:focus {
+        outline: 1px solid black;
+}
+
 .signuplast {
     border-radius: 5px;
         width: 100%;
@@ -99,6 +111,10 @@ display: flex;
         padding: 10px 10px 10px 10px;
         font-family: "Monteserrat-Regular";
         border: 1px solid black;
+}
+
+.signuplast:focus {
+        outline: 1px solid black;
 }
 
 .signuppass {
@@ -112,6 +128,10 @@ display: flex;
         border: 1px solid black;
 }
 
+.signuppass:focus {
+        outline: 1px solid black;
+}
+
 .signupconfpass {
     border-radius: 5px;
         width: 100%;
@@ -121,6 +141,10 @@ display: flex;
         padding: 10px 10px 10px 10px;
         font-family: "Monteserrat-Regular";
         border: 1px solid black;
+}
+
+.signupconfpass:focus {
+        outline: 1px solid black;
 }
 
 /* .signupconfpass:focus {
