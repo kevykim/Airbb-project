@@ -48,16 +48,14 @@ function Navigation({ isLoaded }) {
   if (sessionUser) {
     sessionLinks = (
       <div>
-        <ProfileButton user={sessionUser} />
+        <ProfileButton showStartMenu={setStartMenu} user={sessionUser} />
       </div>
     );
   } else {
     sessionLinks = (
       <div className="startbutton_container">
         <div className="startbutton_div">
-          <div style={{ marginRight: "10px" }}>
-            {becomeHost}
-          </div>
+          <div style={{ marginRight: "10px" }}>{becomeHost}</div>
           <button
             className="startbutton"
             onClick={() => setStartMenu((banana) => !banana)}
@@ -72,7 +70,6 @@ function Navigation({ isLoaded }) {
             ></i>
           </button>
         </div>
-
         {startMenu && (
           <div className="startmenu">
             <SignUpModal menu={startMenu} showMenu={setStartMenu} />
@@ -90,7 +87,7 @@ function Navigation({ isLoaded }) {
         <div className="airbnbhome_div">
           <NavLink className="airbnbhome" exact to="/">
             <img
-              style={{ width: "40px", height: "40px", objectFit: 'contain' }}
+              style={{ width: "40px", height: "40px", objectFit: "contain" }}
               src={logo}
               alt="Home"
             ></img>
