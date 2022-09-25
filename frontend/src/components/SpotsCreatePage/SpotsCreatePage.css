@@ -46,6 +46,10 @@
         border: 1px solid black;
 }
 
+.createaddress:focus {
+        outline: 1px solid black;
+}
+
 .createcity {
     border-radius: 5px;
         width: 100%;
@@ -55,6 +59,10 @@
         padding: 10px 10px 10px 10px;
         font-family: "Monteserrat-Regular";
         border: 1px solid black;
+}
+
+.createcity:focus {
+        outline: 1px solid black;
 }
 
 .createstate {
@@ -68,6 +76,10 @@
         border: 1px solid black;
 }
 
+.createstate:focus {
+        outline: 1px solid black;
+}
+
 .createcountry {
     border-radius: 5px;
         width: 100%;
@@ -77,6 +89,10 @@
         padding: 10px 10px 10px 10px;
         font-family: "Monteserrat-Regular";
         border: 1px solid black;
+}
+
+.createcountry:focus {
+        outline: 1px solid black;
 }
 
 .createlat {
@@ -90,6 +106,10 @@
         border: 1px solid black;
 }
 
+.createlat:focus {
+        outline: 1px solid black;
+}
+
 .createlng {
     border-radius: 5px;
         width: 100%;
@@ -99,6 +119,10 @@
         padding: 10px 10px 10px 10px;
         font-family: "Monteserrat-Regular";
         border: 1px solid black;
+}
+
+.createlng:focus {
+        outline: 1px solid black;
 }
 
 .createnameplace {
@@ -112,6 +136,10 @@
         border: 1px solid black;
 }
 
+.createnameplace:focus {
+        outline: 1px solid black;
+}
+
 .createdescription {
     border-radius: 5px;
         width: 100%;
@@ -123,6 +151,9 @@
         border: 1px solid black;
         resize: none;
         overflow: hidden;
+}
+.createdescription:focus {
+        outline: 1px solid black;
 }
 
 .createdescription:hover {
@@ -140,6 +171,10 @@
         border: 1px solid black;
 }
 
+.createimg:focus {
+        outline: 1px solid black;
+}
+
 .createprice {
     border-radius: 5px;
         width: 100%;
@@ -149,6 +184,10 @@
         padding: 10px 10px 10px 10px;
         font-family: "Monteserrat-Regular";
         border: 1px solid black;
+}
+
+.createprice:focus {
+        outline: 1px solid black;
 }
 
 .createspotbutton {

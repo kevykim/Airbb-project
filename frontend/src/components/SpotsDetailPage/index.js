@@ -143,7 +143,7 @@ const SpotsDetailPage = () => {
                   <div className="reviewprice_container">
                     <div className="reviewprice_text">
                       <span className="reviewprice_span">{`$${spot.price}`}</span>
-                      night
+                      &nbsp;night
                     </div>
                     <div className="avg_rating_div">
                       <i className="fa-solid fa-star"></i>
@@ -190,58 +190,48 @@ const SpotsDetailPage = () => {
                       <div>
                         <i className="fa-regular fa-clock"></i>
                       </div>
-                        <div className="seventhbox_text">Check-in </div>
+                      <div className="seventhbox_text">Check-in </div>
                     </div>
                     <div className="seventhbox_icon">
                       <div>
-                      <i className="fa-regular fa-clock"></i>
+                        <i className="fa-regular fa-clock"></i>
                       </div>
                       <div className="seventhbox_text">Check-out</div>
                     </div>
                     <div className="seventhbox_icon">
                       <div>
-                      <i className="fa-solid fa-ban-smoking"></i>
+                        <i className="fa-solid fa-ban-smoking"></i>
                       </div>
-                      <div className="seventhbox_text">
-                      No smoking
-                      </div>
+                      <div className="seventhbox_text">No smoking</div>
                     </div>
                   </div>
                   <div className="seventhbox_div">
-                    <div
-                     className="seventhbox_lineone"
-                    >
+                    <div className="seventhbox_lineone">
                       {`Health & safety`}
                     </div>
                     <div className="seventhbox_icon">
                       <div>
-                      <i className="fa-solid fa-notes-medical"></i>
+                        <i className="fa-solid fa-notes-medical"></i>
                       </div>
-                      <div className="seventhbox_text">
-                      COVID-19 safety
-                      </div>
+                      <div className="seventhbox_text">COVID-19 safety</div>
                     </div>
                     <div className="seventhbox_icon">
                       <div>
-                      <i class="fa-solid fa-video"></i>
+                        <i class="fa-solid fa-video"></i>
                       </div>
-                      <div className="seventhbox_text">
-                      Security camera
-                      </div>
+                      <div className="seventhbox_text">Security camera</div>
                     </div>
                     <div className="seventhbox_icon">
                       <div>
-                      <i class="fa-solid fa-shield-heart"></i>
+                        <i class="fa-solid fa-shield-heart"></i>
                       </div>
                       <div className="seventhbox_text">
-                      Carbon monoxide alarm
+                        Carbon monoxide alarm
                       </div>
                     </div>
                   </div>
                   <div className="seventhbox_div">
-                    <div
-                      className="seventhbox_lineone"
-                    >
+                    <div className="seventhbox_lineone">
                       Cancellation policy
                     </div>
                     <div className="seventhbox_icon">

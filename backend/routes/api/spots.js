@@ -423,7 +423,6 @@ router.get('/:spotId', async (req, res) => {
 
 
 
-
 const validateSpot = [
   check("address")
     .exists({ checkFalsy: true })
@@ -437,8 +436,8 @@ const validateSpot = [
   check("lng").isDecimal().withMessage("Longitude is not valid"),
   check("name")
     .exists({ checkFalsy: true })
-    .isLength({ max: 49 })
-    .withMessage("Name must be less than 50 characters"),
+    .isLength({ max: 256 })
+    .withMessage("Name must be less than 256 characters"),
   check("description")
     .exists({ checkFalsy: true })
     .withMessage("Description is required"),
