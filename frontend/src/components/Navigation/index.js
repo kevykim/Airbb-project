@@ -48,7 +48,7 @@ function Navigation({ isLoaded }) {
   if (sessionUser) {
     sessionLinks = (
       <div>
-        <ProfileButton user={sessionUser} />
+        <ProfileButton user={sessionUser} showStartMenu={setStartMenu} />
       </div>
     );
   } else {
