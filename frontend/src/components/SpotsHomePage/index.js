@@ -18,6 +18,16 @@ const SpotsHomePage = () => {
         dispatch(getSpots())
     }, [dispatch])
 
+        const date = new Date();
+        const nextDate = new Date();
+
+        nextDate.setDate(date.getDate() + 5);
+
+        const options = {
+          month: "short",
+          day: "numeric",
+        };
+
     return (
       <div className="spothome_container">
         <div className="spotcard">
@@ -41,13 +51,15 @@ const SpotsHomePage = () => {
                   &nbsp;{`${spot?.avgRating}`}
                 </div>
               </div>
-              <p className="spot_price_container">
+              <div className='bookingdate'>{`${date.toLocaleDateString(undefined, options)} - ${nextDate.toLocaleDateString(undefined, options)}`}</div>
+               
+              <div className="spot_price_container">
                 <span
                 className='spot_price_span'
                   
                 >{`$${spot.price}`}</span>
                 &nbsp;night
-              </p>
+              </div>
             </div>
           ))}
         </div>
