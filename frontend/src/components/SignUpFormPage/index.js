@@ -44,7 +44,7 @@ function SignupFormPage({closeModal}) {
   return (
     <div className="signupdiv">
       <div className="signup_header">
-        <button onClick={() => closeModal()} className="closeButton">
+        <button onClick={() => closeModal(false)} className="closeButton">
           X
         </button>
         <div className="signup_text">Sign up</div>

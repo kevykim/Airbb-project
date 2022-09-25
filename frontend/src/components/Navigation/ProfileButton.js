@@ -3,11 +3,14 @@ import { useDispatch } from "react-redux";
 import { NavLink, useHistory } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import SpotCreateModal from "../SpotsCreatePage/SpotsCreateModal";
+import BecomeAHost from "../SignUpFormPage/BecomeHostModal.js";
 import './ProfileButton.css'
 
 function ProfileButton({ user, showStartMenu }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+
   const history = useHistory();
 
   const openMenu = () => {
@@ -37,9 +40,13 @@ function ProfileButton({ user, showStartMenu }) {
   return (
     <div className="profile_container">
       <div className="startbutton_container">
+      {user ? (
       <div style={{"marginRight": "10px"}}>
         <SpotCreateModal />
       </div>
+      ) : <div style={{ marginRight: "10px" }}>
+            <BecomeAHost showModal={showModal} setShowModal={setShowModal}  />
+       </div>}
       <button className="startbutton" onClick={openMenu}>
         <i
           className="fa-solid fa-bars fa-2xl"
