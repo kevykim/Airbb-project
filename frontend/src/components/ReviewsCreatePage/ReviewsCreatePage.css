@@ -102,3 +102,7 @@ cursor: pointer;
     font-size: 12pt;
     border: none;
 }
+
+.createreviewbuttonmodal:hover {
+    opacity: 0.85;
+}
