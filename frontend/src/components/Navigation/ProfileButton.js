@@ -3,11 +3,16 @@ import { useDispatch } from "react-redux";
 import { NavLink, useHistory } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import SpotCreateModal from "../SpotsCreatePage/SpotsCreateModal";
+import DemoUser from "../DemoUser";
 import './ProfileButton.css'
+import BecomeAHost from "../SignUpFormPage/BecomeHostModal.js";
 
-function ProfileButton({ user, showStartMenu }) {
+
+function ProfileButton({ user, showStartMenu, signUp, setSignUp, logIn, setLogIn }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
+  const [modal, showModal] = useState(false)
+
   const history = useHistory();
 
   // console.log(showStartMenu)
@@ -39,9 +44,18 @@ function ProfileButton({ user, showStartMenu }) {
   return (
     <div className="profile_container">
       <div className="startbutton_container">
-        <div style={{ marginRight: "10px" }}>
-          <SpotCreateModal />
-        </div>
+
+        {user ? (
+          <div style={{ marginRight: "10px" }}>
+            <SpotCreateModal />
+          </div>
+        ) : <div style={{ marginRight: "10px" }}>
+            <BecomeAHost modal={modal} showModal={showModal} />
+          </div>}
+       
+
+        
+
         <button className="startbutton" onClick={openMenu}>
           <i
             className="fa-solid fa-bars fa-2xl"
@@ -53,6 +67,26 @@ function ProfileButton({ user, showStartMenu }) {
           ></i>
         </button>
       </div>
+
+      {showMenu && !user && (
+        <div className="startmenu">
+          <button
+            className="signupmodal"
+            onClick={() => setSignUp((signUp) => !signUp)}
+          >
+            Sign Up
+          </button>
+          <button
+            className="loginmodal"
+            onClick={() => setLogIn((logIn) => !logIn)}
+          >
+            Log In
+          </button>
+          <DemoUser />
+        </div>
+      )}
+
+
       {showMenu && user && (
         <div className="profile_drop_container">
           <div className="profile-dropdown">

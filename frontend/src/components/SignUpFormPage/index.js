@@ -44,7 +44,7 @@ function SignupFormPage({closeModal}) {
   return (
     <div className="signupdiv">
       <div className="signup_header">
-        <button onClick={() => closeModal()} className="closeButton">
+        <button onClick={() => closeModal(false)} className="closeButton">
           X
         </button>
         <div className="signup_text">Sign up</div>
@@ -53,7 +53,7 @@ function SignupFormPage({closeModal}) {
         <h2>Welcome to Airbb</h2>
         <div className="signuperror">
           {errors.map((error, idx) => (
-            <div classname="signuperror_text" key={idx}>
+            <div className="signuperror_text" key={idx}>
               {error}
             </div>
           ))}
