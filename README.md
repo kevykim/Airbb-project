@@ -44,14 +44,32 @@ This project is built with:
 ## Splash Page
 ![SplashPage](./frontend/public/readmeimages/Airbb%20Splash1024_1.jpg)
 
+## Sign up
+<img src="./frontend/public/readmeimages/Airbb%20Signup.png"/>
+
+## Log In
+<img src='./frontend/public/readmeimages/Airbb%20Login.png'/>
+
+## Create Spot
+<img src='./frontend/public/readmeimages/Airbb%20CreateSpot.png'/>
+
 ## Detail Page
 <img src="./frontend/public/readmeimages/Airbb%20Detail.jpg" height='900' width='900'/> 
+
+## Create Review 
+<img src='./frontend/public/readmeimages/Airbb%20CreateReview.png'/>
 
 ## My Spot Page
 <img src="./frontend/public/readmeimages/Airbb%20myspot.png"/>
 
+## Edit Spot
+<img src="./frontend/public/readmeimages/Airbb%20Editspot.png "/>
+
 ## My Review Page
 <img src='./frontend/public/readmeimages/Airbb%20myreview.png'/>
+
+## Edit Review
+<img src="./frontend/public/readmeimages/Airbb%20Editreview.png" />
 
 # Future Focus: Bookings, Images
 
