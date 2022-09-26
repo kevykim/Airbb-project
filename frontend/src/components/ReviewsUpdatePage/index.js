@@ -63,23 +63,21 @@ const ReviewsUpdatePage = ({review, reviewId, spotId, closeModal}) => {
           <div className="updatereview_text">Edit a review</div>
         </div>
         <form className="updatereviewform" onSubmit={onSubmit}>
-          {(validationErrors.length > 0 && submitted === true) && (
+          {validationErrors.length > 0 && submitted === true && (
             <div>
-                <div className="updatereview_error">
+              <div className="updatereview_error">
                 {validationErrors.map((error, i) => (
                   <div key={i}>{error}</div>
                 ))}
-            </div>
               </div>
+            </div>
           )}
           <div>
             <input
               className="updatereviewstar"
-
+              placeholder="Stars"
               value={star}
-             
               onChange={(event) => setStar(event.target.value)}
-
             />
           </div>
           <div>
@@ -95,6 +93,7 @@ const ReviewsUpdatePage = ({review, reviewId, spotId, closeModal}) => {
           <button
             className="updatereviewbutton"
             type="submit"
+            placeholder="Stars"
             disabled={validationErrors.length > 0 && submitted}
           >
             Submit Review
