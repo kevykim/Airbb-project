@@ -3,15 +3,15 @@ import { Modal } from "../../context/Modal";
 import SignupFormPage from ".";
 import './SignupForm.css'
 
-function BecomeAHost({showMenu, showModal, setShowModal}) {
+function BecomeAHost({showMenu, modal, showModal}) {
   // const [showModal, setShowModal] = useState(false);
 
   return (
     <>
-      <button className="becomehostbutton" onClick={setShowModal(modal => !modal)}>Become a Host</button>
-      {showModal && (
-        <Modal onClose={() => setShowModal(false)}>
-            < SignupFormPage closeModal={setShowModal} />
+      <button className="becomehostbutton" onClick={() => showModal(modal => !modal)}>Become a Host</button>
+      {modal && (
+        <Modal onClose={() => showModal(false)}>
+            < SignupFormPage closeModal={showModal} />
         </Modal>
       )}
     </>

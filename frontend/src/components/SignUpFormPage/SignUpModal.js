@@ -1,23 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
 import { Modal } from "../../context/Modal";
 import SignupFormPage from ".";
-import './SignupForm.css'
+import "./SignupForm.css";
 
-function SignUpModal({menu, showMenu}) {
-  const [showModal, setShowModal] = useState(false);
+function SignUpModal({ menu, showMenu, signUp, setSignUp }) {
+  // const [showModal, setShowModal] = useState(false);
 
   const closeAll = () => {
-    setShowModal(false)
-    showMenu(false)
-  }
-
+    setSignUp(false);
+    showMenu(false);
+  };
 
   return (
     <>
-      <button className="signupmodal" onClick={() => setShowModal(true)}>Sign Up</button>
-      {showModal && (
+      {/* <button className="signupmodal" onClick={() => setShowModal(true)}>Sign Up</button> */}
+      {signUp && (
         <Modal onClose={() => closeAll()}>
-            < SignupFormPage closeModal={closeAll}/>
+          <SignupFormPage closeModal={closeAll} />
         </Modal>
       )}
     </>

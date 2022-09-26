@@ -53,7 +53,7 @@ function SignupFormPage({closeModal}) {
         <h2>Welcome to Airbb</h2>
         <div className="signuperror">
           {errors.map((error, idx) => (
-            <div classname="signuperror_text" key={idx}>
+            <div className="signuperror_text" key={idx}>
               {error}
             </div>
           ))}

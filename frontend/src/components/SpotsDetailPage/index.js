@@ -217,13 +217,13 @@ const SpotsDetailPage = () => {
                     </div>
                     <div className="seventhbox_icon">
                       <div>
-                        <i class="fa-solid fa-video"></i>
+                        <i className="fa-solid fa-video"></i>
                       </div>
                       <div className="seventhbox_text">Security camera</div>
                     </div>
                     <div className="seventhbox_icon">
                       <div>
-                        <i class="fa-solid fa-shield-heart"></i>
+                        <i className="fa-solid fa-shield-heart"></i>
                       </div>
                       <div className="seventhbox_text">
                         Carbon monoxide alarm
@@ -286,7 +286,7 @@ const SpotsDetailPage = () => {
                 </a>
               </div>
               <div>
-                <i class="fa-solid fa-globe"></i>
+                <i className="fa-solid fa-globe"></i>
                 &nbsp;English(US) &nbsp;&nbsp;$ USD
               </div>
             </div>

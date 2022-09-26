@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton";
 import LoginFormModal from "../LoginFormModal";
 import "./Navigation.css";
-import DemoUser from "../DemoUser";
 import SignUpModal from "../SignUpFormPage/SignUpModal";
 import { useState} from "react";
 import logo from '../../images/airbb.png'
@@ -15,6 +14,8 @@ function Navigation({ isLoaded }) {
   const sessionUser = useSelector((state) => state.session.user);
   const [startMenu, setStartMenu] = useState(false);
 
+  const [signUp, setSignUp] = useState(false)
+  const [logIn, setLogIn] = useState(false)
   // const openMenu = () => {
   //   if (startMenu) return;
   //   setStartMenu(true);
@@ -48,13 +49,12 @@ function Navigation({ isLoaded }) {
       //     <div>
       //     </div>
       //   );
-      // } else {
+      // } 
+      // else {
         //   sessionLinks = (
           //     <div className="startbutton_container">
           //       <div className="startbutton_div">
-          //         <div style={{ marginRight: "10px" }}>
-          //           {/* {becomeHost} */}
-          //         </div>
+          //         <div style={{ marginRight: "10px" }}>{becomeHost}</div>
           //         <button
           //           className="startbutton"
           //           onClick={() => setStartMenu((banana) => !banana)}
@@ -69,7 +69,6 @@ function Navigation({ isLoaded }) {
           //           ></i>
           //         </button>
           //       </div>
-          
           //       {startMenu && (
             //         <div className="startmenu">
             //           <SignUpModal menu={startMenu} showMenu={setStartMenu} />
@@ -80,9 +79,10 @@ function Navigation({ isLoaded }) {
             //     </div>
             //   );
             // }
-
-let sessionLinks = <ProfileButton user={sessionUser} showStartMenu={setStartMenu} />
             
+
+let sessionLinks = <ProfileButton signUp={signUp} setSignUp={setSignUp} logIn={logIn} setLogIn={setLogIn} showStartMenu={setStartMenu} user={sessionUser} />
+        
   return (
     <div className="navbar_container">
       <div className="navbar">
@@ -97,11 +97,8 @@ let sessionLinks = <ProfileButton user={sessionUser} showStartMenu={setStartMenu
           </NavLink>
         </div>
         {isLoaded && sessionLinks}
-        <div className="startmenu">
-          <SignUpModal menu={startMenu} showMenu={setStartMenu} />
-          <LoginFormModal showMenu={setStartMenu} />
-          <DemoUser />
-        </div>
+        <SignUpModal menu={startMenu} showMenu={setStartMenu} signUp={signUp} setSignUp={setSignUp}/>
+        <LoginFormModal showMenu={setStartMenu} logIn={logIn} setLogIn={setLogIn}/>
       </div>
     </div>
   );
