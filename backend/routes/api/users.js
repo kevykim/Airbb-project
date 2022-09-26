@@ -54,7 +54,7 @@ router.get("/current", requireAuth, async (req, res) => {
 });
 
 // Sign up
-router.post('/', validateSignup, async (req, res) => {
+router.post('/', validateSignup, async (req, res, next) => {
     const { email, password, username, firstName, lastName } = req.body;
 
     
@@ -64,12 +64,20 @@ router.post('/', validateSignup, async (req, res) => {
       
     });
     
+    // LOOK AT SESSION ROUTES ERRORS MIGHT HAVE TO GO BACK AND REFACTOR ALL ERR HANDLING FOR 
+    // ALL ROUTES SIMILAR TO SESSION ROUTES...
+
     if(duplicateEmail) {
-      res.status(403)
-      return res.json({
-        message: "User with that email already exists",
-        statusCode: 403
-      })
+      // res.status(403)
+      // return res.json({
+      //   message: "User with that email already exists",
+      //   statusCode: 403
+      // })
+      const err = new Error('Email already exists')
+      err.status = 403;
+      err.title = 'Sign up failed'
+      err.errors = ['Email already exists']
+      return next(err)
     };
 
     const duplicateUsername = await User.findOne({
@@ -77,11 +85,16 @@ router.post('/', validateSignup, async (req, res) => {
     });
 
     if(duplicateUsername) {
-      res.status(403)
-      return res.json({
-        message: "User with that username already exists",
-        statusCode: 403
-      })
+      // res.status(403)
+      // return res.json({
+      //   message: "User with that username already exists",
+      //   statusCode: 403
+      // })
+      const err = new Error('Username already exists')
+      err.status = 403;
+      err.title = 'Sign up failed'
+      err.errors = ['Username already exists']
+      return next(err)
     };
 
     const user = await User.signup({  email, username, password, firstName, lastName });
