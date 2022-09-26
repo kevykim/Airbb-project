@@ -50,6 +50,9 @@ function ProfileButton({ user, showStartMenu, signUp, setSignUp, logIn, setLogIn
             <BecomeAHost modal={modal} showModal={showModal} />
           </div>}
        
+
+        
+
         <button className="startbutton" onClick={openMenu}>
           <i
             className="fa-solid fa-bars fa-2xl"
@@ -61,6 +64,7 @@ function ProfileButton({ user, showStartMenu, signUp, setSignUp, logIn, setLogIn
           ></i>
         </button>
       </div>
+
       {showMenu && !user && (
         <div className="startmenu">
           <button
@@ -78,6 +82,8 @@ function ProfileButton({ user, showStartMenu, signUp, setSignUp, logIn, setLogIn
           <DemoUser />
         </div>
       )}
+
+
       {showMenu && user && (
         <div className="profile_drop_container">
           <div className="profile-dropdown">
