@@ -67,9 +67,7 @@
         outline: 1px solid black;
 }
 
-.updatereview_text:hover {
-    overflow-y: scroll;
-}
+
 
 .updatereviewbutton {
     cursor: pointer;
