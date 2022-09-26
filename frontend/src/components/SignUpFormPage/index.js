@@ -22,21 +22,23 @@ function SignupFormPage({closeModal}) {
 
   if (sessionUser) return <Redirect to="/" />;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (password === confirmPassword) {
       setErrors([]);
-      return dispatch(
+      const validData = await dispatch(
         sessionActions.signup({ email, username, firstName, lastName, password })
         ).catch(async (res) => {
           const data = await res.json();
           if (data && data.errors) setErrors(data.errors);
         });
+        if (validData) closeModal()
+        return validData;
       }
       return setErrors([
         "Password must match", 
       ]);
-
+      
     };
     // history.push('/')
 
