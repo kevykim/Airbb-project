@@ -44,6 +44,7 @@ function Navigation({ isLoaded }) {
   //   );
   // }
 
+
   // if (sessionUser) {
     //   sessionLinks = (
       //     <div>
@@ -80,6 +81,8 @@ function Navigation({ isLoaded }) {
             //   );
             // }
             
+
+
 
 let sessionLinks = <ProfileButton signUp={signUp} setSignUp={setSignUp} logIn={logIn} setLogIn={setLogIn} showStartMenu={setStartMenu} user={sessionUser} />
         

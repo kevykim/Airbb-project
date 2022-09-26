@@ -7,10 +7,12 @@ import DemoUser from "../DemoUser";
 import './ProfileButton.css'
 import BecomeAHost from "../SignUpFormPage/BecomeHostModal.js";
 
+
 function ProfileButton({ user, showStartMenu, signUp, setSignUp, logIn, setLogIn }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const [modal, showModal] = useState(false)
+
   const history = useHistory();
 
   // console.log(showStartMenu)
@@ -42,6 +44,7 @@ function ProfileButton({ user, showStartMenu, signUp, setSignUp, logIn, setLogIn
   return (
     <div className="profile_container">
       <div className="startbutton_container">
+
         {user ? (
           <div style={{ marginRight: "10px" }}>
             <SpotCreateModal />
@@ -50,6 +53,9 @@ function ProfileButton({ user, showStartMenu, signUp, setSignUp, logIn, setLogIn
             <BecomeAHost modal={modal} showModal={showModal} />
           </div>}
        
+
+        
+
         <button className="startbutton" onClick={openMenu}>
           <i
             className="fa-solid fa-bars fa-2xl"
@@ -61,6 +67,7 @@ function ProfileButton({ user, showStartMenu, signUp, setSignUp, logIn, setLogIn
           ></i>
         </button>
       </div>
+
       {showMenu && !user && (
         <div className="startmenu">
           <button
@@ -78,6 +85,8 @@ function ProfileButton({ user, showStartMenu, signUp, setSignUp, logIn, setLogIn
           <DemoUser />
         </div>
       )}
+
+
       {showMenu && user && (
         <div className="profile_drop_container">
           <div className="profile-dropdown">
