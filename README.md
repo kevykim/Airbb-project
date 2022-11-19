@@ -1,7 +1,7 @@
 # About Airbb 🏠
 
 Airbb is a web application clone inspired by [Airbnb](https://www.airbnb.com/), that allows online users to rent homes and other types of properties for vacations and other kinds of activities. 
-* [Click here to view Airbb Live Site](https://backend-project-airbb.herokuapp.com/)
+## [Airbb](https://backend-project-airbb.herokuapp.com/)
 
 Please see below links to Project Wiki:
 * [API Documentation](https://github.com/kevykim/Airbb-project/wiki/API-Documentation)
