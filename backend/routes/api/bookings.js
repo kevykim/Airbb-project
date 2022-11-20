@@ -30,7 +30,7 @@ router.get('/current', requireAuth, async (req, res) => {
 
       
     res.status(200)
-   return res.json({Bookings: images})
+   return res.json({bookings: images})
 
 });
 

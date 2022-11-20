@@ -150,7 +150,7 @@ return res.json({ Spots: currentSpot });
     // console.log(currentUser)
     // console.log(spot.ownerId)
 
-    return res.json({Bookings: ownedBooking});
+    return res.json({bookings: ownedBooking});
   })
 
 
@@ -206,7 +206,7 @@ handleValidationErrors
         },
       });
 
-      // console.log(sameBookingChecker)
+      console.log(sameBookingChecker)
       // console.log(spotId);
       // console.log(startDate)
 
