@@ -80,7 +80,7 @@ const SpotsDetailPage = () => {
                         <i className="fa-solid fa-calendar fa-xl"></i>
                       </div>
                       <div className="secondbox_text">
-                        Free cancellation for 48 hours
+                        Free cancellation within 48 hours
                       </div>
                     </div>
                   </div>
@@ -152,7 +152,7 @@ const SpotsDetailPage = () => {
                       {`${spot?.avgStarRating} · ${reviewCounter} reviews`}
                     </div>
                   </div>
-                  <CreateBooking />
+                  <CreateBooking spotId={spot.id} spot={spot} />
                   <div className="fifthbox_maindiv">
                     <div className="fifthbox_div">
                       <div>{`$${spot.price} x 5 nights`}</div>
