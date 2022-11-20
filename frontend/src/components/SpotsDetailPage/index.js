@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
     import { useParams } from "react-router-dom";
 import { thunkReadReview } from "../../store/reviews";
 import { getASpot } from "../../store/spots";
+import CreateBooking from "../Bookings/CreateBooking";
 import ReviewsReadPage from "../ReviewsReadPage";
 // import SpotsDeletePage from "../SpotsDeletePage";
 // import SpotsUpdateModal from "../SpotsUpdatePage/SpotsUpdateModal";
@@ -151,12 +152,7 @@ const SpotsDetailPage = () => {
                       {`${spot?.avgStarRating} · ${reviewCounter} reviews`}
                     </div>
                   </div>
-                  {/* <div style={{ fontFamily: "Monteserrat-Regular" }}>
-                    Calender will go here for Booking Feature
-                  </div>
-                  <div style={{ fontFamily: "Monteserrat-Regular" }}>
-                    Booking button will go here for Booking Feature
-                  </div> */}
+                  <CreateBooking />
                   <div className="fifthbox_maindiv">
                     <div className="fifthbox_div">
                       <div>{`$${spot.price} x 5 nights`}</div>
