@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory } from "react-router-dom";
 import { thunkGetCurrentBooking } from "../../store/bookings";
+import DeleteBooking from "../Bookings/DeleteBooking";
 
 import './mybooking.css'
 
@@ -58,7 +59,7 @@ function MyBooking() {
                     </NavLink>
                     
                     <div className="mybooking_buttons">
-                    
+                    <DeleteBooking spotId={booking.spotId} />
                     </div>
                   </div>
                 ))}
