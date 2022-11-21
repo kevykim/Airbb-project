@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory } from "react-router-dom";
 import { thunkGetCurrentBooking } from "../../store/bookings";
 import DeleteBooking from "../Bookings/DeleteBooking";
+import UpdateBookingModal from "../Bookings/UpdateBookingM";
 
 import './mybooking.css'
 
@@ -52,14 +53,21 @@ function MyBooking() {
                       to={`/spots/${booking.spotId}`}
                       className="mybooking_links"
                     >
-                        <img src={booking.Spot?.previewImage} alt='booking' width='200px'></img>
-                        {console.log(booking.Spot?.previewImage)}
+                      <img
+                        src={booking.Spot?.previewImage}
+                        alt="booking"
+                        width="200px"
+                      ></img>
+                      {console.log(booking.Spot?.previewImage)}
                       {`${booking.Spot?.city}, ${booking.Spot?.state}`}
-                      
                     </NavLink>
-                    
+
                     <div className="mybooking_buttons">
-                    <DeleteBooking spotId={booking.spotId} />
+                      <UpdateBookingModal
+                        booking={booking}
+                        spotId={booking.spotId}
+                      />
+                      <DeleteBooking spotId={booking.spotId} />
                     </div>
                   </div>
                 ))}

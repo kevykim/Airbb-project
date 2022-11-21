@@ -46,7 +46,7 @@ handleValidationErrors
 
 
 // Edit a Booking
-router.put('/:bookingId', requireAuth, validateBooking, async (req, res) => {
+router.put('/:bookingId', requireAuth, async (req, res) => {
     const bookingId = req.params.bookingId
     const { startDate, endDate } = req.body
 
