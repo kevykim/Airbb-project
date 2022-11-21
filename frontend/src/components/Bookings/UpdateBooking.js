@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import { thunkGetCurrentBooking, thunkUpdateBooking} from "../../store/bookings";
 
 
-function UpdateBooking({bookings, spotId}) {
+function UpdateBooking({bookings, spotId, closeModal}) {
 
     const dispatch = useDispatch();
     const history = useHistory();
@@ -77,6 +77,7 @@ function UpdateBooking({bookings, spotId}) {
 
       if (updatedBooking) {
         history.push(`/bookings`);
+        closeModal(false)
       }
     };
 
@@ -84,7 +85,6 @@ function UpdateBooking({bookings, spotId}) {
       alert("Must be logged in");
     }
 
-    console.log(new Date(today))
 
     return (
       <div>
