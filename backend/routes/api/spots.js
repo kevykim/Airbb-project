@@ -206,7 +206,7 @@ handleValidationErrors
         },
       });
 
-      console.log(sameBookingChecker)
+      // console.log(sameBookingChecker)
       // console.log(spotId);
       // console.log(startDate)
 

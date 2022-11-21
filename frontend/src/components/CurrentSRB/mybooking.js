@@ -21,7 +21,7 @@ function MyBooking() {
 
     const bookingArr = Object.values(booking)
 
-    console.log(bookingArr)
+    // console.log(bookingArr)
 
     if (!user) history.push('/')
 
@@ -58,7 +58,7 @@ function MyBooking() {
                         alt="booking"
                         width="200px"
                       ></img>
-                      {console.log(booking.Spot?.previewImage)}
+                      {/* {console.log(booking.Spot?.previewImage)} */}
                       {`${booking.Spot?.city}, ${booking.Spot?.state}`}
                     </NavLink>
 
