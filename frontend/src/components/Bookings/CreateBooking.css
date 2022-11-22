@@ -1,0 +1,92 @@
+.create_booking_main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.create_booking_form {
+    display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+}
+
+.create_booking_check_main {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.create_booking_input {
+    display: flex;
+    flex-direction: column;
+    width: 128px;
+    padding: 5px;
+}
+
+.create_booking_label {
+    padding: 5px;
+        color: black;
+        font-size: 8pt;
+        font-family: "Monteserrat-SemiBold";
+}
+
+.create_booking_inner {
+    border: none;
+    width: 110px;
+    height: 25px;
+    padding: 5px;
+    color: black;
+    font-size: 8pt;
+    font-family: "Monteserrat-SemiBold";
+}
+
+.create_booking_reserve {
+    cursor: pointer;
+        background-color: rgb(230, 30, 77);
+        color: white;
+        padding: 10px 10px 10px 10px;
+        margin: 5px 0;
+        width: 100%;
+        height: 42px;
+        border-radius: 5px;
+        font-family: "Monteserrat-SemiBold";
+        font-size: 12pt;
+        border: none;
+}
+
+
+
+
+
+.create_booking_errors {
+    color: red;
+    text-align: center;
+    font-family: "Monteserrat-Regular";
+    font-size: 9pt;
+    height: 20px;
+}
+
+
+.create_booking_boxed {
+    width: 100%;
+}
+
+.fifthbox_div {
+    display: flex;
+
+    justify-content: space-between;
+    text-align: center;
+    font-family: "Monteserrat-Regular";
+    padding: 5px;
+}
+
+.fifthbox_total {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid rgb(222, 221, 221);
+    padding-top: 10px;
+
+}

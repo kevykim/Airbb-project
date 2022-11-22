@@ -8,6 +8,7 @@ import SpotsDetailPage from "./components/SpotsDetailPage";
 import MySpot from "./components/CurrentSRB/myspot";
 import MyReview from "./components/CurrentSRB/myreview";
 import PageNotFound from "./components/PageNotFound/pagenotfound";
+import MyBooking from "./components/CurrentSRB/mybooking";
 
 function App() {
   const dispatch = useDispatch();
@@ -29,6 +30,9 @@ function App() {
           </Route>
           <Route exact path="/spots">
             <MySpot />
+          </Route>
+          <Route exact path='/bookings'>
+            <MyBooking />
           </Route>
           <Route exact path="/spots/:id">
             <SpotsDetailPage />

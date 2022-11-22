@@ -150,7 +150,7 @@ return res.json({ Spots: currentSpot });
     // console.log(currentUser)
     // console.log(spot.ownerId)
 
-    return res.json({Bookings: ownedBooking});
+    return res.json({bookings: ownedBooking});
   })
 
 
@@ -210,13 +210,13 @@ handleValidationErrors
       // console.log(spotId);
       // console.log(startDate)
 
-      if (sameBookingChecker.length >= 2) {
-        res.status(403);
-       return res.json({
-          message: "Sorry, this spot is already booked for the specified dates",
-          statusCode: 403,
-        });
-      }
+      // if (sameBookingChecker.length >= 2) {
+      //   res.status(403);
+      //  return res.json({
+      //     message: "Sorry, this spot is already booked for the specified dates",
+      //     statusCode: 403,
+      //   });
+      // }
 
     const booking = await Booking.create({
       userId: req.user.id,

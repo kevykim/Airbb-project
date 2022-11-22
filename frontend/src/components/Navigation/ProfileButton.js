@@ -46,12 +46,11 @@ function ProfileButton({ user, showStartMenu, signUp, setSignUp, logIn, setLogIn
           <div style={{ marginRight: "10px" }}>
             <SpotCreateModal />
           </div>
-        ) : <div style={{ marginRight: "10px" }}>
+        ) : (
+          <div style={{ marginRight: "10px" }}>
             <BecomeAHost modal={modal} showModal={showModal} />
-          </div>}
-       
-
-        
+          </div>
+        )}
 
         <button className="startbutton" onClick={openMenu}>
           <i
@@ -83,17 +82,19 @@ function ProfileButton({ user, showStartMenu, signUp, setSignUp, logIn, setLogIn
         </div>
       )}
 
-
       {showMenu && user && (
         <div className="profile_drop_container">
           <div className="profile-dropdown">
             <div className="profile-username">Hello, {user.username}</div>
             <div className="profile-email">{user.email}</div>
             <NavLink className="my_spot_link" to={"/spots"}>
-              My Spots
+              My Listings
             </NavLink>
             <NavLink className="my_review_link" to={"/reviews"}>
               My Reviews
+            </NavLink>
+            <NavLink className="my_review_link" to={"/bookings"}>
+              My Bookings
             </NavLink>
             <div>
               <button className="profilelogout" onClick={logout}>

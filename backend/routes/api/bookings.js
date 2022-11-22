@@ -16,21 +16,27 @@ router.get('/current', requireAuth, async (req, res) => {
         include: {model: Spot, attributes: {exclude: ['createdAt', 'updatedAt']}},
     });
 
-    const image = await Image.findOne({
-        where: {userId: currentUser}
+    let image = await Image.findAll({
+        where: {userId: currentUser}, raw: true
     })
 
+
+
+    // console.log('************************',image)
     let images = []
     
     bookings.forEach(el => {
         let booking = el.toJSON()
-        booking.Spot.previewImage = image.dataValues.url
+            booking.Spot.previewImage = image.dataValues.url
         images.push(booking)
+    
     })
+
+
 
       
     res.status(200)
-   return res.json({Bookings: images})
+   return res.json({bookings: images})
 
 });
 
@@ -46,7 +52,7 @@ handleValidationErrors
 
 
 // Edit a Booking
-router.put('/:bookingId', requireAuth, validateBooking, async (req, res) => {
+router.put('/:bookingId', requireAuth, async (req, res) => {
     const bookingId = req.params.bookingId
     const { startDate, endDate } = req.body
 

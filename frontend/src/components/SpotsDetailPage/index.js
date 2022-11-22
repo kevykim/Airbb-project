@@ -152,25 +152,7 @@ const SpotsDetailPage = () => {
                       {`${spot?.avgStarRating} · ${reviewCounter} reviews`}
                     </div>
                   </div>
-                  <CreateBooking />
-                  <div className="fifthbox_maindiv">
-                    <div className="fifthbox_div">
-                      <div>{`$${spot.price} x 5 nights`}</div>
-                      <div>{`$${spot.price * 5}`}</div>
-                    </div>
-                    <div className="fifthbox_div">
-                      <div>Cleaning Fee</div>
-                      <div>Free</div>
-                    </div>
-                    <div className="fifthbox_div">
-                      <div>Service Fee</div>
-                      <div>Free</div>
-                    </div>
-                  </div>
-                  <div className="fifthbox_total">
-                    <div>Total before taxes</div>
-                    <div>{`$${spot.price * 5}`}</div>
-                  </div>
+                  <CreateBooking spotId={spot.id} spot={spot} />
                 </div>
               </div>
 
