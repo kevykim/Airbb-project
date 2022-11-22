@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { thunkCreateBooking, thunkGetAllSpotsBooking } from "../../store/bookings";
 
+import './CreateBooking.css'
 
 
 function CreateBooking({spotId, spot}) {
@@ -11,14 +12,14 @@ function CreateBooking({spotId, spot}) {
 
   // BOOKING STUFF
 
-  const booking = useSelector((state) => state.booking);
-  const bookingArr = Object.values(booking)
+//   const booking = useSelector((state) => state.booking);
+//   const bookingArr = Object.values(booking)
   
-  const start = bookingArr.map(
-    (date) => [new Date(date.startDate).toISOString().split("T")[0] + ', ' +
-    new Date(date.endDate).toISOString().split("T")[0]]
-  );
-  console.log('start', start)
+//   const start = bookingArr.map(
+//     (date) => [new Date(date.startDate).toISOString().split("T")[0] + ', ' +
+//     new Date(date.endDate).toISOString().split("T")[0]]
+//   );
+//   console.log('start', start)
 
 //   const end = bookingArr.map(
 //     (date) => new Date(date.endDate).toISOString().split("T")[0]
@@ -80,45 +81,72 @@ function CreateBooking({spotId, spot}) {
   }
 
   return (
-    <div>
-      <form onSubmit={onSubmit}>
-        {validations.length > 0 && submitted === true && (
-          <div>
-            <div>
-              {validations.map((error, i) => (
-                <div key={i}>{error}</div>
-              ))}
-            </div>
-          </div>
-        )}
-        <div>
-          <label>
-            CHECK-IN
+    <div className="create_booking_main">
+      <form className="create_booking_form" onSubmit={onSubmit}>
+        <div className="create_booking_check_main">
+          <div className="create_booking_input">
+            <label className="create_booking_label">CHECK-IN</label>
             <input
+              className="create_booking_inner"
               type="date"
               value={today}
               min={date}
               max={fiveDays}
               onChange={(event) => setToday(event.target.value)}
             ></input>
-          </label>
-          <label>
-            CHECKOUT
+          </div>
+          <div style={{ borderRight: "1px solid black" }}></div>
+          <div className="create_booking_input">
+            <label className="create_booking_label">CHECKOUT</label>
             <input
+              className="create_booking_inner"
               type="date"
               value={nextDay}
               min={minOneDay}
               max={fiveDays}
               onChange={(event) => setNextDay(event.target.value)}
             ></input>
-          </label>
-          <button>reserve</button>
+          </div>
         </div>
+        <button className="create_booking_reserve">Reserve</button>
       </form>
-      <div>{`$${
-        spot.price *
-        Number(new Date(nextDay).getDate() - new Date(today).getDate())
-      }`}</div>
+      <div className="create_booking_errors">
+        {validations.length > 0 && submitted === true && (
+          <div className="create_booking_errors">
+            {validations.map((error, i) => (
+              <div key={i}>{error}</div>
+            ))}
+          </div>
+        )}
+      </div>
+      <div className="create_booking_boxed">
+        <div className="fifthbox_maindiv">
+          <div className="fifthbox_div">
+            <div>{`$${spot.price} x ${Number(
+              new Date(nextDay).getDate() - new Date(today).getDate()
+            )} nights`}</div>
+            <div>{`$${
+              spot.price *
+              Number(new Date(nextDay).getDate() - new Date(today).getDate())
+            }`}</div>
+          </div>
+          <div className="fifthbox_div">
+            <div>Cleaning Fee</div>
+            <div>Free</div>
+          </div>
+          <div className="fifthbox_div">
+            <div>Service Fee</div>
+            <div>Free</div>
+          </div>
+        </div>
+        <div className="fifthbox_total">
+          <div>Total before taxes</div>
+          <div>{`$${
+            spot.price *
+            Number(new Date(nextDay).getDate() - new Date(today).getDate())
+          }`}</div>
+        </div>
+      </div>
     </div>
   );
 }
