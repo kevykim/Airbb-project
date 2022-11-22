@@ -21,8 +21,6 @@ function MyBooking() {
 
     const bookingArr = Object.values(booking)
 
-    // console.log(bookingArr)
-
     if (!user) history.push('/')
 
 
@@ -47,7 +45,8 @@ function MyBooking() {
             <div className="mybooking_text">My Bookings</div>
             <div className="mybooking_box">
               <div className="mybooking_outer">
-                {bookingArr.map((booking, i) => (
+                {bookingArr.map((booking, i) => 
+                 (
                   <div className="mybooking_div" key={i}>
                     <NavLink
                       to={`/spots/${booking.spotId}`}
@@ -58,8 +57,9 @@ function MyBooking() {
                         alt="booking"
                         width="200px"
                       ></img>
-                      {/* {console.log(booking.Spot?.previewImage)} */}
                       {`${booking.Spot?.city}, ${booking.Spot?.state}`}
+                      {new Date(booking.startDate).toISOString().split("T")[0]}
+                      {new Date(booking.endDate).toISOString().split("T")[0]}
                     </NavLink>
 
                     <div className="mybooking_buttons">

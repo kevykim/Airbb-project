@@ -11,15 +11,15 @@ function UpdateBooking({bookings, spotId, closeModal}) {
 
     // BOOKING STUFF
 
-    const booking = useSelector((state) => state.booking);
-    const bookingArr = Object.values(booking);
+    // const booking = useSelector((state) => state.booking);
+    // const bookingArr = Object.values(booking);
 
-    const start = bookingArr.map((date) => [
-      new Date(date.startDate).toISOString().split("T")[0] +
-        ", " +
-        new Date(date.endDate).toISOString().split("T")[0],
-    ]);
-    console.log("start", start);
+    // const start = bookingArr.map((date) => [
+    //   new Date(date.startDate).toISOString().split("T")[0] +
+    //     ", " +
+    //     new Date(date.endDate).toISOString().split("T")[0],
+    // ]);
+    // console.log("start", start);
 
     //   const end = bookingArr.map(
     //     (date) => new Date(date.endDate).toISOString().split("T")[0]

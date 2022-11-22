@@ -16,17 +16,23 @@ router.get('/current', requireAuth, async (req, res) => {
         include: {model: Spot, attributes: {exclude: ['createdAt', 'updatedAt']}},
     });
 
-    const image = await Image.findOne({
-        where: {userId: currentUser}
+    let image = await Image.findAll({
+        where: {userId: currentUser}, raw: true
     })
 
+
+
+    // console.log('************************',image)
     let images = []
     
     bookings.forEach(el => {
         let booking = el.toJSON()
-        booking.Spot.previewImage = image.dataValues.url
+            booking.Spot.previewImage = image.dataValues.url
         images.push(booking)
+    
     })
+
+
 
       
     res.status(200)
