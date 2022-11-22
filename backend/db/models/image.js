@@ -13,33 +13,41 @@ module.exports = (sequelize, DataTypes) => {
       Image.belongsTo(models.Review, {foreignKey: 'reviewId'});
       Image.belongsTo(models.User, {foreignKey: 'userId'});
       Image.belongsTo(models.Spot, {foreignKey: 'spotId'});
+      Image.belongsTo(models.Booking, {foreignKey: 'bookingId'})
     }
   }
-  Image.init({
-    url: { 
-      type: DataTypes.STRING,
-      allowNull: false,
+  Image.init(
+    {
+      url: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      previewImage: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: true,
+      },
+      bookingId: {
+        type: DataTypes.INTEGER,
+        // allowNull: false
+      },
+      spotId: {
+        type: DataTypes.INTEGER,
+        // allowNull: false
+      },
+      reviewId: {
+        type: DataTypes.INTEGER,
+        // allowNull: false
+      },
+      userId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
     },
-    previewImage: { 
-      type: DataTypes.BOOLEAN,
-      allowNull: false,
-      defaultValue: true
-    },
-    spotId: { 
-      type: DataTypes.INTEGER,
-      // allowNull: false
-    },
-    reviewId: { 
-      type: DataTypes.INTEGER,
-      // allowNull: false
-    },
-    userId: { 
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-  }, {
-    sequelize,
-    modelName: 'Image',
-  });
+    {
+      sequelize,
+      modelName: "Image",
+    }
+  );
   return Image;
 };
