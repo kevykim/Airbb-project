@@ -87,41 +87,51 @@ function UpdateBooking({bookings, spotId, closeModal}) {
 
 
     return (
-      <div>
-        <form onSubmit={onSubmit}>
-          {validations.length > 0 && submitted === true && (
-            <div>
-              <div>
-                {validations.map((error, i) => (
-                  <div key={i}>{error}</div>
-                ))}
-              </div>
-            </div>
-          )}
-          <div>
-            <label>
-              CHECK-IN
+      <div className="update_booking_main">
+        <div className="updatebooking_header">
+          <button className="closeButton" onClick={() => closeModal(false)}>
+            X
+          </button>
+          <div className="updatebooking_text">Edit a booking</div>
+        </div>
+        <form className="update_booking_form" onSubmit={onSubmit}>
+          <div className="update_booking_check_main">
+            <div className="update_booking_input">
+              <label className="update_booking_label">CHECK-IN</label>
               <input
+                className="update_booking_inner"
                 type="date"
                 value={today}
                 min={date}
                 max={fiveDays}
                 onChange={(event) => setToday(event.target.value)}
               ></input>
-            </label>
-            <label>
-              CHECKOUT
+            </div>
+            <div style={{ borderRight: "1px solid black" }}></div>
+
+            <div className="update_booking_input">
+              <label className="update_booking_label">CHECKOUT</label>
               <input
+                className="update_booking_inner"
                 type="date"
                 value={nextDay}
                 min={minOneDay}
                 max={fiveDays}
                 onChange={(event) => setNextDay(event.target.value)}
               ></input>
-            </label>
-            <button>Update Booking</button>
+            </div>
           </div>
+          <button className="update_booking_reserve">Update Booking</button>
         </form>
+        <div className="update_booking_errors">
+          {validations.length > 0 && submitted === true && (
+            <div className="update_booking_errors">
+              {validations.map((error, i) => (
+                <div key={i}>{error}</div>
+              ))}
+            </div>
+          )}
+        </div>
         {/* <div>{`$${
           bookings.Spot.price *
           Number(new Date(nextDay).getDate() - new Date(today).getDate())

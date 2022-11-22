@@ -80,7 +80,7 @@ const SpotsDetailPage = () => {
                         <i className="fa-solid fa-calendar fa-xl"></i>
                       </div>
                       <div className="secondbox_text">
-                        Free cancellation within 48 hours
+                        Free cancellation for 48 hours
                       </div>
                     </div>
                   </div>

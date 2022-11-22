@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Modal } from "../../context/Modal";
 import UpdateBooking from "./UpdateBooking";
 
-
+import './UpdateBooking.css'
 
 function UpdateBookingModal({booking, spotId}) {
   const [showModal, setShowModal] = useState(false);
@@ -10,7 +10,7 @@ function UpdateBookingModal({booking, spotId}) {
   return (
     <>
       <button
-        className="updatereviewbuttonmodal"
+        className="updatebookingbuttonmodal"
         onClick={() => setShowModal(true)}
       >
         Edit Booking
