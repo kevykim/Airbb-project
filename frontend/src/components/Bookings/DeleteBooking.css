@@ -11,3 +11,11 @@
     font-size: 12pt;
     border: none;
 }
+
+.delete_booking_errors {
+    color: red;
+    text-align: center;
+    font-family: "Monteserrat-Regular";
+    font-size: 9pt;
+    width: 149px;
+}

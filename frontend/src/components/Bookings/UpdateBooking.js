@@ -54,8 +54,8 @@ function UpdateBooking({bookings, spotId, closeModal}) {
 
     useEffect(() => {
       const errors = [];
-      if (today === nextDay) errors.push("Cannot check out on the same day");
-      if (today > nextDay) errors.push("Cannot check in before checkout date");
+      // if (today === nextDay) errors.push("Cannot check out on the same day");
+      // if (today > nextDay) errors.push("Cannot check in before checkout date");
       setValidations(errors);
     }, [today, nextDay]);
 
@@ -71,14 +71,23 @@ function UpdateBooking({bookings, spotId, closeModal}) {
         endDate: new Date(nextDay),
       };
 
-      let updatedBooking = await dispatch(thunkUpdateBooking(payload));
+        let updatedBooking = await dispatch(thunkUpdateBooking(payload)).catch (async (res) => {
+        const data = await res.json()
+        let errors = []
+        if (data && data.message) {
+          errors.push(data.message)
+        }
+        setValidations(errors)
+      })
+  
+        await dispatch(thunkGetCurrentBooking())
+  
+        if (updatedBooking) {
+          history.push(`/bookings`);
+          closeModal(false)
+        }
 
-      await dispatch(thunkGetCurrentBooking())
-
-      if (updatedBooking) {
-        history.push(`/bookings`);
-        closeModal(false)
-      }
+     
     };
 
     if (!user) {
