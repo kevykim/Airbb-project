@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory } from "react-router-dom";
 import { thunkGetCurrentBooking } from "../../store/bookings";
-import DeleteBooking from "../Bookings/DeleteBooking";
+import DeleteBookingModal from "../Bookings/DeleteBookingM";
 import UpdateBookingModal from "../Bookings/UpdateBookingM";
 
 import './mybooking.css'
@@ -78,7 +78,7 @@ function MyBooking() {
                         booking={booking}
                         spotId={booking.spotId}
                       />
-                      <DeleteBooking spotId={booking.spotId} />
+                      <DeleteBookingModal booking={booking} spotId={booking.spotId} />
                     </div>
                   </div>
                 ))}

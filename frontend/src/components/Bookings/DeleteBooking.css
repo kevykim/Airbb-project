@@ -17,5 +17,47 @@
     text-align: center;
     font-family: "Monteserrat-Regular";
     font-size: 9pt;
-    width: 149px;
+}
+
+
+.delete_booking_modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 230px;
+    font-family: "Monteserrat-Regular";
+        font-size: 11pt;
+
+}
+
+.deletecancelbutton{
+    cursor: pointer;
+        background-color: black;
+        color: white;
+        padding: 10px 10px 10px 10px;
+        margin: 2px 0;
+        width: 149px;
+        height: 42px;
+        border-radius: 5px;
+        font-family: "Monteserrat-SemiBold";
+        font-size: 12pt;
+        border: none;
+}
+
+.delete_booking_modal_confirm {
+    font-family: "Monteserrat-SemiBold";
+    font-size: 18pt;
+}
+
+.delete_booking_modal_header {
+    text-align: center;
+    height: 60px;
+}
+
+.delete_booking_modal_buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 310px;
 }
