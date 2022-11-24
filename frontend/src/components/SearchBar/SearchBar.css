@@ -1,0 +1,85 @@
+.searchbar_main {
+    width: 300px;
+    display: flex;
+    align-items: center;
+        font-family: "Monteserrat-Regular";
+    outline: rgb(230, 30, 77);
+    margin-left: 70px;
+}
+
+.searchbar_input {
+    box-shadow: 0 1px 2px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 5%);
+    width: 300px;
+    height: 50px;
+    padding: 0 15px;
+    border: 1px solid lightgrey;
+    border-radius: 30px;
+    outline: rgb(230, 30, 77);
+        font-family: "Monteserrat-Regular";
+
+}
+
+.searchbar_magnify {
+    position: absolute;
+    right: 10px;
+    color: white;
+    background: rgb(230, 30, 77);
+    border-radius: 30px;
+    height: 33px;
+    width: 33px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchbar_dropmenu {
+    width: 275px;
+    height: 225px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 15px 0px 15px;
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 1px 2px 2px 1px rgb(190, 186, 186);
+    position: absolute;
+    z-index: 5;
+    top: 58px;
+    right: 10px;
+        font-family: "Monteserrat-Regular";
+        font-size: 10pt;
+}
+
+.searchbar_dropmenu_navlink {
+    text-decoration: none;
+    width: 220px;
+    color: black;
+        font-family: "Monteserrat-Regular";
+}
+
+.searchbar_dropmenu_navlink:hover {
+    color: rgb(230, 30, 77);
+}
+
+.searchbar_dropmenu_text {
+    word-wrap: break-word;
+}
+
+.searchbar_dropmenu_inner {
+    width: 250px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 10px;
+        font-family: "Monteserrat-Regular";
+}
+
+.searchbar_nosearchfound {
+    padding-top: 10px;
+        font-family: "Monteserrat-Regular";
+}
+
+.searchbar_nosearchspan {
+    color: rgb(230, 30, 77);
+    font-family: "Monteserrat-SemiBold";
+}
