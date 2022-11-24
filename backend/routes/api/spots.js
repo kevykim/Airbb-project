@@ -204,6 +204,7 @@ handleValidationErrors
         where: { spotId: spotId,  
           // [Op.and]: [{ startDate: startDate }, {endDate: endDate}],
         },
+        // raw: true
       });
 
       // console.log(sameBookingChecker)
@@ -217,6 +218,43 @@ handleValidationErrors
       //     statusCode: 403,
       //   });
       // }
+
+
+    // TERNARY?? for fun but not working 
+
+    //      for (let sameBooked of sameBookingChecker) {
+    //  (new Date(startDate) >= sameBooked.dataValues.startDate && sameBooked.dataValues.endDate >= new Date(endDate)) ? 
+    //   res.status(403)
+    //  return res.json({
+    //     message: "Sorry, this spot is already booked for the specified dates",
+    //             statusCode: 403,
+    //   }) :  res.json(booking)
+    // }
+
+      // console.log('%%%%%%%%%%%%',new Date(startDate))
+      // console.log('&&&&&&&&&&&&&&&& ',new Date(endDate));
+
+      // Checks if select date values are greater or equal to the other date values from other users.
+      for (let sameBooked of sameBookingChecker) {
+        // console.log("%%%%%%%%%%%%", sameBooked.dataValues);
+        // console.log("&&&&&&&&&&&&&&&& ", sameBooked.dataValues.endDate);
+        // console.log('ACTUAL', startDate)
+        // console.log("ACTUAL", endDate);
+
+        if (
+          (new Date(startDate) >= sameBooked.dataValues.startDate ||
+          new Date(endDate) >= sameBooked.dataValues.startDate) &&
+          (sameBooked.dataValues.endDate >= new Date(endDate) ||
+          sameBooked.dataValues.endDate >= new Date(startDate))
+        ) {
+          res.status(403);
+          return res.json({
+            message:
+              "Sorry, this spot is already booked for the specified dates",
+            statusCode: 403,
+          });
+        };
+    };
 
     const booking = await Booking.create({
       userId: req.user.id,

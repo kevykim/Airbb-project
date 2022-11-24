@@ -41,7 +41,7 @@ function UpdateBooking({bookings, spotId, closeModal}) {
 
     nextDate.setDate(addedDate.getDate() + 5);
 
-    const fiveDays = new Date(nextDate).toISOString().split("T")[0];
+    // const fiveDays = new Date(nextDate).toISOString().split("T")[0];
 
     const [today, setToday] = useState(new Date
       (bookings.startDate).toISOString().split("T")[0]
@@ -54,8 +54,8 @@ function UpdateBooking({bookings, spotId, closeModal}) {
 
     useEffect(() => {
       const errors = [];
-      if (today === nextDay) errors.push("Cannot check out on the same day");
-      if (today > nextDay) errors.push("Cannot check in before checkout date");
+      // if (today === nextDay) errors.push("Cannot check out on the same day");
+      // if (today > nextDay) errors.push("Cannot check in before checkout date");
       setValidations(errors);
     }, [today, nextDay]);
 
@@ -71,14 +71,23 @@ function UpdateBooking({bookings, spotId, closeModal}) {
         endDate: new Date(nextDay),
       };
 
-      let updatedBooking = await dispatch(thunkUpdateBooking(payload));
+        let updatedBooking = await dispatch(thunkUpdateBooking(payload)).catch (async (res) => {
+        const data = await res.json()
+        let errors = []
+        if (data && data.message) {
+          errors.push(data.message)
+        }
+        setValidations(errors)
+      })
+  
+        await dispatch(thunkGetCurrentBooking())
+  
+        if (updatedBooking) {
+          history.push(`/bookings`);
+          closeModal(false)
+        }
 
-      await dispatch(thunkGetCurrentBooking())
-
-      if (updatedBooking) {
-        history.push(`/bookings`);
-        closeModal(false)
-      }
+     
     };
 
     if (!user) {
@@ -103,7 +112,6 @@ function UpdateBooking({bookings, spotId, closeModal}) {
                 type="date"
                 value={today}
                 min={date}
-                max={fiveDays}
                 onChange={(event) => setToday(event.target.value)}
               ></input>
             </div>
@@ -116,7 +124,6 @@ function UpdateBooking({bookings, spotId, closeModal}) {
                 type="date"
                 value={nextDay}
                 min={minOneDay}
-                max={fiveDays}
                 onChange={(event) => setNextDay(event.target.value)}
               ></input>
             </div>

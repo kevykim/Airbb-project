@@ -12,7 +12,7 @@ function CreateBooking({spotId, spot}) {
 
   // BOOKING STUFF
 
-//   const booking = useSelector((state) => state.booking);
+  // const booking = useSelector((state) => state.booking);
 //   const bookingArr = Object.values(booking)
   
 //   const start = bookingArr.map(
@@ -27,6 +27,9 @@ function CreateBooking({spotId, spot}) {
 //   console.log('end', end)
 
   const user = useSelector((state) => state.session.user);
+
+  // console.log(spot.ownerId)
+
 
   //DATE STUFF
   const date = new Date().toISOString().split("T")[0];
@@ -45,23 +48,27 @@ function CreateBooking({spotId, spot}) {
 
   const [today, setToday] = useState(date);
   const [nextDay, setNextDay] = useState(fiveDays);
-  const [submitted, setSubmitted] = useState(false);
+  // const [submitted, setSubmitted] = useState(false);
   const [validations, setValidations] = useState([]);
 
   useEffect(() => {
     const errors = [];
-    if (today === nextDay) errors.push("Cannot check out on the same day");
-    if (today > nextDay) errors.push("Cannot check in before checkout date");
+    // if (today === nextDay) errors.push("Cannot check out on the same day");
+    // if (today > nextDay) errors.push("Cannot check in before checkout date");
+    if (user?.id === spot?.ownerId) errors.push('Owners of spot cannot book reservation')
     setValidations(errors);
-  }, [today, nextDay]);
+  }, [spot?.ownerId, user?.id]);
 
   useEffect(() => {
     dispatch(thunkGetAllSpotsBooking(spotId));
   }, [dispatch, spotId]);
 
   const onSubmit = async (event) => {
+    if (!user) {
+      alert('Please log in')
+    }
     event.preventDefault();
-    setSubmitted(!submitted);
+
     const payload = {
       userId: user.id,
       spotId: spotId,
@@ -69,16 +76,21 @@ function CreateBooking({spotId, spot}) {
       endDate: nextDay,
     };
 
-    let createdBooking = await dispatch(thunkCreateBooking(payload));
+    let createdBooking = await dispatch(thunkCreateBooking(payload)).catch (async (res) => {
+      const data = await res.json()
+      let errors = []
+      if (data && data.message) {
+        errors.push(data.message)
+      }
+      setValidations(errors)
+    })
 
     if (createdBooking) {
-      history.push(`/spots/${createdBooking.spotId}`);
+      history.push(`/bookings`);
     }
   };
 
-  if (!user) {
-    alert("Must be logged in");
-  }
+ 
 
   return (
     <div className="create_booking_main">
@@ -91,7 +103,7 @@ function CreateBooking({spotId, spot}) {
               type="date"
               value={today}
               min={date}
-              max={fiveDays}
+              // max={fiveDays}
               onChange={(event) => setToday(event.target.value)}
             ></input>
           </div>
@@ -103,15 +115,21 @@ function CreateBooking({spotId, spot}) {
               type="date"
               value={nextDay}
               min={minOneDay}
-              max={fiveDays}
+              // max={fiveDays}
               onChange={(event) => setNextDay(event.target.value)}
             ></input>
           </div>
         </div>
-        <button className="create_booking_reserve">Reserve</button>
+        <button
+          className="create_booking_reserve"
+          type="submit"
+          // disabled={validations.length > 0}
+        >
+          Reserve
+        </button>
       </form>
       <div className="create_booking_errors">
-        {validations.length > 0 && submitted === true && (
+        {validations.length > 0 && (
           <div className="create_booking_errors">
             {validations.map((error, i) => (
               <div key={i}>{error}</div>

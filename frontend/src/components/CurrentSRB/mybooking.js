@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory } from "react-router-dom";
 import { thunkGetCurrentBooking } from "../../store/bookings";
-import DeleteBooking from "../Bookings/DeleteBooking";
+import DeleteBookingModal from "../Bookings/DeleteBookingM";
 import UpdateBookingModal from "../Bookings/UpdateBookingM";
 
 import './mybooking.css'
@@ -45,21 +45,32 @@ function MyBooking() {
             <div className="mybooking_text">My Bookings</div>
             <div className="mybooking_box">
               <div className="mybooking_outer">
-                {bookingArr.map((booking, i) => 
-                 (
+                {bookingArr.map((booking, i) => (
                   <div className="mybooking_div" key={i}>
                     <NavLink
                       to={`/spots/${booking.spotId}`}
                       className="mybooking_links"
                     >
                       <img
-                        src={booking.Spot?.previewImage}
+                        className="mybooking_image"
+                        src={booking["Spot.Images.url"]}
                         alt="booking"
-                        width="200px"
                       ></img>
-                      {`${booking.Spot?.city}, ${booking.Spot?.state}`}
-                      {new Date(booking.startDate).toISOString().split("T")[0]}
-                      {new Date(booking.endDate).toISOString().split("T")[0]}
+                      <div className="mybooking_dateinfo">
+                        <div>
+                          {`${booking["Spot.city"]}, ${booking["Spot.country"]}`}
+                        </div>
+                        {
+                          new Date(booking.startDate)
+                            .toISOString()
+                            .split("T")[0]
+                        }
+                        &nbsp; - &nbsp;
+                        {new Date(booking.endDate).toISOString().split("T")[0]}
+                        <div>
+                          {`$${booking['Spot.price']} per night`}
+                        </div>
+                      </div>
                     </NavLink>
 
                     <div className="mybooking_buttons">
@@ -67,7 +78,7 @@ function MyBooking() {
                         booking={booking}
                         spotId={booking.spotId}
                       />
-                      <DeleteBooking spotId={booking.spotId} />
+                      <DeleteBookingModal booking={booking} spotId={booking.spotId} />
                     </div>
                   </div>
                 ))}

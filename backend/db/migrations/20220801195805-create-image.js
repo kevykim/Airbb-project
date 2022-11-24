@@ -18,6 +18,9 @@ module.exports = {
         allowNull: false,
         defaultValue: true
       },
+      // bookingId: {
+      //   type: Sequelize.INTEGER
+      // },
       spotId: {
         type: Sequelize.INTEGER,
         // allowNull: false,
