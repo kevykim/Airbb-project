@@ -41,7 +41,7 @@ function UpdateBooking({bookings, spotId, closeModal}) {
 
     nextDate.setDate(addedDate.getDate() + 5);
 
-    const fiveDays = new Date(nextDate).toISOString().split("T")[0];
+    // const fiveDays = new Date(nextDate).toISOString().split("T")[0];
 
     const [today, setToday] = useState(new Date
       (bookings.startDate).toISOString().split("T")[0]
@@ -112,7 +112,6 @@ function UpdateBooking({bookings, spotId, closeModal}) {
                 type="date"
                 value={today}
                 min={date}
-                max={fiveDays}
                 onChange={(event) => setToday(event.target.value)}
               ></input>
             </div>
@@ -125,7 +124,6 @@ function UpdateBooking({bookings, spotId, closeModal}) {
                 type="date"
                 value={nextDay}
                 min={minOneDay}
-                max={fiveDays}
                 onChange={(event) => setNextDay(event.target.value)}
               ></input>
             </div>
