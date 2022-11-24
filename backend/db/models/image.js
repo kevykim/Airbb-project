@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       Image.belongsTo(models.Review, {foreignKey: 'reviewId'});
       Image.belongsTo(models.User, {foreignKey: 'userId'});
       Image.belongsTo(models.Spot, {foreignKey: 'spotId'});
-      Image.belongsTo(models.Booking, {foreignKey: 'bookingId'})
+      // Image.belongsTo(models.Booking, {foreignKey: 'bookingId'})
     }
   }
   Image.init(
@@ -27,10 +27,10 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         defaultValue: true,
       },
-      bookingId: {
-        type: DataTypes.INTEGER,
-        // allowNull: false
-      },
+      // bookingId: {
+      //   type: DataTypes.INTEGER,
+      //   // allowNull: false
+      // },
       spotId: {
         type: DataTypes.INTEGER,
         // allowNull: false
