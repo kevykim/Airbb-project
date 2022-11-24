@@ -47,12 +47,13 @@ const ReviewsReadPage = ({spotId}) => {
         <div className="reviewcontainer" key={review.id}>
           <div className="profilereview">
             <div className="profilereview_container">
-              <i className="fa-solid fa-user fa-2xl"></i>&nbsp;
+              <i className="fa-solid fa-circle-user fa-3x"></i>
+              &nbsp; &nbsp;
               <div className="reviewnamedate">
-                <div className='reviewuserfirstname'>
+                <div className="reviewuserfirstname">
                   {` ${review?.User?.firstName}`}
                 </div>
-                <div className='reviewdate_color'>{`${date.toLocaleDateString(
+                <div className="reviewdate_color">{`${date.toLocaleDateString(
                   undefined,
                   options
                 )}`}</div>

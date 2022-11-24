@@ -32,7 +32,7 @@ function MySpot() {
           <div className="myspot_notshown">
             <div className="myspot_notinner">
               <NavLink className='myspot_nolink' to={'/'}>
-              <div className="myspot_notext"> No Spots Here...</div>
+              <div className="myspot_notext"> No Listings Here...</div>
               <img
                 className="myspot_notshownimage"
                 src="https://images.pexels.com/photos/4032024/pexels-photo-4032024.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
@@ -44,7 +44,7 @@ function MySpot() {
           </div>
         ) : (
           <div>
-            <div className="myspot_text">My Spots</div>
+            <div className="myspot_text">My Listings</div>
             <div className="myspot_card">
               {spots.map((spot) => (
                 <div key={spot.id}>

@@ -58,7 +58,9 @@ const SpotsDetailPage = () => {
                 <div className="descript_container">
                   <div className="descript_div">
                     Entire home hosted by {spot?.Owner?.firstName}
-                    <i className="fa-regular fa-circle-user fa-2xl"></i>
+                    <i
+                      className="fa-solid fa-circle-user fa-2xl"
+                    ></i>
                   </div>
                   <div className="secondbox_div">
                     <div className="secondbox_container">
