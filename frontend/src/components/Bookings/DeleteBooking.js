@@ -10,15 +10,17 @@ import './DeleteBooking.css'
 function DeleteBooking({ closeModal, booking, spotId}) {
     const dispatch = useDispatch()
     const history = useHistory()
-    console.log(booking)
+
+
+    // console.log('delete component', booking.id)
 
     const [validations, setValidations] = useState([])
-    const [submitted, setSubmitted] = useState(false)
+    // const [submitted, setSubmitted] = useState(false)
 
     const onClick = async (event) => {
         event.preventDefault()
-        setSubmitted(!submitted)
-         let deletedBooking = await dispatch(thunkDeleteBooking(Number(spotId))).catch (async (res) => {
+
+         let deletedBooking = await dispatch(thunkDeleteBooking(Number(booking.id))).catch (async (res) => {
             const data = await res.json()
             let errors = []
             if (data && data.message) {
@@ -38,7 +40,7 @@ function DeleteBooking({ closeModal, booking, spotId}) {
         <div className="delete_booking_modal_header">
           <div>Are you sure? Canceling a reservation is irreversible.</div>
           <div>
-            Refunds will be given within the 48 hours after confirmation.
+            Refunds will be given within 48 hours after confirmation.
           </div>
         </div>
         <div className="delete_booking_modal_buttons">
@@ -53,7 +55,7 @@ function DeleteBooking({ closeModal, booking, spotId}) {
           </button>
         </div>
         <div>
-          {validations.length > 0 && submitted === true && (
+          {validations.length > 0 && (
             <div className="delete_booking_errors">
               {validations.map((error, i) => (
                 <div key={i}>{error}</div>

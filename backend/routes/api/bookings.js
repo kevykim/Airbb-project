@@ -13,32 +13,34 @@ router.get('/current', requireAuth, async (req, res) => {
     const currentUser = req.user.id
     const bookings = await Booking.findAll({
         where: { userId: currentUser },
-        include: {model: Spot, attributes: {exclude: ['createdAt', 'updatedAt']}},
+        include: {model: Spot, attributes: {exclude: ['createdAt', 'updatedAt']}, include: {model: Image, attributes: ['url']},},
+        raw: true
     });
 
-    let image = await Image.findAll({
-        where: {userId: currentUser}, raw: true
-    })
+    // let image = await Image.findAll({
+    //     where: {userId: currentUser}, raw: true
+    // })
 
 
 
-    // console.log('************************',image)
-    let images = []
+    // console.log('************************',bookings)
+    // let images = []
     
-    bookings.forEach(el => {
-        let booking = el.toJSON()
-            booking.Spot.previewImage = image.dataValues.url
-        images.push(booking)
+    // bookings.forEach(el => {
+    //     let booking = el.toJSON()
+    //         booking.Spot.previewImage = image.dataValues.url
+    //     images.push(booking)
     
-    })
+    // })
 
 
 
       
     res.status(200)
-   return res.json({bookings: images})
+   return res.json({bookings: bookings})
 
 });
+
 
 const validateBooking = [
 check("startDate")
@@ -103,6 +105,10 @@ router.put('/:bookingId', requireAuth, async (req, res) => {
 router.delete('/:bookingId', requireAuth, async (req, res) => {
     const bookingId = req.params.bookingId
     const booking = await Booking.findByPk(bookingId)
+
+    // console.log(req.params)
+    // console.log('asdfasdfasdfadsf',bookingId)
+    // console.log('*****************************', booking)
 
     if(!booking) {
         res.status(404)
