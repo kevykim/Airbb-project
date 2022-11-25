@@ -71,7 +71,7 @@ This project is built with:
 ## Edit Review
 <img src="./frontend/public/readmeimages/Airbb%20Editreview.png" />
 
-# Future Focus: Bookings, Images
+# Future Focus: 
 
 - Add a Images feature where an Owner of a spot can add/delete an image to their created spot.
 - Add AWS for images.
