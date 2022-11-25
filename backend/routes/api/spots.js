@@ -617,6 +617,13 @@ router.get('/', validateQuery, async (req, res) => {
  
 
     const allSpots = await Spot.findAll({
+      include: [
+        {
+          model: User,
+          as: "Owner",
+          attributes: ["id", "firstName", "lastName"],
+        },
+      ],
       // attributes: {
       //   include: [
       //     [sequelize.fn("AVG", sequelize.col("stars")), "avgRating"],
@@ -628,18 +635,18 @@ router.get('/', validateQuery, async (req, res) => {
       //     model: Review,
       //     attributes: [],
       //   },
-        // attributes: {
-        //     exclude: ['review', 'createdAt', 'updatedAt'],
-        // },
+      // attributes: {
+      //     exclude: ['review', 'createdAt', 'updatedAt'],
+      // },
 
-        // {
-        //   model: Image,
-        //   attributes: [],
-        //   // ['previewImage']
-        // },
+      // {
+      //   model: Image,
+      //   attributes: [],
+      //   // ['previewImage']
+      // },
       // ],
       // group: ["Spot.id"],
-      ...pagination
+      ...pagination,
     });
 
 

@@ -7,6 +7,7 @@ import "./Navigation.css";
 import SignUpModal from "../SignUpFormPage/SignUpModal";
 import { useState} from "react";
 import logo from '../../images/airbb.png'
+import SearchBar from "../SearchBar/SearchBar";
 
 
 
@@ -97,6 +98,9 @@ let sessionLinks = <ProfileButton signUp={signUp} setSignUp={setSignUp} logIn={l
             ></img>
             <div className="airbnbhome_text">&nbsp;airbb</div>
           </NavLink>
+        </div>
+        <div style={{position:'relative'}}>
+        <SearchBar />
         </div>
         {isLoaded && sessionLinks}
         <SignUpModal menu={startMenu} showMenu={setStartMenu} signUp={signUp} setSignUp={setSignUp}/>

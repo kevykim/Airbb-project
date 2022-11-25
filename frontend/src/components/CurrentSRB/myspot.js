@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
-import {  thunkCurrentSpots } from "../../store/spots";
+import {  getSpots } from "../../store/spots";
 import SpotsDeletePage from "../SpotsDeletePage";
 import SpotsUpdateModal from "../SpotsUpdatePage/SpotsUpdateModal";
 import { useHistory } from "react-router-dom";
@@ -14,13 +14,14 @@ function MySpot() {
     const history = useHistory();
 
        useEffect(() => {
-        //  dispatch(getSpots());
-        dispatch(thunkCurrentSpots());
+         dispatch(getSpots());
+        //  dispatch(thunkCurrentSpots());
        }, [dispatch]);
 
     const allSpot = useSelector((state) => state.spot);
     const spots = Object.values(allSpot);
-    // const filteredSpot = spots?.find(spot => spot?.ownerId === user?.id)
+    const filteredSpot = spots?.filter(spot => spot?.ownerId === user?.id)
+    // console.log(filteredSpot)
 
     
     if (!user) history.push('/');
@@ -28,11 +29,11 @@ function MySpot() {
 
     return (
       <div className="myspot_container">
-        {spots?.length === 0 ? (
+        {filteredSpot?.length === 0 ? (
           <div className="myspot_notshown">
             <div className="myspot_notinner">
               <NavLink className='myspot_nolink' to={'/'}>
-              <div className="myspot_notext"> No Spots Here...</div>
+              <div className="myspot_notext"> No Listings Here...</div>
               <img
                 className="myspot_notshownimage"
                 src="https://images.pexels.com/photos/4032024/pexels-photo-4032024.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
@@ -44,9 +45,9 @@ function MySpot() {
           </div>
         ) : (
           <div>
-            <div className="myspot_text">My Spots</div>
+            <div className="myspot_text">My Listings</div>
             <div className="myspot_card">
-              {spots.map((spot) => (
+              {filteredSpot.map((spot) => (
                 <div key={spot.id}>
                   <div className="myspot_image_div">
                     <NavLink to={`/spots/${spot?.id}`}>

@@ -6,7 +6,7 @@ import './ReviewsCreatePage.css'
 import { useState, useEffect } from 'react';
 import { thunkCreateReview, thunkReadReview } from '../../store/reviews';
 import { useParams } from 'react-router-dom';
-import { getASpot } from '../../store/spots';
+import { getSpots } from '../../store/spots';
 
 const ReviewsCreatePage = ({spotId, closeModal}) => {
 
@@ -16,6 +16,8 @@ const ReviewsCreatePage = ({spotId, closeModal}) => {
 
     const history = useHistory()
     const user = useSelector(state => state.session.user)
+    const spot = useSelector(state => state.spot[id])
+    // console.log(spot)
     const reviewObj = useSelector(state => state.review)
     const review = Object.values(reviewObj)
 
@@ -24,14 +26,25 @@ const ReviewsCreatePage = ({spotId, closeModal}) => {
     const [submitted, setSubmitted] = useState(false)
     const [validationErrors, setValidationErrors] = useState([])
 
-    useEffect(() => {
+    const ownedReview = review.map((review) => review.userId === user.id);
+     const toOwned = ownedReview.filter((reviews) => reviews === true);
+    
 
-        const errors = [];
+    useEffect(() => {
+      
+      const errors = [];
+      if (spot?.ownerId === user?.id) {
+        errors.push('Owner of spot cannot make reviews')
+      } else if (toOwned.length >= 1) {
+        errors.push('You cannot have more than one review')
+      } else {
         if (star < 1 || star > 5) errors.push('Stars must be within the range of 1 to 5')
         if (isNaN(star)) errors.push("Star must be a number")
         if (!reviewText.length || reviewText.length > 256) errors.push('Must have review')
+      }
+        
         setValidationErrors(errors)
-    }, [star, reviewText])
+    }, [star, reviewText, toOwned.length, spot?.ownerId, user?.id])
     
     
     const onSubmit = async (event) => {
@@ -43,25 +56,28 @@ const ReviewsCreatePage = ({spotId, closeModal}) => {
         userId: user.id,
         spotId: spotId,
       };
-      const ownedReview = review.map((review) => review.userId === user.id);
-
-      const toOwned = ownedReview.filter((reviews) => reviews === true);
+      
+      //  if (toOwned.length >= 1) {
+      //    validationErrors.push("You cannot have more than one review for a Spot");
+      //  }
       
       // let createdReview = await dispatch(thunkCreateReview(payload));
 
-      if (toOwned.length >= 1) {
-        alert("You cannot have more than one review for a Spot. Go delete or edit the review.");
-        history.push(`/reviews`)
-      } else {
+      // if (toOwned.length >= 1) {
+      //   alert("You cannot have more than one review for a Spot. Go delete or edit the review.");
+      //   history.push(`/reviews`)
+      // } else {
       await dispatch(thunkCreateReview(payload));
-     history.push(`/spots/${spotId}`);
-     closeModal(false);
-      }
+      // if (createdReview) {
+        history.push(`/spots/${spotId}`);
+        closeModal(false);
+      // }
+      // }
 
 
       await dispatch(thunkReadReview(id));
 
-      await dispatch(getASpot(spotId));
+      await dispatch(getSpots());
 
       // if (createdReview) {
       //   history.push(`/spots/${spotId}`);
