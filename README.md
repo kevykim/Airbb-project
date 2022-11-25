@@ -55,5 +55,6 @@ This project is built with:
 
 # Future Focus: Bookings, Images
 
-- Add a Bookings feature where a User can book, edit, and delete a trip. 
 - Add a Images feature where an Owner of a spot can add/delete an image to their created spot.
+- Add AWS for images.
+- Google Maps API
