@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { thunkAllCurrentReview } from "../../store/reviews";
 import ReviewsDeletePage from "../ReviewsDeletePage";
 import ReviewsUpdateModal from "../ReviewsUpdatePage/ReviewsUpdateModal";
-import {thunkCurrentSpots } from "../../store/spots";
+import {getSpots } from "../../store/spots";
 import { NavLink } from "react-router-dom";
 
 import './myreview.css'
@@ -17,8 +17,8 @@ function MyReview() {
 
     useEffect(() => {
         dispatch(thunkAllCurrentReview())
-        //  dispatch(getSpots());
-         dispatch(thunkCurrentSpots());
+         dispatch(getSpots());
+        //  dispatch(thunkCurrentSpots());
 
     },[dispatch])
 

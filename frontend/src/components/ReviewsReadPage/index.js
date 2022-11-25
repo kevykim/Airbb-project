@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { thunkReadReview } from '../../store/reviews';
 import ReviewsCreateModal from '../ReviewsCreatePage/ReviewsCreateModal';
-import { getASpot } from '../../store/spots';
+import {  getSpots } from '../../store/spots';
 // import ReviewsDeletePage from '../ReviewsDeletePage';
 // import ReviewsUpdateModal from '../ReviewsUpdatePage/ReviewsUpdateModal';
 
@@ -31,7 +31,9 @@ const ReviewsReadPage = ({spotId}) => {
   // console.log("review finds",reviews?.find((review) => review?.userId === owner?.id))
 
   useEffect(() => {
-      dispatch(getASpot(spotId));
+      // dispatch(getASpot(spotId));
+      dispatch(getSpots());
+
     dispatch(thunkReadReview(id));
   }, [dispatch, spotId, id]);
 
@@ -41,7 +43,7 @@ const ReviewsReadPage = ({spotId}) => {
     <div className="allreviews_container">
       <div className="reviewstitlediv">
         <i className="fa-solid fa-star"></i>&nbsp;
-        {`${spot?.avgStarRating} · ${reviews.length} reviews`}
+        {`${spot?.avgRating} · ${reviews.length} reviews`}
       </div>
       {reviews.map((review) => (
         <div className="reviewcontainer" key={review.id}>

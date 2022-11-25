@@ -2,7 +2,7 @@
 import { useDispatch, useSelector } from "react-redux";
     import { useParams } from "react-router-dom";
 import { thunkReadReview } from "../../store/reviews";
-import { getASpot } from "../../store/spots";
+import {  getSpots } from "../../store/spots";
 import CreateBooking from "../Bookings/CreateBooking";
 import ReviewsReadPage from "../ReviewsReadPage";
 // import SpotsDeletePage from "../SpotsDeletePage";
@@ -16,14 +16,15 @@ const SpotsDetailPage = () => {
      const dispatch = useDispatch()
 
     const spot = useSelector(state => state.spot[id])
+    console.log(spot)
     // const user = useSelector(state => state.session.user)
    
     const review = useSelector(state => state.review)
     const reviewCounter = (Object.values(review).length);
 
     useEffect(() => {
-      dispatch(getASpot(id))
       dispatch(thunkReadReview(id))
+      dispatch(getSpots())
     }, [dispatch, id])
     
     
@@ -40,20 +41,20 @@ const SpotsDetailPage = () => {
                 <div className="spotavgstarrating">
                   <i className="fa-solid fa-star"></i>
                   &nbsp;
-                  {`${spot?.avgStarRating} · ${reviewCounter} reviews · ${spot.city}, ${spot.state}, ${spot.country}`}
+                  {`${spot?.avgRating} · ${reviewCounter} reviews · ${spot.city}, ${spot.state}, ${spot.country}`}
                 </div>
                 {/* A NAV LINK TO REVIEWS FOR THAT SPOT */}
               </div>
 
-              {spot.Images && (
+               
                 <div className="spotimgdiv">
                   <img
                     className="spotimgdetail"
-                    src={spot?.Images[0]?.url}
+                    src={spot?.previewImage}
                     alt="House test"
                   ></img>
                 </div>
-              )}
+              
               <div className="descript_pricecontainer">
                 <div className="descript_container">
                   <div className="descript_div">
@@ -151,7 +152,7 @@ const SpotsDetailPage = () => {
                     <div className="avg_rating_div">
                       <i className="fa-solid fa-star"></i>
                       &nbsp;
-                      {`${spot?.avgStarRating} · ${reviewCounter} reviews`}
+                      {`${spot?.avgRating} · ${reviewCounter} reviews`}
                     </div>
                   </div>
                   <CreateBooking spotId={spot.id} spot={spot} />
