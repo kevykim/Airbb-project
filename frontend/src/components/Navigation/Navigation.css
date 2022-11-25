@@ -41,6 +41,10 @@
     text-decoration: none;
 }
 
+.airbnbhome:hover {
+    opacity: 0.85;
+}
+
 .airbnbhome_text {
     color: rgb(206, 69, 72);
     font-family: "Monteserrat-SemiBold";

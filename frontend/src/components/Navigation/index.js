@@ -45,7 +45,6 @@ function Navigation({ isLoaded }) {
   //   );
   // }
 
-
   // if (sessionUser) {
     //   sessionLinks = (
       //     <div>

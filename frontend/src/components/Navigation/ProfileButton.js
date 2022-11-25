@@ -7,12 +7,10 @@ import DemoUser from "../DemoUser";
 import './ProfileButton.css'
 import BecomeAHost from "../SignUpFormPage/BecomeHostModal.js";
 
-
 function ProfileButton({ user, showStartMenu, signUp, setSignUp, logIn, setLogIn }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const [modal, showModal] = useState(false)
-
   const history = useHistory();
 
   // console.log(showStartMenu)

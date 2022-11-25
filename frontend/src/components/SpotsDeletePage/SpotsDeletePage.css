@@ -11,3 +11,7 @@ cursor: pointer;
     font-size: 12pt;
     border: none;
 }
+
+.deletespotbutton:hover {
+    opacity: 0.85;
+}

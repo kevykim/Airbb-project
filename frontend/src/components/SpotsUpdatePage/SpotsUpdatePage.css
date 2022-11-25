@@ -220,6 +220,10 @@ border-radius: 5px;
         border: none;
 }
 
+.updatespotbuttonmodal:hover {
+    opacity: 0.85;
+}
+
 /* .spottybutton {
     display: flex;
     flex-direction: row;
