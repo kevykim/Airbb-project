@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { thunkCreateBooking, thunkGetAllSpotsBooking } from "../../store/bookings";
+import { getSpots } from "../../store/spots";
 
 import './CreateBooking.css'
 
@@ -61,6 +62,7 @@ function CreateBooking({spotId, spot}) {
 
   useEffect(() => {
     dispatch(thunkGetAllSpotsBooking(spotId));
+    dispatch(getSpots())
   }, [dispatch, spotId]);
 
   const onSubmit = async (event) => {

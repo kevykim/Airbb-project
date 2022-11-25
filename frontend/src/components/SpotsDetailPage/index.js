@@ -16,7 +16,7 @@ const SpotsDetailPage = () => {
      const dispatch = useDispatch()
 
     const spot = useSelector(state => state.spot[id])
-    console.log(spot)
+    // console.log(spot)
     // const user = useSelector(state => state.session.user)
    
     const review = useSelector(state => state.review)
