@@ -22,9 +22,12 @@ function SearchBar() {
        let arr = []
        spotsArr.forEach((spot, i) => {
         if (
-            spot['city'].toLowerCase().includes(word.toLowerCase())) {
-                arr.push(spot)
-            }
+          spot["city"].toLowerCase().includes(word.toLowerCase()) ||
+          spot["state"].toLowerCase().includes(word.toLowerCase()) ||
+          spot["country"].toLowerCase().includes(word.toLowerCase())
+        ) {
+          arr.push(spot);
+        }
         })
         return arr
 
@@ -60,7 +63,7 @@ function SearchBar() {
           <input
             type="text"
             className="searchbar_input"
-            placeholder="Anywhere | Any week | Add guests"
+            placeholder="Anywhere | City | State"
             onChange={(e) => setSearchWord(e.target.value)}
             value={searchWord}
           />
