@@ -33,7 +33,7 @@
 }
 
 .searchbar_dropmenu {
-    width: 275px;
+    width: 280px;
     height: 225px;
     overflow-y: auto;
     display: flex;
@@ -44,7 +44,7 @@
     box-shadow: 1px 2px 2px 1px rgb(190, 186, 186);
     position: absolute;
     z-index: 5;
-    top: 58px;
+    top: 50px;
     right: 10px;
         font-family: "Monteserrat-Regular";
         font-size: 10pt;
@@ -63,8 +63,18 @@
 
 .searchbar_dropmenu_text {
     word-wrap: break-word;
+    padding: 0 25px;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
 }
 
+.searchbar_image {
+    width: 75px;
+    height: 50px;
+    border-radius: 5px;
+}
 .searchbar_dropmenu_inner {
     width: 250px;
     display: flex;
@@ -77,6 +87,9 @@
 .searchbar_nosearchfound {
     padding-top: 10px;
         font-family: "Monteserrat-Regular";
+        word-break: break-all;
+            white-space: pre-wrap;
+        
 }
 
 .searchbar_nosearchspan {

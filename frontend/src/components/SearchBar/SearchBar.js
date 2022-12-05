@@ -63,7 +63,7 @@ function SearchBar() {
           <input
             type="text"
             className="searchbar_input"
-            placeholder="Anywhere | City | State"
+            placeholder="Anywhere | City | State | Country"
             onChange={(e) => setSearchWord(e.target.value)}
             value={searchWord}
           />
@@ -81,8 +81,17 @@ function SearchBar() {
                 onClick={() => setSearchWord("")}
               >
                 <div className="searchbar_dropmenu_inner">
+                  <img
+                    className="searchbar_image"
+                    alt="previewImage"
+                    src={spot["previewImage"]}
+                    onError={(event) => {
+                      event.currentTarget.src =
+                        "https://images.pexels.com/photos/4792480/pexels-photo-4792480.jpeg";
+                    }}
+                  />
                   <div className="searchbar_dropmenu_text">
-                    {`${spot['city']}, ${spot['country']}`}
+                    {`${spot["city"]}, ${spot["country"]}`}
                   </div>
                 </div>
               </NavLink>
@@ -93,7 +102,8 @@ function SearchBar() {
         {showDropdown && !searchResult?.length && (
           <div className="searchbar_dropmenu">
             <div className="searchbar_nosearchfound">
-              No results found for : <span className="searchbar_nosearchspan">{searchWord}</span>
+              No results found for :
+              <span className="searchbar_nosearchspan">{searchWord}</span>
             </div>
           </div>
         )}
