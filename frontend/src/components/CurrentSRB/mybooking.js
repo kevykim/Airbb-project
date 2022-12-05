@@ -37,6 +37,10 @@ function MyBooking() {
                   className="mybooking_notshownimage"
                   src="https://images.pexels.com/photos/5428829/pexels-photo-5428829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                   alt="Not Shown"
+                  onError={(event) => {
+                    event.currentTarget.src =
+                      "https://images.pexels.com/photos/5428829/pexels-photo-5428829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
+                  }}
                 ></img>
                 <div className="mybooking_notext">Click to go back Home!</div>
               </NavLink>
@@ -57,6 +61,10 @@ function MyBooking() {
                         className="mybooking_image"
                         src={booking["Spot.Images.url"]}
                         alt="booking"
+                        onError={(event) => {
+                          event.currentTarget.src =
+                            "https://images.pexels.com/photos/4792480/pexels-photo-4792480.jpeg";
+                        }}
                       ></img>
                       <div className="mybooking_dateinfo">
                         <div>
@@ -69,9 +77,7 @@ function MyBooking() {
                         }
                         &nbsp; - &nbsp;
                         {new Date(booking.endDate).toISOString().split("T")[0]}
-                        <div>
-                          {`$${booking['Spot.price']} per night`}
-                        </div>
+                        <div>{`$${booking["Spot.price"]} per night`}</div>
                       </div>
                     </NavLink>
 
@@ -80,7 +86,10 @@ function MyBooking() {
                         booking={booking}
                         spotId={booking.spotId}
                       />
-                      <DeleteBookingModal booking={booking} spotId={booking.spotId} />
+                      <DeleteBookingModal
+                        booking={booking}
+                        spotId={booking.spotId}
+                      />
                     </div>
                   </div>
                 ))}

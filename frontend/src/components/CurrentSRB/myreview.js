@@ -49,6 +49,10 @@ function MyReview() {
                   className="myreview_notshownimage"
                   src="https://images.pexels.com/photos/5428829/pexels-photo-5428829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                   alt="Not Shown"
+                  onError={(event) => {
+                    event.currentTarget.src =
+                      "https://images.pexels.com/photos/5428829/pexels-photo-5428829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
+                  }}
                 ></img>
                 <div className="myreview_notext">Click to go back Home!</div>
               </NavLink>

@@ -32,14 +32,18 @@ function MySpot() {
         {filteredSpot?.length === 0 ? (
           <div className="myspot_notshown">
             <div className="myspot_notinner">
-              <NavLink className='myspot_nolink' to={'/'}>
-              <div className="myspot_notext"> No Listings Here...</div>
-              <img
-                className="myspot_notshownimage"
-                src="https://images.pexels.com/photos/4032024/pexels-photo-4032024.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                alt="Not Shown"
-              ></img>
-              <div className="myspot_notext"> Click to go back Home!</div>
+              <NavLink className="myspot_nolink" to={"/"}>
+                <div className="myspot_notext"> No Listings Here...</div>
+                <img
+                  className="myspot_notshownimage"
+                  src="https://images.pexels.com/photos/4032024/pexels-photo-4032024.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                  alt="Not Shown"
+                  onError={(event) => {
+                    event.currentTarget.src =
+                      "https://images.pexels.com/photos/4032024/pexels-photo-4032024.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
+                  }}
+                ></img>
+                <div className="myspot_notext"> Click to go back Home!</div>
               </NavLink>
             </div>
           </div>
@@ -55,6 +59,10 @@ function MySpot() {
                         className="myspot_image"
                         src={spot?.previewImage}
                         alt="test"
+                        onError={(event) => {
+                          event.currentTarget.src =
+                            "https://images.pexels.com/photos/4792480/pexels-photo-4792480.jpeg";
+                        }}
                       ></img>
                     </NavLink>
                   </div>

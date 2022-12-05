@@ -46,22 +46,23 @@ const SpotsDetailPage = () => {
                 {/* A NAV LINK TO REVIEWS FOR THAT SPOT */}
               </div>
 
-               
-                <div className="spotimgdiv">
-                  <img
-                    className="spotimgdetail"
-                    src={spot?.previewImage}
-                    alt="House test"
-                  ></img>
-                </div>
-              
+              <div className="spotimgdiv">
+                <img
+                  className="spotimgdetail"
+                  src={spot?.previewImage}
+                  alt="House test"
+                  onError={(event) => {
+                    event.currentTarget.src =
+                      "https://images.pexels.com/photos/4792480/pexels-photo-4792480.jpeg";
+                  }}
+                ></img>
+              </div>
+
               <div className="descript_pricecontainer">
                 <div className="descript_container">
                   <div className="descript_div">
                     Entire home hosted by {spot?.Owner?.firstName}
-                    <i
-                      className="fa-solid fa-circle-user fa-2xl"
-                    ></i>
+                    <i className="fa-solid fa-circle-user fa-2xl"></i>
                   </div>
                   <div className="secondbox_div">
                     <div className="secondbox_container">

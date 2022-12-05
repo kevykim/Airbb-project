@@ -12,6 +12,10 @@ const PageNotFound = () => {
               className="doggo_img"
               src="https://images.pexels.com/photos/4587995/pexels-photo-4587995.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
               alt="404"
+              onError={(event) => {
+                event.currentTarget.src =
+                  "https://images.pexels.com/photos/4587995/pexels-photo-4587995.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
+              }}
             ></img>
             <div className="pagenotfound_secondline">
               Click me to go back home...

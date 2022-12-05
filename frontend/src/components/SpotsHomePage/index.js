@@ -39,6 +39,10 @@ const SpotsHomePage = () => {
                     className="spot_image"
                     src={spot?.previewImage}
                     alt="House test"
+                    onError={(event) => {
+                      event.currentTarget.src =
+                        "https://images.pexels.com/photos/4792480/pexels-photo-4792480.jpeg";
+                    }}
                   ></img>
                 </NavLink>
               </div>
@@ -51,13 +55,13 @@ const SpotsHomePage = () => {
                   &nbsp;{`${spot?.avgRating}`}
                 </div>
               </div>
-              <div className='bookingdate'>{`${date.toLocaleDateString(undefined, options)} - ${nextDate.toLocaleDateString(undefined, options)}`}</div>
-               
+              <div className="bookingdate">{`${date.toLocaleDateString(
+                undefined,
+                options
+              )} - ${nextDate.toLocaleDateString(undefined, options)}`}</div>
+
               <div className="spot_price_container">
-                <span
-                className='spot_price_span'
-                  
-                >{`$${spot.price}`}</span>
+                <span className="spot_price_span">{`$${spot.price}`}</span>
                 &nbsp;night
               </div>
             </div>
