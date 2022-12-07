@@ -61,6 +61,18 @@ const testReviews = [
     userId: 2,
     spotId: 10,
   },
+  {
+    review: "Enjoying the view. ",
+    stars: 5,
+    userId: 2,
+    spotId: 11,
+  },
+  {
+    review: "Enjoying the view. ",
+    stars: 5,
+    userId: 2,
+    spotId: 12,
+  },
 ];
 
 module.exports = {
