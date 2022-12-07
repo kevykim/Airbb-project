@@ -91,7 +91,7 @@ function SearchBar() {
                     }}
                   />
                   <div className="searchbar_dropmenu_text">
-                    {`${spot["city"]}, ${spot["country"]}`}
+                    {`${spot["city"]}, ${spot["state"]}, ${spot["country"]}`}
                   </div>
                 </div>
               </NavLink>
