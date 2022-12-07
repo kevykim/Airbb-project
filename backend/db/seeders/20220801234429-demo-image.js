@@ -69,6 +69,42 @@ const testImages = [
     spotId: 10,
     userId: 1,
   },
+  {
+    url: "https://images.pexels.com/photos/2179603/pexels-photo-2179603.jpeg",
+    previewImage: true,
+    spotId: 11,
+    userId: 1,
+  },
+  {
+    url: "https://images.pexels.com/photos/5524167/pexels-photo-5524167.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    previewImage: true,
+    spotId: 12,
+    userId: 1,
+  },
+  {
+    url: "https://images.pexels.com/photos/6039193/pexels-photo-6039193.jpeg",
+    previewImage: true,
+    spotId: 13,
+    userId: 2,
+  },
+  {
+    url: "https://images.pexels.com/photos/6039188/pexels-photo-6039188.jpeg",
+    previewImage: true,
+    spotId: 14,
+    userId: 2,
+  },
+  {
+    url: "https://images.pexels.com/photos/1131573/pexels-photo-1131573.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    previewImage: true,
+    spotId: 15,
+    userId: 2,
+  },
+  {
+    url: "https://images.pexels.com/photos/5997996/pexels-photo-5997996.jpeg",
+    previewImage: true,
+    spotId: 16,
+    userId: 2,
+  },
 ];
 
 
