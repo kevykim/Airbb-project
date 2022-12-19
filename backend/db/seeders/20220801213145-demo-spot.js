@@ -213,6 +213,54 @@ module.exports = {
           "Recently finished home that is ready for rental usage. Please contact the owner if you have any questions.",
         price: 650,
       },
+      {
+        ownerId: 1,
+        address: "5120 City Blvd",
+        city: "Denver",
+        state: "Colorado",
+        lat: 28.1983746,
+        lng: -119.2983717,
+        name: "Country styled home near the city of Denver",
+        description:
+          "Rustic home near the mountains for many outdoor activites through out the year.",
+        price: 300,
+      },
+      {
+        ownerId: 1,
+        address: "7182 Springs Rd",
+        city: "Colorado Springs",
+        state: "Colorado",
+        lat: 28.1913746,
+        lng: -119.2383717,
+        name: "Two story home near the city of Colorado Springs",
+        description:
+          "Very spacious home with 5 bedrooms and three bathrooms.",
+        price: 600,
+      },
+      {
+        ownerId: 1,
+        address: "7721 Rocky Blvd",
+        city: "Boulder",
+        state: "Colorado",
+        lat: 28.1983746,
+        lng: -119.2933717,
+        name: "Brick home in the suburbs of Boudler",
+        description:
+          "Nice home in a quiet neighborhood that is not too far from the city.",
+        price: 200,
+      },
+      {
+        ownerId: 1,
+        address: "5120 Water Blvd",
+        city: "Aurora",
+        state: "Colorado",
+        lat: 28.1983146,
+        lng: -119.2423717,
+        name: "Country styled home near the city of Aurora",
+        description:
+          "Rustic home near the mountains for many outdoor activites through out the year.",
+        price: 450,
+      },
     ]);
   },
 
