@@ -42,6 +42,11 @@ function SignupFormPage({closeModal}) {
     };
     // history.push('/')
 
+    const DemoClick = async (event) => {
+      await dispatch(sessionActions.thunkDemoUser())
+      closeModal()
+    }
+
 
   return (
     <div className="signupdiv">
@@ -119,6 +124,7 @@ function SignupFormPage({closeModal}) {
           Sign Up
         </button>
       </form>
+          <button onClick={DemoClick} className="signupdemo">Demo User</button>
     </div>
   );
 }

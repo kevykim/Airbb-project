@@ -2,12 +2,13 @@
     display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 10px 10px 10px 10px;
+
 }
 
 .loginform {
     width: 568px;
-     padding: 24px;
+    padding-left: 24px;
+    padding-right: 24px;
 
 }
 

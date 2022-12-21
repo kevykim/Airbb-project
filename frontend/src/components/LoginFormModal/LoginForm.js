@@ -24,6 +24,11 @@ function LoginForm({closeModal}) {
       );
       if (validData) closeModal();
     };
+
+     const DemoClick = async (event) => {
+       await dispatch(sessionActions.thunkDemoUser());
+       closeModal();
+     };
     
   return (
     <div className="logindiv">
@@ -65,6 +70,7 @@ function LoginForm({closeModal}) {
           Log In
         </button>
       </form>
+        <button onClick={DemoClick} className="signupdemo">Demo User</button>
     </div>
   );
 }
