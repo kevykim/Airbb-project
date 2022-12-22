@@ -74,8 +74,9 @@ function SearchBar() {
 
         {showDropdown && searchResult?.length > 0 && (
           <div className="searchbar_dropmenu">
-            {searchResult.map((spot) => (
+            {searchResult.map((spot, i) => (
               <NavLink
+                key={i}
                 to={`/spots/${spot.id}`}
                 className="searchbar_dropmenu_navlink"
                 onClick={() => setSearchWord("")}
