@@ -105,30 +105,30 @@ const testImages = [
     spotId: 16,
     userId: 2,
   },
-  {
-    url: "https://images.pexels.com/photos/4641235/pexels-photo-4641235.jpeg",
-    previewImage: true,
-    spotId: 17,
-    userId: 1,
-  },
-  {
-    url: "https://images.pexels.com/photos/6359970/pexels-photo-6359970.jpeg",
-    previewImage: true,
-    spotId: 18,
-    userId: 1,
-  },
-  {
-    url: "https://images.pexels.com/photos/7003992/pexels-photo-7003992.jpeg",
-    previewImage: true,
-    spotId: 19,
-    userId: 1,
-  },
-  {
-    url: "https://images.pexels.com/photos/11127632/pexels-photo-11127632.jpeg",
-    previewImage: true,
-    spotId: 20,
-    userId: 1,
-  },
+  // {
+  //   url: "https://images.pexels.com/photos/4641235/pexels-photo-4641235.jpeg",
+  //   previewImage: true,
+  //   spotId: 17,
+  //   userId: 1,
+  // },
+  // {
+  //   url: "https://images.pexels.com/photos/6359970/pexels-photo-6359970.jpeg",
+  //   previewImage: true,
+  //   spotId: 18,
+  //   userId: 1,
+  // },
+  // {
+  //   url: "https://images.pexels.com/photos/7003992/pexels-photo-7003992.jpeg",
+  //   previewImage: true,
+  //   spotId: 19,
+  //   userId: 1,
+  // },
+  // {
+  //   url: "https://images.pexels.com/photos/11127632/pexels-photo-11127632.jpeg",
+  //   previewImage: true,
+  //   spotId: 20,
+  //   userId: 1,
+  // },
 ];
 
 
